@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>pullrequest on vladflore.tech</title>
-    <link>https://vladflore.github.io/vladflore.tech.public/tags/pullrequest/</link>
+    <link>https://vladflore.tech/tags/pullrequest/</link>
     <description>Recent content in pullrequest on vladflore.tech</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 15 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://vladflore.github.io/vladflore.tech.public/tags/pullrequest/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://vladflore.tech/tags/pullrequest/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My first OSS PR</title>
-      <link>https://vladflore.github.io/vladflore.tech.public/posts/2021/07/my-first-oss-pr/</link>
+      <link>https://vladflore.tech/posts/2021/07/my-first-oss-pr/</link>
       <pubDate>Thu, 15 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://vladflore.github.io/vladflore.tech.public/posts/2021/07/my-first-oss-pr/</guid>
+      <guid>https://vladflore.tech/posts/2021/07/my-first-oss-pr/</guid>
       <description>Software developers write code&amp;hellip;or at least they should, provided they can escape the long boring meetings which finish with no conclusions or, God forbid, with the next appointment&amp;hellip;to discuss more.
 When we monetize this action of writing code, we usually do it as part of a job, which comes with its pros and cons, and such we have to stay in the legal framework of that working contract. This legal framework might very well prevent us from contributing to Open Source Software(OSS), so make sure to read the fine print!</description>
     </item>

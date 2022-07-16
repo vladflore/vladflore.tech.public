@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>untagged on vladflore.tech</title>
-    <link>https://vladflore.github.io/vladflore.tech.public/tags/untagged/</link>
+    <link>https://vladflore.tech/tags/untagged/</link>
     <description>Recent content in untagged on vladflore.tech</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 10 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://vladflore.github.io/vladflore.tech.public/tags/untagged/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://vladflore.tech/tags/untagged/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hello World</title>
-      <link>https://vladflore.github.io/vladflore.tech.public/posts/2020/02/hello-world/</link>
+      <link>https://vladflore.tech/posts/2020/02/hello-world/</link>
       <pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://vladflore.github.io/vladflore.tech.public/posts/2020/02/hello-world/</guid>
+      <guid>https://vladflore.tech/posts/2020/02/hello-world/</guid>
       <description>Hello Internet,
 so this is my first blog post, which I hope will be one of many more to come. This is more of a hello world kind of post, a way to cut my teeth into blogging and see if it&amp;rsquo;s something I would like doing.
 Should you wonder by now why hello world, well just ask someone who works in IT and has learned at least one programming language.</description>
@@ -21,10 +21,10 @@ Should you wonder by now why hello world, well just ask someone who works in IT 
     
     <item>
       <title>Software Craftsmanship</title>
-      <link>https://vladflore.github.io/vladflore.tech.public/posts/2020/02/software-craftsmanship/</link>
+      <link>https://vladflore.tech/posts/2020/02/software-craftsmanship/</link>
       <pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://vladflore.github.io/vladflore.tech.public/posts/2020/02/software-craftsmanship/</guid>
+      <guid>https://vladflore.tech/posts/2020/02/software-craftsmanship/</guid>
       <description>Last year I had the opportunity to put together and hold a presentation at a conference organized by the company I am currently working for. As you might have guessed from the post&amp;rsquo;s title it was a presentation about the craftsmanship behind creating software.
 Creating software is no easy task, creating software responsibly is even harder, but this should not discourage one to do so.
 By adhering to some healthy coding habits one can and will write code that will not make others cringe when looking at it.</description>

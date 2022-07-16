@@ -2,51 +2,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>animated on vladflore.tech</title>
-    <link>https://vladflore.github.io/vladflore.tech.public/tags/animated/</link>
+    <link>https://vladflore.tech/tags/animated/</link>
     <description>Recent content in animated on vladflore.tech</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 23 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://vladflore.github.io/vladflore.tech.public/tags/animated/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://vladflore.tech/tags/animated/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Git Animated 4</title>
-      <link>https://vladflore.github.io/vladflore.tech.public/posts/2021/12/git-animated-4/</link>
+      <link>https://vladflore.tech/posts/2021/12/git-animated-4/</link>
       <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://vladflore.github.io/vladflore.tech.public/posts/2021/12/git-animated-4/</guid>
+      <guid>https://vladflore.tech/posts/2021/12/git-animated-4/</guid>
       <description>This is the forth and last video in the Git Animated series. If you are interested in the other ones, check the links below:
- part one part two part three  Another way of integrating changes of a branch into another one is by performing a rebase. Instead of creating a new merge commit, as it happens when we merge two histories, a rebase will change the base of a branch from one commit to another.</description>
+part one part two part three Another way of integrating changes of a branch into another one is by performing a rebase. Instead of creating a new merge commit, as it happens when we merge two histories, a rebase will change the base of a branch from one commit to another.</description>
     </item>
     
     <item>
       <title>Git Animated 3</title>
-      <link>https://vladflore.github.io/vladflore.tech.public/posts/2021/09/git-animated-3/</link>
+      <link>https://vladflore.tech/posts/2021/09/git-animated-3/</link>
       <pubDate>Sun, 05 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://vladflore.github.io/vladflore.tech.public/posts/2021/09/git-animated-3/</guid>
+      <guid>https://vladflore.tech/posts/2021/09/git-animated-3/</guid>
       <description>This is the third video in the Git Animated series. If you are interested in the other ones, check the links below:
- part one part two part four  In this video we will merge two histories, master and feature, which have diverged at commit M2. As each of the branches got new commits from that divergent point, the feature branch cannot be integrated into the master branch using a fast-forward approach.</description>
+part one part two part four In this video we will merge two histories, master and feature, which have diverged at commit M2. As each of the branches got new commits from that divergent point, the feature branch cannot be integrated into the master branch using a fast-forward approach.</description>
     </item>
     
     <item>
       <title>Git Animated 2</title>
-      <link>https://vladflore.github.io/vladflore.tech.public/posts/2021/08/git-animated-2/</link>
+      <link>https://vladflore.tech/posts/2021/08/git-animated-2/</link>
       <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://vladflore.github.io/vladflore.tech.public/posts/2021/08/git-animated-2/</guid>
+      <guid>https://vladflore.tech/posts/2021/08/git-animated-2/</guid>
       <description>This is the second video in the Git Animated series. If you are interested in the other ones, check the links below:
- part one part three part four  In this video you will see what happens when we merge two histories, specifically merging feature into master. The thing to note here is that the merge is a fast-forward one, this is possible when there are no further commits on the branch we branched off of, after the point of creating the new branch (in our case on the branch master after commit M2).</description>
+part one part three part four In this video you will see what happens when we merge two histories, specifically merging feature into master. The thing to note here is that the merge is a fast-forward one, this is possible when there are no further commits on the branch we branched off of, after the point of creating the new branch (in our case on the branch master after commit M2).</description>
     </item>
     
     <item>
       <title>Git Animated 1</title>
-      <link>https://vladflore.github.io/vladflore.tech.public/posts/2021/08/git-animated-1/</link>
+      <link>https://vladflore.tech/posts/2021/08/git-animated-1/</link>
       <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://vladflore.github.io/vladflore.tech.public/posts/2021/08/git-animated-1/</guid>
+      <guid>https://vladflore.tech/posts/2021/08/git-animated-1/</guid>
       <description>Welcome to the first post and first video of the video series Git Animated. With this series I am trying to visually depict how different Git commands and actions look like, basically what happens behind them when you execute them.
 If you are interested in the other videos, please check the links below:
- part two part three part four  Note: if you are a software engineer and have never heard of Git, then this post, and the future ones, are not for you&amp;hellip;and I am also sorry for you!</description>
+part two part three part four Note: if you are a software engineer and have never heard of Git, then this post, and the future ones, are not for you&amp;hellip;and I am also sorry for you!</description>
     </item>
     
   </channel>

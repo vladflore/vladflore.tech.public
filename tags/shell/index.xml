@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>shell on vladflore.tech</title>
-    <link>https://vladflore.github.io/vladflore.tech.public/tags/shell/</link>
+    <link>https://vladflore.tech/tags/shell/</link>
     <description>Recent content in shell on vladflore.tech</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 22 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://vladflore.github.io/vladflore.tech.public/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://vladflore.tech/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java 11</title>
-      <link>https://vladflore.github.io/vladflore.tech.public/posts/2020/09/java-11/</link>
+      <link>https://vladflore.tech/posts/2020/09/java-11/</link>
       <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://vladflore.github.io/vladflore.tech.public/posts/2020/09/java-11/</guid>
+      <guid>https://vladflore.tech/posts/2020/09/java-11/</guid>
       <description>But Java is already at version 15, why talk about 11 ?! Well,&amp;hellip;but before that, a note of caution: considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this is bigger than 15, it was 15 when I wrote this post!
 Now, let&amp;rsquo;s continue&amp;hellip;
 Java 11 is the current (see note of caution above) LTS version, and will stay like that until Java 17 appears, which should be somewhere around the end of 2021, which is then the new LTS version (all of this hold true iff Oracle doesn&amp;rsquo;t change something in the whole release plan).</description>
@@ -21,12 +21,12 @@ Java 11 is the current (see note of caution above) LTS version, and will stay li
     
     <item>
       <title>Shell Magic</title>
-      <link>https://vladflore.github.io/vladflore.tech.public/posts/2020/03/shell-magic/</link>
+      <link>https://vladflore.tech/posts/2020/03/shell-magic/</link>
       <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://vladflore.github.io/vladflore.tech.public/posts/2020/03/shell-magic/</guid>
+      <guid>https://vladflore.tech/posts/2020/03/shell-magic/</guid>
       <description>NOTE 1: This page contains some shell magic which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.
-  NOTE 2: Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.</description>
+NOTE 2: Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.</description>
     </item>
     
   </channel>
