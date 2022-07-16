@@ -1,85 +1,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Posts on vladflore.tech</title>
-        <link>https://vladflore.tech/posts/</link>
+        <link>https://vladflore.github.io/vladflore.tech.public/posts/</link>
         <description>Recent content in Posts on vladflore.tech</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sat, 16 Jul 2022 21:15:00 +0200</lastBuildDate>
-        <atom:link href="https://vladflore.tech/posts/index.xml" rel="self" type="application/rss+xml" />
-        
-        <item>
-            <title>Learning Python as a Java developer - 1/</title>
-            <link>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/</link>
-            <pubDate>Sat, 16 Jul 2022 21:15:00 +0200</pubDate>
-            
-            <guid>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/</guid>
-            <description>Becoming a Pythonista If you feel somehow put off by that word pythonista, know that you are not alone. I personally find the word a bit funny, and I kind of had to look it up, I mean &amp;hellip; python programmer / software engineer would have also done the trick, wouldn&amp;rsquo;t it? Anyways, this post is not about how to call people working with python, but to share my experience learning Python as a Java software engineer.</description>
-            <content type="html"><![CDATA[<h2 id="becoming-a-pythonista">Becoming a Pythonista</h2>
-<p>If you feel somehow put off by that word <em>pythonista</em>, know that you are not alone. I personally find the word a bit funny, and I kind of had to <a href="https://en.wiktionary.org/wiki/Pythonista" target="_blank">look it up</a>, I mean &hellip; <em>python programmer / software engineer</em> would have also done the trick, wouldn&rsquo;t it? Anyways, this post is not about how to call people working with python, but to share my experience learning Python as a Java software engineer.</p>
-<p>Before anything else, just right of the bat, it is <em>not</em> my intention to start / fuel a language war, Java vs. Python or the like, my only intention is to convey my experience and my take on what it means to learn a new programming language coming from Java, in this case the new programming language being Python.</p>
-<p>So, why am I (re)learning Python? The short answer is that my current company I am working for is switching gears and decided to use more Python to develop its products. This means, I get to use Python in a more professional capacity than I got until now. This is exciting! The slightly longer answer is that Python is preponderantly used for Machine Learning and Data Science, both areas which got my attention. Additionally, being a general purpose language, you can use it for pretty much everything, it&rsquo;s an employable language to have under your belt.</p>
-<p>Actually, this is not the first time I am learning Python, I played with it already some years ago, specifically, beginning of 2020, and from there on I&rsquo;ve been dabbling in it every now and then. Eventually, I did a Coursera Specialization <a href="https://coursera.org/verify/specialization/TWKG5SP5EL2D" target="_blank">Python for Everybody</a> and two other courses on edX, <a href="https://courses.edx.org/certificates/4b0e39182943413288e993b649c4707b" target="_blank">Introduction to Computer Science and Programming Using Python</a> and <a href="https://courses.edx.org/certificates/cf27f5b0da8540c2bab57360c838a8c0" target="_blank">Introduction to Computational Thinking and Data Science</a>. Besides that, every now and then, some coding tasks on <a href="https://exercism.org" target="_blank">Exercism</a> or <a href="https://www.codewars.com/" target="_blank">Codewars</a>. Recently, I&rsquo;ve started with the <a href="https://adventofcode.com/" target="_blank">Advent of Code</a> challenges, which I plan to solve using different programming languages. Python got the year 2015, the very first in the series of the AoC events. Let&rsquo;s see how that goes!</p>
-<p>Nowadays, as I&rsquo;m progressing from <em>dabbling in it</em> to <em>using it professionally</em>, I am enrolled in the <a href="https://www.udacity.com/course/intermediate-python-nanodegree--nd303" target="_blank">Intermediate Python Nanodegree</a> offered by Udacity. The best part is that I get to learn Python on the job. Yay!</p>
-<h2 id="first-impressions">First impressions</h2>
-<p>The very first impression I had about Python was that it is a <em>straight to the point</em> kind of language, succinct, without too much ceremony. A typical example you might find is the following:</p>
-<h3 id="print-hello-world-in-python-vs-java">Print &lsquo;Hello, World!&rsquo; in Python vs. Java</h3>
-<p>This is how it looks in Java(this code goes into <code>HelloWorld.java</code> file):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloWorld</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello, World!&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>Then you do: <code>javac HelloWorld.java</code> and <code>java HelloWorld</code> or <code>java HelloWorld.java</code> and you get the greeting.</p>
-<p>This is how it looks in Python(this code goes into <code>hello-python.py</code>):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;Hello, World!&#39;</span>)
-</span></span></code></pre></div><p>Then you do: <code>python3 hello-world.py</code> and you get the greeting.</p>
-<p>As you can see, there is a lot going on in the Java code compared to the Python code. If you copy the Java code as is, it will just work, but there is a lot of prerequisite knowledge to understand what&rsquo;s going on. Here are some important points:</p>
-<ul>
-<li>because the class is <code>public</code> is has to be defined in a file with the same name and extension <code>.java</code>, and you can only have one public class in this file</li>
-<li>if the class is not public, then the names can differ and you can have multiple such classes in the same file</li>
-<li>we compile with <code>javac A.java</code> and run with <code>java A</code>; new versions of Java can do it in one go, i.e. <code>java A.java</code>, but this comes with other interesting aspects</li>
-<li>you need this method definition: <code>public static void main(String args[])</code>, otherwise the code will not execute; you can replace <code>args</code> with another name, but it has to be a valid one</li>
-<li>you have a <code>System.out</code> (!) thing in there</li>
-<li>you might notice the presence of a <code>HelloWorld.class</code> file, do not look inside it! This is the bytecode you get after <code>javac</code>-ing your Java file, which is run by the Java Virtual Machine, which translates it into machine code</li>
-</ul>
-<p>As you can see, that code is packed! As a programmer you just want to print a line of text, Python gives you that in a very straightforward way, Java adds a lot more ceremony to it.</p>
-<p>This is a bit unfair, as in Java you have to have a class, so it makes sense to see how Python code might look like when we write the same functionality in a class.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Greeting</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self) <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">None</span>:
-</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#39;Hello, World!&#39;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
-</span></span><span style="display:flex;"><span>    Greeting()
-</span></span></code></pre></div><p>Now we start seeing the same ceremony, more or less, but somehow more cryptic. Some things which trip me up is the weird looking <code>if</code> with the <code>__thing__</code> construct and the <code>self</code> in the <code>__init__</code>.</p>
-<p>The <code>if</code>, which is not part of the class, mind the indentation as Python uses it to delimit blocks of code, is there to prevent instantiating (i.e. executing the <code>__init__</code> method) and hence printing the greeting when the class is used in another Python file. On the other hand, when we feed the file to the Python interpreter, i.e. <code>python3 my-file.py</code>, it reads it top-to-bottom, sees the <code>if</code> at the bottom, the condition is <code>True</code> and hence the class is instantiated. This is so because <code>__name__</code>, a special variable, is set to <code>__main__</code> under the hood. By the way, they call <code>__</code> <em>dunder</em>, as in <em>d</em>ouble <em>under</em>score.</p>
-<p>It also turns out that <code>self</code> can be called something else, and it will still work, but it is a convention to call it like that. Moreover, it seems there are a lot of conventions one should keep in mind when writing Python code. More on this in future posts.</p>
-<p>We could als get rid of the <code>-&gt; None</code> part in the method definition, this just specifies the return type, which in this case is <code>None</code>, i.e. nothing is returned, but people seem to have embraced the statically typed way of writing Python code. One other thing worth mentioning is that instantiating an object requires no <code>new</code> keyword as Java does =&gt; less typing.</p>
-<p>Python is also quite easy going with <code>&quot;</code> and <code>'</code> as you can use them interchangeably, i.e. <code>&quot;Hello&quot;</code> and <code>'Hello'</code> are the same. This is something Java frowns upon.</p>
-<p>As you can see from these small examples, Python is less verbose and more flexible than Java, we&rsquo;ll see in future posts situations where you end up with a couple of orders of magnitude more code in Java than in Python. This also makes Python a nice programming language for coding interviews.</p>
-<p>One last thing I&rsquo;d like to mention is that Java is keen on backwards-compatibility and you won&rsquo;t experience breaking changes as you might have experienced in Python. A simple example here is the <code>print</code> function in version 3+ compared to versions 2.x:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;Hi there!&#39;</span>) <span style="color:#75715e"># 3+</span>
-</span></span><span style="display:flex;"><span>print <span style="color:#e6db74">&#34;Hi&#34;</span>, <span style="color:#e6db74">&#34;there!&#34;</span> <span style="color:#75715e"># 2.x</span>
-</span></span></code></pre></div><p>This post is the first in a series of posts on learning Python as a Java developer.</p>
-]]></content>
-        </item>
+        <lastBuildDate>Thu, 23 Dec 2021 00:00:00 +0000</lastBuildDate>
+        <atom:link href="https://vladflore.github.io/vladflore.tech.public/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
             <title>Git Animated 4</title>
-            <link>https://vladflore.tech/posts/2021/12/git-animated-4/</link>
+            <link>https://vladflore.github.io/vladflore.tech.public/posts/2021/12/git-animated-4/</link>
             <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
             
-            <guid>https://vladflore.tech/posts/2021/12/git-animated-4/</guid>
+            <guid>https://vladflore.github.io/vladflore.tech.public/posts/2021/12/git-animated-4/</guid>
             <description>This is the forth and last video in the Git Animated series. If you are interested in the other ones, check the links below:
-part one part two part three Another way of integrating changes of a branch into another one is by performing a rebase. Instead of creating a new merge commit, as it happens when we merge two histories, a rebase will change the base of a branch from one commit to another.</description>
+ part one part two part three  Another way of integrating changes of a branch into another one is by performing a rebase. Instead of creating a new merge commit, as it happens when we merge two histories, a rebase will change the base of a branch from one commit to another.</description>
             <content type="html"><![CDATA[<p>This is the forth and last video in the <strong>Git Animated</strong> series.
 If you are interested in the other ones, check the links below:</p>
 <ul>
-<li><a href="https://vladflore.tech/posts/2021/08/git-animated-1/">part one</a></li>
-<li><a href="https://vladflore.tech/posts/2021/08/git-animated-2/">part two</a></li>
-<li><a href="https://vladflore.tech/posts/2021/09/git-animated-3/">part three</a></li>
+<li><a href="https://vladflore.github.io/vladflore.tech.public/posts/2021/08/git-animated-1/">part one</a></li>
+<li><a href="https://vladflore.github.io/vladflore.tech.public/posts/2021/08/git-animated-2/">part two</a></li>
+<li><a href="https://vladflore.github.io/vladflore.tech.public/posts/2021/09/git-animated-3/">part three</a></li>
 </ul>
 <p>Another way of integrating changes of a branch into another one is by performing a <strong>rebase</strong>. Instead of creating a new merge commit, as it happens when we <strong>merge</strong> two histories, a rebase will change the base of a branch from one commit to another. Changing the base of a branch means changing the commit that branch was created from to be some other commit.</p>
 <p>In the animation we change the original base of <code>feature</code>, the commit <code>M2</code>, to be <code>M3</code>. Performing this action has the effect of integrating the changes introduced by <code>M3</code> into the <code>feature</code> branch, together with whatever the <code>feature</code> branch already had on it. As you may observe, this action does not produce a new commit containing the changes of both the <code>master</code> and <code>feature</code> branches, rather it creates three new commits, <code>F'0</code>, <code>F'1</code>, <code>F'2</code>, which content-wise are identical to the commits <code>F0</code>, <code>F1</code>, <code>F2</code>, and sticks them after the commit <code>M3</code>. This way, the <code>feature</code> branch contains the changes introduced by the commit <code>M3</code> too.</p>
@@ -113,18 +56,18 @@ git rebase master
         
         <item>
             <title>Git Animated 3</title>
-            <link>https://vladflore.tech/posts/2021/09/git-animated-3/</link>
+            <link>https://vladflore.github.io/vladflore.tech.public/posts/2021/09/git-animated-3/</link>
             <pubDate>Sun, 05 Sep 2021 00:00:00 +0000</pubDate>
             
-            <guid>https://vladflore.tech/posts/2021/09/git-animated-3/</guid>
+            <guid>https://vladflore.github.io/vladflore.tech.public/posts/2021/09/git-animated-3/</guid>
             <description>This is the third video in the Git Animated series. If you are interested in the other ones, check the links below:
-part one part two part four In this video we will merge two histories, master and feature, which have diverged at commit M2. As each of the branches got new commits from that divergent point, the feature branch cannot be integrated into the master branch using a fast-forward approach.</description>
+ part one part two part four  In this video we will merge two histories, master and feature, which have diverged at commit M2. As each of the branches got new commits from that divergent point, the feature branch cannot be integrated into the master branch using a fast-forward approach.</description>
             <content type="html"><![CDATA[<p>This is the third video in the <strong>Git Animated</strong> series.
 If you are interested in the other ones, check the links below:</p>
 <ul>
-<li><a href="https://vladflore.tech/posts/2021/08/git-animated-1/">part one</a></li>
-<li><a href="https://vladflore.tech/posts/2021/08/git-animated-2/">part two</a></li>
-<li><a href="https://vladflore.tech/posts/2021/12/git-animated-4/">part four</a></li>
+<li><a href="https://vladflore.github.io/vladflore.tech.public/posts/2021/08/git-animated-1/">part one</a></li>
+<li><a href="https://vladflore.github.io/vladflore.tech.public/posts/2021/08/git-animated-2/">part two</a></li>
+<li><a href="https://vladflore.github.io/vladflore.tech.public/posts/2021/12/git-animated-4/">part four</a></li>
 </ul>
 <p>In this video we will merge two histories, <code>master</code> and <code>feature</code>, which have diverged at commit <code>M2</code>.
 As each of the branches got new commits from that divergent point, the feature branch cannot be integrated
@@ -164,18 +107,18 @@ git branch -d feature
         
         <item>
             <title>Git Animated 2</title>
-            <link>https://vladflore.tech/posts/2021/08/git-animated-2/</link>
+            <link>https://vladflore.github.io/vladflore.tech.public/posts/2021/08/git-animated-2/</link>
             <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
             
-            <guid>https://vladflore.tech/posts/2021/08/git-animated-2/</guid>
+            <guid>https://vladflore.github.io/vladflore.tech.public/posts/2021/08/git-animated-2/</guid>
             <description>This is the second video in the Git Animated series. If you are interested in the other ones, check the links below:
-part one part three part four In this video you will see what happens when we merge two histories, specifically merging feature into master. The thing to note here is that the merge is a fast-forward one, this is possible when there are no further commits on the branch we branched off of, after the point of creating the new branch (in our case on the branch master after commit M2).</description>
+ part one part three part four  In this video you will see what happens when we merge two histories, specifically merging feature into master. The thing to note here is that the merge is a fast-forward one, this is possible when there are no further commits on the branch we branched off of, after the point of creating the new branch (in our case on the branch master after commit M2).</description>
             <content type="html"><![CDATA[<p>This is the second video in the <strong>Git Animated</strong> series.
 If you are interested in the other ones, check the links below:</p>
 <ul>
-<li><a href="https://vladflore.tech/posts/2021/08/git-animated-1/">part one</a></li>
-<li><a href="https://vladflore.tech/posts/2021/09/git-animated-3/">part three</a></li>
-<li><a href="https://vladflore.tech/posts/2021/12/git-animated-4/">part four</a></li>
+<li><a href="https://vladflore.github.io/vladflore.tech.public/posts/2021/08/git-animated-1/">part one</a></li>
+<li><a href="https://vladflore.github.io/vladflore.tech.public/posts/2021/09/git-animated-3/">part three</a></li>
+<li><a href="https://vladflore.github.io/vladflore.tech.public/posts/2021/12/git-animated-4/">part four</a></li>
 </ul>
 <p>In this video you will see what happens when we merge two histories, specifically merging <code>feature</code> into <code>master</code>. The thing to note here is that the merge is a fast-forward one, this is possible when there are no further commits on the branch we branched off of, after the point of creating the new branch (in our case on the branch <code>master</code> after commit <code>M2</code>).</p>
 <p>Additionally, after <code>feature</code> has been successfully merged into <code>master</code>, we delete the <code>feature</code> branch, this is not a must, but is a good practice to keep your repository clean.</p>
@@ -206,20 +149,20 @@ If you are interested in the other ones, check the links below:</p>
         
         <item>
             <title>Git Animated 1</title>
-            <link>https://vladflore.tech/posts/2021/08/git-animated-1/</link>
+            <link>https://vladflore.github.io/vladflore.tech.public/posts/2021/08/git-animated-1/</link>
             <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
             
-            <guid>https://vladflore.tech/posts/2021/08/git-animated-1/</guid>
+            <guid>https://vladflore.github.io/vladflore.tech.public/posts/2021/08/git-animated-1/</guid>
             <description>Welcome to the first post and first video of the video series Git Animated. With this series I am trying to visually depict how different Git commands and actions look like, basically what happens behind them when you execute them.
 If you are interested in the other videos, please check the links below:
-part two part three part four Note: if you are a software engineer and have never heard of Git, then this post, and the future ones, are not for you&amp;hellip;and I am also sorry for you!</description>
+ part two part three part four  Note: if you are a software engineer and have never heard of Git, then this post, and the future ones, are not for you&amp;hellip;and I am also sorry for you!</description>
             <content type="html"><![CDATA[<p>Welcome to the first post and first video of the video series <strong>Git Animated</strong>.
 With this series I am trying to visually depict how different Git commands and actions look like, basically what happens behind them when you execute them.</p>
 <p>If you are interested in the other videos, please check the links below:</p>
 <ul>
-<li><a href="https://vladflore.tech/posts/2021/08/git-animated-2/">part two</a></li>
-<li><a href="https://vladflore.tech/posts/2021/09/git-animated-3/">part three</a></li>
-<li><a href="https://vladflore.tech/posts/2021/12/git-animated-4/">part four</a></li>
+<li><a href="https://vladflore.github.io/vladflore.tech.public/posts/2021/08/git-animated-2/">part two</a></li>
+<li><a href="https://vladflore.github.io/vladflore.tech.public/posts/2021/09/git-animated-3/">part three</a></li>
+<li><a href="https://vladflore.github.io/vladflore.tech.public/posts/2021/12/git-animated-4/">part four</a></li>
 </ul>
 <p>Note: if you are a software engineer and have never heard of Git, then this post, and the future ones, are not for you&hellip;and I am also sorry for you!</p>
 <h3 id="the-motivation-behind">The motivation behind</h3>
@@ -263,10 +206,10 @@ With this series I am trying to visually depict how different Git commands and a
         
         <item>
             <title>My first OSS PR</title>
-            <link>https://vladflore.tech/posts/2021/07/my-first-oss-pr/</link>
+            <link>https://vladflore.github.io/vladflore.tech.public/posts/2021/07/my-first-oss-pr/</link>
             <pubDate>Thu, 15 Jul 2021 00:00:00 +0000</pubDate>
             
-            <guid>https://vladflore.tech/posts/2021/07/my-first-oss-pr/</guid>
+            <guid>https://vladflore.github.io/vladflore.tech.public/posts/2021/07/my-first-oss-pr/</guid>
             <description>Software developers write code&amp;hellip;or at least they should, provided they can escape the long boring meetings which finish with no conclusions or, God forbid, with the next appointment&amp;hellip;to discuss more.
 When we monetize this action of writing code, we usually do it as part of a job, which comes with its pros and cons, and such we have to stay in the legal framework of that working contract. This legal framework might very well prevent us from contributing to Open Source Software(OSS), so make sure to read the fine print!</description>
             <content type="html"><![CDATA[<p>Software developers write code&hellip;or at least they should, provided they can escape the long boring meetings which finish with no conclusions or, God forbid, with the next appointment&hellip;to discuss more.</p>
@@ -295,12 +238,12 @@ When we monetize this action of writing code, we usually do it as part of a job,
         
         <item>
             <title>Nine Months Later</title>
-            <link>https://vladflore.tech/posts/2021/05/nine-months-later/</link>
+            <link>https://vladflore.github.io/vladflore.tech.public/posts/2021/05/nine-months-later/</link>
             <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
             
-            <guid>https://vladflore.tech/posts/2021/05/nine-months-later/</guid>
+            <guid>https://vladflore.github.io/vladflore.tech.public/posts/2021/05/nine-months-later/</guid>
             <description>TL;DR
-&amp;hellip;if you were thinking about screaming little humans, I am afraid I will disappoint you and it might be that this post is not for you.
+ &amp;hellip;if you were thinking about screaming little humans, I am afraid I will disappoint you and it might be that this post is not for you.
 If you are still reading, then you might be one of those people, who thought of something else what could have happened in a period of nine months. I salute you and encourage you to read on!
 2020 was a special year, for the world and for me as well, on one side we had that end of the world kind of global infestation thing, on the other side I managed to make some changes, which hopefully will pay-off in the near future, dare saying some of them have already payed-off.</description>
             <content type="html"><![CDATA[<blockquote>
@@ -409,10 +352,10 @@ and hopping for the best. You should give it a try too!</p>
         
         <item>
             <title>Java 11</title>
-            <link>https://vladflore.tech/posts/2020/09/java-11/</link>
+            <link>https://vladflore.github.io/vladflore.tech.public/posts/2020/09/java-11/</link>
             <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://vladflore.tech/posts/2020/09/java-11/</guid>
+            <guid>https://vladflore.github.io/vladflore.tech.public/posts/2020/09/java-11/</guid>
             <description>But Java is already at version 15, why talk about 11 ?! Well,&amp;hellip;but before that, a note of caution: considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this is bigger than 15, it was 15 when I wrote this post!
 Now, let&amp;rsquo;s continue&amp;hellip;
 Java 11 is the current (see note of caution above) LTS version, and will stay like that until Java 17 appears, which should be somewhere around the end of 2021, which is then the new LTS version (all of this hold true iff Oracle doesn&amp;rsquo;t change something in the whole release plan).</description>
@@ -555,10 +498,10 @@ and display only the lines that match a given regular expression (basically a si
         
         <item>
             <title>Code Kata</title>
-            <link>https://vladflore.tech/posts/2020/06/code-kata/</link>
+            <link>https://vladflore.github.io/vladflore.tech.public/posts/2020/06/code-kata/</link>
             <pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://vladflore.tech/posts/2020/06/code-kata/</guid>
+            <guid>https://vladflore.github.io/vladflore.tech.public/posts/2020/06/code-kata/</guid>
             <description>Lately I&amp;rsquo;ve been taking a keen interest in the idea of writing code and getting better at it, and what I mean by this is not just the fact of writing code itself and making it work, but also improving your coding skills, and the way you code.
 When we write code we tend to concentrate on the code itself, on solving the problem, not necessarily on the way we produce that code, let alone how we navigate it&amp;hellip;one can always use the mouse right?</description>
             <content type="html"><![CDATA[<p>Lately I&rsquo;ve been taking a keen interest in the idea of <em>writing code and getting better at it</em>, and what I mean by this is not just
@@ -602,10 +545,10 @@ and to practice, because, as we all know, practice makes perfect!</p>
         
         <item>
             <title>SonarQube on AWS EC2</title>
-            <link>https://vladflore.tech/posts/2020/06/sonarqube-on-aws-ec2/</link>
+            <link>https://vladflore.github.io/vladflore.tech.public/posts/2020/06/sonarqube-on-aws-ec2/</link>
             <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://vladflore.tech/posts/2020/06/sonarqube-on-aws-ec2/</guid>
+            <guid>https://vladflore.github.io/vladflore.tech.public/posts/2020/06/sonarqube-on-aws-ec2/</guid>
             <description>In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you&amp;rsquo;ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.
 The motivation behind I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is.</description>
             <content type="html"><![CDATA[<p>In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you&rsquo;ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.</p>
@@ -715,12 +658,12 @@ accordingly to contain the IP of your EC2 instance hosting the SonarQube Server.
         
         <item>
             <title>Shell Magic</title>
-            <link>https://vladflore.tech/posts/2020/03/shell-magic/</link>
+            <link>https://vladflore.github.io/vladflore.tech.public/posts/2020/03/shell-magic/</link>
             <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://vladflore.tech/posts/2020/03/shell-magic/</guid>
+            <guid>https://vladflore.github.io/vladflore.tech.public/posts/2020/03/shell-magic/</guid>
             <description>NOTE 1: This page contains some shell magic which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.
-NOTE 2: Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.</description>
+  NOTE 2: Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.</description>
             <content type="html"><![CDATA[<blockquote>
 <p><strong><em>NOTE 1:</em></strong> This page contains some shell <em>magic</em> which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.</p>
 </blockquote>
@@ -728,10 +671,6 @@ NOTE 2: Please be advised that some commands listed here could have unwanted eff
 <p><strong><em>NOTE 2:</em></strong> Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.
 Some of them might also require sudo access, so I am just going to assume that you know what you are doing. You have been warned!</p>
 </blockquote>
-<h2 id="11-from-uppercase-to-lowercase-and-from-space-to-underscore">11. From uppercase to lowercase and from space to underscore</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;Building REST services with Spring&#39;</span> | tr <span style="color:#e6db74">&#39;[:upper:]&#39;</span> <span style="color:#e6db74">&#39;[:lower:]&#39;</span> | tr <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#e6db74">&#39;_&#39;</span> | xclip -sel c
-</span></span></code></pre></div><p>Transform <code>tr</code> uppercase letters <code>[:upper:]</code> to lowercase <code>[:lower:]</code>, then replace the space <code> </code> with an underscore <code>_</code> and finally copy <code>xclip</code> the result to clipboard <code>-sel c</code>. After this you can paste the text wherever you need it. To prove the usefulness of this, instead of copying the result into the clipboard, pipe it into <code>xargs</code> to, for instance, create a folder, like: <code>...| xargs mkdir -p</code>.</p>
-<hr>
 <h2 id="10-execute-a-program-periodically">10. Execute a program periodically</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>watch du -sh &lt;folder&gt;
 </span></span></code></pre></div><p>Execute the <code>du</code> command periodically, every 2 seconds, until interrupted. The command displays only the total size <code>-s</code> of the <code>&lt;folder&gt;</code>, in a human readable format <code>-h</code>.</p>
@@ -817,10 +756,10 @@ printing out the first value (the user name).</p>
         
         <item>
             <title>Hello World</title>
-            <link>https://vladflore.tech/posts/2020/02/hello-world/</link>
+            <link>https://vladflore.github.io/vladflore.tech.public/posts/2020/02/hello-world/</link>
             <pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://vladflore.tech/posts/2020/02/hello-world/</guid>
+            <guid>https://vladflore.github.io/vladflore.tech.public/posts/2020/02/hello-world/</guid>
             <description>Hello Internet,
 so this is my first blog post, which I hope will be one of many more to come. This is more of a hello world kind of post, a way to cut my teeth into blogging and see if it&amp;rsquo;s something I would like doing.
 Should you wonder by now why hello world, well just ask someone who works in IT and has learned at least one programming language.</description>
@@ -841,10 +780,10 @@ and others to tap into that information I once used/had in order to make use of 
         
         <item>
             <title>Software Craftsmanship</title>
-            <link>https://vladflore.tech/posts/2020/02/software-craftsmanship/</link>
+            <link>https://vladflore.github.io/vladflore.tech.public/posts/2020/02/software-craftsmanship/</link>
             <pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://vladflore.tech/posts/2020/02/software-craftsmanship/</guid>
+            <guid>https://vladflore.github.io/vladflore.tech.public/posts/2020/02/software-craftsmanship/</guid>
             <description>Last year I had the opportunity to put together and hold a presentation at a conference organized by the company I am currently working for. As you might have guessed from the post&amp;rsquo;s title it was a presentation about the craftsmanship behind creating software.
 Creating software is no easy task, creating software responsibly is even harder, but this should not discourage one to do so.
 By adhering to some healthy coding habits one can and will write code that will not make others cringe when looking at it.</description>

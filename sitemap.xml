@@ -2,101 +2,95 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://vladflore.tech/tags/java/</loc>
-    <lastmod>2022-07-16T21:15:00+02:00</lastmod>
-  </url><url>
-    <loc>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/</loc>
-    <lastmod>2022-07-16T21:15:00+02:00</lastmod>
-  </url><url>
-    <loc>https://vladflore.tech/posts/</loc>
-    <lastmod>2022-07-16T21:15:00+02:00</lastmod>
-  </url><url>
-    <loc>https://vladflore.tech/tags/python/</loc>
-    <lastmod>2022-07-16T21:15:00+02:00</lastmod>
-  </url><url>
-    <loc>https://vladflore.tech/tags/</loc>
-    <lastmod>2022-07-16T21:15:00+02:00</lastmod>
-  </url><url>
-    <loc>https://vladflore.tech/</loc>
-    <lastmod>2022-07-16T21:15:00+02:00</lastmod>
-  </url><url>
-    <loc>https://vladflore.tech/about/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/about/</loc>
     <lastmod>2022-03-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/tags/animated/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/tags/animated/</loc>
     <lastmod>2021-12-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/tags/git/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/tags/git/</loc>
     <lastmod>2021-12-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/posts/2021/12/git-animated-4/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/posts/2021/12/git-animated-4/</loc>
     <lastmod>2021-12-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/posts/2021/09/git-animated-3/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/posts/</loc>
+    <lastmod>2021-12-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://vladflore.github.io/vladflore.tech.public/tags/</loc>
+    <lastmod>2021-12-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://vladflore.github.io/vladflore.tech.public/</loc>
+    <lastmod>2021-12-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://vladflore.github.io/vladflore.tech.public/posts/2021/09/git-animated-3/</loc>
     <lastmod>2021-09-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/posts/2021/08/git-animated-2/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/posts/2021/08/git-animated-2/</loc>
     <lastmod>2021-08-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/posts/2021/08/git-animated-1/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/posts/2021/08/git-animated-1/</loc>
     <lastmod>2021-08-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/posts/2021/07/my-first-oss-pr/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/posts/2021/07/my-first-oss-pr/</loc>
     <lastmod>2021-07-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/tags/opensource/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/tags/opensource/</loc>
     <lastmod>2021-07-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/tags/pullrequest/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/tags/pullrequest/</loc>
     <lastmod>2021-07-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/tags/learning/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/tags/learning/</loc>
     <lastmod>2021-05-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/posts/2021/05/nine-months-later/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/posts/2021/05/nine-months-later/</loc>
     <lastmod>2021-05-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/posts/2020/09/java-11/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/tags/java/</loc>
     <lastmod>2020-09-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/tags/shell/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/posts/2020/09/java-11/</loc>
     <lastmod>2020-09-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/tags/cleancode/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/tags/shell/</loc>
+    <lastmod>2020-09-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://vladflore.github.io/vladflore.tech.public/tags/cleancode/</loc>
     <lastmod>2020-06-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/posts/2020/06/code-kata/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/posts/2020/06/code-kata/</loc>
     <lastmod>2020-06-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/tags/codekata/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/tags/codekata/</loc>
     <lastmod>2020-06-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/tags/aws/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/tags/aws/</loc>
     <lastmod>2020-06-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/tags/ec2/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/tags/ec2/</loc>
     <lastmod>2020-06-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/tags/sonarqube/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/tags/sonarqube/</loc>
     <lastmod>2020-06-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/posts/2020/06/sonarqube-on-aws-ec2/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/posts/2020/06/sonarqube-on-aws-ec2/</loc>
     <lastmod>2020-06-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/posts/2020/03/shell-magic/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/posts/2020/03/shell-magic/</loc>
     <lastmod>2020-03-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/posts/2020/02/hello-world/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/posts/2020/02/hello-world/</loc>
     <lastmod>2020-02-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/posts/2020/02/software-craftsmanship/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/posts/2020/02/software-craftsmanship/</loc>
     <lastmod>2020-02-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/tags/untagged/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/tags/untagged/</loc>
     <lastmod>2020-02-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/categories/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/categories/</loc>
   </url><url>
-    <loc>https://vladflore.tech/series/</loc>
+    <loc>https://vladflore.github.io/vladflore.tech.public/series/</loc>
   </url>
 </urlset>
