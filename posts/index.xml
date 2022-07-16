@@ -1,0 +1,863 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on vladflore.tech</title>
+        <link>https://vladflore.tech/posts/</link>
+        <description>Recent content in Posts on vladflore.tech</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+        <lastBuildDate>Mon, 04 Jul 2022 23:43:08 +0200</lastBuildDate>
+        <atom:link href="https://vladflore.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Learning Python as a Java developer - 1/</title>
+            <link>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/</link>
+            <pubDate>Mon, 04 Jul 2022 23:43:08 +0200</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/</guid>
+            <description>Becoming a Pythonista If you feel somehow put off by that word pythonista, know that you are not alone. I personally find the word a bit funny, and I kind of had to look it up, I mean &amp;hellip; python programmer / software engineer would have also done the trick, wouldn&amp;rsquo;t it? Anyways, this post is not about how to call people working with python, but to share my experience learning Python as a Java software engineer.</description>
+            <content type="html"><![CDATA[<h2 id="becoming-a-pythonista">Becoming a Pythonista</h2>
+<p>If you feel somehow put off by that word <em>pythonista</em>, know that you are not alone. I personally find the word a bit funny, and I kind of had to <a href="https://en.wiktionary.org/wiki/Pythonista" target="_blank">look it up</a>, I mean &hellip; <em>python programmer / software engineer</em> would have also done the trick, wouldn&rsquo;t it? Anyways, this post is not about how to call people working with python, but to share my experience learning Python as a Java software engineer.</p>
+<p>Before anything else, just right of the bat, it is <em>not</em> my intention to start / fuel a language war, Java vs. Python or the like, my only intention is to convey my experience and my take on what it means to learn a new programming language coming from Java, in this case the new programming language being Python.</p>
+<p>So, why am I (re)learning Python? The short answer is that my current company I am working for is switching gears and decided to use more Python to develop its products. This means, I get to use Python in a more professional capacity than I got until now. This is exciting! The slightly longer answer is that Python is preponderantly used for Machine Learning and Data Science, both areas which got my attention. Additionally, being a general purpose language, you can use it for pretty much everything, it&rsquo;s an employable language to have under your belt.</p>
+<p>Actually, this is not the first time I am learning Python, I played with it already some years ago, specifically, beginning of 2020, and from there on I&rsquo;ve been dabbling in it every now and then. Eventually, I did a Coursera Specialization <a href="https://coursera.org/verify/specialization/TWKG5SP5EL2D" target="_blank">Python for Everybody</a> and two other courses on edX, <a href="https://courses.edx.org/certificates/4b0e39182943413288e993b649c4707b" target="_blank">Introduction to Computer Science and Programming Using Python</a> and <a href="https://courses.edx.org/certificates/cf27f5b0da8540c2bab57360c838a8c0" target="_blank">Introduction to Computational Thinking and Data Science</a>. Besides that, every now and then, some coding tasks on <a href="https://exercism.org" target="_blank">Exercism</a> or <a href="https://www.codewars.com/" target="_blank">Codewars</a>. Recently, I&rsquo;ve started with the <a href="https://adventofcode.com/" target="_blank">Advent of Code</a> challenges, which I plan to solve using different programming languages. Python got the year 2015, the very first in the series of the AoC events. Let&rsquo;s see how that goes!</p>
+<p>Nowadays, as I&rsquo;m progressing from <em>dabbling in it</em> to <em>using it professionally</em>, I am enrolled in the <a href="https://www.udacity.com/course/intermediate-python-nanodegree--nd303" target="_blank">Intermediate Python Nanodegree</a> offered by Udacity. The best part is that I get to learn Python on the job. Yay!</p>
+<h2 id="first-impressions">First impressions</h2>
+<p>The very first impression I had about Python was that it is a <em>straight to the point</em> kind of language, succinct, without too much ceremony. A typical example you might find is the following:</p>
+<h3 id="print-hello-world-in-python-vs-java">Print &lsquo;Hello, World!&rsquo; in Python vs. Java</h3>
+<p>This is how it looks in Java(this code goes into <code>HelloWorld.java</code> file):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloWorld</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello, World!&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Then you do: <code>javac HelloWorld.java</code> and <code>java HelloWorld</code> or <code>java HelloWorld.java</code> and you get the greeting.</p>
+<p>This is how it looks in Python(this code goes into <code>hello-python.py</code>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;Hello, World!&#39;</span>)
+</span></span></code></pre></div><p>Then you do: <code>python3 hello-world.py</code> and you get the greeting.</p>
+<p>As you can see, there is a lot going on in the Java code compared to the Python code. If you copy the Java code as is, it will just work, but there is a lot of prerequisite knowledge to understand what&rsquo;s going on. Here are some important points:</p>
+<ul>
+<li>because the class is <code>public</code> is has to be defined in a file with the same name and extension <code>.java</code>, and you can only have one public class in this file</li>
+<li>if the class is not public, then the names can differ and you can have multiple such classes in the same file</li>
+<li>we compile with <code>javac A.java</code> and run with <code>java A</code>; new versions of Java can do it in one go, i.e. <code>java A.java</code>, but this comes with other interesting aspects</li>
+<li>you need this method definition: <code>public static void main(String args[])</code>, otherwise the code will not execute; you can replace <code>args</code> with another name, but it has to be a valid one</li>
+<li>you have a <code>System.out</code> (!) thing in there</li>
+<li>you might notice the presence of a <code>HelloWorld.class</code> file, do not look inside it! This is the bytecode you get after <code>javac</code>-ing your Java file, which is run by the Java Virtual Machine, which translates it into machine code</li>
+</ul>
+<p>As you can see, that code is packed! As a programmer you just want to print a line of text, Python gives you that in a very straightforward way, Java adds a lot more ceremony to it.</p>
+<p>This is a bit unfair, as in Java you have to have a class, so it makes sense to see how Python code might look like when we write the same functionality in a class.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Greeting</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self) <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#39;Hello, World!&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    Greeting()
+</span></span></code></pre></div><p>Now we start seeing the same ceremony, more or less, but somehow more cryptic. Some things which trip me up is the weird looking <code>if</code> with the <code>__thing__</code> construct and the <code>self</code> in the <code>__init__</code>.</p>
+<p>The <code>if</code>, which is not part of the class, mind the indentation as Python uses it to delimit blocks of code, is there to prevent instantiating (i.e. executing the <code>__init__</code> method) and hence printing the greeting when the class is used in another Python file. On the other hand, when we feed the file to the Python interpreter, i.e. <code>python3 my-file.py</code>, it reads it top-to-bottom, sees the <code>if</code> at the bottom, the condition is <code>True</code> and hence the class is instantiated. This is so because <code>__name__</code>, a special variable, is set to <code>__main__</code> under the hood. By the way, they call <code>__</code> <em>dunder</em>, as in <em>d</em>ouble <em>under</em>score.</p>
+<p>It also turns out that <code>self</code> can be called something else, and it will still work, but it is a convention to call it like that. Moreover, it seems there are a lot of conventions one should keep in mind when writing Python code. More on this in future posts.</p>
+<p>We could als get rid of the <code>-&gt; None</code> part in the method definition, this just specifies the return type, which in this case is <code>None</code>, i.e. nothing is returned, but people seem to have embraced the statically typed way of writing Python code. One other thing worth mentioning is that instantiating an object requires no <code>new</code> keyword as Java does =&gt; less typing.</p>
+<p>Python is also quite easy going with <code>&quot;</code> and <code>'</code> as you can use them interchangeably, i.e. <code>&quot;Hello&quot;</code> and <code>'Hello'</code> are the same. This is something Java frowns upon.</p>
+<p>As you can see from these small examples, Python is less verbose and more flexible than Java, we&rsquo;ll see in future posts situations where you end up with a couple of orders of magnitude more code in Java than in Python. This also makes Python a nice programming language for coding interviews.</p>
+<p>One last thing I&rsquo;d like to mention is that Java is keen on backwards-compatibility and you won&rsquo;t experience breaking changes as you might have experienced in Python. A simple example here is the <code>print</code> function in version 3+ compared to versions 2.x:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;Hi there!&#39;</span>) <span style="color:#75715e"># 3+</span>
+</span></span><span style="display:flex;"><span>print <span style="color:#e6db74">&#34;Hi&#34;</span>, <span style="color:#e6db74">&#34;there!&#34;</span> <span style="color:#75715e"># 2.x</span>
+</span></span></code></pre></div><p>This post is the first in a series of posts on learning Python as a Java developer.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Git Animated 4</title>
+            <link>https://vladflore.tech/posts/2021/12/git-animated-4/</link>
+            <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2021/12/git-animated-4/</guid>
+            <description>This is the forth and last video in the Git Animated series. If you are interested in the other ones, check the links below:
+part one part two part three Another way of integrating changes of a branch into another one is by performing a rebase. Instead of creating a new merge commit, as it happens when we merge two histories, a rebase will change the base of a branch from one commit to another.</description>
+            <content type="html"><![CDATA[<p>This is the forth and last video in the <strong>Git Animated</strong> series.
+If you are interested in the other ones, check the links below:</p>
+<ul>
+<li><a href="https://vladflore.tech/posts/2021/08/git-animated-1/">part one</a></li>
+<li><a href="https://vladflore.tech/posts/2021/08/git-animated-2/">part two</a></li>
+<li><a href="https://vladflore.tech/posts/2021/09/git-animated-3/">part three</a></li>
+</ul>
+<p>Another way of integrating changes of a branch into another one is by performing a <strong>rebase</strong>. Instead of creating a new merge commit, as it happens when we <strong>merge</strong> two histories, a rebase will change the base of a branch from one commit to another. Changing the base of a branch means changing the commit that branch was created from to be some other commit.</p>
+<p>In the animation we change the original base of <code>feature</code>, the commit <code>M2</code>, to be <code>M3</code>. Performing this action has the effect of integrating the changes introduced by <code>M3</code> into the <code>feature</code> branch, together with whatever the <code>feature</code> branch already had on it. As you may observe, this action does not produce a new commit containing the changes of both the <code>master</code> and <code>feature</code> branches, rather it creates three new commits, <code>F'0</code>, <code>F'1</code>, <code>F'2</code>, which content-wise are identical to the commits <code>F0</code>, <code>F1</code>, <code>F2</code>, and sticks them after the commit <code>M3</code>. This way, the <code>feature</code> branch contains the changes introduced by the commit <code>M3</code> too.</p>
+<p>Observe that the <code>master</code> branch is still behind and knows nothing of the new commits. To bring <code>master</code> up-to-date too, one needs to perform a <em>fast-forward</em> merge of the feature into master, which in this case just means to move the <code>master</code> pointer to point to the last <code>F'2</code> commit.</p>
+<p>Note also, that the original commits of <code>feature</code> branch (<code>F0</code>, <code>F1</code>, <code>F2</code>), if not &ldquo;revived&rdquo;, will be eventually garbage-collected.</p>
+<p>Hopefully this animation conveys some intuition on what happens when we rebase a branch onto another.</p>
+<p>For your convenience, here are the Git commands which appear in the video:</p>
+<pre tabindex="0"><code>git commit -m &#39;M0&#39;
+git commit -m &#39;M1&#39;
+git commit -m &#39;M2&#39;
+git branch feature
+git checkout feature
+git commit -m &#39;F0&#39;
+git commit -m &#39;F1&#39;
+git commit -m &#39;F2&#39;
+git checkout master
+git commit -m &#39;M3&#39;
+git checkout feature
+git rebase master
+</code></pre><p>Here is the video(there is no audio):</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/mD_58aLFz_8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<!-- raw HTML omitted -->
+<p>Feel free to drop me a comment or e-mail with your constructive criticism. It will be much appreciated!</p>
+<p>Enjoy!</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Git Animated 3</title>
+            <link>https://vladflore.tech/posts/2021/09/git-animated-3/</link>
+            <pubDate>Sun, 05 Sep 2021 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2021/09/git-animated-3/</guid>
+            <description>This is the third video in the Git Animated series. If you are interested in the other ones, check the links below:
+part one part two part four In this video we will merge two histories, master and feature, which have diverged at commit M2. As each of the branches got new commits from that divergent point, the feature branch cannot be integrated into the master branch using a fast-forward approach.</description>
+            <content type="html"><![CDATA[<p>This is the third video in the <strong>Git Animated</strong> series.
+If you are interested in the other ones, check the links below:</p>
+<ul>
+<li><a href="https://vladflore.tech/posts/2021/08/git-animated-1/">part one</a></li>
+<li><a href="https://vladflore.tech/posts/2021/08/git-animated-2/">part two</a></li>
+<li><a href="https://vladflore.tech/posts/2021/12/git-animated-4/">part four</a></li>
+</ul>
+<p>In this video we will merge two histories, <code>master</code> and <code>feature</code>, which have diverged at commit <code>M2</code>.
+As each of the branches got new commits from that divergent point, the feature branch cannot be integrated
+into the master branch using a fast-forward approach.</p>
+<p>Git will take the two commit pointers(<code>M3</code> and <code>F2</code>) and attempt to find a common base commit, <code>M2</code>, between them.
+Git has several different methods to find a base commit, these methods are called <em>merge strategies</em>.
+Once Git finds a common base commit it will create a new <em>merge commit</em>, <code>MF</code>, that combines the changes of the specified merge commits.
+Technically, a merge commit is a regular commit which just happens to have two parent commits.</p>
+<p><code>git merge</code> will automatically select a merge strategy unless explicitly specified (for instance using the <code>-s</code> option).</p>
+<p>One of the merge strategies Git uses is the <em>recursive strategy</em>, this is the default merge strategy when pulling or merging one branch.
+If you are interested in finding more about merge strategies, check the following <a href="https://git-scm.com/docs/git-merge" target="_blank">link</a>.</p>
+<p>Hopefully this animation conveys some intuition on what happens when we merge two histories.</p>
+<p>For your convenience, here are the Git commands which appear in the video:</p>
+<pre tabindex="0"><code>git commit -m &#39;M0&#39;
+git commit -m &#39;M1&#39;
+git commit -m &#39;M2&#39;
+git branch feature
+git checkout feature
+git commit -m &#39;F0&#39;
+git commit -m &#39;F1&#39;
+git commit -m &#39;F2&#39;
+git checkout master
+git commit -m &#39;M3&#39;
+git merge feature
+git branch -d feature
+</code></pre><p>Here is the video(there is no audio):</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/Tmfz3nN992k" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<!-- raw HTML omitted -->
+<p>Feel free to drop me a comment or e-mail with your constructive criticism. It will be much appreciated!</p>
+<p>Enjoy!</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Git Animated 2</title>
+            <link>https://vladflore.tech/posts/2021/08/git-animated-2/</link>
+            <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2021/08/git-animated-2/</guid>
+            <description>This is the second video in the Git Animated series. If you are interested in the other ones, check the links below:
+part one part three part four In this video you will see what happens when we merge two histories, specifically merging feature into master. The thing to note here is that the merge is a fast-forward one, this is possible when there are no further commits on the branch we branched off of, after the point of creating the new branch (in our case on the branch master after commit M2).</description>
+            <content type="html"><![CDATA[<p>This is the second video in the <strong>Git Animated</strong> series.
+If you are interested in the other ones, check the links below:</p>
+<ul>
+<li><a href="https://vladflore.tech/posts/2021/08/git-animated-1/">part one</a></li>
+<li><a href="https://vladflore.tech/posts/2021/09/git-animated-3/">part three</a></li>
+<li><a href="https://vladflore.tech/posts/2021/12/git-animated-4/">part four</a></li>
+</ul>
+<p>In this video you will see what happens when we merge two histories, specifically merging <code>feature</code> into <code>master</code>. The thing to note here is that the merge is a fast-forward one, this is possible when there are no further commits on the branch we branched off of, after the point of creating the new branch (in our case on the branch <code>master</code> after commit <code>M2</code>).</p>
+<p>Additionally, after <code>feature</code> has been successfully merged into <code>master</code>, we delete the <code>feature</code> branch, this is not a must, but is a good practice to keep your repository clean.</p>
+<p>Hopefully this animation conveys some intuition on what happens when we merge two histories using the fast-forward strategy.</p>
+<p>For your convenience, here are the Git commands which appear in the video:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#39;M0&#39;</span>
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#39;M1&#39;</span>
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#39;M2&#39;</span>
+</span></span><span style="display:flex;"><span>git branch feature
+</span></span><span style="display:flex;"><span>git checkout feature
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#39;F0&#39;</span>
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#39;F1&#39;</span>
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#39;F2&#39;</span>
+</span></span><span style="display:flex;"><span>git checkout master
+</span></span><span style="display:flex;"><span>git merge feature
+</span></span><span style="display:flex;"><span>git branch -d feature
+</span></span></code></pre></div><p>Here is the video(there is no audio):</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/wHSZ70Pi0iE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<!-- raw HTML omitted -->
+<p>Feel free to drop me a comment or e-mail with your constructive criticism. It will be much appreciated!</p>
+<p>Enjoy!</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Git Animated 1</title>
+            <link>https://vladflore.tech/posts/2021/08/git-animated-1/</link>
+            <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2021/08/git-animated-1/</guid>
+            <description>Welcome to the first post and first video of the video series Git Animated. With this series I am trying to visually depict how different Git commands and actions look like, basically what happens behind them when you execute them.
+If you are interested in the other videos, please check the links below:
+part two part three part four Note: if you are a software engineer and have never heard of Git, then this post, and the future ones, are not for you&amp;hellip;and I am also sorry for you!</description>
+            <content type="html"><![CDATA[<p>Welcome to the first post and first video of the video series <strong>Git Animated</strong>.
+With this series I am trying to visually depict how different Git commands and actions look like, basically what happens behind them when you execute them.</p>
+<p>If you are interested in the other videos, please check the links below:</p>
+<ul>
+<li><a href="https://vladflore.tech/posts/2021/08/git-animated-2/">part two</a></li>
+<li><a href="https://vladflore.tech/posts/2021/09/git-animated-3/">part three</a></li>
+<li><a href="https://vladflore.tech/posts/2021/12/git-animated-4/">part four</a></li>
+</ul>
+<p>Note: if you are a software engineer and have never heard of Git, then this post, and the future ones, are not for you&hellip;and I am also sorry for you!</p>
+<h3 id="the-motivation-behind">The motivation behind</h3>
+<p>From my experience I can tell that people have this tendency to take things for granted, and software engineers are no exception to this. One of the things they take for granted is Git&hellip;specifically the way to use it. This might not sound so terrible, but on the long run it has some devastating effects.</p>
+<p>I was also one of those people, who initially took Git for granted, and by that I mean, I learned some basic Git terminology, some basic commands and I got away with that for some time. As I was using different IDEs, which come with very good support for Git, I didn&rsquo;t have to bother understanding what actually happened when I wrote those commands or clicked those buttons in the IDE&hellip;stuff just worked.</p>
+<p>As I was using Git more and more from the command line, I started to ask myself what actually happens when I type all those commands and hit the enter key. Another good motivator was the problems I got into, or stumbled upon, which I had a hard time fixing. You know what they say, <em>read the fu**ing documentation</em>, and so I started to pay more attention to what is happening behind the curtain.</p>
+<p>Fast-forward to these days, I got into another situation, where I had all sorts of Git related problems, the other team members didn&rsquo;t. This motivated me to really have a look at how things are working and to really understand the magic behind Git and its features. This is a work in progress, and it may still be for the months to come, but the more I read, the thinner the fog&hellip;</p>
+<p>As I usually like teaching others about stuff, I said to myself it would be nice to create some content others might benefit of. A textual explanation is good, a static visual one is better, but a dynamic visual one is the best. So I started creating some videos.</p>
+<h3 id="git-animated">Git Animated</h3>
+<p>The videos in this series are created using the open source Python library <a href="https://github.com/ManimCommunity/manim" target="_blank">ManimCE</a>. You read that right, I write Python code, which generates the videos, I can only hope you would enjoy.</p>
+<p>The audience of these videos is made of people who have worked before with Git, and who want to either deepen their knowledge or brush-up on some concepts/commands.</p>
+<p>The first video is about initializing a local Git repository, creating a bunch of commits, creating a new branch and some more commits on it. Hopefully it conveys some intuition on what happens when all those commands , displayed on the left side of the screen, are executed.</p>
+<p>For your convenience, you can find below the Git commands which appear in the video:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git init
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#39;M0&#39;</span>
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#39;M1&#39;</span>
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#39;M2&#39;</span>
+</span></span><span style="display:flex;"><span>git branch feature
+</span></span><span style="display:flex;"><span>git checkout feature
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#39;F0&#39;</span>
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#39;F1&#39;</span>
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#39;F2&#39;</span>
+</span></span></code></pre></div><p>Here is the video(there is no audio):</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/3BlX1IiKqm8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<!-- raw HTML omitted -->
+<h3 id="online-resources-to-learn-git">Online resources to learn Git</h3>
+<ul>
+<li><a href="https://git-scm.com/docs" target="_blank">Git reference documentation</a></li>
+<li><a href="https://git-scm.com/book/en/v2" target="_blank">Pro Git book</a></li>
+<li><a href="https://www.coursera.org/learn/version-control-with-git" target="_blank">Coursera version control with Git</a></li>
+<li><a href="https://missing.csail.mit.edu/2020/version-control/" target="_blank">Lecture on Version Control by &amp;ldquo;Missing Semester&amp;rdquo; CSAIL MIT</a></li>
+</ul>
+<p>Feel free to drop me a comment or e-mail with your constructive criticism. It will be much appreciated!</p>
+<p>Enjoy!</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>My first OSS PR</title>
+            <link>https://vladflore.tech/posts/2021/07/my-first-oss-pr/</link>
+            <pubDate>Thu, 15 Jul 2021 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2021/07/my-first-oss-pr/</guid>
+            <description>Software developers write code&amp;hellip;or at least they should, provided they can escape the long boring meetings which finish with no conclusions or, God forbid, with the next appointment&amp;hellip;to discuss more.
+When we monetize this action of writing code, we usually do it as part of a job, which comes with its pros and cons, and such we have to stay in the legal framework of that working contract. This legal framework might very well prevent us from contributing to Open Source Software(OSS), so make sure to read the fine print!</description>
+            <content type="html"><![CDATA[<p>Software developers write code&hellip;or at least they should, provided they can escape the long boring meetings which finish with no conclusions or, God forbid, with the next appointment&hellip;to discuss more.</p>
+<p>When we monetize this action of writing code, we usually do it as part of a job, which comes with its pros and cons, and such we have to stay in the legal framework of that working contract. This legal framework might very well prevent us from contributing to Open Source Software(OSS), so make sure to read the fine print!</p>
+<p>Other than that, we do not get the chance to work with technologies we might want to get ourselves more familiar with, and this makes sense, but what if you <em>really</em> want to?</p>
+<p><a href="https://en.wikipedia.org/wiki/Open-source_software" target="_blank">Open Source Software</a> for the win!</p>
+<p>Contributing to OSS can be a daunting business, especially if the thing you want to contribute to is well known, is maintained by many developers, is under heavy development, or is just complex. Nonetheless you can still contribute!</p>
+<p>In my case, I took on a <em>good first issue</em> in a project hosted on GitHub called <a href="https://github.com/fonsp/Pluto.jl" target="_blank">Pluto.jl</a>, which is, as its owner describes it, <em>simple reactive notebooks for Julia</em>.</p>
+<p>What&rsquo;s Julia, you ask?</p>
+<p>Well, for the impatient, it is a fast, dynamic, reproducible, composable, general, open source programming language, with an ecosystem covering visualization, data science, machine learning, scientific domains, parallel computing and, of course, general purpose development <em>and</em> web development. For the curious, check <a href="https://julialang.org/" target="_blank">julialang.org</a>.</p>
+<p>Coming back to the OSS project, my contribution was more of an esthetic one, changing the way a set data structure is rendered, specifically displaying its elements in a chunk-wise manner. This change involved writing some Julia code, some React/JavaScript code and some HTML and CSS code.</p>
+<p>It&rsquo;s important to mention, that Julia is not my main programming language, I did <em>meet</em> Julia in late 2020, but didn&rsquo;t do any serious development in it, and neither is React as a JavaScript framework. Nevertheless, I was able to implement the change and <a href="https://github.com/fonsp/Pluto.jl/pull/926" target="_blank">get it accepted into the main branch, which got released shortly after</a>.</p>
+<p>I mentioned above, that contributing to OSS can be a daunting business, but, despite that, there are still ways to make the process more comfortable, here is how you could do it:</p>
+<ul>
+<li>improve the documentation, by correcting typos, adding examples, explaining notions in a clearer way etc.</li>
+<li>improve the code coverage</li>
+<li>go for the issues, which are labeled with <em>good first issue</em>, the Pluto.jl repository uses this label to let people know of stuff which can be worked on if you hadn&rsquo;t worked before on such projects</li>
+<li>browse the issues and see if you can find one, which makes sense to you, without having to go into the eerie implementation details</li>
+</ul>
+<p>Start small and don&rsquo;t give up, keep persevering, and your <strong>first Pull Request(PR)</strong> will be accepted in no time.</p>
+<p>Contributing to OSS, doesn&rsquo;t necessarily bring you money, but it does bring you experience, which you can eventually monetize. With a community as Pluto.jl has, you can get all the experience you need.</p>
+<p>May your contributions be easily accepted and your work recognized!</p>
+<p>Happy coding!</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Nine Months Later</title>
+            <link>https://vladflore.tech/posts/2021/05/nine-months-later/</link>
+            <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2021/05/nine-months-later/</guid>
+            <description>TL;DR
+&amp;hellip;if you were thinking about screaming little humans, I am afraid I will disappoint you and it might be that this post is not for you.
+If you are still reading, then you might be one of those people, who thought of something else what could have happened in a period of nine months. I salute you and encourage you to read on!
+2020 was a special year, for the world and for me as well, on one side we had that end of the world kind of global infestation thing, on the other side I managed to make some changes, which hopefully will pay-off in the near future, dare saying some of them have already payed-off.</description>
+            <content type="html"><![CDATA[<blockquote>
+<p><strong><em>TL;DR</em></strong></p>
+</blockquote>
+<p>&hellip;if you were thinking about screaming little humans, I am afraid I will disappoint you and it might be that this post is not for you.</p>
+<p>If you are still reading, then you might be one of those people, who thought of something else what could have happened in a period of nine months. I salute you and encourage you to read on!</p>
+<p>2020 was a special year, for the world and for me as well, on one side we had that <em>end of the world kind of global infestation</em> thing, on the other side I managed to make some changes, which hopefully will pay-off in the near future, dare saying some of them have already payed-off.</p>
+<p>As of 01.06.2020 I joined the club of those unemployed, a.k.a I left the company I had been working for the last 12 years of my life and decided to take a well deserved break from that <em>nine to five&hellip;ish</em> lifestyle. I took that decision some time before the Coronavirus comfortably settled down to its new home&hellip;Europe, Germany.</p>
+<p>Before you ask why I left the company after 12 years of employment, stay assured that&rsquo;s a whole new story, which might become a new <a href="">blog post</a> in the near future. It suffices to say that after 12 years it kind of became clear what the future had in store for me and that <em>that</em> wasn&rsquo;t compatible anymore with my aspirations.</p>
+<p>At this point, you might think <em>ok, ok, no job, but definitely, already on the search for a new one, maybe even already employed, and if unemployed then definitely registered as such at the Federal Employment Agency, a.k.a, Bundesagentur für Arbeit, right?!?</em>. Well, no, and no!</p>
+<p>To clarify the above a bit more, I didn&rsquo;t plan to immediately continue with working for a new employer, I did want to take time off and see to my own things, more on this a bit later on. As for the <em>gemeldet als arbeitslos</em> and hence, I guess, benefit from money support from the state, I just wasn&rsquo;t interested in that hassle. I had some savings and I was willing to use those to cover the payments I still had to make, including the health insurance, the pension insurance and other living expenses. This was and is a valid, legal way of taking time off from work, albeit a bit expensive (stuff paid by the employer, becomes your responsibility), and the employment agency doesn&rsquo;t need to know about it, except for their statistics, but other than that&hellip;no earnings, no taxes, except for health and pension.</p>
+<p>Now, on to what I meant with <em>take time off and see to my own things</em>, initially it was planned as a period of resetting, contemplating the future, learning new things, focus on physical exercising, getting in shape, exploring the world and just recharging with positive energy, energy others feasted on while I was employed. Well, karma had other plans for the world and such I was more or less confined to my apartment and had to rethink my new, well deserved <em>freedom</em>.</p>
+<p>I am a software engineer, I have the computer science education (bachelor and master) behind me, and I have been working in the field of web development, with a focus on backend, for <code>1100</code> years ;). As such, spending time in front of the laptop and doing geeky stuff fits like a glove, reason why turning to my trustworthy laptop and start diving into all sorts of IT related subjects was as natural as it could be!</p>
+<p>Now, I need to mention, that I am not an expert in any of the subjects I will be mentioning below, but I am familiar with them, with some more than with others. This kind of immersion into different subjects is not an easy thing to do, and it will not make you an expert, it would be childish to say the opposite, it <strong>will</strong> broaden your knowledge though, maybe even deepen it, that&rsquo;s for sure, and this kind of horizontal expansion, as opposed to a vertical one, turned out to be exactly what I needed.</p>
+<p>One more thing before going further, we, as software engineers, as <strong>responsible</strong> software engineers, need to constantly learn and hone our engineering skills, we need to stay on top of this never-ending and always evolving field of IT, otherwise we risk becoming obsolete, which means, we risk becoming unemployed. There is another aspect here, it has to do with one&rsquo;s comfort zone, and the idea of finding something that works for you, never gets obsolete, and sticking with it until you retire. That could also work, but it is definitely not my style. More on this in <a href="">a future blog post</a>.</p>
+<p>This being said, here are some of the things I tackled and dedicated some time and attention to.</p>
+<h2 id="blogging">Blogging</h2>
+<p>I (re-)started with blogging at the beginning of 2020, it involved some work and getting accustomed to some new tools, but after figuring all that out, it felt, and still does, kind of natural. Because the design muses were absent at my birth, I decided to go with a default theme/look/design, that I could use with <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>, I bought myself a domain, connected it with GitHub and voilà&hellip;you can read my thoughts!</p>
+<p>Btw, writing is a time-consuming process and doesn&rsquo;t work all the time, if you add in the fact that I have little time for it, or would it rather be bad time management?!, one could easily understand why the blog is sort of&hellip;rarefied.</p>
+<h2 id="programming-languages">Programming languages</h2>
+<p>Aah, yes, programming languages, you know, those languages you use to tell a computer what to do&hellip;there are plenty of them out there, and it is my intention to learn them all&hellip;just kidding, ain&rsquo;t going to do that, although it surely sounds appealing.</p>
+<p>I personally started with Pascal, this was in high school, then continued with C, C++ and C++ - - a.k.a. Java, at the university. There were some other languages along the way, but in the end Java stuck to me and remained one of my go-to languages when I wanted to make my computer do something for me&hellip;, and it also pays the bills, so yay Java.</p>
+<p>Other than that, my appetite for other languages kind of grew bigger, and such I learned some Python, gave JavaScript another chance, started with Kotlin (I am using it at my current job), learned some Julia&hellip;and was getting very confused when I was switching between the languages.</p>
+<p>Remember my go-to language, well, learned some more of it too, and got two certifications. This 25+ years old language is still in top 5 in the <a href="https://www.tiobe.com/tiobe-index/" target="_blank">TIOBE Programming Community index</a> and its two releases per year cadence makes things a bit more challenging to keep up with it&hellip;, but you know, bills are kind of important&hellip; :)</p>
+<h2 id="the-art-of-writing-code">The art of writing code</h2>
+<p>You know how they say, we write code for humans not for computers. While this is true, not many of us, those bestowed with understanding computer programs, really get the gist of it, in the end that code is intended to be understood by computers, rather than by humans&hellip;which complicates things for other&hellip;wait for it&hellip;humans!</p>
+<p>Writing code in that way that you can say <em>it is for humans</em> is not necessarily an easy task to do, most of the time you get the algorithm working, it does what it is supposed to do, or at least it looks like it, and the next second you might think your job is done. NO! Your job is not done! Not by far, now you should make sure that the code is also written for your fellow programmers, colleagues or not.</p>
+<p>There are all sorts of resources out there that can teach you how to properly write code, and I do not mean the syntax and how idiomatic your code is, while those are important aspects, obviously, there is more to writing code, than we might want to admit. It has to read like a poem, they say, it has to be a pleasure to work with. So <strong>stop</strong> doing the following, and you will be way ahead of others:</p>
+<ul>
+<li>mutilate names</li>
+<li>use way too generic names for your functions and variables</li>
+<li>cram in lots of functionality into a class or method</li>
+<li>over-engineer code to the point the functionality you were implementing is not recognizable anymore</li>
+<li>being ignorant to the surroundings of where you are touching some code a.k.a leave the campground cleaner than you found it</li>
+</ul>
+<p>Start with the above, and your fellow programmers will thank you.</p>
+<h2 id="competitive-programming">Competitive programming</h2>
+<p>Another thing I had no idea it existed, is competitive programming, I remember watching a YouTube video of some guy solving problems and writing code faster
+than I can write normal English text. I cannot recall anymore how I got there, but I know I liked it and something in my mind was keep bugging me to learn more about it,
+and so I did.</p>
+<p>The thing is, that you cannot <em>just start</em> solving complex algorithmic problems, it requires months, maybe years of practice, and some serious algorithmic muscles.</p>
+<p>All hyped as I was, I started looking around, googling about this thing, watching videos of others solving problems and took quite a serious interest into algorithms and data structures&hellip;
+you kind of need them to be able to solve problems efficiently. There are lots of resources out there, one just needs the time, and the willingness to go through them.</p>
+<p>Challenging yourself is a good thing, sometimes you will feel really smart, sometimes really dumb&hellip;just saying. Below are some online platforms where you can train/compete, and even make some money:</p>
+<ul>
+<li><a href="https://codeforces.com/" target="_blank">codeforces</a></li>
+<li><a href="https://leetcode.com/" target="_blank">leetcode</a></li>
+<li><a href="https://www.codewars.com/" target="_blank">codewars</a></li>
+<li><a href="https://www.hackerrank.com/" target="_blank">hackerrank</a></li>
+<li><a href="https://www.jetbrains.com/academy/" target="_blank">jetbrains academy</a></li>
+<li><a href="https://adventofcode.com/" target="_blank">advent of code</a></li>
+<li><a href="https://codingcompetitions.withgoogle.com/codejam" target="_blank">codejam</a></li>
+</ul>
+<h2 id="algorithms-and-data-structures">Algorithms and data structures</h2>
+<p>You may like it, or you may hate it, but you need them! Any self-respecting software engineer should know some basics algorithms and data structures and should be prepared to look them up
+either online or in some CS textbook. Internet has no shortage of information on them and people have created entire businesses around them, plus if you want to work at one of the FAANG(Facebook, Amazon, Apple, Netflix, Google) companies
+you definitely need to be comfortable solving algorithmic problems.</p>
+<p>Truth be told, if you do HTML and CSS you most likely do not need them, but as soon as you start writing code, you have to deal with algorithms,
+maybe not with the complicated ones, but definitely with some common ones. In the end it depends on what you are doing as a software engineer.</p>
+<p>Here the Internet is again full of resources, some of the most notable ones being:</p>
+<ul>
+<li><a href="https://www.coursera.org/learn/algorithms-part1" target="_blank">Coursera, Algorithms, Part 1</a></li>
+<li><a href="https://www.coursera.org/learn/algorithms-part2" target="_blank">Coursera, Algorithms, Part 2</a></li>
+<li><a href="https://www.coursera.org/specializations/algorithms" target="_blank">Coursera, Algorithms specialization</a></li>
+</ul>
+<h2 id="getting-comfortable-with-the-command-line">Getting comfortable with the command line</h2>
+<p>The cool kids use the command line not the graphical user interface! Now you know!</p>
+<p>If you are still reading, know that getting comfortable with the command line is not an easy thing. It has a lot of benefits and will make you look like a God, but it is not an easy thing to really master it.</p>
+<p>Considering the learning curve, sometimes it might be better to just use the God damn mouse and click your way through all that. You will be doing it to the detriment of losing some popularity points, though.</p>
+<p>In my attempt to master the command line, I renounced at Windows, installed a fresh copy of Ubuntu and started&hellip;clicking my way through it, I am kidding, diligently typing in commands
+and hopping for the best. You should give it a try too!</p>
+<h2 id="software-design-and-architecture">Software design and architecture</h2>
+<p>As software developers we <em>still</em> get the chance to write code, if you are lucky enough and are not stuck in some meetings, that never seem to end. At some point in your career you may want to level up and start thinking about how to design and architect an application, or the code you are writing. There are good reasons to do that, I mean projects have failed because of bad architectures and designs, or at least swallowed way too much money than they should have.</p>
+<p>Again, the Internet is full of resources about this subject, one of those is this <a href="https://www.coursera.org/specializations/software-design-architecture" target="_blank">Coursera specialization</a>.</p>
+<p>I am strong believer of continuous improvement, as a professional, and as well as a human being. Online courses are, now more than never, in a boom, some are for free, some require some small payment, some cost quite a lot of money, but all of them can teach you something if you are willing to learn. So, learn! Invest in yourself!</p>
+<h2 id="creating-a-portfolio--side-projects">Creating a portfolio / side projects</h2>
+<p>In Romanian there is this saying, <em>teoria ca teoria, dar practica ne omoară</em>, which more or less translates to <em>theory is one thing, practice another</em>. Of course, you have to read, to inform yourself, to see what others think about something, but you also have to try things out, apply what you learned, build something.</p>
+<p>Side projects are a good think, you get to build something, to apply what you learned, and you will eventually end up with a portfolio you can show off, but all of this requires time and effort. It is kind of a double-edged sword.</p>
+<p>When looking for a new job, it is quite common to see that they are requiring from you to show them your portfolio, your GitHub account or similar. While this is fine, they should also understand that not having one, doesn&rsquo;t mean you are not capable of developing applications, writing code or solving problems, or that you are not interested into programming. Each and every one of us has their life, their time, and not having a GH profile doesn&rsquo;t make you any less capable or prepared to handle stuff.</p>
+<p>I personally have a bunch of projects on GH, of all sorts, some bigger, some smaller, some I would show off, some not. It is rather a place to save the stuff I am working on, than something to show off. So, practice, build something, but do not obsess over it, live your life too, you only have one!</p>
+<h2 id="frameworks-and-the-like-for-developing-web-applications">Frameworks and the like for developing web applications</h2>
+<p>I have been in the field of developing web applications from the very beginning of my career life, in all sorts of capacities, so web application development is the field I know most, as opposed to, I don&rsquo;t know, compilers, desktop applications, machine learning and such.</p>
+<p>I am mostly interested into Spring Framework and its plethora of projects, but as life has it, you do not always get to work with what you are interested into, I guess this depends entirely on you. Other than targeting the JVM environment, I worked with NodeJs and its ecosystem, mostly in my side projects or while going through some course or class or workshop. You can build some serious stuff with it, but I&rsquo;d rather prefer using Spring and remain in the JVM ecosystem - Java, Kotlin.</p>
+<p>There are lots of other frameworks other than these two, it kind of depends on the main programming language you are using. Choose one or two and build something, get better at it and be curious&hellip;and patient&hellip;and resilient&hellip;frameworks and such tend to spring up like mushrooms after the rain.</p>
+<h2 id="cloud">Cloud</h2>
+<p>Yes, the Cloud, that thing which makes everybody&rsquo;s life easier, which looks cool on your CV, and promises lots of money. While that might be true, do not forget, it&rsquo;s more a case of passing on responsibilities to someone else, there are still some physical boxes stacked somewhere, as they say, it&rsquo;s just someone else&rsquo;s computer.</p>
+<p>Cloud and cloud computing is not something of recent times, the idea kind of started around 1960-1970, with the mainframes, they didn&rsquo;t call it <em>cloud</em> back then, but it was, in its core, kind of similar to todays interpretation of the word. Cloud computing in its modern context occurred in 2006, check <a href="https://www.technologyreview.com/2011/10/31/257406/who-coined-cloud-computing/#:~:text=The%20notion%20of%20network-based,term%20to%20an%20industry%20conference." target="_blank">this link</a> for more on this.</p>
+<p>Though I have heard about cloud, I didn&rsquo;t actually use it, up until like 3-4 years ago, when I became more aware of what Amazon is offering and what other competitors are pushing forward.</p>
+<p>Fast-forward to last year, I started with an Udacity program, to learn more about what it means to be a cloud developer, and learn more about this piece of technology. I also have in plan to get some official recognition in this field, but firstly I need more knowledge and experience.</p>
+<h2 id="machine-learning">Machine learning</h2>
+<p>Machine learning, the cherry on the cake, the thing which could change our lives for better. Looking at the whole Artificial Intelligence domain, this ML subfield, draws a lot of attention and turns a lot of heads.</p>
+<p>When it comes to AI, some say it is the future of humanity some that it is its doom. Believe what you want, this field is, in my opinion, GOD DAMN AWESOME!</p>
+<p>I had my first encounter with AI while I was studying CS at the university, I did my master in Informatics with a focus on artificial intelligence and distributed computing, but that was pretty much it. I haven&rsquo;t actually applied it in real life, and have kind of lost contact with it.</p>
+<p>Last year, 2020, the year of damnation, I took an interest into AI field in general and ML in particular. I had some time on my hands, so I decided to look more closely at it. OMG! I freaking love it! Sadly, it&rsquo;s not something to finish in a couple of days or weeks, it&rsquo;s a huge field in itself with educational programs and literature to consume and it is continuously evolving.</p>
+<p>As always, there are tons of information out there, Universities have made public parts of their resources, courses, classes, programs and the like. I am particularly intrigued by MIT and Stanford, which offer some cool programs to start with, or dive even deeper into this field. Coursera has a bunch of courses and specializations on this too, and <em>new</em> programming languages emerge, promising better and faster implementation support for all those AI algorithms. Of course, the dominant language remains Python, but others are quite promising too.</p>
+<p>Unfortunately, this field remains more of a hobby for me, than anything else. If I started with it, I&rsquo;d have to start from the very beginning. Maybe, I will be one of those web application developers turned into ML engineers&hellip;time will tell!</p>
+<h2 id="final-words">Final words</h2>
+<p>As you can see there was/is a lot going on, and as I said earlier, this didn&rsquo;t make me an expert in any of those fields, but it did broaden my knowledge and offered me some new views and takes on the complexity and beauty of software engineering.</p>
+<p>Around the end of 2020 I started thinking about finding a new job, a remote one, not necessarily because of the Coronavirus, but rather because of the advantages and learning experiences it brings with. Finding a job is not an easy task, of course it&rsquo;s an experience more or less unique to every person, but it is definitely not a walk in the park. I might put together a <a href="">new post</a> detailing this experience too.</p>
+<p>Fast-forward, 01.03.2021, new job, new position, and a feeling of accomplishment to accompany me for the foreseeable future.</p>
+<p>That&rsquo;s it, folks!</p>
+<p>Stay safe and healthy and never stop learning!</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Java 11</title>
+            <link>https://vladflore.tech/posts/2020/09/java-11/</link>
+            <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2020/09/java-11/</guid>
+            <description>But Java is already at version 15, why talk about 11 ?! Well,&amp;hellip;but before that, a note of caution: considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this is bigger than 15, it was 15 when I wrote this post!
+Now, let&amp;rsquo;s continue&amp;hellip;
+Java 11 is the current (see note of caution above) LTS version, and will stay like that until Java 17 appears, which should be somewhere around the end of 2021, which is then the new LTS version (all of this hold true iff Oracle doesn&amp;rsquo;t change something in the whole release plan).</description>
+            <content type="html"><![CDATA[<p>But <a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank">Java</a> is already at version 15, why talk about 11 ?! Well,&hellip;but before that, a note of caution:
+considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this
+is bigger than 15, it was 15 when I wrote this post!</p>
+<p>Now, let&rsquo;s continue&hellip;</p>
+<p>Java 11 is the current (see note of caution above) LTS version, and will stay like that until Java 17 appears, which should be somewhere around the end of 2021, which is then the new LTS version (all of this hold true iff Oracle doesn&rsquo;t change something in the whole release plan).</p>
+<p>Oracle&rsquo;s latest <a href="https://education.oracle.com/java-se-11-developer/pexam_1Z0-819" target="_blank">certification</a> related to Java is for version 11, again, if they do not change anything, by the time you are reading this.</p>
+<p>Besides, Java 11 has lots of new cool features, some of which I will be addressing in this post. Please note, that some features reached maturity with <em>this</em> version and were included as stable enhancements in the language.</p>
+<p>For a complete, detailed and kinda scary compilation of all the changes check <a href="https://cr.openjdk.java.net/~iris/se/11/latestSpec/apidiffs/overview-summary.html" target="_blank">this link</a>.</p>
+<p>In this post I&rsquo;ll be giving a short intro with examples about <a href="https://openjdk.java.net/jeps/330" target="_blank">JEP 330</a> and <em>shebang</em> files.</p>
+<h4 id="environment-configuration">Environment configuration</h4>
+<pre tabindex="0"><code>OS: Ubuntu 20.04.1 LTS
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ java --version
+</span></span><span style="display:flex;"><span>openjdk 11.0.8 2020-07-14
+</span></span><span style="display:flex;"><span>OpenJDK Runtime Environment AdoptOpenJDK <span style="color:#f92672">(</span>build 11.0.8+10<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>OpenJDK 64-Bit Server VM AdoptOpenJDK <span style="color:#f92672">(</span>build 11.0.8+10, mixed mode<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>I use <a href="https://sdkman.io/" target="_blank">sdkman</a> to manage the versions of Java I use on my system and as such I have this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ whereis java
+</span></span><span style="display:flex;"><span>java: /etc/java /usr/share/java /home/vlad/.sdkman/candidates/java/11.0.8.hs-adpt/bin/java
+</span></span><span style="display:flex;"><span>$ which java
+</span></span><span style="display:flex;"><span>/home/vlad/.sdkman/candidates/java/current/bin/java
+</span></span><span style="display:flex;"><span>$ ll /home/vlad/.sdkman/candidates/java/
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>drwxr-xr-x <span style="color:#ae81ff">5</span> vlad vlad <span style="color:#ae81ff">4096</span> Sep <span style="color:#ae81ff">21</span> 23:22 ./
+</span></span><span style="display:flex;"><span>drwxr-xr-x <span style="color:#ae81ff">5</span> vlad vlad <span style="color:#ae81ff">4096</span> Jun <span style="color:#ae81ff">30</span> 17:24 ../
+</span></span><span style="display:flex;"><span>drwxr-xr-x <span style="color:#ae81ff">9</span> vlad vlad <span style="color:#ae81ff">4096</span> Jul <span style="color:#ae81ff">15</span> 11:08 11.0.8.hs-adpt/
+</span></span><span style="display:flex;"><span>drwxr-xr-x <span style="color:#ae81ff">9</span> vlad vlad <span style="color:#ae81ff">4096</span> Jul <span style="color:#ae81ff">15</span> 11:13 14.0.2.hs-adpt/
+</span></span><span style="display:flex;"><span>drwxr-xr-x <span style="color:#ae81ff">8</span> vlad vlad <span style="color:#ae81ff">4096</span> Jul <span style="color:#ae81ff">28</span> 17:21 8.0.265.hs-adpt/
+</span></span><span style="display:flex;"><span>lrwxrwxrwx <span style="color:#ae81ff">1</span> vlad vlad <span style="color:#ae81ff">14</span> Sep <span style="color:#ae81ff">21</span> 23:21 current -&gt; 11.0.8.hs-adpt/
+</span></span></code></pre></div><p>Now, on to some cool feature of Java 11&hellip;</p>
+<h3 id="launch-single-file-source-code-programs">Launch single-file source-code programs</h3>
+<p>As per <a href="https://openjdk.java.net/jeps/330" target="_blank">JEP 330</a> we now have the possibility to launch single-file source-code programs.</p>
+<p>Let&rsquo;s code the simplest, politest Java program:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Greeter</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello &#34;</span> <span style="color:#f92672">+</span> args<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;!&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Normally we would need to compile it with <code>javac</code> and get that <code>.class</code> file and then run it with <code>java</code> to see the greeting,
+but now we can just do:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ java Greeter.java Vlad
+</span></span><span style="display:flex;"><span>Hello Vlad!
+</span></span></code></pre></div><p>Now let&rsquo;s turn this into a <em>shebang file</em> and use it like a script, a Java Script&hellip;mind the gap ;)</p>
+<p>The main idea is to add a line (contains the path to the java binary) similar to this <code>#!/home/vlad/.sdkman/candidates/java/11.0.8.hs-adpt/bin/java --source 11</code>
+at the beginning of a file and then the Java code after it, make the new file executable and execute it like any other sh file.
+By the way, we can choose any name we want for the script file.</p>
+<p>Content of <code>greet</code> file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#f92672">!/</span>home<span style="color:#f92672">/</span>vlad<span style="color:#f92672">/.</span><span style="color:#a6e22e">sdkman</span><span style="color:#f92672">/</span>candidates<span style="color:#f92672">/</span>java<span style="color:#f92672">/</span>11<span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">.</span><span style="color:#a6e22e">8</span><span style="color:#f92672">.</span><span style="color:#a6e22e">hs</span><span style="color:#f92672">-</span>adpt<span style="color:#f92672">/</span>bin<span style="color:#f92672">/</span>java <span style="color:#f92672">--</span>source 11
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Greeter</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello &#34;</span> <span style="color:#f92672">+</span> args<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;!&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>make it executable:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ chmod u+x greet
+</span></span></code></pre></div><p>and execute it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ./greet Vlad
+</span></span><span style="display:flex;"><span>Hello Vlad!
+</span></span></code></pre></div><p>Let&rsquo;s spice things up a bit and implement another more complex example: this time we want to take some text, line by line,
+and display only the lines that match a given regular expression (basically a simplified version of <code>grep</code> command).</p>
+<p>Content of <code>grep</code> file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#f92672">!/</span>home<span style="color:#f92672">/</span>vlad<span style="color:#f92672">/.</span><span style="color:#a6e22e">sdkman</span><span style="color:#f92672">/</span>candidates<span style="color:#f92672">/</span>java<span style="color:#f92672">/</span>11<span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">.</span><span style="color:#a6e22e">8</span><span style="color:#f92672">.</span><span style="color:#a6e22e">hs</span><span style="color:#f92672">-</span>adpt<span style="color:#f92672">/</span>bin<span style="color:#f92672">/</span>java <span style="color:#f92672">--</span>source 11
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.BufferedReader<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.IOException<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.InputStreamReader<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.regex.Pattern<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.stream.Stream<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Grep</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// some arguments validation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>args<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">&lt;</span> 1 <span style="color:#f92672">||</span> args<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> 2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            showUsage<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        var option <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        var strPattern <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// some more arguments validation and extraction of the actual arguments
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>args<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>args<span style="color:#f92672">[</span>0<span style="color:#f92672">].</span><span style="color:#a6e22e">startsWith</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;-&#34;</span><span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                showUsage<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                strPattern <span style="color:#f92672">=</span> args<span style="color:#f92672">[</span>0<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>args<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> 2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>args<span style="color:#f92672">[</span>0<span style="color:#f92672">].</span><span style="color:#a6e22e">startsWith</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;-&#34;</span><span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                option <span style="color:#f92672">=</span> args<span style="color:#f92672">[</span>0<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>                strPattern <span style="color:#f92672">=</span> args<span style="color:#f92672">[</span>1<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                showUsage<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// is it a case-insensitive search
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        var isCaseSensitive <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>option<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;-i&#34;</span><span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            isCaseSensitive <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        var reader <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BufferedReader<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> InputStreamReader<span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">in</span><span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>        Stream<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> lines <span style="color:#f92672">=</span> Stream<span style="color:#f92672">.</span><span style="color:#a6e22e">empty</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>reader<span style="color:#f92672">.</span><span style="color:#a6e22e">ready</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            lines <span style="color:#f92672">=</span> reader<span style="color:#f92672">.</span><span style="color:#a6e22e">lines</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        var regex <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>isCaseSensitive <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;(?i)&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.*&#34;</span> <span style="color:#f92672">+</span> strPattern <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.*&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// new Java 11 feature
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// see https://cr.openjdk.java.net/~iris/se/11/latestSpec/apidiffs/java/util/regex/Pattern.html
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        var asMatchPredicate <span style="color:#f92672">=</span> Pattern<span style="color:#f92672">.</span><span style="color:#a6e22e">compile</span><span style="color:#f92672">(</span>regex<span style="color:#f92672">).</span><span style="color:#a6e22e">asMatchPredicate</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        lines<span style="color:#f92672">.</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">(</span>asMatchPredicate<span style="color:#f92672">).</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">::</span>println<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">showUsage</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Usage: ./grep [-i] PATTERN&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Make the file executable and then you can execute it like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ echo -e <span style="color:#e6db74">&#34;aaa\nbbb\nccc&#34;</span> | ./grep -i CCC
+</span></span><span style="display:flex;"><span>ccc
+</span></span><span style="display:flex;"><span>$ echo -e <span style="color:#e6db74">&#34;aaa\nbbb\nccc&#34;</span> | ./grep -i C<span style="color:#f92672">{</span>3<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>ccc
+</span></span><span style="display:flex;"><span>$ echo -e <span style="color:#e6db74">&#34;aaa\nbbb\nccc\n&#34;</span> &gt; content
+</span></span><span style="display:flex;"><span>$ cat content | ./grep -i CCC
+</span></span><span style="display:flex;"><span>ccc
+</span></span></code></pre></div><p>There you have it, scripting in Java has never been easier.</p>
+<p>The examples are available <a href="https://github.com/vladflore/java11" target="_blank">in this GitHub repo</a>.</p>
+<p>Happy coding in Java 11!</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Code Kata</title>
+            <link>https://vladflore.tech/posts/2020/06/code-kata/</link>
+            <pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2020/06/code-kata/</guid>
+            <description>Lately I&amp;rsquo;ve been taking a keen interest in the idea of writing code and getting better at it, and what I mean by this is not just the fact of writing code itself and making it work, but also improving your coding skills, and the way you code.
+When we write code we tend to concentrate on the code itself, on solving the problem, not necessarily on the way we produce that code, let alone how we navigate it&amp;hellip;one can always use the mouse right?</description>
+            <content type="html"><![CDATA[<p>Lately I&rsquo;ve been taking a keen interest in the idea of <em>writing code and getting better at it</em>, and what I mean by this is not just
+the fact of <em>writing code</em> itself and <em>making it work</em>, but also improving your <em>coding skills</em>, and <em>the way you code</em>.</p>
+<p>When we write code we tend to concentrate on the code itself, on solving the problem, not necessarily on the way we produce that code,
+let alone how we navigate it&hellip;one can always use the mouse right? If you are working professionally in a project you don&rsquo;t always have the time to <em>think</em> about
+the way you write code. Writing it, making it work and getting it accepted (only <strong>clean code</strong> should have the privilege of reaching the main development line) is enough of a challenge.</p>
+<p>So, what then? Well, you could have a pet project, which could give you the time to <em>take a step back</em>, <em>reflect</em>, <em>think</em> about <em>how</em> you are producing code.
+This could indeed work, the challenge is to have an idea to get you started and keep you motivated to continue. It is for sure a way to improve your craft, but we could do
+even better than that. <strong>Code Kata</strong>s for the win!</p>
+<p>A <a href="https://en.wikipedia.org/wiki/Kata" target="_blank">Kata</a> is, according to Wikipedia</p>
+<blockquote>
+<p>a detailed choreographed pattern of martial arts movements made to be practised alone, and within groups and in unison when training&quot;.</p>
+</blockquote>
+<p>A <a href="http://codekata.com" target="_blank">Code Kata</a> tries to bring the element of practice to the software development. It&rsquo;s when/where you practice the skill you want to acquire
+or improve.</p>
+<p>If you want to take a deeper dive into this, check <a href="https://www.amazon.com/Coding-Dojo-Handbook-Emily-Bache/dp/919811803X" target="_blank">this book by Emily Bache</a>, where you can find more on code katas, the notion of coding dojo und much more.
+Do not forget to check the <a href="https://github.com/emilybache" target="_blank">GH repository</a>, for some refactoring katas, that you could do - multiple programming languages supported.</p>
+<p>You want to practice on your own or in a group, <a href="https://cyber-dojo.org/" target="_blank">check this site</a>!</p>
+<p>The idea is that by doing katas you get to hon your coding skills, and pretty much everything else related to this that you want to improve, navigating and
+editing a text file, getting better and faster at writing code, writing more professional (clean-)code, learning an IDE, or some other text editing tool, like vim.
+The possibilities are unlimited.</p>
+<p>Another point worth mentioning is that you can also take on some more difficult tasks, like algorithmic problem solving, and improve your problem
+solving skills, brushing upon those algorithms you have probably not used anymore since college/university, learning new ones, getting reads for a
+technical interview for top companies and so on.</p>
+<p>Have a look at these links (there are many more out there, just google <em>coding challenges</em>) and give it a try:</p>
+<ul>
+<li><a href="https://www.hackerrank.com" target="_blank">hakerrank</a></li>
+<li><a href="https://www.codewars.com" target="_blank">codewars</a></li>
+<li><a href="https://leetcode.com/" target="_blank">leetcode</a></li>
+</ul>
+<p>Another resource worth mentioning, which I totally love, is <a href="https://www.jetbrains.com/academy/" target="_blank">JetBrains Academy</a>. You can become a fully fledged Java Developer by taking the
+Java Developer track. They also offer similar tracks for Python and Kotlin. The best of it is that you can learn to program by creating
+working applications. You also get daily challenges which bring you points also known as gems, which you then can spend. Overall is a wonderful experience,
+one you should not miss.</p>
+<p>As you can see, there are tons of resources to get you going as a programmer or to help you improve as one, you just have to dedicate time to it
+and to practice, because, as we all know, practice makes perfect!</p>
+<p>Now, go and sharpen your skills and do not be afraid to experiment and learn new things!</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>SonarQube on AWS EC2</title>
+            <link>https://vladflore.tech/posts/2020/06/sonarqube-on-aws-ec2/</link>
+            <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2020/06/sonarqube-on-aws-ec2/</guid>
+            <description>In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you&amp;rsquo;ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.
+The motivation behind I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is.</description>
+            <content type="html"><![CDATA[<p>In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you&rsquo;ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.</p>
+<h2 id="the-motivation-behind">The motivation behind</h2>
+<p>I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is. I also didn&rsquo;t want to set up my own cloud, so I just sticked with AWS EC2 solution, despite the fact that it is not always for free.</p>
+<p>Make sure to check the documentation and the billing policies to not have any surprises at the end of the month. In case you do not need the instances to run all the time you can stop them and only start them when you need them. A stopped instance is billed differently and less than a running one.</p>
+<p>As I said, I want to use Sonar for my GitHub projects, which means I want it configured specifically to my needs, which are:</p>
+<ul>
+<li>the quality checks (history) should be persisted, a.k.a, an in-memory database will not suffice. I will use PostgreSQL 12.</li>
+<li>I want mutation testing (MT) enabled and I want to use the MT rules together with the default rules to check the code. As for the language I will initially start with Java.</li>
+</ul>
+<p>Having said this, let&rsquo;s start with the installation.</p>
+<h2 id="step-1">Step 1</h2>
+<h3 id="get-an-aws-ec2-instance-up-and-running">Get an AWS EC2 instance up and running.</h3>
+<p>There is not much to say here, go to the <a href="https://console.aws.amazon.com/" target="_blank">AWS Console</a>, check the documentation and follow the steps, it&rsquo;s pretty intuitive and no brainer at all. After having done that - the instance is running and you can SSH into it, proceed with the next step.</p>
+<h2 id="step-2">Step 2</h2>
+<h3 id="prepare-the-ec2-instance-for-sonarqube-installation">Prepare the EC2 instance for SonarQube installation.</h3>
+<p>You won&rsquo;t have pretty much anything pre-installed so you&rsquo;ll have to do it yourself.</p>
+<blockquote>
+<p><strong><em>NOTE:</em></strong> most of the commands require sudo access, so&hellip;you have been warned!</p>
+</blockquote>
+<h3 id="update-the-system">Update the system</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt update
+</span></span><span style="display:flex;"><span>sudo apt upgrade
+</span></span></code></pre></div><h3 id="install-unzip-tool">Install unzip tool</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt install unzip
+</span></span></code></pre></div><h3 id="install-java-11">Install Java 11</h3>
+<p>SonarQube 8.3 requires Java - Oracle JRE 11 or OpenJDK 11 - installed on the machine, I&rsquo;ll go with OpenJDK.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt install openjdk-11-jdk
+</span></span></code></pre></div><h3 id="install-postgresql-12">Install PostgreSQL 12</h3>
+<p>Bbefore running the command <em>add the PostgreSQL apt repository</em> as documented <a href="https://www.postgresql.org/download/linux/ubuntu/" target="_blank">here</a>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt install postgresql-12
+</span></span></code></pre></div><h3 id="prepare-postgresql-for-sonarqube">Prepare PostgreSQL for SonarQube</h3>
+<p>This basically means creating the user and the database.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># change current user to postgres</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># (this was created for you as part of the PostgreSQL installation)</span>
+</span></span><span style="display:flex;"><span>sudo su - postgres
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># go into PostgreSQL</span>
+</span></span><span style="display:flex;"><span>psql
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">--- create the user
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">USER</span> sonarqube <span style="color:#66d9ef">WITH</span> PASSWORD <span style="color:#e6db74">&#39;yourPassword&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">--- create the database
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> sonarqube <span style="color:#66d9ef">OWNER</span> sonarqube;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">--- grant the privileges
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> sonarqube <span style="color:#66d9ef">TO</span> sonarqube;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">--- exit PostgreSQL
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#960050;background-color:#1e0010">\</span>q
+</span></span></code></pre></div><h3 id="add-inbound-rule-for-the-security-group-the-instance-belongs-to">Add inbound rule for the security group the instance belongs to</h3>
+<p>In order to allow requests to be made to SonarQube you have to add an inbound rule for the security group the EC2 instance belongs to. Find the security group your instance has (on the <code>Instances</code> page, check for the <code>Security Groups</code> column in the table which displays your instances, go to that SG and edit the <code>Inbound Rules</code> by adding a new one for <code>TCP</code> and port <code>9000</code>).</p>
+<h2 id="step-3">Step 3</h2>
+<h3 id="download-the-sonarqube-server">Download the SonarQube Server.</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.3.0.34182.zip
+</span></span><span style="display:flex;"><span>unzip sonarqube-8.3.0.34182.zip
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># move the unzipped folder under /opt</span>
+</span></span><span style="display:flex;"><span>sudo mv sonarqube-8.3.0.34182 /opt/sonarqube
+</span></span></code></pre></div><h2 id="step-4">Step 4</h2>
+<h3 id="create-user-for-sonarqube">Create user for SonarQube.</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo adduser --system --no-create-home --group --disabled-login sonarqube
+</span></span><span style="display:flex;"><span>sudo chown -R sonarqube:sonarqube /opt/sonarqube
+</span></span></code></pre></div><h2 id="step-5">Step 5</h2>
+<h3 id="configure-sonarqube-properties-and-launch-scripts">Configure SonarQube properties and launch scripts.</h3>
+<p>Edit <code>sonar.properties</code> and add the following properties:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>vi /opt/sonarqube/conf/sonar.properties
+</span></span></code></pre></div><pre tabindex="0"><code>sonar.jdbc.username=sonarqube
+sonar.jdbc.password=yourPassword
+sonar.jdbc.url=jdbc:postgresql://localhost/sonarqube
+sonar.web.javaAdditionalOpts=-server
+sonar.web.host=0.0.0.0
+</code></pre><p>Edit <code>sysctl.conf</code> and set the property <code>vm.max_map_count</code> to <code>262144</code>. SonarQube will most likely not start without it!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>vi /etc/sysctl.conf
+</span></span></code></pre></div><pre tabindex="0"><code>vm.max_map_count=262144
+</code></pre><p>Edit <code>sonar.sh</code> and set the variable <code>RUN_AS_USER</code> to <code>sonarqube</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>vi /opt/sonarqube/bin/linux-x86-64/sonar.sh
+</span></span></code></pre></div><pre tabindex="0"><code>RUN_AS_USER=sonarqube
+</code></pre><p>At this point you should have everything in place to be able to start the SonarQube and access it in the browser.</p>
+<h3 id="start-sonarqube">Start SonarQube</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># navigate to the Sonar installation location</span>
+</span></span><span style="display:flex;"><span>cd /opt/sonarqube/bin/linux-x86-64
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># start Sonar</span>
+</span></span><span style="display:flex;"><span>./sonar.sh start
+</span></span></code></pre></div><p>Call <code>http://&lt;IPv4 Public IP&gt;:9000/</code> in the browser, where <code>IPv4 Public IP</code> stands for the public IP, which you can take from the Description information of your EC2 instance.
+You should see your SonarQube page.</p>
+<p>Now let&rsquo;s configure Sonar.</p>
+<h3 id="configure-sonarqube">Configure SonarQube</h3>
+<p>First step is to <em>enable the mutation testing support</em>, which means that you have to <em>install a plugin</em>.
+For this, login with the default credentials <code>admin/admin</code>, go to <code>Administration -&gt; Marketplace</code> and search for <code>Mutation Analysis</code> <a href="https://github.com/devcon5io/mutation-analysis-plugin" target="_blank">plugin</a> and install it.
+Restart the server.</p>
+<p><img src="/images/sonar-mt-plugin.png" alt="sonar-mt-plugin"></p>
+<p>Next, we need to create a new <em>quality profile</em>, which will contain the <em>default SonarQube Java rules</em> and the <em>Mutation Analysis rules</em> and set it as the <em>default profile for Java</em>.</p>
+<p>Follow the steps listed in <a href="https://dzone.com/articles/mutation-testing-with-sonarqube" target="_blank">this article</a> under the section <em>Enable the Mutation Analysis Rules</em> to achieve the above mentioned.</p>
+<p>When finished it should look something similar to this:</p>
+<p><img src="/images/sonar-mt-java-rules.png" alt="sonar-mt-plugin"></p>
+<p>Now SonarQube should be able to interpret the mutation testing results too.</p>
+<p>Before drilling down through your project and hunting down your mutations you have to upload the mutation analysis for the project in question.</p>
+<p>I am using Maven as a build automation tool for my project and my <code>pom.xml</code> is updated accordingly.</p>
+<p>At a minimum, you need the <code>pitest-junit5-plugin</code> dependency, the <code>sonar-maven-plugin</code> plugin and the <code>pitest-maven</code> plugin. For Java code coverage do not forget about <code>jacoco-maven-plugin</code>.</p>
+<p>Check the <a href="https://github.com/vladflore/gildedrose-refactoring-kata/blob/master/pom.xml" target="_blank">GitHub repo</a> to see how the pom.xml looks like.</p>
+<p>After your project is all set up, the following command should suffice to perform a code analysis of your code. Note that the value for <code>sonar.host.url</code> should be changed
+accordingly to contain the IP of your EC2 instance hosting the SonarQube Server.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mvn clean verify org.pitest:pitest-maven:mutationCoverage sonar:sonar -Dsonar.host.url<span style="color:#f92672">=</span>http://&lt;IPv4 Public IP&gt;:9000
+</span></span></code></pre></div><p>And voilà the analysis of my project at that point in time (including the mutation analysis):</p>
+<p><img src="/images/sonar-analysis.png" alt="sonar-mt-plugin"></p>
+<p>Now go write those unit tests, kill those mutants and reach a 90%+ code coverage. I dare you! ;)</p>
+<p>Happy code crafting!</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Shell Magic</title>
+            <link>https://vladflore.tech/posts/2020/03/shell-magic/</link>
+            <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2020/03/shell-magic/</guid>
+            <description>NOTE 1: This page contains some shell magic which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.
+NOTE 2: Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.</description>
+            <content type="html"><![CDATA[<blockquote>
+<p><strong><em>NOTE 1:</em></strong> This page contains some shell <em>magic</em> which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.</p>
+</blockquote>
+<blockquote>
+<p><strong><em>NOTE 2:</em></strong> Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.
+Some of them might also require sudo access, so I am just going to assume that you know what you are doing. You have been warned!</p>
+</blockquote>
+<h2 id="11-from-uppercase-to-lowercase-and-from-space-to-underscore">11. From uppercase to lowercase and from space to underscore</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;Building REST services with Spring&#39;</span> | tr <span style="color:#e6db74">&#39;[:upper:]&#39;</span> <span style="color:#e6db74">&#39;[:lower:]&#39;</span> | tr <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#e6db74">&#39;_&#39;</span> | xclip -sel c
+</span></span></code></pre></div><p>Transform <code>tr</code> uppercase letters <code>[:upper:]</code> to lowercase <code>[:lower:]</code>, then replace the space <code> </code> with an underscore <code>_</code> and finally copy <code>xclip</code> the result to clipboard <code>-sel c</code>. After this you can paste the text wherever you need it. To prove the usefulness of this, instead of copying the result into the clipboard, pipe it into <code>xargs</code> to, for instance, create a folder, like: <code>...| xargs mkdir -p</code>.</p>
+<hr>
+<h2 id="10-execute-a-program-periodically">10. Execute a program periodically</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>watch du -sh &lt;folder&gt;
+</span></span></code></pre></div><p>Execute the <code>du</code> command periodically, every 2 seconds, until interrupted. The command displays only the total size <code>-s</code> of the <code>&lt;folder&gt;</code>, in a human readable format <code>-h</code>.</p>
+<hr>
+<h2 id="9-display-file-space-usage-in-human-readable-format">9. Display file space usage in human readable format</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>du -hc . | sort -rh | head -5
+</span></span></code></pre></div><p>Display size in human readable format <code>-h</code>, producing a grand total <code>-c</code>, then sort the output in reversed order <code>-r</code> by comparing human readable sizes <code>-h</code>, and finally taking only the first five lines of the output.</p>
+<hr>
+<h2 id="8-search-for-a-pattern-inside-files">8. Search for a pattern inside files</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>grep -rnw . -e <span style="color:#e6db74">&#39;pattern&#39;</span>
+</span></span></code></pre></div><p>Search in the current <code>.</code> directory, recursively <code>-r</code>, matching <code>-e</code> the pattern <code>pattern</code>, considering only whole words <code>-w</code>, displaying the line number <code>-n</code> of the match.</p>
+<hr>
+<h2 id="7-forcibly-removing-all-directories-and-their-content-recursively">7. Forcibly removing all directories and their content recursively</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ls -l | grep <span style="color:#e6db74">&#39;^d&#39;</span> | awk <span style="color:#e6db74">&#39;{print $9}&#39;</span> | xargs rm -rf
+</span></span></code></pre></div><p>In plain English, list the content of the current directory <code>ls</code> using the long listing format <code>-l</code>, filter out everything else that is not a directory <code>grep '^d'</code>, extract the 9^th^ column (the last containing the name of the directory) <code>awk '{print $9}'</code>, pass each name of the directory as an argument <code>xargs</code> to the command <code>rm</code>, which removes recursively <code>-r</code> and forcibly <code>-f</code> the respective directory.</p>
+<hr>
+<h2 id="6-switching-between-github-remote-urls-https-vs-ssh">6. Switching between GitHub remote URLs (HTTPS vs. SSH)</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git remote -v
+</span></span><span style="display:flex;"><span>git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+</span></span><span style="display:flex;"><span>git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
+</span></span></code></pre></div><p>First we check what kind of remote URLs we have, using option <code>-v</code> of command <code>git remote</code>,
+afterwards we change the remote URL to either HTTPS or SSH using one of the last two commands
+(note the two different URL styles for setting the remote name <code>origin</code>). Do not forget
+to replace the <code>USERNAME</code> and <code>REPOSITORY</code> with the real values.</p>
+<hr>
+<h2 id="5-searching-for-files-and-creating-an-archive-out-of-them">5. Searching for files and creating an archive out of them</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>find . -type f <span style="color:#ae81ff">\(</span> -name file1 -o -name file2 <span style="color:#ae81ff">\)</span> | zip -@ -j files
+</span></span><span style="display:flex;"><span>mv files.zip ~/tmp
+</span></span><span style="display:flex;"><span>cd $_
+</span></span><span style="display:flex;"><span>xdg-open .
+</span></span></code></pre></div><p>First we search in the current <code>.</code> directory for entries denoting files <code>-type f</code> having the name <code>-name</code> <em>file1</em> or <code>-o</code> <em>file2</em>.
+The <code>zip</code> command takes the list of files <code>-@</code> and creates an archive with the name <em>files</em> containing only the files without
+storing the directories where they reside. After moving <code>mv</code> the archive to the <em>tmp</em> directory we <code>cd</code> into it, <code>$_</code> references the
+last argument of the previous command, and open <code>xdg-open</code> the current directory <code>.</code> with the appropriate program - in my case this is <em>Files</em>.</p>
+<hr>
+<h2 id="4-manage-processes-from-the-terminal">4. Manage processes from the Terminal</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># display Linux processes</span>
+</span></span><span style="display:flex;"><span>top
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># top improved, you might need to install it</span>
+</span></span><span style="display:flex;"><span>htop
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># list all running processes and look for a specific process</span>
+</span></span><span style="display:flex;"><span>ps -A | grep chrome
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># display processes in a tree like format</span>
+</span></span><span style="display:flex;"><span>pstree
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># look up a process based on name</span>
+</span></span><span style="display:flex;"><span>pgrep chome
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># kills process identified by the PID, use -9 or -KILL to force kill</span>
+</span></span><span style="display:flex;"><span>kill PID
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># kill process given its name</span>
+</span></span><span style="display:flex;"><span>pkill chrome
+</span></span><span style="display:flex;"><span>killall chrome
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># allows killing graphical programs</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># run it and your cursor will turn into x, then click a program&#39;s window</span>
+</span></span><span style="display:flex;"><span>xkill
+</span></span></code></pre></div><hr>
+<h2 id="3-print-content-of-path-line-by-line">3. Print content of $PATH line-by-line</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>echo $PATH | tr <span style="color:#e6db74">&#39;:&#39;</span> <span style="color:#e6db74">&#39;\n&#39;</span>
+</span></span></code></pre></div><p>Pipes the content, obtained via <code>echo</code>, of the <code>PATH</code> variable into the translate <code>tr</code> command which
+replaces each occurrence of <code>:</code> with a new line <code>\n</code>.</p>
+<p>Another example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>echo line1:line2 | tr <span style="color:#e6db74">&#39;:&#39;</span> <span style="color:#e6db74">&#39;\n&#39;</span>
+</span></span><span style="display:flex;"><span>line1
+</span></span><span style="display:flex;"><span>line2
+</span></span></code></pre></div><hr>
+<h2 id="2-show-all-users">2. Show all users</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cat /etc/passwd | awk -F: <span style="color:#e6db74">&#39;{print$1}&#39;</span>
+</span></span></code></pre></div><p>The content of the file <code>passwd</code> is pipped into the <code>awk</code>, which takes each line
+and splits it into columns by the defined <code>-F</code> separator <code>:</code>
+printing out the first value (the user name).</p>
+<hr>
+<h2 id="1-show-all-hidden-files">1. Show all hidden files</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ls -lap | grep -v / | awk <span style="color:#e6db74">&#39;{print $9}&#39;</span> | grep <span style="color:#e6db74">&#39;^\.&#39;</span>
+</span></span></code></pre></div><p>List <code>ls</code> all <code>-a</code> content of the current directory using the long listing format <code>-l</code> appending <code>-p</code> a forward slash <code>/</code> if the entry is a directory, then print only those lines which do not end with a forward slash (<code>grep</code> performs a pattern matching, while <code>-v</code> inverts the match). <code>awk</code> prints out the nineth column of the line - the name, and the last <code>grep</code> shows only those which begin with a <code>.</code>.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Hello World</title>
+            <link>https://vladflore.tech/posts/2020/02/hello-world/</link>
+            <pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2020/02/hello-world/</guid>
+            <description>Hello Internet,
+so this is my first blog post, which I hope will be one of many more to come. This is more of a hello world kind of post, a way to cut my teeth into blogging and see if it&amp;rsquo;s something I would like doing.
+Should you wonder by now why hello world, well just ask someone who works in IT and has learned at least one programming language.</description>
+            <content type="html"><![CDATA[<p>Hello Internet,</p>
+<p>so this is my first blog post, which I hope will be one of many more to come. This is more of a <em>hello world</em> kind of post,
+a way to cut my teeth into blogging and see if it&rsquo;s something I would like doing.</p>
+<p>Should you wonder by now why <em>hello world</em>,
+well just ask someone who works in IT and has learned at least one programming language.</p>
+<p>The majority of the posts will be of technical nature and will server primarily the purpose of conveying knowledge
+that I gathered or stumbled upon over the time.</p>
+<p>Quite often, I find myself in the position of having to do something I have already done
+before, and quite often I regret not having documented that something&hellip;This blog is about changing all that and allowing me
+and others to tap into that information I once used/had in order to make use of it again.</p>
+<p>I guess time will tell if this is a worthwhile endeavor or not.</p>
+<p>Happy reading!</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Software Craftsmanship</title>
+            <link>https://vladflore.tech/posts/2020/02/software-craftsmanship/</link>
+            <pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2020/02/software-craftsmanship/</guid>
+            <description>Last year I had the opportunity to put together and hold a presentation at a conference organized by the company I am currently working for. As you might have guessed from the post&amp;rsquo;s title it was a presentation about the craftsmanship behind creating software.
+Creating software is no easy task, creating software responsibly is even harder, but this should not discourage one to do so.
+By adhering to some healthy coding habits one can and will write code that will not make others cringe when looking at it.</description>
+            <content type="html"><![CDATA[<p>Last year I had the opportunity to put together and hold a presentation at a conference organized
+by the <a href="https://www.virtual7.de/" target="_blank">company</a> I am currently working for. As you might have guessed from the post&rsquo;s title
+it was a presentation about the <strong>craftsmanship</strong> behind <strong>creating software</strong>.</p>
+<p>Creating software is no easy task, creating software <strong>responsibly</strong> is even harder, but this should not discourage one to do so.</p>
+<p>By adhering to some healthy coding habits one can and will write code that will not make others cringe when looking at it.
+Remember, <strong>we write code for people not for computers</strong>.</p>
+<p>The presentation is powered by <a href="https://revealjs.com/#/" target="_blank">reveal.js framework</a>, can be watched <a href="https://vladflore.github.io/software-craftsmanship/#/" target="_blank">here</a> and it can be found at this <a href="https://github.com/vladflore/software-craftsmanship.git" target="_blank">link</a> on GitHub.</p>
+<p>Happy code crafting!</p>
+]]></content>
+        </item>
+        
+    </channel>
+</rss>

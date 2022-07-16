@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cleancode on vladflore.tech</title>
+    <link>https://vladflore.tech/tags/cleancode/</link>
+    <description>Recent content in cleancode on vladflore.tech</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sun, 28 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://vladflore.tech/tags/cleancode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Code Kata</title>
+      <link>https://vladflore.tech/posts/2020/06/code-kata/</link>
+      <pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://vladflore.tech/posts/2020/06/code-kata/</guid>
+      <description>Lately I&amp;rsquo;ve been taking a keen interest in the idea of writing code and getting better at it, and what I mean by this is not just the fact of writing code itself and making it work, but also improving your coding skills, and the way you code.
+When we write code we tend to concentrate on the code itself, on solving the problem, not necessarily on the way we produce that code, let alone how we navigate it&amp;hellip;one can always use the mouse right?</description>
+    </item>
+    
+  </channel>
+</rss>

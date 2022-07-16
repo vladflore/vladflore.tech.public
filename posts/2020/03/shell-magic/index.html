@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Vlad Flore ">
+<meta name="description" content="NOTE 1: This page contains some shell magic which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.
+NOTE 2: Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it." />
+<meta name="keywords" content=", shell" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://vladflore.tech/posts/2020/03/shell-magic/" />
+
+
+    <title>
+        
+            Shell Magic :: vladflore.tech 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://vladflore.tech/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
+
+
+    
+        <link rel="stylesheet" type="text/css" href="https://vladflore.tech/css/custom.css">
+    
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://vladflore.tech/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://vladflore.tech/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://vladflore.tech/favicon-16x16.png">
+    <link rel="manifest" href="https://vladflore.tech/site.webmanifest">
+    <link rel="mask-icon" href="https://vladflore.tech/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="https://vladflore.tech/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+<meta itemprop="name" content="Shell Magic">
+<meta itemprop="description" content="NOTE 1: This page contains some shell magic which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.
+NOTE 2: Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it."><meta itemprop="datePublished" content="2020-03-25T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-03-25T00:00:00+00:00" />
+<meta itemprop="wordCount" content="902"><meta itemprop="image" content="https://vladflore.tech"/>
+<meta itemprop="keywords" content="shell," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://vladflore.tech"/>
+
+<meta name="twitter:title" content="Shell Magic"/>
+<meta name="twitter:description" content="NOTE 1: This page contains some shell magic which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.
+NOTE 2: Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it."/>
+
+
+
+    <meta property="og:title" content="Shell Magic" />
+<meta property="og:description" content="NOTE 1: This page contains some shell magic which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.
+NOTE 2: Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vladflore.tech/posts/2020/03/shell-magic/" /><meta property="og:image" content="https://vladflore.tech"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-03-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-03-25T00:00:00+00:00" />
+
+
+
+
+
+
+
+    <meta property="article:published_time" content="2020-03-25 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://vladflore.tech/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">$ cd ~</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#a9a9b3;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://vladflore.tech/posts/">Posts</a></li><li><a href="https://vladflore.tech/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        5 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://vladflore.tech/posts/2020/03/shell-magic/">Shell Magic</a>
+      </h1>
+
+      
+
+      
+        <hr />
+        <aside id="toc">
+          <div class="toc-title">Table of Contents</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#11-from-uppercase-to-lowercase-and-from-space-to-underscore">11. From uppercase to lowercase and from space to underscore</a></li>
+    <li><a href="#10-execute-a-program-periodically">10. Execute a program periodically</a></li>
+    <li><a href="#9-display-file-space-usage-in-human-readable-format">9. Display file space usage in human readable format</a></li>
+    <li><a href="#8-search-for-a-pattern-inside-files">8. Search for a pattern inside files</a></li>
+    <li><a href="#7-forcibly-removing-all-directories-and-their-content-recursively">7. Forcibly removing all directories and their content recursively</a></li>
+    <li><a href="#6-switching-between-github-remote-urls-https-vs-ssh">6. Switching between GitHub remote URLs (HTTPS vs. SSH)</a></li>
+    <li><a href="#5-searching-for-files-and-creating-an-archive-out-of-them">5. Searching for files and creating an archive out of them</a></li>
+    <li><a href="#4-manage-processes-from-the-terminal">4. Manage processes from the Terminal</a></li>
+    <li><a href="#3-print-content-of-path-line-by-line">3. Print content of $PATH line-by-line</a></li>
+    <li><a href="#2-show-all-users">2. Show all users</a></li>
+    <li><a href="#1-show-all-hidden-files">1. Show all hidden files</a></li>
+  </ul>
+</nav>
+        </aside>
+        <hr />
+
+      
+
+      <div class="post-content">
+        <blockquote>
+<p><strong><em>NOTE 1:</em></strong> This page contains some shell <em>magic</em> which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.</p>
+</blockquote>
+<blockquote>
+<p><strong><em>NOTE 2:</em></strong> Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.
+Some of them might also require sudo access, so I am just going to assume that you know what you are doing. You have been warned!</p>
+</blockquote>
+<h2 id="11-from-uppercase-to-lowercase-and-from-space-to-underscore">11. From uppercase to lowercase and from space to underscore</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;Building REST services with Spring&#39;</span> | tr <span style="color:#e6db74">&#39;[:upper:]&#39;</span> <span style="color:#e6db74">&#39;[:lower:]&#39;</span> | tr <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#e6db74">&#39;_&#39;</span> | xclip -sel c
+</span></span></code></pre></div><p>Transform <code>tr</code> uppercase letters <code>[:upper:]</code> to lowercase <code>[:lower:]</code>, then replace the space <code> </code> with an underscore <code>_</code> and finally copy <code>xclip</code> the result to clipboard <code>-sel c</code>. After this you can paste the text wherever you need it. To prove the usefulness of this, instead of copying the result into the clipboard, pipe it into <code>xargs</code> to, for instance, create a folder, like: <code>...| xargs mkdir -p</code>.</p>
+<hr>
+<h2 id="10-execute-a-program-periodically">10. Execute a program periodically</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>watch du -sh &lt;folder&gt;
+</span></span></code></pre></div><p>Execute the <code>du</code> command periodically, every 2 seconds, until interrupted. The command displays only the total size <code>-s</code> of the <code>&lt;folder&gt;</code>, in a human readable format <code>-h</code>.</p>
+<hr>
+<h2 id="9-display-file-space-usage-in-human-readable-format">9. Display file space usage in human readable format</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>du -hc . | sort -rh | head -5
+</span></span></code></pre></div><p>Display size in human readable format <code>-h</code>, producing a grand total <code>-c</code>, then sort the output in reversed order <code>-r</code> by comparing human readable sizes <code>-h</code>, and finally taking only the first five lines of the output.</p>
+<hr>
+<h2 id="8-search-for-a-pattern-inside-files">8. Search for a pattern inside files</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>grep -rnw . -e <span style="color:#e6db74">&#39;pattern&#39;</span>
+</span></span></code></pre></div><p>Search in the current <code>.</code> directory, recursively <code>-r</code>, matching <code>-e</code> the pattern <code>pattern</code>, considering only whole words <code>-w</code>, displaying the line number <code>-n</code> of the match.</p>
+<hr>
+<h2 id="7-forcibly-removing-all-directories-and-their-content-recursively">7. Forcibly removing all directories and their content recursively</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ls -l | grep <span style="color:#e6db74">&#39;^d&#39;</span> | awk <span style="color:#e6db74">&#39;{print $9}&#39;</span> | xargs rm -rf
+</span></span></code></pre></div><p>In plain English, list the content of the current directory <code>ls</code> using the long listing format <code>-l</code>, filter out everything else that is not a directory <code>grep '^d'</code>, extract the 9^th^ column (the last containing the name of the directory) <code>awk '{print $9}'</code>, pass each name of the directory as an argument <code>xargs</code> to the command <code>rm</code>, which removes recursively <code>-r</code> and forcibly <code>-f</code> the respective directory.</p>
+<hr>
+<h2 id="6-switching-between-github-remote-urls-https-vs-ssh">6. Switching between GitHub remote URLs (HTTPS vs. SSH)</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git remote -v
+</span></span><span style="display:flex;"><span>git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+</span></span><span style="display:flex;"><span>git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
+</span></span></code></pre></div><p>First we check what kind of remote URLs we have, using option <code>-v</code> of command <code>git remote</code>,
+afterwards we change the remote URL to either HTTPS or SSH using one of the last two commands
+(note the two different URL styles for setting the remote name <code>origin</code>). Do not forget
+to replace the <code>USERNAME</code> and <code>REPOSITORY</code> with the real values.</p>
+<hr>
+<h2 id="5-searching-for-files-and-creating-an-archive-out-of-them">5. Searching for files and creating an archive out of them</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>find . -type f <span style="color:#ae81ff">\(</span> -name file1 -o -name file2 <span style="color:#ae81ff">\)</span> | zip -@ -j files
+</span></span><span style="display:flex;"><span>mv files.zip ~/tmp
+</span></span><span style="display:flex;"><span>cd $_
+</span></span><span style="display:flex;"><span>xdg-open .
+</span></span></code></pre></div><p>First we search in the current <code>.</code> directory for entries denoting files <code>-type f</code> having the name <code>-name</code> <em>file1</em> or <code>-o</code> <em>file2</em>.
+The <code>zip</code> command takes the list of files <code>-@</code> and creates an archive with the name <em>files</em> containing only the files without
+storing the directories where they reside. After moving <code>mv</code> the archive to the <em>tmp</em> directory we <code>cd</code> into it, <code>$_</code> references the
+last argument of the previous command, and open <code>xdg-open</code> the current directory <code>.</code> with the appropriate program - in my case this is <em>Files</em>.</p>
+<hr>
+<h2 id="4-manage-processes-from-the-terminal">4. Manage processes from the Terminal</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># display Linux processes</span>
+</span></span><span style="display:flex;"><span>top
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># top improved, you might need to install it</span>
+</span></span><span style="display:flex;"><span>htop
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># list all running processes and look for a specific process</span>
+</span></span><span style="display:flex;"><span>ps -A | grep chrome
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># display processes in a tree like format</span>
+</span></span><span style="display:flex;"><span>pstree
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># look up a process based on name</span>
+</span></span><span style="display:flex;"><span>pgrep chome
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># kills process identified by the PID, use -9 or -KILL to force kill</span>
+</span></span><span style="display:flex;"><span>kill PID
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># kill process given its name</span>
+</span></span><span style="display:flex;"><span>pkill chrome
+</span></span><span style="display:flex;"><span>killall chrome
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># allows killing graphical programs</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># run it and your cursor will turn into x, then click a program&#39;s window</span>
+</span></span><span style="display:flex;"><span>xkill
+</span></span></code></pre></div><hr>
+<h2 id="3-print-content-of-path-line-by-line">3. Print content of $PATH line-by-line</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>echo $PATH | tr <span style="color:#e6db74">&#39;:&#39;</span> <span style="color:#e6db74">&#39;\n&#39;</span>
+</span></span></code></pre></div><p>Pipes the content, obtained via <code>echo</code>, of the <code>PATH</code> variable into the translate <code>tr</code> command which
+replaces each occurrence of <code>:</code> with a new line <code>\n</code>.</p>
+<p>Another example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>echo line1:line2 | tr <span style="color:#e6db74">&#39;:&#39;</span> <span style="color:#e6db74">&#39;\n&#39;</span>
+</span></span><span style="display:flex;"><span>line1
+</span></span><span style="display:flex;"><span>line2
+</span></span></code></pre></div><hr>
+<h2 id="2-show-all-users">2. Show all users</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cat /etc/passwd | awk -F: <span style="color:#e6db74">&#39;{print$1}&#39;</span>
+</span></span></code></pre></div><p>The content of the file <code>passwd</code> is pipped into the <code>awk</code>, which takes each line
+and splits it into columns by the defined <code>-F</code> separator <code>:</code>
+printing out the first value (the user name).</p>
+<hr>
+<h2 id="1-show-all-hidden-files">1. Show all hidden files</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ls -lap | grep -v / | awk <span style="color:#e6db74">&#39;{print $9}&#39;</span> | grep <span style="color:#e6db74">&#39;^\.&#39;</span>
+</span></span></code></pre></div><p>List <code>ls</code> all <code>-a</code> content of the current directory using the long listing format <code>-l</code> appending <code>-p</code> a forward slash <code>/</code> if the entry is a directory, then print only those lines which do not end with a forward slash (<code>grep</code> performs a pattern matching, while <code>-v</code> inverts the match). <code>awk</code> prints out the nineth column of the line - the name, and the last <code>grep</code> shows only those which begin with a <code>.</code>.</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://vladflore.tech/tags/shell/">shell</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        902 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2020-03-25 01:00
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+
+  
+  
+  <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2020%2f03%2fshell-magic%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+    <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+        <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="resp-sharing-button__link" href="mailto:?subject=Shell%20Magic&amp;body=https%3a%2f%2fvladflore.tech%2fposts%2f2020%2f03%2fshell-magic%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+    <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fvladflore.tech%2fposts%2f2020%2f03%2fshell-magic%2f&amp;title=Shell%20Magic&amp;summary=Shell%20Magic&amp;source=https%3a%2f%2fvladflore.tech%2fposts%2f2020%2f03%2fshell-magic%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+    <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  <a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2020%2f03%2fshell-magic%2f&amp;resubmit=true&amp;title=Shell%20Magic" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+    <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      </div>
+
+    
+    <div class="pagination">
+        
+
+        <div class="pagination__buttons">
+            
+            <span class="button previous">
+                <a href="https://vladflore.tech/posts/2020/06/sonarqube-on-aws-ec2/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">SonarQube on AWS EC2</span>
+                </a>
+            </span>
+            
+
+            
+            <span class="button next">
+                <a href="https://vladflore.tech/posts/2020/02/hello-world/">
+                    <span class="button__text">Hello World</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+
+    
+      <script defer src=https://cdn.commento.io/js/commento.js></script>
+      <div id="commento"></div>
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            <span><a href="https://vladflore.tech">Vlad Flore</a></span>
+            
+            <span><a href="https://vladflore.tech/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            
+        </div>
+    </div>
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://themes.gohugo.io/themes/hugo-theme-hello-friend-ng/">hello-friend-ng</a> theme</span>
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://vladflore.tech/bundle.min.feebdc8d801e3fb1791305e362b6d11557f029604dd5b3c27e2686bc88787ee90ae1ccf0afe81bd7d959d7617cfe1fc73062aa82b4e1fa830d6941193d2cbddf.js" integrity="sha512-/uvcjYAeP7F5EwXjYrbRFVfwKWBN1bPCfiaGvIh4fukK4czwr&#43;gb19lZ12F8/h/HMGKqgrTh&#43;oMNaUEZPSy93w=="></script>
+
+
+
+    </body>
+</html>

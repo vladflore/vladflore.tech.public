@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>java on vladflore.tech</title>
+    <link>https://vladflore.tech/tags/java/</link>
+    <description>Recent content in java on vladflore.tech</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 04 Jul 2022 23:43:08 +0200</lastBuildDate><atom:link href="https://vladflore.tech/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Python as a Java developer - 1/</title>
+      <link>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/</link>
+      <pubDate>Mon, 04 Jul 2022 23:43:08 +0200</pubDate>
+      
+      <guid>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/</guid>
+      <description>Becoming a Pythonista If you feel somehow put off by that word pythonista, know that you are not alone. I personally find the word a bit funny, and I kind of had to look it up, I mean &amp;hellip; python programmer / software engineer would have also done the trick, wouldn&amp;rsquo;t it? Anyways, this post is not about how to call people working with python, but to share my experience learning Python as a Java software engineer.</description>
+    </item>
+    
+    <item>
+      <title>Java 11</title>
+      <link>https://vladflore.tech/posts/2020/09/java-11/</link>
+      <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://vladflore.tech/posts/2020/09/java-11/</guid>
+      <description>But Java is already at version 15, why talk about 11 ?! Well,&amp;hellip;but before that, a note of caution: considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this is bigger than 15, it was 15 when I wrote this post!
+Now, let&amp;rsquo;s continue&amp;hellip;
+Java 11 is the current (see note of caution above) LTS version, and will stay like that until Java 17 appears, which should be somewhere around the end of 2021, which is then the new LTS version (all of this hold true iff Oracle doesn&amp;rsquo;t change something in the whole release plan).</description>
+    </item>
+    
+  </channel>
+</rss>
