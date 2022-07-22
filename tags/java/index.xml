@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 16 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://vladflore.tech/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://vladflore.tech/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java 17</title>
+      <link>https://vladflore.tech/posts/2022/07/java-17/</link>
+      <pubDate>Fri, 22 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://vladflore.tech/posts/2022/07/java-17/</guid>
+      <description>Meet Java 17 Java&amp;hellip; what version is it? &amp;hellip;17 reached GA on 14.09.2021 and brought a bunch of new features, of which two are of more interest than the rest, at least for me. These are:
+sealed classes pattern matching for switch (first preview) Java 17 is a LTS version.
+Sealed classes Sealed classes came in Java 17 via JEP 409 and although the name says &amp;ldquo;sealed classes&amp;rdquo; , interfaces are also subject to being sealed.</description>
+    </item>
+    
     <item>
       <title>Learning Python as a Java developer - 1/</title>
       <link>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/</link>

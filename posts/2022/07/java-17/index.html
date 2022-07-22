@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Vlad Flore ">
+<meta name="description" content="Meet Java 17 Java&amp;hellip; what version is it? &amp;hellip;17 reached GA on 14.09.2021 and brought a bunch of new features, of which two are of more interest than the rest, at least for me. These are:
+sealed classes pattern matching for switch (first preview) Java 17 is a LTS version.
+Sealed classes Sealed classes came in Java 17 via JEP 409 and although the name says &amp;ldquo;sealed classes&amp;rdquo; , interfaces are also subject to being sealed." />
+<meta name="keywords" content=", java" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://vladflore.tech/posts/2022/07/java-17/" />
+
+
+    <title>
+        
+            Java 17 :: vladflore.tech 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://vladflore.tech/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css">
+
+
+    
+        <link rel="stylesheet" type="text/css" href="https://vladflore.tech/css/custom.css">
+    
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://vladflore.tech/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://vladflore.tech/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://vladflore.tech/favicon-16x16.png">
+    <link rel="manifest" href="https://vladflore.tech/site.webmanifest">
+    <link rel="mask-icon" href="https://vladflore.tech/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="https://vladflore.tech/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+<meta itemprop="name" content="Java 17">
+<meta itemprop="description" content="Meet Java 17 Java&hellip; what version is it? &hellip;17 reached GA on 14.09.2021 and brought a bunch of new features, of which two are of more interest than the rest, at least for me. These are:
+sealed classes pattern matching for switch (first preview) Java 17 is a LTS version.
+Sealed classes Sealed classes came in Java 17 via JEP 409 and although the name says &ldquo;sealed classes&rdquo; , interfaces are also subject to being sealed."><meta itemprop="datePublished" content="2022-07-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-07-22T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2314"><meta itemprop="image" content="https://vladflore.tech"/>
+<meta itemprop="keywords" content="java," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://vladflore.tech"/>
+
+<meta name="twitter:title" content="Java 17"/>
+<meta name="twitter:description" content="Meet Java 17 Java&hellip; what version is it? &hellip;17 reached GA on 14.09.2021 and brought a bunch of new features, of which two are of more interest than the rest, at least for me. These are:
+sealed classes pattern matching for switch (first preview) Java 17 is a LTS version.
+Sealed classes Sealed classes came in Java 17 via JEP 409 and although the name says &ldquo;sealed classes&rdquo; , interfaces are also subject to being sealed."/>
+
+
+
+    <meta property="og:title" content="Java 17" />
+<meta property="og:description" content="Meet Java 17 Java&hellip; what version is it? &hellip;17 reached GA on 14.09.2021 and brought a bunch of new features, of which two are of more interest than the rest, at least for me. These are:
+sealed classes pattern matching for switch (first preview) Java 17 is a LTS version.
+Sealed classes Sealed classes came in Java 17 via JEP 409 and although the name says &ldquo;sealed classes&rdquo; , interfaces are also subject to being sealed." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vladflore.tech/posts/2022/07/java-17/" /><meta property="og:image" content="https://vladflore.tech"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-07-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-07-22T00:00:00+00:00" />
+
+
+
+
+
+
+
+    <meta property="article:published_time" content="2022-07-22 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://vladflore.tech/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">$ cd ~</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#a9a9b3;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://vladflore.tech/posts/">Posts</a></li><li><a href="https://vladflore.tech/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        11 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://vladflore.tech/posts/2022/07/java-17/">Java 17</a>
+      </h1>
+
+      
+
+      
+        <hr />
+        <aside id="toc">
+          <div class="toc-title">Table of Contents</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#meet-java-17">Meet Java 17</a>
+      <ul>
+        <li><a href="#sealed-classes">Sealed classes</a></li>
+        <li><a href="#pattern-matching-for-switch-first-preview">Pattern matching for switch (first preview)</a></li>
+      </ul>
+    </li>
+    <li><a href="#java-17s-predecessors">Java 17&rsquo;s predecessors</a>
+      <ul>
+        <li><a href="#local-variable-type-inference">Local Variable Type Inference</a></li>
+        <li><a href="#private-methods-in-interfaces">Private Methods in Interfaces</a></li>
+        <li><a href="#records">Records</a></li>
+        <li><a href="#better-nullpointerexception-reporting">Better NullPointerException Reporting</a></li>
+        <li><a href="#text-blocks">Text Blocks</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </aside>
+        <hr />
+
+      
+
+      <div class="post-content">
+        <h2 id="meet-java-17">Meet Java 17</h2>
+<p>Java&hellip; <em>what version is it?</em> &hellip;<a href="https://openjdk.org/projects/jdk/17/" target="_blank">17</a> reached GA on 14.09.2021 and brought a bunch
+of new features, of which two are of more interest than the rest, at least for me. These are:</p>
+<ul>
+<li>sealed classes</li>
+<li>pattern matching for switch (first preview)</li>
+</ul>
+<p>Java 17 is a <em>LTS version</em>.</p>
+<h3 id="sealed-classes">Sealed classes</h3>
+<p>Sealed classes came in Java 17 via <a href="https://openjdk.org/jeps/409" target="_blank">JEP 409</a> and although the name says &ldquo;sealed <em>classes</em>&rdquo;
+, interfaces are also subject to being sealed. With this new feature, three new special keywords have been added to the
+language: <code>sealed</code>, <code>non-sealed</code> and <code>permits</code>. The basic idea is that sealed classes and interfaces restrict which
+other classes or interfaces may extend or implement them. Let&rsquo;s look at an example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>sealed <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span> permits A1<span style="color:#f92672">,</span> A2 <span style="color:#f92672">{}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A1</span> <span style="color:#66d9ef">extends</span> A <span style="color:#f92672">{}</span>
+</span></span><span style="display:flex;"><span>sealed <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A2</span> <span style="color:#66d9ef">extends</span> A permits B <span style="color:#f92672">{}</span>
+</span></span><span style="display:flex;"><span>non<span style="color:#f92672">-</span>sealed <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">B</span> <span style="color:#66d9ef">extends</span> A2 <span style="color:#f92672">{}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">X</span> <span style="color:#66d9ef">extends</span> B <span style="color:#f92672">{}</span>
+</span></span></code></pre></div><p>Class <code>A</code> is sealed and allows only classes <code>A1</code> and <code>A2</code> to extend it. Both <code>A1</code> and <code>A2</code> do that, but <code>A2</code> is again
+declared as sealed, allowing only class <code>B</code> to extend it. Class <code>B</code> does that and, additionally, is declared as
+non-sealed, which means its part of the hierarchy reverts to being open for extension by unknown subclasses. Class <code>X</code>
+can extend <code>B</code> without any problems. One interesting aspect is that every permitted class must use a modifier to
+describe how it propagates the sealing initiated by its superclass, that is either <code>final</code>, <code>sealed</code> or <code>non-sealed</code>
+must be specified, any combination of these being invalid.</p>
+<p>The same idea applies to interfaces too. Let&rsquo;s take for instance this structure:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>sealed <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">I</span> permits J <span style="color:#f92672">{}</span>
+</span></span><span style="display:flex;"><span>sealed <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">J</span> <span style="color:#66d9ef">extends</span> I permits C<span style="color:#f92672">,</span> D <span style="color:#f92672">{}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">C</span> <span style="color:#66d9ef">implements</span> J <span style="color:#f92672">{}</span>
+</span></span><span style="display:flex;"><span>record <span style="color:#a6e22e">D</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">implements</span> J <span style="color:#f92672">{}</span>
+</span></span></code></pre></div><p>Interface <code>I</code> permits to be extended only by interface <code>J</code>, which is also a sealed interface permitting only classes <code>C</code>
+and <code>D</code> to implement it. <code>J</code> must be declared either as <code>sealed</code> or <code>non-sealed</code>. Class <code>C</code> must also be either <code>final</code>
+, <code>sealed</code> or <code>non-sealed</code>. The interesting piece is class <code>D</code>, which is a <code>record</code>. Records are by construct <code>final</code>,
+so the condition above still holds. Note that <code>D</code> cannot extend any other class, it can only implement interfaces, the
+reason is that a record already extends another class: <code>java.lang.Record</code>. You can convince yourself of this by
+disassembling class <code>D</code> using <code>javap D</code> and looking at what the compiler did for you:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">D</span> <span style="color:#66d9ef">extends</span> java<span style="color:#f92672">.</span><span style="color:#a6e22e">lang</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Record</span> <span style="color:#66d9ef">implements</span> J
+</span></span></code></pre></div><p>Sealed classes allow us to model a fixed set of <em>kinds</em> of values, similar to how <code>enum</code> classes allow us to model the
+situation where a given class has only a fixed number of instances. You will be seeing sealed classes in pattern
+matching for switch because they support the exhaustive analysis of patterns.</p>
+<h3 id="pattern-matching-for-switch-first-preview">Pattern matching for switch (first preview)</h3>
+<p>Pattern matching, <a href="https://openjdk.org/jeps/406" target="_blank">JEP 406</a> for switch is one of the features that fall under the umbrella of <em>pattern matching</em>. This feature is
+in its first preview in Java 17, which mean you have to activate it before being able to actually use it. At the time of
+this writing there are two other previews dealing with this: <a href="https://openjdk.org/jeps/420" target="_blank">JEP 420 - Java 18</a>
+and <a href="https://openjdk.org/jeps/427" target="_blank">JEP 427 - Java 19</a>. Before going into some of the aspects of pattern matching for
+switch, let&rsquo;s see what pattern matching itself wants to be.</p>
+<p>Pattern matching(PM) is part of the <a href="https://openjdk.org/projects/amber/" target="_blank">Amber project</a>, which has the goal of
+exploring and incubating smaller productivity-oriented Java language features that have been accepted as candidate JEPs.
+PM is not a new thing under the sun, <a href="https://en.wikipedia.org/wiki/Pattern_matching" target="_blank">according to Wikipedia</a> it goes as
+back as 1950, but it is a new thing in Java. The very basic idea is to check <em>something</em> for the existence of some <em>pattern</em> and take some actions if there is a match. A <em>pattern</em> is a combination of a <em>match predicate</em> that determines if the pattern matches a target, along with a set of <em>pattern variables</em> that are conditionally extracted if the pattern matches the target.</p>
+<p>Now, this idea of <em>matching against something and taking some action if there is a match</em> might make you think about
+the <code>instanceof</code> operator and the <code>switch</code> statement or expression. <a href="https://openjdk.org/jeps/325" target="_blank">Java 12</a> introduced
+the switch expression which was finalized and made permanent in <a href="https://openjdk.org/jeps/361" target="_blank">Java 14</a>.</p>
+<p>Long story short, you can now write code as below, wherein the second <code>if</code> makes use of pattern matching
+for <code>instanceof</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Object obj <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello World&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>obj <span style="color:#66d9ef">instanceof</span> String<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    String s <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>String<span style="color:#f92672">)</span> obj<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// do something with s, e.g. s.length()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>obj <span style="color:#66d9ef">instanceof</span> String s<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// do something with s, e.g. s.length()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Before looking at how pattern matching for <code>switch</code> looks like, let&rsquo;s remind ourselves how a <code>switch</code> expression looks like.</p>
+<p>Given an enum <code>house</code> representing the Hogwarts houses, we can get the house&rsquo;s founder using a switch expression.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">return</span> <span style="color:#66d9ef">switch</span> <span style="color:#f92672">(</span>house<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> GRYFFINDOR <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;Godric Gryffindor&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> HAFFLEPUFF <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;Helga Hufflepuff&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> RAVENCLAW <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;Rowena Ravenclaw&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> SLYTHERIN <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;Salazar Slytherin&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;not a house&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">};</span>
+</span></span></code></pre></div><p>Note the separate handling for the <code>null</code> case!</p>
+<p>Make sure to check the JEPs above as there is a lot going on regarding switch.</p>
+<p>Now, <em>la pièce de résistance</em> is using pattern matching for switch with sealed classes. Let&rsquo;s see how that looks like.</p>
+<p>Given the following pieces of code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> sealed <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HogwartsHouse</span> permits Gryffindor<span style="color:#f92672">,</span> Hafflepuff<span style="color:#f92672">,</span> Ravenclaw<span style="color:#f92672">,</span> Slytherin <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> String <span style="color:#a6e22e">name</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> String <span style="color:#a6e22e">colors</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> String <span style="color:#a6e22e">founder</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> String <span style="color:#a6e22e">animal</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">details</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> String<span style="color:#f92672">.</span><span style="color:#a6e22e">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;%-13s - %-20s - %-20s - %-10s&#34;</span><span style="color:#f92672">,</span> name<span style="color:#f92672">(),</span> colors<span style="color:#f92672">(),</span> founder<span style="color:#f92672">(),</span> animal<span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Gryffindor</span> <span style="color:#66d9ef">extends</span> HogwartsHouse <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span> <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">name</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Gryffindor&#34;</span><span style="color:#f92672">;</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span> <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">colors</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Scarlet and Gold&#34;</span><span style="color:#f92672">;</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span> <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">founder</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Godric Gryffindor&#34;</span><span style="color:#f92672">;</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span> <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">animal</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Lion&#34;</span><span style="color:#f92672">;</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// The other houses (Hufflepuff, Ravenclaw, Slytherin) have been left out for the sake of brevity.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// They all extend HogwartsHouse and implement the methods accordingly.
+</span></span></span></code></pre></div><p>we can write something like this to get the details of every house:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HogwartsSchool</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        Stream<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Gryffindor<span style="color:#f92672">(),</span> <span style="color:#66d9ef">new</span> Hafflepuff<span style="color:#f92672">(),</span> <span style="color:#66d9ef">new</span> Ravenclaw<span style="color:#f92672">(),</span> <span style="color:#66d9ef">new</span> Slytherin<span style="color:#f92672">(),</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">.</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>HogwartsSchool<span style="color:#f92672">::</span>buildDetails<span style="color:#f92672">).</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">::</span>println<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> String <span style="color:#a6e22e">buildDetails</span><span style="color:#f92672">(</span>HogwartsHouse house<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">switch</span> <span style="color:#f92672">(</span>house<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> Gryffindor gryffindor <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                var details <span style="color:#f92672">=</span> gryffindor<span style="color:#f92672">.</span><span style="color:#a6e22e">details</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>                yield details<span style="color:#f92672">.</span><span style="color:#a6e22e">concat</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;students: Harry, Hermione, Ron&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> Hafflepuff hafflepuff <span style="color:#f92672">-&gt;</span> hafflepuff<span style="color:#f92672">.</span><span style="color:#a6e22e">details</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> Ravenclaw ravenclaw <span style="color:#f92672">-&gt;</span> ravenclaw<span style="color:#f92672">.</span><span style="color:#a6e22e">details</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> Slytherin slytherin <span style="color:#f92672">-&gt;</span> slytherin<span style="color:#f92672">.</span><span style="color:#a6e22e">details</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;not a house&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">};</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>which produces this result:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Gryffindor    - Scarlet and Gold     - Godric Gryffindor    - Lion      students: Harry, Hermione, Ron
+</span></span><span style="display:flex;"><span>Hafflepuff    - Yellow and Black     - Helga Hufflepuff     - Badger    
+</span></span><span style="display:flex;"><span>Ravenclaw     - Blue and Bronze      - Rowena Ravenclaw     - Eagle     
+</span></span><span style="display:flex;"><span>Slytherin     - Green and Silver     - Salazar Slytherin    - Snake     
+</span></span><span style="display:flex;"><span>not a house
+</span></span></code></pre></div><p>You might have noticed, that the building details logic can be shortened quite a bit by just calling <code>house.details()</code> and leaving the polymorphism do its thing, plus adding some extra bit for the case the house is a Gryffindor one. Nonetheless, a house can <em>only</em> be one of those four types, and each pattern variable is of the correct subtype. Without sealing the house, that code would not have compiled. Notice that we are not comparing against a specific set of values, but against a specific set of types.</p>
+<p>Suppose now that we change the signature of the method to be this: <code>static String buildDetails(Object house)</code>, i.e. instead of <code>HogwartsHouse</code> we have <code>Object</code> for the type of the house. This requires us to account for the missing cases, i.e. all the other possible objects that could be a <em>house</em>, arrays, lists, etc., which of course is nonsensical. The solution is to change the last case to this: <code>case default, null -&gt; &quot;not a house&quot;;</code>. Now, we are all good, the code compiles and we get the same result as before. Again, notice that we are comparing against a set of possible types, just as before.</p>
+<p>Do not forget to enable the preview features, in IntelliJ IDEA is as simple as selecting the language level for the project
+to be <code>17 (Preview) - Pattern matching for switch</code>.</p>
+<p>From the command line it looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>javac HogwartsHouse.java Gryffindor.java Ravenclaw.java Hafflepuff.java Slytherin.java HogwartsSchool.java --release <span style="color:#ae81ff">17</span> --enable-preview
+</span></span><span style="display:flex;"><span>java --enable-preview HogwartsSchool
+</span></span></code></pre></div><h2 id="java-17s-predecessors">Java 17&rsquo;s predecessors</h2>
+<p>From here on I&rsquo;ll be touching upon some other features/language improvements which came in the language in different previous versions, which I find most interesting.</p>
+<h3 id="local-variable-type-inference">Local Variable Type Inference</h3>
+<p>In a mortal&rsquo;s language this just means that there is a new way of declaring local variables, i.e. variables inside a method, without having to specify the type, in which case the type is inferred, if possible. The magic keyword is <code>var</code> and ca be used in instance methods, in static methods, it cannot be used for field initialization nor in cases where the compiler thinks that there is not enough information to infer the type(initializing with <code>null</code>, no initialization, return type).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>var aString <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello, World!&#34;</span><span style="color:#f92672">;</span> <span style="color:#75715e">// Ok
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>var aListOfStrings <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;();</span> <span style="color:#75715e">// Ok
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>var aNull <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span> <span style="color:#75715e">// Ko
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>var notInitialized<span style="color:#f92672">;</span> <span style="color:#75715e">// Ko
+</span></span></span></code></pre></div><h3 id="private-methods-in-interfaces">Private Methods in Interfaces</h3>
+<p>Besides <code>default</code> and <code>static</code> methods in interfaces, since Java 9 it is also possible to add <code>private</code> methods. So, that code which should not be available for everyone, should be put inside a private method. Given the following interface and implementation:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Interface</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">d</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> p<span style="color:#f92672">();</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">s</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> ps<span style="color:#f92672">();</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">p</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">ps</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">InterfaceImpl</span> <span style="color:#66d9ef">implements</span> Interface <span style="color:#f92672">{}</span>
+</span></span></code></pre></div><p>we have the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">new</span> InterfaceImpl<span style="color:#f92672">().</span><span style="color:#a6e22e">d</span><span style="color:#f92672">();</span> <span style="color:#75715e">// Ok
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Interface<span style="color:#f92672">.</span><span style="color:#a6e22e">s</span><span style="color:#f92672">();</span> <span style="color:#75715e">// Ok
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">new</span> InterfaceImpl<span style="color:#f92672">().</span><span style="color:#a6e22e">p</span><span style="color:#f92672">();</span> <span style="color:#75715e">// Ko - not available to call
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Interface<span style="color:#f92672">.</span><span style="color:#a6e22e">ps</span><span style="color:#f92672">();</span> <span style="color:#75715e">// Ko - not available to call
+</span></span></span></code></pre></div><h3 id="records">Records</h3>
+<p>Java 16 brought us <em>records</em>, a.k.a a sort of <em>data transfer object</em>, or <em>data carrier</em>. A record automatically generates:</p>
+<ul>
+<li>immutable fields for each of its components</li>
+<li>a canonical constructor</li>
+<li>accessor methods for all of its components</li>
+<li><code>equals()</code></li>
+<li><code>hashCode()</code></li>
+<li><code>toString()</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Wizard</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">performSpell</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>record <span style="color:#a6e22e">HogwartsStudent</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">,</span> House house<span style="color:#f92672">)</span> <span style="color:#66d9ef">implements</span> Wizard <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// this is the compact constructor (optional) used to perform name validation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    HogwartsStudent <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>name <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> name<span style="color:#f92672">.</span><span style="color:#a6e22e">isBlank</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Must specify a name for the student.&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// adjustment to field can only happen in the constructor
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Dr. &#34;</span> <span style="color:#f92672">+</span> name<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">performSpell</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Perform a spell&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>var harry <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HogwartsStudent<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Harry Potter&#34;</span><span style="color:#f92672">,</span> House<span style="color:#f92672">.</span><span style="color:#a6e22e">GRYFFINDOR</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>harry<span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">());</span> <span style="color:#75715e">// prints Dr. Harry Potter
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>harry<span style="color:#f92672">.</span><span style="color:#a6e22e">house</span><span style="color:#f92672">());</span> <span style="color:#75715e">// prints GRYFFINDOR
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>harry<span style="color:#f92672">.</span><span style="color:#a6e22e">performSpell</span><span style="color:#f92672">();</span>
+</span></span></code></pre></div><p>Let&rsquo;s look now at what the compiler does for us (<code>javap HogwartsStudent.class</code>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HogwartsStudent</span> <span style="color:#66d9ef">extends</span> java<span style="color:#f92672">.</span><span style="color:#a6e22e">lang</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Record</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  HogwartsStudent<span style="color:#f92672">(</span>java<span style="color:#f92672">.</span><span style="color:#a6e22e">lang</span><span style="color:#f92672">.</span><span style="color:#a6e22e">String</span><span style="color:#f92672">,</span> House<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> java<span style="color:#f92672">.</span><span style="color:#a6e22e">lang</span><span style="color:#f92672">.</span><span style="color:#a6e22e">String</span> <span style="color:#a6e22e">toString</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">hashCode</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>java<span style="color:#f92672">.</span><span style="color:#a6e22e">lang</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Object</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> java<span style="color:#f92672">.</span><span style="color:#a6e22e">lang</span><span style="color:#f92672">.</span><span style="color:#a6e22e">String</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> House <span style="color:#a6e22e">house</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>In a nutshell, these are some of the important aspects of records:</p>
+<ul>
+<li>a record is a final class (=&gt; a record cannot be abstract)</li>
+<li>fields are private and final</li>
+<li>it already extends the <code>Record</code> class, so you cannot have a record extend any other classes</li>
+<li>it cannot be extended by any other class</li>
+<li>it can implement interfaces</li>
+<li>we have the canonical constructor taking in a string and an enum, matching the given components</li>
+<li>an extra constructor can be added, the <em>compact constructor</em>, which is typically used to validate the arguments</li>
+<li>we can replace the canonical constructor with a normal constructor, but its signature must <em>exactly</em> duplicate the signature of the record including the identifier names</li>
+<li>we have the accessors (no more in the JavaBean style)</li>
+<li>we have the <code>equals()</code>, <code>hashCode()</code> and <code>toString()</code> methods</li>
+<li>the only way to add fields to a record is by defining them in the header, however static methods, fields and initializers are allowed</li>
+</ul>
+<h3 id="better-nullpointerexception-reporting">Better NullPointerException Reporting</h3>
+<p>Another improvement, which was finalized in Java 15, concerns the error message we see when a NPE hits us. Before, we would have just seen a rather poor message, something along the lines of <code>java.lang.NullPointerException</code>, with no indications as to why it happens. The new message offers us more information, so in the case of a chain like this <code>a.b.c</code>, where <code>b</code> is <code>null</code>, we would get something like: <code>java.lang.NullPointerException: Cannot read field &quot;c&quot; because &quot;...b&quot; is null</code>. This makes it significantly easier to understand and resolve such exceptions.</p>
+<h3 id="text-blocks">Text Blocks</h3>
+<p>Java 15 also brought us text blocks, which is a feature lifted from the Python language. Triple quotes denote a block of text including newlines. We can now write something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>var content <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;</span>key1<span style="color:#e6db74">&#34;:&#34;</span>value1<span style="color:#e6db74">&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;</span>key2<span style="color:#e6db74">&#34;:&#34;</span>value2<span style="color:#e6db74">&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    }&#34;&#34;&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>content<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>var sameContent <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;{\n&#34;</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;    \&#34;key1\&#34;:\&#34;value1\&#34;,\n&#34;</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;    \&#34;key2\&#34;:\&#34;value2\&#34;,\n&#34;</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;}&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>content<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>sameContent<span style="color:#f92672">));</span> <span style="color:#75715e">// =&gt; true
+</span></span></span></code></pre></div><p>This produces:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    &#34;key1&#34;:&#34;value1&#34;,
+</span></span><span style="display:flex;"><span>    &#34;key2&#34;:&#34;value2&#34;,
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Before Java 15 that code requires a lot of string concatenation and newlines to get the same result. For longer texts it is even more complicated to work with. Notice that the newline after the first <code>&quot;&quot;&quot;</code> is automatically removed, and the final <code>&quot;&quot;&quot;</code> is placed on the same line and directly after the closing <code>}</code> of the json, this is so to prevent another newline.</p>
+<p>Starting with the same version, the string objects have a <code>formatted()</code> method, which we can use the same way as <code>String.format()</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        name: %s
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        profession: %s&#34;&#34;&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">formatted</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Vlad&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Software Engineer&#34;</span><span style="color:#f92672">));</span>
+</span></span></code></pre></div><p>which produces:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>name: Vlad
+</span></span><span style="display:flex;"><span>profession: Software Engineer
+</span></span></code></pre></div><p>Same result can be produced by using the <code>printf</code> method instead of the <code>println</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">printf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        name: %s
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        profession: %s%n&#34;&#34;&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Vlad&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Software Engineer&#34;</span><span style="color:#f92672">);</span>
+</span></span></code></pre></div><p>As you can see, Java is making progress rapidly and brings in features which ease the programmer&rsquo;s work and make the language overall more appealing to learn and use. There is a lot of work happening right now, Java 18 is already out, with 19 coming in autumn this year. Besides Amber, other Java projects, <a href="https://wiki.openjdk.org/display/loom/Main" target="_blank">Loom</a>, <a href="https://openjdk.org/projects/valhalla/" target="_blank">Valhalla</a>, <a href="https://openjdk.org/projects/panama/" target="_blank">Panama</a>, promise a lot more and will make the language even more appealing and worth learning it.</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://vladflore.tech/tags/java/">java</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        2314 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2022-07-22 02:00
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+
+  
+  
+  <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2022%2f07%2fjava-17%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+    <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+        <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="resp-sharing-button__link" href="mailto:?subject=Java%2017&amp;body=https%3a%2f%2fvladflore.tech%2fposts%2f2022%2f07%2fjava-17%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+    <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fvladflore.tech%2fposts%2f2022%2f07%2fjava-17%2f&amp;title=Java%2017&amp;summary=Java%2017&amp;source=https%3a%2f%2fvladflore.tech%2fposts%2f2022%2f07%2fjava-17%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+    <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  <a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2022%2f07%2fjava-17%2f&amp;resubmit=true&amp;title=Java%2017" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+    <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      </div>
+
+    
+    <div class="pagination">
+        
+
+        <div class="pagination__buttons">
+            
+
+            
+            <span class="button next">
+                <a href="https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/">
+                    <span class="button__text">Learning Python as a Java developer - 1/</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+
+    
+      <script defer src=https://cdn.commento.io/js/commento.js></script>
+      <div id="commento"></div>
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            <span><a href="https://vladflore.tech">Vlad Flore</a></span>
+            
+            <span><a href="https://vladflore.tech/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            
+        </div>
+    </div>
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://themes.gohugo.io/themes/hugo-theme-hello-friend-ng/">hello-friend-ng</a> theme</span>
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://vladflore.tech/bundle.min.feebdc8d801e3fb1791305e362b6d11557f029604dd5b3c27e2686bc88787ee90ae1ccf0afe81bd7d959d7617cfe1fc73062aa82b4e1fa830d6941193d2cbddf.js" integrity="sha512-/uvcjYAeP7F5EwXjYrbRFVfwKWBN1bPCfiaGvIh4fukK4czwr&#43;gb19lZ12F8/h/HMGKqgrTh&#43;oMNaUEZPSy93w=="></script>
+
+
+
+    </body>
+</html>
