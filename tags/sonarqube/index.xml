@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>sonarqube on vladflore.tech</title>
+    <title>Sonarqube on vladflore.tech</title>
     <link>https://vladflore.tech/tags/sonarqube/</link>
-    <description>Recent content in sonarqube on vladflore.tech</description>
+    <description>Recent content in Sonarqube on vladflore.tech</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 04 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://vladflore.tech/tags/sonarqube/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://vladflore.tech/tags/sonarqube/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SonarQube on AWS EC2</title>
       <link>https://vladflore.tech/posts/2020/06/sonarqube-on-aws-ec2/</link>
       <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://vladflore.tech/posts/2020/06/sonarqube-on-aws-ec2/</guid>
-      <description>In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you&amp;rsquo;ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.
-The motivation behind I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is.</description>
+      <description>In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you&amp;rsquo;ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.&#xA;The motivation behind I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is.</description>
     </item>
-    
   </channel>
 </rss>

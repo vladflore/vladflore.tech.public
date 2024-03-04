@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Not-Nerdy on vladflore.tech</title>
+    <link>https://vladflore.tech/tags/not-nerdy/</link>
+    <description>Recent content in Not-Nerdy on vladflore.tech</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Fri, 07 May 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://vladflore.tech/tags/not-nerdy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nine Months Later</title>
+      <link>https://vladflore.tech/posts/2021/05/nine-months-later/</link>
+      <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2021/05/nine-months-later/</guid>
+      <description>TL;DR&#xA;&amp;hellip;if you were thinking about screaming little humans, I am afraid I will disappoint you and it might be that this post is not for you.&#xA;If you are still reading, then you might be one of those people, who thought of something else what could have happened in a period of nine months. I salute you and encourage you to read on!&#xA;2020 was a special year, for the world and for me as well, on one side we had that end of the world kind of global infestation thing, on the other side I managed to make some changes, which hopefully will pay-off in the near future, dare saying some of them have already payed-off.</description>
+    </item>
+    <item>
+      <title>Hello World</title>
+      <link>https://vladflore.tech/posts/2020/02/hello-world/</link>
+      <pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2020/02/hello-world/</guid>
+      <description>Hello Internet,&#xA;so this is my first blog post, which I hope will be one of many more to come. This is more of a hello world kind of post, a way to cut my teeth into blogging and see if it&amp;rsquo;s something I would like doing.&#xA;Should you wonder by now why hello world, well just ask someone who works in IT and has learned at least one programming language.</description>
+    </item>
+  </channel>
+</rss>

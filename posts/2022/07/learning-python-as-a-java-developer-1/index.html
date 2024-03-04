@@ -22,7 +22,7 @@
 
 
 
-<link rel="stylesheet" href="https://vladflore.tech/main.b78c3be9451dc4ca61ca377f3dc2cf2e6345a44c2bae46216a322ef366daa399.css" integrity="sha256-t4w76UUdxMphyjd/PcLPLmNFpEwrrkYhajIu82bao5k=">
+<link rel="stylesheet" href="https://vladflore.tech/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css" integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE=">
 
 
     
@@ -42,12 +42,10 @@
 <meta itemprop="name" content="Learning Python as a Java developer - 1/">
 <meta itemprop="description" content="Becoming a Pythonista If the term &ldquo;pythonista&rdquo; seems unusual or off-putting to you, rest assured that you are not the only one. Personally, I find the word somewhat amusing, and I had to look it up initially. After all, &ldquo;Python programmer&rdquo; or &ldquo;Python software engineer&rdquo; would suffice, right? Regardless, this post is not about what we call individuals who work with Python; rather, it&rsquo;s about sharing my experience of learning Python as a Java software engineer."><meta itemprop="datePublished" content="2022-07-16T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-07-16T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1163"><meta itemprop="image" content="https://vladflore.tech"/>
+<meta itemprop="wordCount" content="1180"><meta itemprop="image" content="https://vladflore.tech/" />
 <meta itemprop="keywords" content="python,java," />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://vladflore.tech"/>
-
-<meta name="twitter:title" content="Learning Python as a Java developer - 1/"/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://vladflore.tech/" /><meta name="twitter:title" content="Learning Python as a Java developer - 1/"/>
 <meta name="twitter:description" content="Becoming a Pythonista If the term &ldquo;pythonista&rdquo; seems unusual or off-putting to you, rest assured that you are not the only one. Personally, I find the word somewhat amusing, and I had to look it up initially. After all, &ldquo;Python programmer&rdquo; or &ldquo;Python software engineer&rdquo; would suffice, right? Regardless, this post is not about what we call individuals who work with Python; rather, it&rsquo;s about sharing my experience of learning Python as a Java software engineer."/>
 
 
@@ -55,9 +53,10 @@
     <meta property="og:title" content="Learning Python as a Java developer - 1/" />
 <meta property="og:description" content="Becoming a Pythonista If the term &ldquo;pythonista&rdquo; seems unusual or off-putting to you, rest assured that you are not the only one. Personally, I find the word somewhat amusing, and I had to look it up initially. After all, &ldquo;Python programmer&rdquo; or &ldquo;Python software engineer&rdquo; would suffice, right? Regardless, this post is not about what we call individuals who work with Python; rather, it&rsquo;s about sharing my experience of learning Python as a Java software engineer." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/" /><meta property="og:image" content="https://vladflore.tech"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/" /><meta property="og:image" content="https://vladflore.tech/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-07-16T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-07-16T00:00:00+00:00" />
+
 
 
 
@@ -178,11 +177,11 @@
 <p>My initial impression of Python was that it&rsquo;s a straightforward, succinct language that doesn&rsquo;t require much ceremony. A typical example you might come across is the following:</p>
 <h3 id="print-hello-world-in-python-vs-java">Print &lsquo;Hello, World!&rsquo; in Python vs. Java</h3>
 <p>This is how it looks in Java(this code goes into <code>HelloWorld.java</code> file):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloWorld</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello, World!&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloWorld</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String args<span style="color:#f92672">[]</span>) {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Hello, World!&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Then you do: <code>javac HelloWorld.java</code> and <code>java HelloWorld</code> or <code>java HelloWorld.java</code> and you get the greeting.</p>
 <p>This is how it looks in Python(this code goes into <code>hello-python.py</code>):</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;Hello, World!&#39;</span>)
@@ -214,7 +213,10 @@
 <p>Another point worth mentioning is Java&rsquo;s commitment to backward compatibility. As a result, you&rsquo;re less likely to encounter breaking changes in Java compared to Python. A simple example of this is the <code>print</code> function in Python version 3+ versus versions 2.x:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;Hi there!&#39;</span>) <span style="color:#75715e"># 3+</span>
 </span></span><span style="display:flex;"><span>print <span style="color:#e6db74">&#34;Hi&#34;</span>, <span style="color:#e6db74">&#34;there!&#34;</span> <span style="color:#75715e"># 2.x</span>
-</span></span></code></pre></div><p>This post marks the beginning of a series dedicated to exploring the process of learning Python from the perspective of a Java developer.</p>
+</span></span></code></pre></div><p>This post marks the beginning of a series dedicated to exploring the process of learning Python from the perspective of a Java developer. If you&rsquo;re interested in the other parts of this series, you can find them below:</p>
+<ul>
+<li><a href="https://vladflore.tech/posts/2023/06/learning-python-as-a-java-developer-2/">part two</a></li>
+</ul>
 
       </div>
     </article>
@@ -241,7 +243,7 @@
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        1163 Words
+        1180 Words
       </p>
 
       <p>
@@ -351,6 +353,8 @@
       <div id="commento"></div>
     
 
+    
+
   </main>
 
             </div>
@@ -360,8 +364,8 @@
     
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2023</span>
-            <span><a href="https://vladflore.tech">Vlad Flore</a></span>
+            <span>&copy; true</span>
+            <span><a href="https://vladflore.tech/">Vlad Flore</a></span>
             
             <span><a href="https://vladflore.tech/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
             
@@ -384,7 +388,8 @@
 
 
 
-<script type="text/javascript" src="https://vladflore.tech/bundle.min.205d491810c28f95aa953fae884e1c27abe13fdf93ec63b882d0036b248d4a6282eb2d134e4e7225c6ad6e86db87b08488a361ca4a7383d01fcff43f3d57b9c3.js" integrity="sha512-IF1JGBDCj5WqlT&#43;uiE4cJ6vhP9&#43;T7GO4gtADaySNSmKC6y0TTk5yJcatbobbh7CEiKNhykpzg9Afz/Q/PVe5ww=="></script>
+<script type="text/javascript" src="https://vladflore.tech/bundle.min.ac2a4bcaed631ec2dc154407be7f09fc28da37de71fae6dee6711b2a3d1622770f87d3cda22c460e9a68ff619bdb1dd75cb7a5d33f159a54e419736cc4541087.js" integrity="sha512-rCpLyu1jHsLcFUQHvn8J/CjaN95x&#43;ube5nEbKj0WIncPh9PNoixGDppo/2Gb2x3XXLel0z8VmlTkGXNsxFQQhw=="></script>
+
 
 
 

@@ -23,7 +23,7 @@ The motivation behind I wanted a SonarQube Server running in the cloud so that m
 
 
 
-<link rel="stylesheet" href="https://vladflore.tech/main.b78c3be9451dc4ca61ca377f3dc2cf2e6345a44c2bae46216a322ef366daa399.css" integrity="sha256-t4w76UUdxMphyjd/PcLPLmNFpEwrrkYhajIu82bao5k=">
+<link rel="stylesheet" href="https://vladflore.tech/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css" integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE=">
 
 
     
@@ -44,12 +44,10 @@ The motivation behind I wanted a SonarQube Server running in the cloud so that m
 <meta itemprop="description" content="In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you&rsquo;ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.
 The motivation behind I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is."><meta itemprop="datePublished" content="2020-06-04T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-06-04T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1022"><meta itemprop="image" content="https://vladflore.tech"/>
+<meta itemprop="wordCount" content="1022"><meta itemprop="image" content="https://vladflore.tech/" />
 <meta itemprop="keywords" content="sonarqube,aws,ec2," />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://vladflore.tech"/>
-
-<meta name="twitter:title" content="SonarQube on AWS EC2"/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://vladflore.tech/" /><meta name="twitter:title" content="SonarQube on AWS EC2"/>
 <meta name="twitter:description" content="In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you&rsquo;ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.
 The motivation behind I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is."/>
 
@@ -59,9 +57,10 @@ The motivation behind I wanted a SonarQube Server running in the cloud so that m
 <meta property="og:description" content="In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you&rsquo;ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.
 The motivation behind I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://vladflore.tech/posts/2020/06/sonarqube-on-aws-ec2/" /><meta property="og:image" content="https://vladflore.tech"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://vladflore.tech/posts/2020/06/sonarqube-on-aws-ec2/" /><meta property="og:image" content="https://vladflore.tech/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-06-04T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-06-04T00:00:00+00:00" />
+
 
 
 
@@ -285,11 +284,11 @@ You should see your SonarQube page.</p>
 <p>First step is to <em>enable the mutation testing support</em>, which means that you have to <em>install a plugin</em>.
 For this, login with the default credentials <code>admin/admin</code>, go to <code>Administration -&gt; Marketplace</code> and search for <code>Mutation Analysis</code> <a href="https://github.com/devcon5io/mutation-analysis-plugin" target="_blank">plugin</a> and install it.
 Restart the server.</p>
-<p><img src="https://vladflore.tech/images/sonar-mt-plugin.png" alt="sonar-mt-plugin"></p>
+<p><img alt="sonar-mt-plugin" src="https://vladflore.tech/images/sonar-mt-plugin.png"></p>
 <p>Next, we need to create a new <em>quality profile</em>, which will contain the <em>default SonarQube Java rules</em> and the <em>Mutation Analysis rules</em> and set it as the <em>default profile for Java</em>.</p>
 <p>Follow the steps listed in <a href="https://dzone.com/articles/mutation-testing-with-sonarqube" target="_blank">this article</a> under the section <em>Enable the Mutation Analysis Rules</em> to achieve the above mentioned.</p>
 <p>When finished it should look something similar to this:</p>
-<p><img src="https://vladflore.tech/images/sonar-mt-java-rules.png" alt="sonar-mt-plugin"></p>
+<p><img alt="sonar-mt-plugin" src="https://vladflore.tech/images/sonar-mt-java-rules.png"></p>
 <p>Now SonarQube should be able to interpret the mutation testing results too.</p>
 <p>Before drilling down through your project and hunting down your mutations you have to upload the mutation analysis for the project in question.</p>
 <p>I am using Maven as a build automation tool for my project and my <code>pom.xml</code> is updated accordingly.</p>
@@ -299,7 +298,7 @@ Restart the server.</p>
 accordingly to contain the IP of your EC2 instance hosting the SonarQube Server.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mvn clean verify org.pitest:pitest-maven:mutationCoverage sonar:sonar -Dsonar.host.url<span style="color:#f92672">=</span>http://&lt;IPv4 Public IP&gt;:9000
 </span></span></code></pre></div><p>And voilà the analysis of my project at that point in time (including the mutation analysis):</p>
-<p><img src="https://vladflore.tech/images/sonar-analysis.png" alt="sonar-mt-plugin"></p>
+<p><img alt="sonar-mt-plugin" src="https://vladflore.tech/images/sonar-analysis.png"></p>
 <p>Now go write those unit tests, kill those mutants and reach a 90%+ code coverage. I dare you! ;)</p>
 <p>Happy code crafting!</p>
 
@@ -439,6 +438,8 @@ accordingly to contain the IP of your EC2 instance hosting the SonarQube Server.
       <div id="commento"></div>
     
 
+    
+
   </main>
 
             </div>
@@ -448,8 +449,8 @@ accordingly to contain the IP of your EC2 instance hosting the SonarQube Server.
     
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2023</span>
-            <span><a href="https://vladflore.tech">Vlad Flore</a></span>
+            <span>&copy; true</span>
+            <span><a href="https://vladflore.tech/">Vlad Flore</a></span>
             
             <span><a href="https://vladflore.tech/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
             
@@ -472,7 +473,8 @@ accordingly to contain the IP of your EC2 instance hosting the SonarQube Server.
 
 
 
-<script type="text/javascript" src="https://vladflore.tech/bundle.min.205d491810c28f95aa953fae884e1c27abe13fdf93ec63b882d0036b248d4a6282eb2d134e4e7225c6ad6e86db87b08488a361ca4a7383d01fcff43f3d57b9c3.js" integrity="sha512-IF1JGBDCj5WqlT&#43;uiE4cJ6vhP9&#43;T7GO4gtADaySNSmKC6y0TTk5yJcatbobbh7CEiKNhykpzg9Afz/Q/PVe5ww=="></script>
+<script type="text/javascript" src="https://vladflore.tech/bundle.min.ac2a4bcaed631ec2dc154407be7f09fc28da37de71fae6dee6711b2a3d1622770f87d3cda22c460e9a68ff619bdb1dd75cb7a5d33f159a54e419736cc4541087.js" integrity="sha512-rCpLyu1jHsLcFUQHvn8J/CjaN95x&#43;ube5nEbKj0WIncPh9PNoixGDppo/2Gb2x3XXLel0z8VmlTkGXNsxFQQhw=="></script>
+
 
 
 

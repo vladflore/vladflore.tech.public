@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>python on vladflore.tech</title>
+    <title>Python on vladflore.tech</title>
     <link>https://vladflore.tech/tags/python/</link>
-    <description>Recent content in python on vladflore.tech</description>
+    <description>Recent content in Python on vladflore.tech</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 16 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://vladflore.tech/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://vladflore.tech/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Python as a Java developer - 2/</title>
+      <link>https://vladflore.tech/posts/2023/06/learning-python-as-a-java-developer-2/</link>
+      <pubDate>Mon, 12 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2023/06/learning-python-as-a-java-developer-2/</guid>
+      <description>This is the second part of the series &amp;ldquo;Learning Python as a Java developer&amp;rdquo;. If you are interested in the other ones, check the links below:&#xA;part one Learning resources Before going into the details of the second part, I want to enumerate some of the resources I used and I am still using to learn/brush up on Python, beside the ones I mentioned in the first part:&#xA;CS50’s Introduction to Programming with Python, 2022 - free/payed Practical Python Programming, a course by David Beazley - free.</description>
+    </item>
     <item>
       <title>Learning Python as a Java developer - 1/</title>
       <link>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/</link>
       <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/</guid>
       <description>Becoming a Pythonista If the term &amp;ldquo;pythonista&amp;rdquo; seems unusual or off-putting to you, rest assured that you are not the only one. Personally, I find the word somewhat amusing, and I had to look it up initially. After all, &amp;ldquo;Python programmer&amp;rdquo; or &amp;ldquo;Python software engineer&amp;rdquo; would suffice, right? Regardless, this post is not about what we call individuals who work with Python; rather, it&amp;rsquo;s about sharing my experience of learning Python as a Java software engineer.</description>
     </item>
-    
   </channel>
 </rss>

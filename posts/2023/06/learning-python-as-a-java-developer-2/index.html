@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Vlad Flore ">
+<meta name="description" content="This is the second part of the series &amp;ldquo;Learning Python as a Java developer&amp;rdquo;. If you are interested in the other ones, check the links below:
+part one Learning resources Before going into the details of the second part, I want to enumerate some of the resources I used and I am still using to learn/brush up on Python, beside the ones I mentioned in the first part:
+CS50’s Introduction to Programming with Python, 2022 - free/payed Practical Python Programming, a course by David Beazley - free." />
+<meta name="keywords" content=", python, java" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://vladflore.tech/posts/2023/06/learning-python-as-a-java-developer-2/" />
+
+
+    <title>
+        
+            Learning Python as a Java developer - 2/ :: vladflore.tech 
+        
+    </title>
+
+
+
+
+
+<link rel="stylesheet" href="https://vladflore.tech/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css" integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE=">
+
+
+    
+        <link rel="stylesheet" type="text/css" href="https://vladflore.tech/css/custom.css">
+    
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://vladflore.tech/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://vladflore.tech/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://vladflore.tech/favicon-16x16.png">
+    <link rel="manifest" href="https://vladflore.tech/site.webmanifest">
+    <link rel="mask-icon" href="https://vladflore.tech/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="https://vladflore.tech/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+<meta itemprop="name" content="Learning Python as a Java developer - 2/">
+<meta itemprop="description" content="This is the second part of the series &ldquo;Learning Python as a Java developer&rdquo;. If you are interested in the other ones, check the links below:
+part one Learning resources Before going into the details of the second part, I want to enumerate some of the resources I used and I am still using to learn/brush up on Python, beside the ones I mentioned in the first part:
+CS50’s Introduction to Programming with Python, 2022 - free/payed Practical Python Programming, a course by David Beazley - free."><meta itemprop="datePublished" content="2023-06-12T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-06-12T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1518"><meta itemprop="image" content="https://vladflore.tech/" />
+<meta itemprop="keywords" content="python,java," />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://vladflore.tech/" /><meta name="twitter:title" content="Learning Python as a Java developer - 2/"/>
+<meta name="twitter:description" content="This is the second part of the series &ldquo;Learning Python as a Java developer&rdquo;. If you are interested in the other ones, check the links below:
+part one Learning resources Before going into the details of the second part, I want to enumerate some of the resources I used and I am still using to learn/brush up on Python, beside the ones I mentioned in the first part:
+CS50’s Introduction to Programming with Python, 2022 - free/payed Practical Python Programming, a course by David Beazley - free."/>
+
+
+
+    <meta property="og:title" content="Learning Python as a Java developer - 2/" />
+<meta property="og:description" content="This is the second part of the series &ldquo;Learning Python as a Java developer&rdquo;. If you are interested in the other ones, check the links below:
+part one Learning resources Before going into the details of the second part, I want to enumerate some of the resources I used and I am still using to learn/brush up on Python, beside the ones I mentioned in the first part:
+CS50’s Introduction to Programming with Python, 2022 - free/payed Practical Python Programming, a course by David Beazley - free." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vladflore.tech/posts/2023/06/learning-python-as-a-java-developer-2/" /><meta property="og:image" content="https://vladflore.tech/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-06-12T00:00:00+00:00" />
+
+
+
+
+
+
+
+    <meta property="article:published_time" content="2023-06-12 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://vladflore.tech/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text ">
+                $ cd ~</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#a9a9b3;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://vladflore.tech/posts/">Posts</a></li><li><a href="https://vladflore.tech/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        8 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://vladflore.tech/posts/2023/06/learning-python-as-a-java-developer-2/">Learning Python as a Java developer - 2/</a>
+      </h1>
+
+      
+
+      
+        <hr />
+        <aside id="toc">
+          <div class="toc-title">Table of Contents</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#learning-resources">Learning resources</a></li>
+    <li><a href="#first-impressions--cntd">First impressions &hellip; cnt&rsquo;d</a></li>
+  </ul>
+</nav>
+        </aside>
+        <hr />
+
+      
+
+      <div class="post-content">
+        <p>This is the second part of the series &ldquo;Learning Python as a Java developer&rdquo;. If you are interested in the other ones, check the links below:</p>
+<ul>
+<li><a href="https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/">part one</a></li>
+</ul>
+<h2 id="learning-resources">Learning resources</h2>
+<p>Before going into the details of the second part, I want to enumerate some of the resources I used and I am still using to learn/brush up on Python, beside the ones I mentioned in the first part:</p>
+<ul>
+<li><a href="https://cs50.harvard.edu/python/2022/" target="_blank">CS50’s Introduction to Programming with Python, 2022</a> - free/payed</li>
+<li><a href="https://dabeaz-course.github.io/practical-python/" target="_blank">Practical Python Programming, a course by David Beazley</a> - free. Note: search for content made by David Beazley, he is a great!</li>
+<li><a href="https://edube.org/" target="_blank">OpenEDG Python courses</a> - free</li>
+<li><a href="https://hyperskill.org" target="_blank">Hyperskill Python tracks</a> - payed</li>
+<li><a href="https://www.educative.io/" target="_blank">Educative.io Python courses</a> - payed</li>
+<li><a href="https://docs.python.org/3/tutorial/index.html" target="_blank">The Python Tutorial</a> - free</li>
+<li><a href="https://realpython.com/" target="_blank">Real Python</a> - free/payed</li>
+<li><a href="https://learnxinyminutes.com/docs/python/" target="_blank">Learn X in Y minutes</a> - free</li>
+<li>Working on Python projects</li>
+</ul>
+<p>There are a lot of other resources out there, each one with its own pros and cons. I suggest you to try some of them and find the one that fits you the best. Google is your friend!</p>
+<h2 id="first-impressions--cntd">First impressions &hellip; cnt&rsquo;d</h2>
+<p>In the first part I talked about some of the first impressions I had when I started learning Python. In this part I want to talk about some other ones.</p>
+<p>Python is a <em>dynamically typed language</em>, so you don&rsquo;t have to declare the type of a variable. For example, if you have a variable <code>a</code> and you assign it to a value, let&rsquo;s say <code>1</code>, you can&rsquo;t know the type of <code>a</code> just by looking at the code. You have to run it and see what happens. However, <a href="https://peps.python.org/pep-0484/" target="_blank">PEP 484</a> introduced <em>type hints</em>, so you can add type hints to your code and have a better understanding of what is going on. For example, you can do something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>a: int <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>You would need a tool to check the type hints, like <a href="https://mypy.readthedocs.io/en/stable/" target="_blank">mypy</a>. However, you don&rsquo;t have to use type hints, they are optional.</p>
+<p>Python is also an <em>interpreted language</em>, so you don&rsquo;t have to compile it, as is the case of Java. This is great, because you can run your code as soon as you write it. On the other side, you don&rsquo;t have a compiler to tell you if you are doing something wrong. You have to run your code and see what happens.</p>
+<p>An interpreted language is also slower than a compiled one. However, Python is not that slow, because it is implemented in C, see <a href="https://github.com/python/cpython" target="_blank">CPython</a>. If you need to speed up your code, you can use a tool like <a href="https://cython.org/" target="_blank">Cython</a>. To add to the confusion, there is also <a href="https://www.jython.org/" target="_blank">Jython</a>, an implementation of Python in Java.</p>
+<p>Another thing that I found a bit confusing is the fact that <em>you can assign a value to a variable without declaring it</em>. For example, you can do something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>c <span style="color:#f92672">=</span> a <span style="color:#f92672">+</span> b
+</span></span></code></pre></div><p>This is perfectly fine, but if you are coming from a language like Java, you are used to declare the variables before using them.</p>
+<p>Knowing another programming language can be a double-edged sword. On one side, you can leverage your knowledge to learn the new language faster. On the other side, you can be confused by the differences between the two languages.</p>
+<p>Once you get the hang of it, Python is a great language to work with. It is easy to learn, it has a lot of libraries and it is <em>used in a lot of different fields</em>, from web development to data science. It is also a great language to teach programming.</p>
+<p>Another thing worth mentioning is that Python is a <em>multi-paradigm language</em>. You can use it in an imperative, functional or object-oriented way. You can also mix the paradigms. Much the same as Java, but with a simpler syntax and less typing.</p>
+<p>When writing Java code I usually look at the internal implementation of the classes and methods I am using. This is a great way to learn how things work under the hood. However, in Python this is not always possible, because the <em>implementation is written in C</em>. You can still look at the source code, but it is not as easy as in Java.</p>
+<p>Moving past the syntax and the features you would expect to have in any language, there are some things that are specific to Python. For example, Python has <em>list comprehensions</em>, which are a great way to create lists. You can do something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>digits <span style="color:#f92672">=</span> [x <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>)]
+</span></span></code></pre></div><p>This is equivalent to:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>digits <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>):
+</span></span><span style="display:flex;"><span>    digits<span style="color:#f92672">.</span>append(x)
+</span></span></code></pre></div><p>Besides being shorter, list comprehensions are also faster than the equivalent <code>for</code> loop. Besides list comprehensions, there are also <em>dictionary and set comprehensions</em>.</p>
+<p><em>Generators</em> are another great feature of Python. They are a way to create <em>iterators</em>. You can do something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>digits_gen_exp <span style="color:#f92672">=</span> (x <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>))
+</span></span></code></pre></div><p>This is equivalent to:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">digits_gen_fun</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">yield</span> x
+</span></span></code></pre></div><p>The difference between the two is that the first one is a <em>generator expression</em>, while the second one is a <em>generator function</em>. The generator expression is shorter and faster than the generator function.</p>
+<p>Once you got yourself a generator, you can do a lot of things with it. You can iterate over it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> digit <span style="color:#f92672">in</span> digits_gen_exp:
+</span></span><span style="display:flex;"><span>    print(digit)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> digit <span style="color:#f92672">in</span> digits_gen_fun():
+</span></span><span style="display:flex;"><span>    print(digit)
+</span></span></code></pre></div><p>You can create other data structures from it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>d1 <span style="color:#f92672">=</span> list(digits_gen_exp)
+</span></span><span style="display:flex;"><span>d2 <span style="color:#f92672">=</span> set(digits_gen_fun())
+</span></span><span style="display:flex;"><span>d3 <span style="color:#f92672">=</span> dict(zip(digits_gen_exp, digits_gen_fun()))
+</span></span></code></pre></div><p>More advanced topics include <em>decorators</em>, <em>context managers</em> and <em>metaclasses</em>. The equivalent in Java would be <em>annotations</em>, <em>try-with-resources</em> and <em>reflection</em>.</p>
+<p>Additionally, there are some <em>magic methods</em> that you can implement to customize the behavior of your classes. For example, you can implement the <code>__add__</code> method to customize the behavior of the <code>+</code> operator. Overloading operators in not something you can do in Java.</p>
+<p>When it comes to doing more at once or doing things faster, Python has the <em>event loop</em> and the <em>asyncio module</em>, the <em>multiprocessing module</em> and the <em>threading module</em>. In Java you have the <em>ExecutorService</em> and the <em>CompletableFuture</em>, among other things.</p>
+<p>Python also has <em>modules</em> and <em>packages</em>. A module is a file containing Python code. A package is a directory containing Python code. You can import modules and packages in your code. You can also create your own modules and packages. In Java you have <em>packages</em> and <em>JAR files</em>. The term <em>module</em> is used in Java 9 and later and differs from the Python one.</p>
+<p>Python has a lot of <em>built-in functions</em> and <em>built-in types</em>. You can find a list of them <a href="https://docs.python.org/3/library/functions.html" target="_blank">here</a> and <a href="https://docs.python.org/3/library/stdtypes.html" target="_blank">here</a>. You can also create your own functions and types, much the same as in Java where you have <em>methods</em> and <em>classes</em>.</p>
+<p>Both languages have a lot of out-of-the-box functionality provided by the language itself and their respective ecosystems bring a lot more to the table. In Python I find it sometimes difficult to decide on <em>which package to use</em>, because there are a lot of them and there is no bulletproof way to choose one. I haven&rsquo;t had this feeling in Java.</p>
+<p>Handling exceptions in Python is similar to handling them in Java. You have the <code>try</code> and <code>except</code> keywords. You can also use the <code>finally</code> keyword to execute some code after the <code>try</code> block, regardless of whether an exception was thrown or not. The <code>else</code> clause is also available, to execute some code if no exception was thrown. This last bit is not available in Java. You can also create your own exceptions, much the same as in Java.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">divide</span>(x, y):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        result <span style="color:#f92672">=</span> x <span style="color:#f92672">/</span> y
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">ZeroDivisionError</span>:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;division by zero!&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;result is&#34;</span>, result)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">finally</span>:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;executing finally clause&#34;</span>)
+</span></span></code></pre></div><p>In Python you raise exceptions with the <code>raise</code> keyword, while in Java you throw them with the <code>throw</code> keyword.</p>
+<p>Should you be interested into Machine Learning or Data Science, Python is a great language to learn. There are a lot of libraries available, like <a href="https://numpy.org/" target="_blank">NumPy</a>, <a href="https://www.scipy.org/" target="_blank">SciPy</a>, <a href="https://pandas.pydata.org/" target="_blank">Pandas</a>, <a href="https://matplotlib.org/" target="_blank">Matplotlib</a> and <a href="https://www.tensorflow.org/" target="_blank">TensorFlow</a>. You can also use <a href="https://jupyter.org/" target="_blank">Jupyter Notebooks</a> to create interactive documents. Java has some libraries for Machine Learning and Data Science, but they are not as popular as the Python ones.</p>
+<p>Python is also a great language for web development. You can use <a href="https://www.djangoproject.com/" target="_blank">Django</a> or <a href="https://flask.palletsprojects.com/" target="_blank">Flask</a> to create web applications. You can also use <a href="https://riverbankcomputing.com/software/pyqt/intro" target="_blank">PyQt</a> or <a href="https://wiki.qt.io/Qt_for_Python" target="_blank">PySide</a> to create desktop applications. Java has <a href="https://spring.io/" target="_blank">Spring</a> for web development and <a href="https://openjfx.io/" target="_blank">JavaFX</a> for desktop applications.</p>
+<p>Another fairly new addition to the Python ecosystem is <a href="https://docs.pyscript.net/latest/index.html#" target="_blank">PyScript</a> which allows you to write Python code and compile it to JavaScript. This is similar to <a href="https://www.graalvm.org/" target="_blank">GraalVM</a> which allows you to write Java code and compile it to JavaScript.</p>
+<p>Python is also a great language for scripting. You can use it to automate tasks on your computer. You can also use it to create <em>command line interfaces</em> for your applications. Java is not that great for scripting, but you can still use it for that.</p>
+<p>In future posts I will try to focus on a specific topic and compare how it is done in Java and Python. This can serve as a go-to guide for people working with both languages, including myself.</p>
+<p>Happy coding!</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://vladflore.tech/tags/python/">python</a></span>
+        <span class="tag"><a href="https://vladflore.tech/tags/java/">java</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        1518 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2023-06-12 02:00
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+
+  
+  
+  <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2023%2f06%2flearning-python-as-a-java-developer-2%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+    <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+        <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="resp-sharing-button__link" href="mailto:?subject=Learning%20Python%20as%20a%20Java%20developer%20-%202%2f&amp;body=https%3a%2f%2fvladflore.tech%2fposts%2f2023%2f06%2flearning-python-as-a-java-developer-2%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+    <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fvladflore.tech%2fposts%2f2023%2f06%2flearning-python-as-a-java-developer-2%2f&amp;title=Learning%20Python%20as%20a%20Java%20developer%20-%202%2f&amp;summary=Learning%20Python%20as%20a%20Java%20developer%20-%202%2f&amp;source=https%3a%2f%2fvladflore.tech%2fposts%2f2023%2f06%2flearning-python-as-a-java-developer-2%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+    <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  <a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2023%2f06%2flearning-python-as-a-java-developer-2%2f&amp;resubmit=true&amp;title=Learning%20Python%20as%20a%20Java%20developer%20-%202%2f" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+    <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      </div>
+
+    
+    <div class="pagination">
+        
+
+        <div class="pagination__buttons">
+            
+
+            
+            <span class="button next">
+                <a href="https://vladflore.tech/posts/2022/07/java-17/">
+                    <span class="button__text">Java 17</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+
+    
+      <script defer src=https://cdn.commento.io/js/commento.js></script>
+      <div id="commento"></div>
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; true</span>
+            <span><a href="https://vladflore.tech/">Vlad Flore</a></span>
+            
+            <span><a href="https://vladflore.tech/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            
+        </div>
+    </div>
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://themes.gohugo.io/themes/hugo-theme-hello-friend-ng/">hello-friend-ng</a> theme</span>
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://vladflore.tech/bundle.min.ac2a4bcaed631ec2dc154407be7f09fc28da37de71fae6dee6711b2a3d1622770f87d3cda22c460e9a68ff619bdb1dd75cb7a5d33f159a54e419736cc4541087.js" integrity="sha512-rCpLyu1jHsLcFUQHvn8J/CjaN95x&#43;ube5nEbKj0WIncPh9PNoixGDppo/2Gb2x3XXLel0z8VmlTkGXNsxFQQhw=="></script>
+
+
+
+
+    </body>
+</html>

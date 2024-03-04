@@ -1,43 +1,41 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>java on vladflore.tech</title>
+    <title>Java on vladflore.tech</title>
     <link>https://vladflore.tech/tags/java/</link>
-    <description>Recent content in java on vladflore.tech</description>
+    <description>Recent content in Java on vladflore.tech</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 22 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://vladflore.tech/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://vladflore.tech/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Python as a Java developer - 2/</title>
+      <link>https://vladflore.tech/posts/2023/06/learning-python-as-a-java-developer-2/</link>
+      <pubDate>Mon, 12 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2023/06/learning-python-as-a-java-developer-2/</guid>
+      <description>This is the second part of the series &amp;ldquo;Learning Python as a Java developer&amp;rdquo;. If you are interested in the other ones, check the links below:&#xA;part one Learning resources Before going into the details of the second part, I want to enumerate some of the resources I used and I am still using to learn/brush up on Python, beside the ones I mentioned in the first part:&#xA;CS50’s Introduction to Programming with Python, 2022 - free/payed Practical Python Programming, a course by David Beazley - free.</description>
+    </item>
     <item>
       <title>Java 17</title>
       <link>https://vladflore.tech/posts/2022/07/java-17/</link>
       <pubDate>Fri, 22 Jul 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://vladflore.tech/posts/2022/07/java-17/</guid>
-      <description>Meet Java 17 Java&amp;hellip; what version is it? &amp;hellip;17 reached GA on 14.09.2021 and brought a bunch of new features, of which two are of more interest than the rest, at least for me. These are:
-sealed classes pattern matching for switch (first preview) Java 17 is a LTS version.
-Sealed classes Sealed classes came in Java 17 via JEP 409 and although the name says &amp;ldquo;sealed classes&amp;rdquo; , interfaces are also subject to being sealed.</description>
+      <description>Meet Java 17 Java&amp;hellip; what version is it? &amp;hellip;17 reached GA on 14.09.2021 and brought a bunch of new features, of which two are of more interest than the rest, at least for me. These are:&#xA;sealed classes pattern matching for switch (first preview) Java 17 is a LTS version.&#xA;Sealed classes Sealed classes came in Java 17 via JEP 409 and although the name says &amp;ldquo;sealed classes&amp;rdquo; , interfaces are also subject to being sealed.</description>
     </item>
-    
     <item>
       <title>Learning Python as a Java developer - 1/</title>
       <link>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/</link>
       <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/</guid>
       <description>Becoming a Pythonista If the term &amp;ldquo;pythonista&amp;rdquo; seems unusual or off-putting to you, rest assured that you are not the only one. Personally, I find the word somewhat amusing, and I had to look it up initially. After all, &amp;ldquo;Python programmer&amp;rdquo; or &amp;ldquo;Python software engineer&amp;rdquo; would suffice, right? Regardless, this post is not about what we call individuals who work with Python; rather, it&amp;rsquo;s about sharing my experience of learning Python as a Java software engineer.</description>
     </item>
-    
     <item>
       <title>Java 11</title>
       <link>https://vladflore.tech/posts/2020/09/java-11/</link>
       <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://vladflore.tech/posts/2020/09/java-11/</guid>
-      <description>But Java is already at version 15, why talk about 11 ?! Well,&amp;hellip;but before that, a note of caution: considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this is bigger than 15, it was 15 when I wrote this post!
-Now, let&amp;rsquo;s continue&amp;hellip;
-Java 11 is the current (see note of caution above) LTS version, and will stay like that until Java 17 appears, which should be somewhere around the end of 2021, which is then the new LTS version (all of this hold true iff Oracle doesn&amp;rsquo;t change something in the whole release plan).</description>
+      <description>But Java is already at version 15, why talk about 11 ?! Well,&amp;hellip;but before that, a note of caution: considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this is bigger than 15, it was 15 when I wrote this post!&#xA;Now, let&amp;rsquo;s continue&amp;hellip;&#xA;Java 11 is the current (see note of caution above) LTS version, and will stay like that until Java 17 appears, which should be somewhere around the end of 2021, which is then the new LTS version (all of this hold true iff Oracle doesn&amp;rsquo;t change something in the whole release plan).</description>
     </item>
-    
   </channel>
 </rss>

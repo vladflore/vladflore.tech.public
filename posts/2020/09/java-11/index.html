@@ -24,7 +24,7 @@ Java 11 is the current (see note of caution above) LTS version, and will stay li
 
 
 
-<link rel="stylesheet" href="https://vladflore.tech/main.b78c3be9451dc4ca61ca377f3dc2cf2e6345a44c2bae46216a322ef366daa399.css" integrity="sha256-t4w76UUdxMphyjd/PcLPLmNFpEwrrkYhajIu82bao5k=">
+<link rel="stylesheet" href="https://vladflore.tech/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css" integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE=">
 
 
     
@@ -46,12 +46,10 @@ Java 11 is the current (see note of caution above) LTS version, and will stay li
 Now, let&rsquo;s continue&hellip;
 Java 11 is the current (see note of caution above) LTS version, and will stay like that until Java 17 appears, which should be somewhere around the end of 2021, which is then the new LTS version (all of this hold true iff Oracle doesn&rsquo;t change something in the whole release plan)."><meta itemprop="datePublished" content="2020-09-22T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-09-22T00:00:00+00:00" />
-<meta itemprop="wordCount" content="813"><meta itemprop="image" content="https://vladflore.tech"/>
+<meta itemprop="wordCount" content="813"><meta itemprop="image" content="https://vladflore.tech/" />
 <meta itemprop="keywords" content="java,shell," />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://vladflore.tech"/>
-
-<meta name="twitter:title" content="Java 11"/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://vladflore.tech/" /><meta name="twitter:title" content="Java 11"/>
 <meta name="twitter:description" content="But Java is already at version 15, why talk about 11 ?! Well,&hellip;but before that, a note of caution: considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this is bigger than 15, it was 15 when I wrote this post!
 Now, let&rsquo;s continue&hellip;
 Java 11 is the current (see note of caution above) LTS version, and will stay like that until Java 17 appears, which should be somewhere around the end of 2021, which is then the new LTS version (all of this hold true iff Oracle doesn&rsquo;t change something in the whole release plan)."/>
@@ -63,9 +61,10 @@ Java 11 is the current (see note of caution above) LTS version, and will stay li
 Now, let&rsquo;s continue&hellip;
 Java 11 is the current (see note of caution above) LTS version, and will stay like that until Java 17 appears, which should be somewhere around the end of 2021, which is then the new LTS version (all of this hold true iff Oracle doesn&rsquo;t change something in the whole release plan)." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://vladflore.tech/posts/2020/09/java-11/" /><meta property="og:image" content="https://vladflore.tech"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://vladflore.tech/posts/2020/09/java-11/" /><meta property="og:image" content="https://vladflore.tech/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-09-22T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-09-22T00:00:00+00:00" />
+
 
 
 
@@ -193,11 +192,11 @@ is bigger than 15, it was 15 when I wrote this post!</p>
 <h3 id="launch-single-file-source-code-programs">Launch single-file source-code programs</h3>
 <p>As per <a href="https://openjdk.java.net/jeps/330" target="_blank">JEP 330</a> we now have the possibility to launch single-file source-code programs.</p>
 <p>Let&rsquo;s code the simplest, politest Java program:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Greeter</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">){</span>
-</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello &#34;</span> <span style="color:#f92672">+</span> args<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;!&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Greeter</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args){
+</span></span><span style="display:flex;"><span>    System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Hello &#34;</span> <span style="color:#f92672">+</span> args<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;!&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Normally we would need to compile it with <code>javac</code> and get that <code>.class</code> file and then run it with <code>java</code> to see the greeting,
 but now we can just do:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ java Greeter.java Vlad
@@ -207,13 +206,13 @@ but now we can just do:</p>
 at the beginning of a file and then the Java code after it, make the new file executable and execute it like any other sh file.
 By the way, we can choose any name we want for the script file.</p>
 <p>Content of <code>greet</code> file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#f92672">!/</span>home<span style="color:#f92672">/</span>vlad<span style="color:#f92672">/.</span><span style="color:#a6e22e">sdkman</span><span style="color:#f92672">/</span>candidates<span style="color:#f92672">/</span>java<span style="color:#f92672">/</span><span style="color:#ae81ff">11.0.8</span><span style="color:#f92672">.</span><span style="color:#a6e22e">hs</span><span style="color:#f92672">-</span>adpt<span style="color:#f92672">/</span>bin<span style="color:#f92672">/</span>java <span style="color:#f92672">--</span>source <span style="color:#ae81ff">11</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#f92672">!/</span>home<span style="color:#f92672">/</span>vlad<span style="color:#f92672">/</span>.<span style="color:#a6e22e">sdkman</span><span style="color:#f92672">/</span>candidates<span style="color:#f92672">/</span>java<span style="color:#f92672">/</span>11.<span style="color:#a6e22e">0</span>.<span style="color:#a6e22e">8</span>.<span style="color:#a6e22e">hs</span><span style="color:#f92672">-</span>adpt<span style="color:#f92672">/</span>bin<span style="color:#f92672">/</span>java <span style="color:#f92672">--</span>source 11
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Greeter</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">){</span>
-</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello &#34;</span> <span style="color:#f92672">+</span> args<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;!&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Greeter</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args){
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Hello &#34;</span> <span style="color:#f92672">+</span> args<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;!&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>make it executable:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ chmod u+x greet
 </span></span></code></pre></div><p>and execute it:</p>
@@ -222,68 +221,68 @@ By the way, we can choose any name we want for the script file.</p>
 </span></span></code></pre></div><p>Let&rsquo;s spice things up a bit and implement another more complex example: this time we want to take some text, line by line,
 and display only the lines that match a given regular expression (basically a simplified version of <code>grep</code> command).</p>
 <p>Content of <code>grep</code> file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#f92672">!/</span>home<span style="color:#f92672">/</span>vlad<span style="color:#f92672">/.</span><span style="color:#a6e22e">sdkman</span><span style="color:#f92672">/</span>candidates<span style="color:#f92672">/</span>java<span style="color:#f92672">/</span><span style="color:#ae81ff">11.0.8</span><span style="color:#f92672">.</span><span style="color:#a6e22e">hs</span><span style="color:#f92672">-</span>adpt<span style="color:#f92672">/</span>bin<span style="color:#f92672">/</span>java <span style="color:#f92672">--</span>source <span style="color:#ae81ff">11</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#f92672">!/</span>home<span style="color:#f92672">/</span>vlad<span style="color:#f92672">/</span>.<span style="color:#a6e22e">sdkman</span><span style="color:#f92672">/</span>candidates<span style="color:#f92672">/</span>java<span style="color:#f92672">/</span>11.<span style="color:#a6e22e">0</span>.<span style="color:#a6e22e">8</span>.<span style="color:#a6e22e">hs</span><span style="color:#f92672">-</span>adpt<span style="color:#f92672">/</span>bin<span style="color:#f92672">/</span>java <span style="color:#f92672">--</span>source 11
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.BufferedReader<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.IOException<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.InputStreamReader<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.regex.Pattern<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.stream.Stream<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.BufferedReader;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.IOException;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.InputStreamReader;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.regex.Pattern;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.stream.Stream;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Grep</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// some arguments validation
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>args<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">||</span> args<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>            showUsage<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Grep</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) <span style="color:#66d9ef">throws</span> IOException {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// some arguments validation</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (args.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&lt;</span> 1 <span style="color:#f92672">||</span> args.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> 2) {
+</span></span><span style="display:flex;"><span>            showUsage();
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        var option <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        var strPattern <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> option <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> strPattern <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// some more arguments validation and extraction of the actual arguments
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>args<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>args<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">].</span><span style="color:#a6e22e">startsWith</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;-&#34;</span><span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>                showUsage<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>                strPattern <span style="color:#f92672">=</span> args<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">];</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// some more arguments validation and extraction of the actual arguments</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (args.<span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> 1) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (args<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span>.<span style="color:#a6e22e">startsWith</span>(<span style="color:#e6db74">&#34;-&#34;</span>)) {
+</span></span><span style="display:flex;"><span>                showUsage();
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>                strPattern <span style="color:#f92672">=</span> args<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>args<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>args<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">].</span><span style="color:#a6e22e">startsWith</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;-&#34;</span><span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>                option <span style="color:#f92672">=</span> args<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">];</span>
-</span></span><span style="display:flex;"><span>                strPattern <span style="color:#f92672">=</span> args<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">];</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>                showUsage<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (args.<span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> 2) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (args<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span>.<span style="color:#a6e22e">startsWith</span>(<span style="color:#e6db74">&#34;-&#34;</span>)) {
+</span></span><span style="display:flex;"><span>                option <span style="color:#f92672">=</span> args<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>                strPattern <span style="color:#f92672">=</span> args<span style="color:#f92672">[</span>1<span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>                showUsage();
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// is it a case-insensitive search
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        var isCaseSensitive <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>option<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;-i&#34;</span><span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>            isCaseSensitive <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// is it a case-insensitive search</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> isCaseSensitive <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (option.<span style="color:#a6e22e">equals</span>(<span style="color:#e6db74">&#34;-i&#34;</span>)) {
+</span></span><span style="display:flex;"><span>            isCaseSensitive <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        var reader <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BufferedReader<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> InputStreamReader<span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">in</span><span style="color:#f92672">));</span>
-</span></span><span style="display:flex;"><span>        Stream<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> lines <span style="color:#f92672">=</span> Stream<span style="color:#f92672">.</span><span style="color:#a6e22e">empty</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>reader<span style="color:#f92672">.</span><span style="color:#a6e22e">ready</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>            lines <span style="color:#f92672">=</span> reader<span style="color:#f92672">.</span><span style="color:#a6e22e">lines</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>        var regex <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>isCaseSensitive <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;(?i)&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.*&#34;</span> <span style="color:#f92672">+</span> strPattern <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.*&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> reader <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BufferedReader(<span style="color:#66d9ef">new</span> InputStreamReader(System.<span style="color:#a6e22e">in</span>));
+</span></span><span style="display:flex;"><span>        Stream<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> lines <span style="color:#f92672">=</span> Stream.<span style="color:#a6e22e">empty</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (reader.<span style="color:#a6e22e">ready</span>()) {
+</span></span><span style="display:flex;"><span>            lines <span style="color:#f92672">=</span> reader.<span style="color:#a6e22e">lines</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> regex <span style="color:#f92672">=</span> (isCaseSensitive <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;&#34;</span> : <span style="color:#e6db74">&#34;(?i)&#34;</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.*&#34;</span> <span style="color:#f92672">+</span> strPattern <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.*&#34;</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// new Java 11 feature
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// see https://cr.openjdk.java.net/~iris/se/11/latestSpec/apidiffs/java/util/regex/Pattern.html
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        var asMatchPredicate <span style="color:#f92672">=</span> Pattern<span style="color:#f92672">.</span><span style="color:#a6e22e">compile</span><span style="color:#f92672">(</span>regex<span style="color:#f92672">).</span><span style="color:#a6e22e">asMatchPredicate</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>        lines<span style="color:#f92672">.</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">(</span>asMatchPredicate<span style="color:#f92672">).</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">::</span>println<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// new Java 11 feature</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// see https://cr.openjdk.java.net/~iris/se/11/latestSpec/apidiffs/java/util/regex/Pattern.html</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> asMatchPredicate <span style="color:#f92672">=</span> Pattern.<span style="color:#a6e22e">compile</span>(regex).<span style="color:#a6e22e">asMatchPredicate</span>();
+</span></span><span style="display:flex;"><span>        lines.<span style="color:#a6e22e">filter</span>(asMatchPredicate).<span style="color:#a6e22e">forEach</span>(System.<span style="color:#a6e22e">out</span>::println);
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">showUsage</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Usage: ./grep [-i] PATTERN&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">showUsage</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Usage: ./grep [-i] PATTERN&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Make the file executable and then you can execute it like this:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ echo -e <span style="color:#e6db74">&#34;aaa\nbbb\nccc&#34;</span> | ./grep -i CCC
 </span></span><span style="display:flex;"><span>ccc
@@ -431,6 +430,8 @@ and display only the lines that match a given regular expression (basically a si
       <div id="commento"></div>
     
 
+    
+
   </main>
 
             </div>
@@ -440,8 +441,8 @@ and display only the lines that match a given regular expression (basically a si
     
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2023</span>
-            <span><a href="https://vladflore.tech">Vlad Flore</a></span>
+            <span>&copy; true</span>
+            <span><a href="https://vladflore.tech/">Vlad Flore</a></span>
             
             <span><a href="https://vladflore.tech/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
             
@@ -464,7 +465,8 @@ and display only the lines that match a given regular expression (basically a si
 
 
 
-<script type="text/javascript" src="https://vladflore.tech/bundle.min.205d491810c28f95aa953fae884e1c27abe13fdf93ec63b882d0036b248d4a6282eb2d134e4e7225c6ad6e86db87b08488a361ca4a7383d01fcff43f3d57b9c3.js" integrity="sha512-IF1JGBDCj5WqlT&#43;uiE4cJ6vhP9&#43;T7GO4gtADaySNSmKC6y0TTk5yJcatbobbh7CEiKNhykpzg9Afz/Q/PVe5ww=="></script>
+<script type="text/javascript" src="https://vladflore.tech/bundle.min.ac2a4bcaed631ec2dc154407be7f09fc28da37de71fae6dee6711b2a3d1622770f87d3cda22c460e9a68ff619bdb1dd75cb7a5d33f159a54e419736cc4541087.js" integrity="sha512-rCpLyu1jHsLcFUQHvn8J/CjaN95x&#43;ube5nEbKj0WIncPh9PNoixGDppo/2Gb2x3XXLel0z8VmlTkGXNsxFQQhw=="></script>
+
 
 
 
