@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Vlad Flore ">
-<meta name="description" content="In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you&amp;rsquo;ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.
-The motivation behind I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is." />
+<meta name="description" content="In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you&rsquo;ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.
+The motivation behind I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is. I also didn&rsquo;t want to set up my own cloud, so I just sticked with AWS EC2 solution, despite the fact that it is not always for free.
+" />
 <meta name="keywords" content=", sonarqube, aws, ec2" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
@@ -24,27 +25,27 @@ The motivation behind I wanted a SonarQube Server running in the cloud so that m
 
 
 
-<link rel="stylesheet" href="https://vladflore.tech/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css" integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE=">
+<link rel="stylesheet" href="/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css" integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE=">
 
 
     
-        <link rel="stylesheet" type="text/css" href="https://vladflore.tech/css/custom.css">
+        <link rel="stylesheet" type="text/css" href="/css/custom.css">
     
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://vladflore.tech/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://vladflore.tech/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://vladflore.tech/favicon-16x16.png">
-    <link rel="manifest" href="https://vladflore.tech/site.webmanifest">
-    <link rel="mask-icon" href="https://vladflore.tech/safari-pinned-tab.svg" color="">
-    <link rel="shortcut icon" href="https://vladflore.tech/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
     <meta name="msapplication-TileColor" content="">
 
 
 
   <meta itemprop="name" content="SonarQube on AWS EC2">
   <meta itemprop="description" content="In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you’ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.
-The motivation behind I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is.">
+The motivation behind I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is. I also didn’t want to set up my own cloud, so I just sticked with AWS EC2 solution, despite the fact that it is not always for free.">
   <meta itemprop="datePublished" content="2020-06-04T00:00:00+00:00">
   <meta itemprop="dateModified" content="2020-06-04T00:00:00+00:00">
   <meta itemprop="wordCount" content="1022">
@@ -55,7 +56,7 @@ The motivation behind I wanted a SonarQube Server running in the cloud so that m
   <meta name="twitter:image" content="https://vladflore.tech/">
   <meta name="twitter:title" content="SonarQube on AWS EC2">
   <meta name="twitter:description" content="In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you’ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.
-The motivation behind I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is.">
+The motivation behind I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is. I also didn’t want to set up my own cloud, so I just sticked with AWS EC2 solution, despite the fact that it is not always for free.">
 
 
 
@@ -63,7 +64,7 @@ The motivation behind I wanted a SonarQube Server running in the cloud so that m
   <meta property="og:site_name" content="vladflore.tech">
   <meta property="og:title" content="SonarQube on AWS EC2">
   <meta property="og:description" content="In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you’ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.
-The motivation behind I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is.">
+The motivation behind I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is. I also didn’t want to set up my own cloud, so I just sticked with AWS EC2 solution, despite the fact that it is not always for free.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -89,6 +90,21 @@ The motivation behind I wanted a SonarQube Server running in the cloud so that m
 
 
 
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RE8EZYX8D9"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RE8EZYX8D9');
+        }
+      </script>
 
 
     </head>
@@ -100,7 +116,7 @@ The motivation behind I wanted a SonarQube Server running in the cloud so that m
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://vladflore.tech/" style="text-decoration: none;">
+        <a href="/" style="text-decoration: none;">
     <div class="logo">
         
             <span class="logo__mark">&gt;</span>
@@ -119,7 +135,7 @@ The motivation behind I wanted a SonarQube Server running in the cloud so that m
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://vladflore.tech/posts/">Posts</a></li><li><a href="https://vladflore.tech/about/">About</a></li>
+    <ul class="menu__inner"><li><a href="/posts/">Posts</a></li><li><a href="/about/">About</a></li>
     </ul>
 </nav>
 
@@ -296,11 +312,11 @@ You should see your SonarQube page.</p>
 <p>First step is to <em>enable the mutation testing support</em>, which means that you have to <em>install a plugin</em>.
 For this, login with the default credentials <code>admin/admin</code>, go to <code>Administration -&gt; Marketplace</code> and search for <code>Mutation Analysis</code> <a href="https://github.com/devcon5io/mutation-analysis-plugin" target="_blank">plugin</a> and install it.
 Restart the server.</p>
-<p><img alt="sonar-mt-plugin" src="https://vladflore.tech/images/sonar-mt-plugin.png"></p>
+<p><img alt="sonar-mt-plugin" src="/images/sonar-mt-plugin.png"></p>
 <p>Next, we need to create a new <em>quality profile</em>, which will contain the <em>default SonarQube Java rules</em> and the <em>Mutation Analysis rules</em> and set it as the <em>default profile for Java</em>.</p>
 <p>Follow the steps listed in <a href="https://dzone.com/articles/mutation-testing-with-sonarqube" target="_blank">this article</a> under the section <em>Enable the Mutation Analysis Rules</em> to achieve the above mentioned.</p>
 <p>When finished it should look something similar to this:</p>
-<p><img alt="sonar-mt-plugin" src="https://vladflore.tech/images/sonar-mt-java-rules.png"></p>
+<p><img alt="sonar-mt-plugin" src="/images/sonar-mt-java-rules.png"></p>
 <p>Now SonarQube should be able to interpret the mutation testing results too.</p>
 <p>Before drilling down through your project and hunting down your mutations you have to upload the mutation analysis for the project in question.</p>
 <p>I am using Maven as a build automation tool for my project and my <code>pom.xml</code> is updated accordingly.</p>
@@ -310,7 +326,7 @@ Restart the server.</p>
 accordingly to contain the IP of your EC2 instance hosting the SonarQube Server.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mvn clean verify org.pitest:pitest-maven:mutationCoverage sonar:sonar -Dsonar.host.url<span style="color:#f92672">=</span>http://&lt;IPv4 Public IP&gt;:9000
 </span></span></code></pre></div><p>And voilà the analysis of my project at that point in time (including the mutation analysis):</p>
-<p><img alt="sonar-mt-plugin" src="https://vladflore.tech/images/sonar-analysis.png"></p>
+<p><img alt="sonar-mt-plugin" src="/images/sonar-analysis.png"></p>
 <p>Now go write those unit tests, kill those mutants and reach a 90%+ code coverage. I dare you! ;)</p>
 <p>Happy code crafting!</p>
 
@@ -444,10 +460,32 @@ accordingly to contain the IP of your EC2 instance hosting the SonarQube Server.
 
 
     
-
+      
+        <div id="comments">
+          <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
     
-      <script defer src=https://cdn.commento.io/js/commento.js></script>
-      <div id="commento"></div>
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vladflore-tech" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      
+    
+
     
 
     
@@ -485,7 +523,7 @@ accordingly to contain the IP of your EC2 instance hosting the SonarQube Server.
 
 
 
-<script type="text/javascript" src="https://vladflore.tech/bundle.min.e89fda0f29b95d33f6f4224dd9e5cf69d84aff3818be2b0d73e731689cc374261b016d17d46f8381962fb4a1577ba3017b1f23509d894f6e66431f988c00889e.js" integrity="sha512-6J/aDym5XTP29CJN2eXPadhK/zgYvisNc&#43;cxaJzDdCYbAW0X1G&#43;DgZYvtKFXe6MBex8jUJ2JT25mQx&#43;YjACIng=="></script>
+<script type="text/javascript" src="/bundle.min.e89fda0f29b95d33f6f4224dd9e5cf69d84aff3818be2b0d73e731689cc374261b016d17d46f8381962fb4a1577ba3017b1f23509d894f6e66431f988c00889e.js" integrity="sha512-6J/aDym5XTP29CJN2eXPadhK/zgYvisNc&#43;cxaJzDdCYbAW0X1G&#43;DgZYvtKFXe6MBex8jUJ2JT25mQx&#43;YjACIng=="></script>
 
 
 

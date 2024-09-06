@@ -7,21 +7,28 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Fri, 07 May 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 06 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://vladflore.tech/tags/non-nerdy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Life update</title>
+      <link>https://vladflore.tech/posts/2024/09/life-update/</link>
+      <pubDate>Fri, 06 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2024/09/life-update/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s been 20 months since I moved to another country, and life has been quite interesting since then.&lt;/p&gt;&#xA;&lt;p&gt;To give some context, I left Germany at the beginning of January 2023 and moved to Barcelona, Spain. In other words, I swapped &lt;em&gt;Bratwurst&lt;/em&gt;, &lt;em&gt;Bretzel&lt;/em&gt;, and cold weather for &lt;em&gt;jamón&lt;/em&gt;, &lt;em&gt;crema catalana&lt;/em&gt;, and warm weather. This is, of course, an oversimplification, but it&amp;rsquo;s still accurate.&lt;/p&gt;&#xA;&lt;p&gt;As you may know, moving to a new country is not easy, even with help. Because of this, the first few weeks and even months were a bit hectic and different from what I expected.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Nine Months Later</title>
       <link>https://vladflore.tech/posts/2021/05/nine-months-later/</link>
       <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
       <guid>https://vladflore.tech/posts/2021/05/nine-months-later/</guid>
-      <description>TL;DR&#xA;&amp;hellip;if you were thinking about screaming little humans, I am afraid I will disappoint you and it might be that this post is not for you.&#xA;If you are still reading, then you might be one of those people, who thought of something else what could have happened in a period of nine months. I salute you and encourage you to read on!&#xA;2020 was a special year, for the world and for me as well, on one side we had that end of the world kind of global infestation thing, on the other side I managed to make some changes, which hopefully will pay-off in the near future, dare saying some of them have already payed-off.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;TL;DR&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;&amp;hellip;if you were thinking about screaming little humans, I am afraid I will disappoint you and it might be that this post is not for you.&lt;/p&gt;&#xA;&lt;p&gt;If you are still reading, then you might be one of those people, who thought of something else what could have happened in a period of nine months. I salute you and encourage you to read on!&lt;/p&gt;&#xA;&lt;p&gt;2020 was a special year, for the world and for me as well, on one side we had that &lt;em&gt;end of the world kind of global infestation&lt;/em&gt; thing, on the other side I managed to make some changes, which hopefully will pay-off in the near future, dare saying some of them have already payed-off.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hello World</title>
       <link>https://vladflore.tech/posts/2020/02/hello-world/</link>
       <pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
       <guid>https://vladflore.tech/posts/2020/02/hello-world/</guid>
-      <description>Hello Internet,&#xA;so this is my first blog post, which I hope will be one of many more to come. This is more of a hello world kind of post, a way to cut my teeth into blogging and see if it&amp;rsquo;s something I would like doing.&#xA;Should you wonder by now why hello world, well just ask someone who works in IT and has learned at least one programming language.</description>
+      <description>&lt;p&gt;Hello Internet,&lt;/p&gt;&#xA;&lt;p&gt;so this is my first blog post, which I hope will be one of many more to come. This is more of a &lt;em&gt;hello world&lt;/em&gt; kind of post,&#xA;a way to cut my teeth into blogging and see if it&amp;rsquo;s something I would like doing.&lt;/p&gt;&#xA;&lt;p&gt;Should you wonder by now why &lt;em&gt;hello world&lt;/em&gt;,&#xA;well just ask someone who works in IT and has learned at least one programming language.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

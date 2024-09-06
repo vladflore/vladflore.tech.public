@@ -14,14 +14,14 @@
       <link>https://vladflore.tech/posts/2020/09/java-11/</link>
       <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
       <guid>https://vladflore.tech/posts/2020/09/java-11/</guid>
-      <description>But Java is already at version 15, why talk about 11 ?! Well,&amp;hellip;but before that, a note of caution: considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this is bigger than 15, it was 15 when I wrote this post!&#xA;Now, let&amp;rsquo;s continue&amp;hellip;&#xA;Java 11 is the current (see note of caution above) LTS version, and will stay like that until Java 17 appears, which should be somewhere around the end of 2021, which is then the new LTS version (all of this hold true iff Oracle doesn&amp;rsquo;t change something in the whole release plan).</description>
+      <description>&lt;p&gt;But &lt;a href=&#34;https://www.oracle.com/java/technologies/javase-downloads.html&#34; target=&#34;_blank&#34;&gt;Java&lt;/a&gt; is already at version 15, why talk about 11 ?! Well,&amp;hellip;but before that, a note of caution:&#xA;considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this&#xA;is bigger than 15, it was 15 when I wrote this post!&lt;/p&gt;&#xA;&lt;p&gt;Now, let&amp;rsquo;s continue&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;Java 11 is the current (see note of caution above) LTS version, and will stay like that until Java 17 appears, which should be somewhere around the end of 2021, which is then the new LTS version (all of this hold true iff Oracle doesn&amp;rsquo;t change something in the whole release plan).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Shell Magic</title>
       <link>https://vladflore.tech/posts/2020/03/shell-magic/</link>
       <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
       <guid>https://vladflore.tech/posts/2020/03/shell-magic/</guid>
-      <description>NOTE 1: This page contains some shell magic which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.&#xA;NOTE 2: Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE 1:&lt;/em&gt;&lt;/strong&gt; This page contains some shell &lt;em&gt;magic&lt;/em&gt; which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE 2:&lt;/em&gt;&lt;/strong&gt; Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.&#xA;Some of them might also require sudo access, so I am just going to assume that you know what you are doing. You have been warned!&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

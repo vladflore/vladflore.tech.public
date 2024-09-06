@@ -6,8 +6,33 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-        <lastBuildDate>Mon, 04 Mar 2024 16:22:52 +0100</lastBuildDate>
+        <lastBuildDate>Fri, 06 Sep 2024 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://vladflore.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Life update</title>
+            <link>https://vladflore.tech/posts/2024/09/life-update/</link>
+            <pubDate>Fri, 06 Sep 2024 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2024/09/life-update/</guid>
+            <description>&lt;p&gt;It&amp;rsquo;s been 20 months since I moved to another country, and life has been quite interesting since then.&lt;/p&gt;
+&lt;p&gt;To give some context, I left Germany at the beginning of January 2023 and moved to Barcelona, Spain. In other words, I swapped &lt;em&gt;Bratwurst&lt;/em&gt;, &lt;em&gt;Bretzel&lt;/em&gt;, and cold weather for &lt;em&gt;jamón&lt;/em&gt;, &lt;em&gt;crema catalana&lt;/em&gt;, and warm weather. This is, of course, an oversimplification, but it&amp;rsquo;s still accurate.&lt;/p&gt;
+&lt;p&gt;As you may know, moving to a new country is not easy, even with help. Because of this, the first few weeks and even months were a bit hectic and different from what I expected.&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<p>It&rsquo;s been 20 months since I moved to another country, and life has been quite interesting since then.</p>
+<p>To give some context, I left Germany at the beginning of January 2023 and moved to Barcelona, Spain. In other words, I swapped <em>Bratwurst</em>, <em>Bretzel</em>, and cold weather for <em>jamón</em>, <em>crema catalana</em>, and warm weather. This is, of course, an oversimplification, but it&rsquo;s still accurate.</p>
+<p>As you may know, moving to a new country is not easy, even with help. Because of this, the first few weeks and even months were a bit hectic and different from what I expected.</p>
+<p>One of the things that really surprised me was that people here don&rsquo;t speak English very well, if at all.</p>
+<p>As I write this, I&rsquo;ve had several interactions with people from different areas, and that first impression still holds true. You can communicate with them in English, and they will try to help, but it&rsquo;s not always easy. I&rsquo;m okay with this since I&rsquo;m the foreigner and should learn their language, but just be aware that English isn&rsquo;t enough here — nor is German!</p>
+<p>The biggest surprise comes when you expect them to speak English well, especially in institutions where they claim to speak English. But when you approach them, it turns out it&rsquo;s more of a &ldquo;más o menos&rdquo; situation with an emphasis on &ldquo;menos.&rdquo;</p>
+<p>That being said, where there’s a will, there’s a way, and using gestures and &ldquo;Spanglish&rdquo; works just as well. So, until you improve your Spanish, just do your best and accept that you’re going to make a fool of yourself every now and then.</p>
+<p>The language situation here deserves a <a href="">separate post</a>, so keep an eye on the <em>non-nerdy</em> tag.</p>
+<p>To keep things brief, I&rsquo;ll share more about <a href="">my experiences in and around Barcelona</a> in the future, so stay tuned!</p>
+<p>Another update is that I’ve been working on a new project called The <em>I-Fit Project</em>—or to put it simply, I’ve started going to the gym and eating healthier ;). I began this journey in March 2023 and have been going to the gym regularly, with a few breaks here and there. Along the way, I faced some health issues, mostly due to not being active before, but they are now mostly under control.</p>
+<p>By going to the gym, I do not mean just that, I took a genuine interest in it, and I&rsquo;ve been learning a lot about fitness, nutrition, and health. I&rsquo;ve also been working with a personal trainer, who has been a great help in this journey. While it is not always easy, I&rsquo;m happy with the progress I&rsquo;ve made so far and I am looking forward to what things could look like in the future.</p>
+<p>One last thing before closing this post, people here are very different than in Germany. They are more open, friendly, and&hellip; loud. They are also more relaxed and less punctual, which can be a bit frustrating at times. But, as with the language, you get used to it and learn to adapt.</p>
+<p>While not everything is perfect, good nutritious food, warm weather, the sea, and the mountains make up for it.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Learning Python as a Java developer - 2/</title>
@@ -15,9 +40,12 @@
             <pubDate>Mon, 12 Jun 2023 00:00:00 +0000</pubDate>
             
             <guid>https://vladflore.tech/posts/2023/06/learning-python-as-a-java-developer-2/</guid>
-            <description>This is the second part of the series &amp;ldquo;Learning Python as a Java developer&amp;rdquo;. If you are interested in the other ones, check the links below:
-part one Learning resources Before going into the details of the second part, I want to enumerate some of the resources I used and I am still using to learn/brush up on Python, beside the ones I mentioned in the first part:
-CS50’s Introduction to Programming with Python, 2022 - free/payed Practical Python Programming, a course by David Beazley - free.</description>
+            <description>&lt;p&gt;This is the second part of the series &amp;ldquo;Learning Python as a Java developer&amp;rdquo;. If you are interested in the other ones, check the links below:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/&#34;&gt;part one&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;learning-resources&#34;&gt;Learning resources&lt;/h2&gt;
+&lt;p&gt;Before going into the details of the second part, I want to enumerate some of the resources I used and I am still using to learn/brush up on Python, beside the ones I mentioned in the first part:&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>This is the second part of the series &ldquo;Learning Python as a Java developer&rdquo;. If you are interested in the other ones, check the links below:</p>
 <ul>
 <li><a href="https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/">part one</a></li>
@@ -108,9 +136,19 @@ CS50’s Introduction to Programming with Python, 2022 - free/payed Practical Py
             <pubDate>Fri, 22 Jul 2022 00:00:00 +0000</pubDate>
             
             <guid>https://vladflore.tech/posts/2022/07/java-17/</guid>
-            <description>Meet Java 17 Java&amp;hellip; what version is it? &amp;hellip;17 reached GA on 14.09.2021 and brought a bunch of new features, of which two are of more interest than the rest, at least for me. These are:
-sealed classes pattern matching for switch (first preview) Java 17 is a LTS version.
-Sealed classes Sealed classes came in Java 17 via JEP 409 and although the name says &amp;ldquo;sealed classes&amp;rdquo; , interfaces are also subject to being sealed.</description>
+            <description>&lt;h2 id=&#34;meet-java-17&#34;&gt;Meet Java 17&lt;/h2&gt;
+&lt;p&gt;Java&amp;hellip; &lt;em&gt;what version is it?&lt;/em&gt; &amp;hellip;&lt;a href=&#34;https://openjdk.org/projects/jdk/17/&#34; target=&#34;_blank&#34;&gt;17&lt;/a&gt; reached GA on 14.09.2021 and brought a bunch
+of new features, of which two are of more interest than the rest, at least for me. These are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;sealed classes&lt;/li&gt;
+&lt;li&gt;pattern matching for switch (first preview)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Java 17 is a &lt;em&gt;LTS version&lt;/em&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;sealed-classes&#34;&gt;Sealed classes&lt;/h3&gt;
+&lt;p&gt;Sealed classes came in Java 17 via &lt;a href=&#34;https://openjdk.org/jeps/409&#34; target=&#34;_blank&#34;&gt;JEP 409&lt;/a&gt; and although the name says &amp;ldquo;sealed &lt;em&gt;classes&lt;/em&gt;&amp;rdquo;
+, interfaces are also subject to being sealed. With this new feature, three new special keywords have been added to the
+language: &lt;code&gt;sealed&lt;/code&gt;, &lt;code&gt;non-sealed&lt;/code&gt; and &lt;code&gt;permits&lt;/code&gt;. The basic idea is that sealed classes and interfaces restrict which
+other classes or interfaces may extend or implement them. Let&amp;rsquo;s look at an example:&lt;/p&gt;</description>
             <content type="html"><![CDATA[<h2 id="meet-java-17">Meet Java 17</h2>
 <p>Java&hellip; <em>what version is it?</em> &hellip;<a href="https://openjdk.org/projects/jdk/17/" target="_blank">17</a> reached GA on 14.09.2021 and brought a bunch
 of new features, of which two are of more interest than the rest, at least for me. These are:</p>
@@ -362,7 +400,8 @@ to be <code>17 (Preview) - Pattern matching for switch</code>.</p>
             <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
             
             <guid>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/</guid>
-            <description>Becoming a Pythonista If the term &amp;ldquo;pythonista&amp;rdquo; seems unusual or off-putting to you, rest assured that you are not the only one. Personally, I find the word somewhat amusing, and I had to look it up initially. After all, &amp;ldquo;Python programmer&amp;rdquo; or &amp;ldquo;Python software engineer&amp;rdquo; would suffice, right? Regardless, this post is not about what we call individuals who work with Python; rather, it&amp;rsquo;s about sharing my experience of learning Python as a Java software engineer.</description>
+            <description>&lt;h2 id=&#34;becoming-a-pythonista&#34;&gt;Becoming a Pythonista&lt;/h2&gt;
+&lt;p&gt;If the term &amp;ldquo;pythonista&amp;rdquo; seems unusual or off-putting to you, rest assured that you are not the only one. Personally, I find the word somewhat amusing, and I had to &lt;a href=&#34;https://en.wiktionary.org/wiki/Pythonista&#34; target=&#34;_blank&#34;&gt;look it up&lt;/a&gt; initially. After all, &amp;ldquo;Python programmer&amp;rdquo; or &amp;ldquo;Python software engineer&amp;rdquo; would suffice, right? Regardless, this post is not about what we call individuals who work with Python; rather, it&amp;rsquo;s about sharing my experience of learning Python as a Java software engineer.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<h2 id="becoming-a-pythonista">Becoming a Pythonista</h2>
 <p>If the term &ldquo;pythonista&rdquo; seems unusual or off-putting to you, rest assured that you are not the only one. Personally, I find the word somewhat amusing, and I had to <a href="https://en.wiktionary.org/wiki/Pythonista" target="_blank">look it up</a> initially. After all, &ldquo;Python programmer&rdquo; or &ldquo;Python software engineer&rdquo; would suffice, right? Regardless, this post is not about what we call individuals who work with Python; rather, it&rsquo;s about sharing my experience of learning Python as a Java software engineer.</p>
 <p>First and foremost, I want to clarify that my intention is <em>not</em> to ignite or fuel a language debate, such as Java versus Python. Instead, my sole purpose is to share my experience and perspective on learning a new programming language, particularly Python, while coming from a Java background.</p>
@@ -422,8 +461,14 @@ to be <code>17 (Preview) - Pattern matching for switch</code>.</p>
             <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
             
             <guid>https://vladflore.tech/posts/2021/12/git-animated-4/</guid>
-            <description>This is the forth and last video in the Git Animated series. If you are interested in the other ones, check the links below:
-part one part two part three Another way of integrating changes of a branch into another one is by performing a rebase. Instead of creating a new merge commit, as it happens when we merge two histories, a rebase will change the base of a branch from one commit to another.</description>
+            <description>&lt;p&gt;This is the forth and last video in the &lt;strong&gt;Git Animated&lt;/strong&gt; series.
+If you are interested in the other ones, check the links below:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-1/&#34;&gt;part one&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-2/&#34;&gt;part two&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/09/git-animated-3/&#34;&gt;part three&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Another way of integrating changes of a branch into another one is by performing a &lt;strong&gt;rebase&lt;/strong&gt;. Instead of creating a new merge commit, as it happens when we &lt;strong&gt;merge&lt;/strong&gt; two histories, a rebase will change the base of a branch from one commit to another. Changing the base of a branch means changing the commit that branch was created from to be some other commit.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>This is the forth and last video in the <strong>Git Animated</strong> series.
 If you are interested in the other ones, check the links below:</p>
 <ul>
@@ -470,8 +515,16 @@ git rebase master
             <pubDate>Sun, 05 Sep 2021 00:00:00 +0000</pubDate>
             
             <guid>https://vladflore.tech/posts/2021/09/git-animated-3/</guid>
-            <description>This is the third video in the Git Animated series. If you are interested in the other ones, check the links below:
-part one part two part four In this video we will merge two histories, master and feature, which have diverged at commit M2. As each of the branches got new commits from that divergent point, the feature branch cannot be integrated into the master branch using a fast-forward approach.</description>
+            <description>&lt;p&gt;This is the third video in the &lt;strong&gt;Git Animated&lt;/strong&gt; series.
+If you are interested in the other ones, check the links below:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-1/&#34;&gt;part one&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-2/&#34;&gt;part two&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/12/git-animated-4/&#34;&gt;part four&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In this video we will merge two histories, &lt;code&gt;master&lt;/code&gt; and &lt;code&gt;feature&lt;/code&gt;, which have diverged at commit &lt;code&gt;M2&lt;/code&gt;.
+As each of the branches got new commits from that divergent point, the feature branch cannot be integrated
+into the master branch using a fast-forward approach.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>This is the third video in the <strong>Git Animated</strong> series.
 If you are interested in the other ones, check the links below:</p>
 <ul>
@@ -524,8 +577,14 @@ git branch -d feature
             <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
             
             <guid>https://vladflore.tech/posts/2021/08/git-animated-2/</guid>
-            <description>This is the second video in the Git Animated series. If you are interested in the other ones, check the links below:
-part one part three part four In this video you will see what happens when we merge two histories, specifically merging feature into master. The thing to note here is that the merge is a fast-forward one, this is possible when there are no further commits on the branch we branched off of, after the point of creating the new branch (in our case on the branch master after commit M2).</description>
+            <description>&lt;p&gt;This is the second video in the &lt;strong&gt;Git Animated&lt;/strong&gt; series.
+If you are interested in the other ones, check the links below:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-1/&#34;&gt;part one&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/09/git-animated-3/&#34;&gt;part three&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/12/git-animated-4/&#34;&gt;part four&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In this video you will see what happens when we merge two histories, specifically merging &lt;code&gt;feature&lt;/code&gt; into &lt;code&gt;master&lt;/code&gt;. The thing to note here is that the merge is a fast-forward one, this is possible when there are no further commits on the branch we branched off of, after the point of creating the new branch (in our case on the branch &lt;code&gt;master&lt;/code&gt; after commit &lt;code&gt;M2&lt;/code&gt;).&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>This is the second video in the <strong>Git Animated</strong> series.
 If you are interested in the other ones, check the links below:</p>
 <ul>
@@ -569,9 +628,15 @@ If you are interested in the other ones, check the links below:</p>
             <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
             
             <guid>https://vladflore.tech/posts/2021/08/git-animated-1/</guid>
-            <description>Welcome to the first post and first video of the video series Git Animated. With this series I am trying to visually depict how different Git commands and actions look like, basically what happens behind them when you execute them.
-If you are interested in the other videos, please check the links below:
-part two part three part four Note: if you are a software engineer and have never heard of Git, then this post, and the future ones, are not for you&amp;hellip;and I am also sorry for you!</description>
+            <description>&lt;p&gt;Welcome to the first post and first video of the video series &lt;strong&gt;Git Animated&lt;/strong&gt;.
+With this series I am trying to visually depict how different Git commands and actions look like, basically what happens behind them when you execute them.&lt;/p&gt;
+&lt;p&gt;If you are interested in the other videos, please check the links below:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-2/&#34;&gt;part two&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/09/git-animated-3/&#34;&gt;part three&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/12/git-animated-4/&#34;&gt;part four&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note: if you are a software engineer and have never heard of Git, then this post, and the future ones, are not for you&amp;hellip;and I am also sorry for you!&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>Welcome to the first post and first video of the video series <strong>Git Animated</strong>.
 With this series I am trying to visually depict how different Git commands and actions look like, basically what happens behind them when you execute them.</p>
 <p>If you are interested in the other videos, please check the links below:</p>
@@ -616,7 +681,7 @@ With this series I am trying to visually depict how different Git commands and a
 <li><a href="https://git-scm.com/docs" target="_blank">Git reference documentation</a></li>
 <li><a href="https://git-scm.com/book/en/v2" target="_blank">Pro Git book</a></li>
 <li><a href="https://www.coursera.org/learn/version-control-with-git" target="_blank">Coursera version control with Git</a></li>
-<li><a href="https://missing.csail.mit.edu/2020/version-control/" target="_blank">Lecture on Version Control by &amp;ldquo;Missing Semester&amp;rdquo; CSAIL MIT</a></li>
+<li><a href="https://missing.csail.mit.edu/2020/version-control/" target="_blank">Lecture on Version Control by &ldquo;Missing Semester&rdquo; CSAIL MIT</a></li>
 </ul>
 <p>Feel free to drop me a comment or e-mail with your constructive criticism. It will be much appreciated!</p>
 <p>Enjoy!</p>
@@ -629,8 +694,8 @@ With this series I am trying to visually depict how different Git commands and a
             <pubDate>Thu, 15 Jul 2021 00:00:00 +0000</pubDate>
             
             <guid>https://vladflore.tech/posts/2021/07/my-first-oss-pr/</guid>
-            <description>Software developers write code&amp;hellip;or at least they should, provided they can escape the long boring meetings which finish with no conclusions or, God forbid, with the next appointment&amp;hellip;to discuss more.
-When we monetize this action of writing code, we usually do it as part of a job, which comes with its pros and cons, and such we have to stay in the legal framework of that working contract. This legal framework might very well prevent us from contributing to Open Source Software(OSS), so make sure to read the fine print!</description>
+            <description>&lt;p&gt;Software developers write code&amp;hellip;or at least they should, provided they can escape the long boring meetings which finish with no conclusions or, God forbid, with the next appointment&amp;hellip;to discuss more.&lt;/p&gt;
+&lt;p&gt;When we monetize this action of writing code, we usually do it as part of a job, which comes with its pros and cons, and such we have to stay in the legal framework of that working contract. This legal framework might very well prevent us from contributing to Open Source Software(OSS), so make sure to read the fine print!&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>Software developers write code&hellip;or at least they should, provided they can escape the long boring meetings which finish with no conclusions or, God forbid, with the next appointment&hellip;to discuss more.</p>
 <p>When we monetize this action of writing code, we usually do it as part of a job, which comes with its pros and cons, and such we have to stay in the legal framework of that working contract. This legal framework might very well prevent us from contributing to Open Source Software(OSS), so make sure to read the fine print!</p>
 <p>Other than that, we do not get the chance to work with technologies we might want to get ourselves more familiar with, and this makes sense, but what if you <em>really</em> want to?</p>
@@ -661,10 +726,12 @@ When we monetize this action of writing code, we usually do it as part of a job,
             <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
             
             <guid>https://vladflore.tech/posts/2021/05/nine-months-later/</guid>
-            <description>TL;DR
-&amp;hellip;if you were thinking about screaming little humans, I am afraid I will disappoint you and it might be that this post is not for you.
-If you are still reading, then you might be one of those people, who thought of something else what could have happened in a period of nine months. I salute you and encourage you to read on!
-2020 was a special year, for the world and for me as well, on one side we had that end of the world kind of global infestation thing, on the other side I managed to make some changes, which hopefully will pay-off in the near future, dare saying some of them have already payed-off.</description>
+            <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;TL;DR&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;hellip;if you were thinking about screaming little humans, I am afraid I will disappoint you and it might be that this post is not for you.&lt;/p&gt;
+&lt;p&gt;If you are still reading, then you might be one of those people, who thought of something else what could have happened in a period of nine months. I salute you and encourage you to read on!&lt;/p&gt;
+&lt;p&gt;2020 was a special year, for the world and for me as well, on one side we had that &lt;em&gt;end of the world kind of global infestation&lt;/em&gt; thing, on the other side I managed to make some changes, which hopefully will pay-off in the near future, dare saying some of them have already payed-off.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<blockquote>
 <p><strong><em>TL;DR</em></strong></p>
 </blockquote>
@@ -775,9 +842,11 @@ and hopping for the best. You should give it a try too!</p>
             <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
             
             <guid>https://vladflore.tech/posts/2020/09/java-11/</guid>
-            <description>But Java is already at version 15, why talk about 11 ?! Well,&amp;hellip;but before that, a note of caution: considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this is bigger than 15, it was 15 when I wrote this post!
-Now, let&amp;rsquo;s continue&amp;hellip;
-Java 11 is the current (see note of caution above) LTS version, and will stay like that until Java 17 appears, which should be somewhere around the end of 2021, which is then the new LTS version (all of this hold true iff Oracle doesn&amp;rsquo;t change something in the whole release plan).</description>
+            <description>&lt;p&gt;But &lt;a href=&#34;https://www.oracle.com/java/technologies/javase-downloads.html&#34; target=&#34;_blank&#34;&gt;Java&lt;/a&gt; is already at version 15, why talk about 11 ?! Well,&amp;hellip;but before that, a note of caution:
+considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this
+is bigger than 15, it was 15 when I wrote this post!&lt;/p&gt;
+&lt;p&gt;Now, let&amp;rsquo;s continue&amp;hellip;&lt;/p&gt;
+&lt;p&gt;Java 11 is the current (see note of caution above) LTS version, and will stay like that until Java 17 appears, which should be somewhere around the end of 2021, which is then the new LTS version (all of this hold true iff Oracle doesn&amp;rsquo;t change something in the whole release plan).&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>But <a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank">Java</a> is already at version 15, why talk about 11 ?! Well,&hellip;but before that, a note of caution:
 considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this
 is bigger than 15, it was 15 when I wrote this post!</p>
@@ -921,8 +990,11 @@ and display only the lines that match a given regular expression (basically a si
             <pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
             
             <guid>https://vladflore.tech/posts/2020/06/code-kata/</guid>
-            <description>Lately I&amp;rsquo;ve been taking a keen interest in the idea of writing code and getting better at it, and what I mean by this is not just the fact of writing code itself and making it work, but also improving your coding skills, and the way you code.
-When we write code we tend to concentrate on the code itself, on solving the problem, not necessarily on the way we produce that code, let alone how we navigate it&amp;hellip;one can always use the mouse right?</description>
+            <description>&lt;p&gt;Lately I&amp;rsquo;ve been taking a keen interest in the idea of &lt;em&gt;writing code and getting better at it&lt;/em&gt;, and what I mean by this is not just
+the fact of &lt;em&gt;writing code&lt;/em&gt; itself and &lt;em&gt;making it work&lt;/em&gt;, but also improving your &lt;em&gt;coding skills&lt;/em&gt;, and &lt;em&gt;the way you code&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;When we write code we tend to concentrate on the code itself, on solving the problem, not necessarily on the way we produce that code,
+let alone how we navigate it&amp;hellip;one can always use the mouse right? If you are working professionally in a project you don&amp;rsquo;t always have the time to &lt;em&gt;think&lt;/em&gt; about
+the way you write code. Writing it, making it work and getting it accepted (only &lt;strong&gt;clean code&lt;/strong&gt; should have the privilege of reaching the main development line) is enough of a challenge.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>Lately I&rsquo;ve been taking a keen interest in the idea of <em>writing code and getting better at it</em>, and what I mean by this is not just
 the fact of <em>writing code</em> itself and <em>making it work</em>, but also improving your <em>coding skills</em>, and <em>the way you code</em>.</p>
 <p>When we write code we tend to concentrate on the code itself, on solving the problem, not necessarily on the way we produce that code,
@@ -968,8 +1040,9 @@ and to practice, because, as we all know, practice makes perfect!</p>
             <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
             
             <guid>https://vladflore.tech/posts/2020/06/sonarqube-on-aws-ec2/</guid>
-            <description>In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you&amp;rsquo;ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.
-The motivation behind I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is.</description>
+            <description>&lt;p&gt;In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you&amp;rsquo;ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.&lt;/p&gt;
+&lt;h2 id=&#34;the-motivation-behind&#34;&gt;The motivation behind&lt;/h2&gt;
+&lt;p&gt;I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is. I also didn&amp;rsquo;t want to set up my own cloud, so I just sticked with AWS EC2 solution, despite the fact that it is not always for free.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you&rsquo;ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.</p>
 <h2 id="the-motivation-behind">The motivation behind</h2>
 <p>I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is. I also didn&rsquo;t want to set up my own cloud, so I just sticked with AWS EC2 solution, despite the fact that it is not always for free.</p>
@@ -1081,8 +1154,12 @@ accordingly to contain the IP of your EC2 instance hosting the SonarQube Server.
             <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
             
             <guid>https://vladflore.tech/posts/2020/03/shell-magic/</guid>
-            <description>NOTE 1: This page contains some shell magic which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.
-NOTE 2: Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.</description>
+            <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE 1:&lt;/em&gt;&lt;/strong&gt; This page contains some shell &lt;em&gt;magic&lt;/em&gt; which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE 2:&lt;/em&gt;&lt;/strong&gt; Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.
+Some of them might also require sudo access, so I am just going to assume that you know what you are doing. You have been warned!&lt;/p&gt;</description>
             <content type="html"><![CDATA[<blockquote>
 <p><strong><em>NOTE 1:</em></strong> This page contains some shell <em>magic</em> which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.</p>
 </blockquote>
@@ -1183,9 +1260,11 @@ printing out the first value (the user name).</p>
             <pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
             
             <guid>https://vladflore.tech/posts/2020/02/hello-world/</guid>
-            <description>Hello Internet,
-so this is my first blog post, which I hope will be one of many more to come. This is more of a hello world kind of post, a way to cut my teeth into blogging and see if it&amp;rsquo;s something I would like doing.
-Should you wonder by now why hello world, well just ask someone who works in IT and has learned at least one programming language.</description>
+            <description>&lt;p&gt;Hello Internet,&lt;/p&gt;
+&lt;p&gt;so this is my first blog post, which I hope will be one of many more to come. This is more of a &lt;em&gt;hello world&lt;/em&gt; kind of post,
+a way to cut my teeth into blogging and see if it&amp;rsquo;s something I would like doing.&lt;/p&gt;
+&lt;p&gt;Should you wonder by now why &lt;em&gt;hello world&lt;/em&gt;,
+well just ask someone who works in IT and has learned at least one programming language.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>Hello Internet,</p>
 <p>so this is my first blog post, which I hope will be one of many more to come. This is more of a <em>hello world</em> kind of post,
 a way to cut my teeth into blogging and see if it&rsquo;s something I would like doing.</p>
@@ -1207,9 +1286,12 @@ and others to tap into that information I once used/had in order to make use of 
             <pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
             
             <guid>https://vladflore.tech/posts/2020/02/software-craftsmanship/</guid>
-            <description>Last year I had the opportunity to put together and hold a presentation at a conference organized by the company I am currently working for. As you might have guessed from the post&amp;rsquo;s title it was a presentation about the craftsmanship behind creating software.
-Creating software is no easy task, creating software responsibly is even harder, but this should not discourage one to do so.
-By adhering to some healthy coding habits one can and will write code that will not make others cringe when looking at it.</description>
+            <description>&lt;p&gt;Last year I had the opportunity to put together and hold a presentation at a conference organized
+by the &lt;a href=&#34;https://www.virtual7.de/&#34; target=&#34;_blank&#34;&gt;company&lt;/a&gt; I am currently working for. As you might have guessed from the post&amp;rsquo;s title
+it was a presentation about the &lt;strong&gt;craftsmanship&lt;/strong&gt; behind &lt;strong&gt;creating software&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Creating software is no easy task, creating software &lt;strong&gt;responsibly&lt;/strong&gt; is even harder, but this should not discourage one to do so.&lt;/p&gt;
+&lt;p&gt;By adhering to some healthy coding habits one can and will write code that will not make others cringe when looking at it.
+Remember, &lt;strong&gt;we write code for people not for computers&lt;/strong&gt;.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>Last year I had the opportunity to put together and hold a presentation at a conference organized
 by the <a href="https://www.virtual7.de/" target="_blank">company</a> I am currently working for. As you might have guessed from the post&rsquo;s title
 it was a presentation about the <strong>craftsmanship</strong> behind <strong>creating software</strong>.</p>
