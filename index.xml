@@ -6,9 +6,15 @@
     <description>Recent content on vladflore.tech</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Fri, 06 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://vladflore.tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Portfolio</title>
+      <link>https://vladflore.tech/portfolio/</link>
+      <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/portfolio/</guid>
+      <description>&lt;p&gt;Here I will be showcasing some of the projects I have worked on. I will be updating this page as I work on new projects. Stay tuned!&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Life update</title>
       <link>https://vladflore.tech/posts/2024/09/life-update/</link>
@@ -42,7 +48,7 @@
       <link>https://vladflore.tech/about/</link>
       <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
       <guid>https://vladflore.tech/about/</guid>
-      <description>&lt;img src=&#34;https://vladflore.tech/images/me.jpg&#34;  alt=&#34;a picture of myself&#34;  class=&#34;center&#34;  style=&#34;border-radius: 8px; float: right;&#34;  /&gt;&#xA;&#xA;&#xA;&lt;p&gt;Hi Internet,&lt;/p&gt;&#xA;&lt;p&gt;this is Vlad writing and I welcome you to my corner of Internet where I share stuff about &lt;strong&gt;Software Engineering&lt;/strong&gt; and &lt;strong&gt;Computer Science&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m not that big on talking about myself, so I&amp;rsquo;m just gonna keep it short and to the point:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Q: Who are you, Vlad?&lt;/strong&gt;&lt;/p&gt;</description>
+      <description>&lt;img src=&#34;https://vladflore.tech/images/me.jpg&#34;  alt=&#34;a picture of myself&#34;  class=&#34;center&#34;  style=&#34;border-radius: 8px; float: right;&#34;  /&gt;&#xA;&#xA;&#xA;&lt;p&gt;Hi Internet,&lt;/p&gt;&#xA;&lt;p&gt;this is Vlad writing and I welcome you to my corner of Internet where I share stuff about &lt;strong&gt;Software Engineering&lt;/strong&gt;, &lt;strong&gt;Computer Science&lt;/strong&gt;, and life in general.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m not that big on talking about myself, so I&amp;rsquo;m just gonna keep it short and to the point.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Git Animated 4</title>
@@ -78,6 +84,55 @@
       <pubDate>Thu, 15 Jul 2021 00:00:00 +0000</pubDate>
       <guid>https://vladflore.tech/posts/2021/07/my-first-oss-pr/</guid>
       <description>&lt;p&gt;Software developers write code&amp;hellip;or at least they should, provided they can escape the long boring meetings which finish with no conclusions or, God forbid, with the next appointment&amp;hellip;to discuss more.&lt;/p&gt;&#xA;&lt;p&gt;When we monetize this action of writing code, we usually do it as part of a job, which comes with its pros and cons, and such we have to stay in the legal framework of that working contract. This legal framework might very well prevent us from contributing to Open Source Software(OSS), so make sure to read the fine print!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Nine Months Later</title>
+      <link>https://vladflore.tech/posts/2021/05/nine-months-later/</link>
+      <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2021/05/nine-months-later/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;TL;DR&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;&amp;hellip;if you were thinking about screaming little humans, I am afraid I will disappoint you and it might be that this post is not for you.&lt;/p&gt;&#xA;&lt;p&gt;If you are still reading, then you might be one of those people, who thought of something else what could have happened in a period of nine months. I salute you and encourage you to read on!&lt;/p&gt;&#xA;&lt;p&gt;2020 was a special year, for the world and for me as well, on one side we had that &lt;em&gt;end of the world kind of global infestation&lt;/em&gt; thing, on the other side I managed to make some changes, which hopefully will pay-off in the near future, dare saying some of them have already payed-off.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Java 11</title>
+      <link>https://vladflore.tech/posts/2020/09/java-11/</link>
+      <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2020/09/java-11/</guid>
+      <description>&lt;p&gt;But &lt;a href=&#34;https://www.oracle.com/java/technologies/javase-downloads.html&#34; target=&#34;_blank&#34;&gt;Java&lt;/a&gt; is already at version 15, why talk about 11 ?! Well,&amp;hellip;but before that, a note of caution:&#xA;considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this&#xA;is bigger than 15, it was 15 when I wrote this post!&lt;/p&gt;&#xA;&lt;p&gt;Now, let&amp;rsquo;s continue&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;Java 11 is the current (see note of caution above) LTS version, and will stay like that until Java 17 appears, which should be somewhere around the end of 2021, which is then the new LTS version (all of this hold true iff Oracle doesn&amp;rsquo;t change something in the whole release plan).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Code Kata</title>
+      <link>https://vladflore.tech/posts/2020/06/code-kata/</link>
+      <pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2020/06/code-kata/</guid>
+      <description>&lt;p&gt;Lately I&amp;rsquo;ve been taking a keen interest in the idea of &lt;em&gt;writing code and getting better at it&lt;/em&gt;, and what I mean by this is not just&#xA;the fact of &lt;em&gt;writing code&lt;/em&gt; itself and &lt;em&gt;making it work&lt;/em&gt;, but also improving your &lt;em&gt;coding skills&lt;/em&gt;, and &lt;em&gt;the way you code&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;When we write code we tend to concentrate on the code itself, on solving the problem, not necessarily on the way we produce that code,&#xA;let alone how we navigate it&amp;hellip;one can always use the mouse right? If you are working professionally in a project you don&amp;rsquo;t always have the time to &lt;em&gt;think&lt;/em&gt; about&#xA;the way you write code. Writing it, making it work and getting it accepted (only &lt;strong&gt;clean code&lt;/strong&gt; should have the privilege of reaching the main development line) is enough of a challenge.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SonarQube on AWS EC2</title>
+      <link>https://vladflore.tech/posts/2020/06/sonarqube-on-aws-ec2/</link>
+      <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2020/06/sonarqube-on-aws-ec2/</guid>
+      <description>&lt;p&gt;In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you&amp;rsquo;ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-motivation-behind&#34;&gt;The motivation behind&lt;/h2&gt;&#xA;&lt;p&gt;I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is. I also didn&amp;rsquo;t want to set up my own cloud, so I just sticked with AWS EC2 solution, despite the fact that it is not always for free.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Shell Magic</title>
+      <link>https://vladflore.tech/posts/2020/03/shell-magic/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2020/03/shell-magic/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE 1:&lt;/em&gt;&lt;/strong&gt; This page contains some shell &lt;em&gt;magic&lt;/em&gt; which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE 2:&lt;/em&gt;&lt;/strong&gt; Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.&#xA;Some of them might also require sudo access, so I am just going to assume that you know what you are doing. You have been warned!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hello World</title>
+      <link>https://vladflore.tech/posts/2020/02/hello-world/</link>
+      <pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2020/02/hello-world/</guid>
+      <description>&lt;p&gt;Hello Internet,&lt;/p&gt;&#xA;&lt;p&gt;so this is my first blog post, which I hope will be one of many more to come. This is more of a &lt;em&gt;hello world&lt;/em&gt; kind of post,&#xA;a way to cut my teeth into blogging and see if it&amp;rsquo;s something I would like doing.&lt;/p&gt;&#xA;&lt;p&gt;Should you wonder by now why &lt;em&gt;hello world&lt;/em&gt;,&#xA;well just ask someone who works in IT and has learned at least one programming language.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Software Craftsmanship</title>
+      <link>https://vladflore.tech/posts/2020/02/software-craftsmanship/</link>
+      <pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2020/02/software-craftsmanship/</guid>
+      <description>&lt;p&gt;Last year I had the opportunity to put together and hold a presentation at a conference organized&#xA;by the &lt;a href=&#34;https://www.virtual7.de/&#34; target=&#34;_blank&#34;&gt;company&lt;/a&gt; I am currently working for. As you might have guessed from the post&amp;rsquo;s title&#xA;it was a presentation about the &lt;strong&gt;craftsmanship&lt;/strong&gt; behind &lt;strong&gt;creating software&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Creating software is no easy task, creating software &lt;strong&gt;responsibly&lt;/strong&gt; is even harder, but this should not discourage one to do so.&lt;/p&gt;&#xA;&lt;p&gt;By adhering to some healthy coding habits one can and will write code that will not make others cringe when looking at it.&#xA;Remember, &lt;strong&gt;we write code for people not for computers&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
