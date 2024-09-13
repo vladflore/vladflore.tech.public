@@ -5,8 +5,57 @@
         <description>Recent content in Posts on vladflore.tech</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Fri, 06 Sep 2024 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Fri, 13 Sep 2024 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://vladflore.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Learning... Machine Learning</title>
+            <link>https://vladflore.tech/posts/2024/09/learning...-machine-learning/</link>
+            <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2024/09/learning...-machine-learning/</guid>
+            <description>&lt;h2 id=&#34;the-whys&#34;&gt;The Whys&lt;/h2&gt;
+&lt;p&gt;The time has come. I will learn Machine Learning, or at least, I&amp;rsquo;ll be trying my best to do so. You might now ask yourself, &lt;em&gt;why machine learning?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Nowadays, Machine Learning(ML), is on a lot of people&amp;rsquo;s minds, especially after the rise of the LLMs (Large Language Models).&lt;/p&gt;
+&lt;p&gt;To not know about ML is to be left behind. I want to be part of the future, and I want to be able to understand the technology that will shape it.&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<h2 id="the-whys">The Whys</h2>
+<p>The time has come. I will learn Machine Learning, or at least, I&rsquo;ll be trying my best to do so. You might now ask yourself, <em>why machine learning?</em></p>
+<p>Nowadays, Machine Learning(ML), is on a lot of people&rsquo;s minds, especially after the rise of the LLMs (Large Language Models).</p>
+<p>To not know about ML is to be left behind. I want to be part of the future, and I want to be able to understand the technology that will shape it.</p>
+<p>As with a lot of other things, one can just look at it from the outside, make use of it, maybe even apply it, or one can dive deep into it, understand it, and maybe even contribute to it.
+I want to be part of the latter group.</p>
+<p>Understanding ML and applying it to solve problems, <em>can</em> be a fun and rewarding experience. In my case, I&rsquo;ve been having this itch for a while now, and time has come to scratch it.</p>
+<p>While I am, as I am writing this, not actually doing ML professionally, I do work in an environment where ML is used. The work the ML engineers are doing there seems fascinating to me, and since I am a curios person, I want to know what&rsquo;s all about it.</p>
+<p>I also think that knowing ML will be beneficial for my career. I am a software engineer, and I think that knowing ML will nicely complement my skill set.</p>
+<h2 id="the-hows">The Hows</h2>
+<p>There are a lot of resources out there to learn ML, some free, some paid. After bookmarking too many of them, I decided to start with two of them, both free. The main one, the one I will be focusing on, is <a href="https://github.com/DataTalksClub/machine-learning-zoomcamp" target="_blank">Machine Learning Zoomcamp</a> by Alexey Grigorev and co. I registered for this 4 months long free course and I am excited to start it. I will be complementing it with the <a href="https://developers.google.com/machine-learning/crash-course" target="_blank">Machine Learning Crash Course</a> by Google. This is also free and has been recently updated. Additionally, I will be skimming through the relevant chapters of the book <a href="https://www.amazon.com/Artificial-Intelligence-A-Modern-Approach/dp/0134610997" target="_blank">Artificial Intelligence, A Modern Approach, 4th Edition</a>.</p>
+<p>I will be documenting my journey here, in this blog. I will be writing about the concepts I learn, the exercises I do, the projects I work on, and the challenges I face. I will also be sharing the resources I find useful.</p>
+<p>If things go well, I might even decide to for a more formal education in ML, something that fits my schedule and my budget. I have these two in mind:</p>
+<ul>
+<li><a href="https://www.deeplearning.ai/courses/machine-learning-specialization/" target="_blank">Machine Learning Specialization</a></li>
+<li><a href="https://online.stanford.edu/programs/artificial-intelligence-professional-program" target="_blank">Artificial Intelligence Professional Program from Stanford</a></li>
+</ul>
+<p>Of course, these are just two of the many options out there.</p>
+<h2 id="the-prerequisites">The Prerequisites</h2>
+<p>While learning is not something I frown upon, it does require <em>time</em> and effort. As I am also working, this extra learning has to happen in my free time, i.e. outside the proverbial 9 to 5. I hope that with a bit of discipline and better time management, I will be able to do it.</p>
+<p>When it comes to machine learning (ML), <em>Python</em> is the most widely used language, making it crucial to have a strong understanding of it. Python is renowned for its simplicity and ease of learning, so even those who are not very familiar with it can quickly become proficient. Personally, I already have a good command of Python, so I am well-prepared in this aspect. While Python is the most popular language for ML, it is not the only one used in the field. Languages like R and Julia are also employed. I believe Python&rsquo;s popularity is largely due to the extensive <em>libraries and frameworks</em> available for ML, rather than the language itself.</p>
+<p>The depth of one&rsquo;s engagement in this field dictates the necessity for a solid grasp of mathematics. This doesn&rsquo;t imply mastering all areas of mathematics, but rather having a firm understanding of <em>linear algebra</em>, <em>calculus</em>, and <em>probability theory</em>. Eventually, mathematical concepts will come into play, and having a strong foundation in these areas will be beneficial.</p>
+<p>Besides the language itself, Python libraries are essential when it comes to ML. Depending on the task at hand, different libraries are used, and as such it is important to be familiar with them. Some of the most popular libraries include:</p>
+<ul>
+<li><a href="https://numpy.org/" target="_blank">NumPy</a></li>
+<li><a href="https://pandas.pydata.org/" target="_blank">Pandas</a></li>
+<li><a href="https://matplotlib.org/" target="_blank">Matplotlib</a></li>
+<li><a href="https://scikit-learn.org/" target="_blank">Scikit-learn</a></li>
+<li><a href="https://www.tensorflow.org/" target="_blank">TensorFlow</a></li>
+<li><a href="https://pytorch.org/" target="_blank">PyTorch</a></li>
+<li><a href="https://keras.io/" target="_blank">Keras</a></li>
+<li><a href="https://mlflow.org/" target="_blank">MLflow</a></li>
+</ul>
+<p>On top of all this, one might have to work with <em>cloud services</em> like AWS, GCP, or Azure, use <em>Docker</em> and <em>Kubernetes</em>, and have a good understanding of <em>data engineering</em> and <em>data science</em>, as these are closely related to ML.</p>
+<p>So, as you can see, there is a lot to cover. This might feel overwhelming at first, but Rome was not built in a day, so step by step, it&rsquo;s the way to go.</p>
+<p>Happy learning!</p>
+]]></content>
+        </item>
         
         <item>
             <title>Life update</title>
@@ -725,16 +774,10 @@ With this series I am trying to visually depict how different Git commands and a
             <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
             
             <guid>https://vladflore.tech/posts/2021/05/nine-months-later/</guid>
-            <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;TL;DR&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&amp;hellip;if you were thinking about screaming little humans, I am afraid I will disappoint you and it might be that this post is not for you.&lt;/p&gt;
+            <description>&lt;p&gt;&amp;hellip;if you were thinking about screaming little humans, I am afraid I will disappoint you and it might be that this post is not for you.&lt;/p&gt;
 &lt;p&gt;If you are still reading, then you might be one of those people, who thought of something else what could have happened in a period of nine months. I salute you and encourage you to read on!&lt;/p&gt;
 &lt;p&gt;2020 was a special year, for the world and for me as well, on one side we had that &lt;em&gt;end of the world kind of global infestation&lt;/em&gt; thing, on the other side I managed to make some changes, which hopefully will pay-off in the near future, dare saying some of them have already payed-off.&lt;/p&gt;</description>
-            <content type="html"><![CDATA[<blockquote>
-<p><strong><em>TL;DR</em></strong></p>
-</blockquote>
-<p>&hellip;if you were thinking about screaming little humans, I am afraid I will disappoint you and it might be that this post is not for you.</p>
+            <content type="html"><![CDATA[<p>&hellip;if you were thinking about screaming little humans, I am afraid I will disappoint you and it might be that this post is not for you.</p>
 <p>If you are still reading, then you might be one of those people, who thought of something else what could have happened in a period of nine months. I salute you and encourage you to read on!</p>
 <p>2020 was a special year, for the world and for me as well, on one side we had that <em>end of the world kind of global infestation</em> thing, on the other side I managed to make some changes, which hopefully will pay-off in the near future, dare saying some of them have already payed-off.</p>
 <p>As of 01.06.2020 I joined the club of those unemployed, a.k.a I left the company I had been working for the last 12 years of my life and decided to take a well deserved break from that <em>nine to five&hellip;ish</em> lifestyle. I took that decision some time before the Coronavirus comfortably settled down to its new home&hellip;Europe, Germany.</p>

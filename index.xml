@@ -6,14 +6,21 @@
     <description>Recent content on vladflore.tech</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 07 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://vladflore.tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning... Machine Learning</title>
+      <link>https://vladflore.tech/posts/2024/09/learning...-machine-learning/</link>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2024/09/learning...-machine-learning/</guid>
+      <description>&lt;h2 id=&#34;the-whys&#34;&gt;The Whys&lt;/h2&gt;&#xA;&lt;p&gt;The time has come. I will learn Machine Learning, or at least, I&amp;rsquo;ll be trying my best to do so. You might now ask yourself, &lt;em&gt;why machine learning?&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Nowadays, Machine Learning(ML), is on a lot of people&amp;rsquo;s minds, especially after the rise of the LLMs (Large Language Models).&lt;/p&gt;&#xA;&lt;p&gt;To not know about ML is to be left behind. I want to be part of the future, and I want to be able to understand the technology that will shape it.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Portfolio</title>
       <link>https://vladflore.tech/portfolio/</link>
       <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
       <guid>https://vladflore.tech/portfolio/</guid>
-      <description>&lt;p&gt;Here I will be showcasing some of the projects I have worked on. I will be updating this page as I work on new projects. Stay tuned!&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;about-building-a-portfolio&#34;&gt;About building a portfolio&lt;/h2&gt;&#xA;&lt;p&gt;tbd&lt;/p&gt;&#xA;&lt;h2 id=&#34;portfolio-projects&#34;&gt;Portfolio projects&lt;/h2&gt;&#xA;&lt;p&gt;tbd&lt;/p&gt;&#xA;&lt;h3 id=&#34;git-animated&#34;&gt;Git animated&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;Last Update: xx.xx.xxxx&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h3 id=&#34;is-it-aired-yet&#34;&gt;Is it aired yet?&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;Last Update: xx.xx.xxxx&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h3 id=&#34;workouts-tracker&#34;&gt;Workouts tracker&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;Last Update: xx.xx.xxxx&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h3 id=&#34;algorithms-animated&#34;&gt;Algorithms animated&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;Last Update: xx.xx.xxxx&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
     </item>
     <item>
       <title>Life update</title>
@@ -90,7 +97,7 @@
       <link>https://vladflore.tech/posts/2021/05/nine-months-later/</link>
       <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
       <guid>https://vladflore.tech/posts/2021/05/nine-months-later/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;TL;DR&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;&amp;hellip;if you were thinking about screaming little humans, I am afraid I will disappoint you and it might be that this post is not for you.&lt;/p&gt;&#xA;&lt;p&gt;If you are still reading, then you might be one of those people, who thought of something else what could have happened in a period of nine months. I salute you and encourage you to read on!&lt;/p&gt;&#xA;&lt;p&gt;2020 was a special year, for the world and for me as well, on one side we had that &lt;em&gt;end of the world kind of global infestation&lt;/em&gt; thing, on the other side I managed to make some changes, which hopefully will pay-off in the near future, dare saying some of them have already payed-off.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&amp;hellip;if you were thinking about screaming little humans, I am afraid I will disappoint you and it might be that this post is not for you.&lt;/p&gt;&#xA;&lt;p&gt;If you are still reading, then you might be one of those people, who thought of something else what could have happened in a period of nine months. I salute you and encourage you to read on!&lt;/p&gt;&#xA;&lt;p&gt;2020 was a special year, for the world and for me as well, on one side we had that &lt;em&gt;end of the world kind of global infestation&lt;/em&gt; thing, on the other side I managed to make some changes, which hopefully will pay-off in the near future, dare saying some of them have already payed-off.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Java 11</title>

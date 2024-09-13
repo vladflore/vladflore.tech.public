@@ -2,22 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://vladflore.tech/portfolio/</loc>
-    <lastmod>2024-09-07T00:00:00+00:00</lastmod>
+    <loc>https://vladflore.tech/tags/learning/</loc>
+    <lastmod>2024-09-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://vladflore.tech/posts/2024/09/learning...-machine-learning/</loc>
+    <lastmod>2024-09-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://vladflore.tech/tags/ml/</loc>
+    <lastmod>2024-09-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://vladflore.tech/posts/</loc>
+    <lastmod>2024-09-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://vladflore.tech/tags/</loc>
+    <lastmod>2024-09-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://vladflore.tech/</loc>
+    <lastmod>2024-09-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://vladflore.tech/tags/zoomcamp/</loc>
+    <lastmod>2024-09-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://vladflore.tech/portfolio/</loc>
     <lastmod>2024-09-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://vladflore.tech/posts/2024/09/life-update/</loc>
     <lastmod>2024-09-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://vladflore.tech/tags/non-nerdy/</loc>
-    <lastmod>2024-09-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://vladflore.tech/posts/</loc>
-    <lastmod>2024-09-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://vladflore.tech/tags/</loc>
     <lastmod>2024-09-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://vladflore.tech/tags/java/</loc>
@@ -64,9 +76,6 @@
   </url><url>
     <loc>https://vladflore.tech/tags/pullrequest/</loc>
     <lastmod>2021-07-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://vladflore.tech/tags/learning/</loc>
-    <lastmod>2021-05-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://vladflore.tech/posts/2021/05/nine-months-later/</loc>
     <lastmod>2021-05-07T00:00:00+00:00</lastmod>
