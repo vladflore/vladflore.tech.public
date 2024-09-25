@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Learning on vladflore.tech</title>
-    <link>https://vladflore.tech/tags/learning/</link>
-    <description>Recent content in Learning on vladflore.tech</description>
+    <title>Mlzoomcamp on vladflore.tech</title>
+    <link>https://vladflore.tech/tags/mlzoomcamp/</link>
+    <description>Recent content in Mlzoomcamp on vladflore.tech</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 25 Sep 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://vladflore.tech/tags/learning/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vladflore.tech/tags/mlzoomcamp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Machine Learning Zoomcamp: Module 1 Recap</title>
       <link>https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/</link>
@@ -28,20 +28,6 @@
       <pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
       <guid>https://vladflore.tech/posts/2024/09/pandas/</guid>
       <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://pandas.pydata.org/&#34; target=&#34;_blank&#34;&gt;Pandas&lt;/a&gt; is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language. It was created by Wes McKinney in 2008.&lt;/p&gt;&#xA;&lt;p&gt;The name has nothing to do with the cute animal, it&amp;rsquo;s derived from the term &amp;ldquo;panel data&amp;rdquo;, an econometrics term for data sets that include observations over multiple time periods for the same individuals. It is also a play on the phrase &amp;ldquo;Python data analysis&amp;rdquo;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Learning... Machine Learning</title>
-      <link>https://vladflore.tech/posts/2024/09/learning...-machine-learning/</link>
-      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2024/09/learning...-machine-learning/</guid>
-      <description>&lt;h2 id=&#34;the-whys&#34;&gt;The Whys&lt;/h2&gt;&#xA;&lt;p&gt;The time has come. I will learn Machine Learning, or at least, I&amp;rsquo;ll be trying my best to do so. You might now ask yourself, &lt;em&gt;why machine learning?&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Nowadays, Machine Learning(ML), is on a lot of people&amp;rsquo;s minds, especially after the rise of the LLMs (Large Language Models).&lt;/p&gt;&#xA;&lt;p&gt;To not know about ML is to be left behind. I want to be part of the future, and I want to be able to understand the technology that will shape it.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Nine Months Later</title>
-      <link>https://vladflore.tech/posts/2021/05/nine-months-later/</link>
-      <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2021/05/nine-months-later/</guid>
-      <description>&lt;p&gt;&amp;hellip;if you were thinking about screaming little humans, I am afraid I will disappoint you and it might be that this post is not for you.&lt;/p&gt;&#xA;&lt;p&gt;If you are still reading, then you might be one of those people, who thought of something else what could have happened in a period of nine months. I salute you and encourage you to read on!&lt;/p&gt;&#xA;&lt;p&gt;2020 was a special year, for the world and for me as well, on one side we had that &lt;em&gt;end of the world kind of global infestation&lt;/em&gt; thing, on the other side I managed to make some changes, which hopefully will pay-off in the near future, dare saying some of them have already payed-off.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

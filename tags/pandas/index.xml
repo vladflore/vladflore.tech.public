@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pandas on vladflore.tech</title>
+    <link>https://vladflore.tech/tags/pandas/</link>
+    <description>Recent content in Pandas on vladflore.tech</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 25 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://vladflore.tech/tags/pandas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pandas</title>
+      <link>https://vladflore.tech/posts/2024/09/pandas/</link>
+      <pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2024/09/pandas/</guid>
+      <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://pandas.pydata.org/&#34; target=&#34;_blank&#34;&gt;Pandas&lt;/a&gt; is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language. It was created by Wes McKinney in 2008.&lt;/p&gt;&#xA;&lt;p&gt;The name has nothing to do with the cute animal, it&amp;rsquo;s derived from the term &amp;ldquo;panel data&amp;rdquo;, an econometrics term for data sets that include observations over multiple time periods for the same individuals. It is also a play on the phrase &amp;ldquo;Python data analysis&amp;rdquo;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
