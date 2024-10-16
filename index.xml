@@ -6,8 +6,36 @@
     <description>Recent content on vladflore.tech</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 13 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 16 Oct 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://vladflore.tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Machine Learning Zoomcamp: Module 2 Recap</title>
+      <link>https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/</link>
+      <pubDate>Wed, 16 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/</guid>
+      <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;In this post I will make a recap of the Machine Learning Zoomcamp Module 2.&lt;/p&gt;&#xA;&lt;p&gt;The posts for the previous modules, together with the points I received for each module&amp;rsquo;s homework, are listed below:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/&#34;&gt;Machine Learning Zoomcamp Module 1&lt;/a&gt; - points received: &lt;em&gt;9&lt;/em&gt; (&lt;em&gt;7&lt;/em&gt;/7 for questions + &lt;em&gt;2&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;the-gist-of-the-module&#34;&gt;The gist of the module&lt;/h2&gt;&#xA;&lt;p&gt;The problem tackled in this module was the prediction of car prices based on a dataset containing car features.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Machine Learning Zoomcamp: Module 1 Recap</title>
+      <link>https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/</link>
+      <pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/</guid>
+      <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://vladflore.tech/posts/2024/09/learning...-machine-learning/&#34;&gt;one of my previous posts&lt;/a&gt;, I mentioned that I was taking the &lt;a href=&#34;https://datatalks.club/blog/guide-to-free-online-courses-at-datatalks-club.html#machine-learning-zoomcamp&#34; target=&#34;_blank&#34;&gt;Machine Learning Zoomcamp&lt;/a&gt; course. I have completed the first module of the course, and I wanted to share a recap of what I learned. In addition to that, I&amp;rsquo;d go one step further and add some extra bits of information here and there.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-machine-learning&#34;&gt;What is Machine Learning?&lt;/h2&gt;&#xA;&lt;p&gt;To answer this, we need to understand what &lt;em&gt;learning&lt;/em&gt; is. Learning is the process of acquiring knowledge or skills through experience, study, or being taught. A simple Google search would give you this definition. &lt;a href=&#34;https://en.wikipedia.org/wiki/Learning&#34; target=&#34;_blank&#34;&gt;Wikipedia&lt;/a&gt; defines &lt;em&gt;learning&lt;/em&gt; similarly, adding that &amp;ldquo;[&amp;hellip;]the ability to learn is possessed by humans, non-human animals, and &lt;em&gt;some machines&lt;/em&gt;[&amp;hellip;]&amp;rdquo;. When learning is done by machines, we refer to it as &lt;em&gt;Machine Learning&lt;/em&gt; (ML). In simple terms, ML is the process of teaching a computer to learn from &lt;em&gt;data&lt;/em&gt;. The computer uses the data to identify patterns and make decisions without being explicitly programmed to do so.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NumPy</title>
+      <link>https://vladflore.tech/posts/2024/09/numpy/</link>
+      <pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2024/09/numpy/</guid>
+      <description>&lt;p&gt;&amp;hellip;coming soon&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Pandas</title>
+      <link>https://vladflore.tech/posts/2024/09/pandas/</link>
+      <pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2024/09/pandas/</guid>
+      <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://pandas.pydata.org/&#34; target=&#34;_blank&#34;&gt;Pandas&lt;/a&gt; is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language. It was created by Wes McKinney in 2008.&lt;/p&gt;&#xA;&lt;p&gt;The name has nothing to do with the cute animal, it&amp;rsquo;s derived from the term &amp;ldquo;panel data&amp;rdquo;, an econometrics term for data sets that include observations over multiple time periods for the same individuals. It is also a play on the phrase &amp;ldquo;Python data analysis&amp;rdquo;.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Learning... Machine Learning</title>
       <link>https://vladflore.tech/posts/2024/09/learning...-machine-learning/</link>
@@ -20,7 +48,7 @@
       <link>https://vladflore.tech/portfolio/</link>
       <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
       <guid>https://vladflore.tech/portfolio/</guid>
-      <description>&lt;h2 id=&#34;about-building-a-portfolio&#34;&gt;About building a portfolio&lt;/h2&gt;&#xA;&lt;p&gt;tbd&lt;/p&gt;&#xA;&lt;h2 id=&#34;portfolio-projects&#34;&gt;Portfolio projects&lt;/h2&gt;&#xA;&lt;p&gt;tbd&lt;/p&gt;&#xA;&lt;h3 id=&#34;git-animated&#34;&gt;Git animated&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;Last Update: xx.xx.xxxx&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h3 id=&#34;is-it-aired-yet&#34;&gt;Is it aired yet?&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;Last Update: xx.xx.xxxx&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h3 id=&#34;workouts-tracker&#34;&gt;Workouts tracker&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;Last Update: xx.xx.xxxx&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h3 id=&#34;algorithms-animated&#34;&gt;Algorithms animated&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;Last Update: xx.xx.xxxx&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+      <description>&lt;h2 id=&#34;about-building-a-portfolio&#34;&gt;About building a portfolio&lt;/h2&gt;&#xA;&lt;p&gt;Building a portfolio is a great way to showcase your work and interests, and it can be a good enough motivator to keep you going once you start. It&amp;rsquo;s a great way to show your skills and experience to potential employers or clients, and it can help you stand out from the crowd.&lt;/p&gt;&#xA;&lt;p&gt;That being said, building a portfolio can be a daunting task, especially if you&amp;rsquo;re just starting out.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Life update</title>
@@ -34,7 +62,7 @@
       <link>https://vladflore.tech/posts/2023/06/learning-python-as-a-java-developer-2/</link>
       <pubDate>Mon, 12 Jun 2023 00:00:00 +0000</pubDate>
       <guid>https://vladflore.tech/posts/2023/06/learning-python-as-a-java-developer-2/</guid>
-      <description>&lt;p&gt;This is the second part of the series &amp;ldquo;Learning Python as a Java developer&amp;rdquo;. If you are interested in the other ones, check the links below:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/&#34;&gt;part one&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;learning-resources&#34;&gt;Learning resources&lt;/h2&gt;&#xA;&lt;p&gt;Before going into the details of the second part, I want to enumerate some of the resources I used and I am still using to learn/brush up on Python, beside the ones I mentioned in the first part:&lt;/p&gt;</description>
+      <description>&lt;p&gt;This is the second part of the series &amp;ldquo;Learning Python as a Java developer&amp;rdquo;. If you are interested in the other ones, check the links below:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/&#34;&gt;part one&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;learning-resources&#34;&gt;Learning resources&lt;/h2&gt;&#xA;&lt;p&gt;Before going into the details of the second part, I want to enumerate some of the resources I used and I am still using to learn/brush up on Python, beside the ones I mentioned in the first part:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://cs50.harvard.edu/python/2022/&#34; target=&#34;_blank&#34;&gt;CS50’s Introduction to Programming with Python, 2022&lt;/a&gt; - free/payed&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dabeaz-course.github.io/practical-python/&#34; target=&#34;_blank&#34;&gt;Practical Python Programming, a course by David Beazley&lt;/a&gt; - free. Note: search for content made by David Beazley, he is a great!&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://edube.org/&#34; target=&#34;_blank&#34;&gt;OpenEDG Python courses&lt;/a&gt; - free&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://hyperskill.org&#34; target=&#34;_blank&#34;&gt;Hyperskill Python tracks&lt;/a&gt; - payed&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.educative.io/&#34; target=&#34;_blank&#34;&gt;Educative.io Python courses&lt;/a&gt; - payed&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://docs.python.org/3/tutorial/index.html&#34; target=&#34;_blank&#34;&gt;The Python Tutorial&lt;/a&gt; - free&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://realpython.com/&#34; target=&#34;_blank&#34;&gt;Real Python&lt;/a&gt; - free/payed&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://learnxinyminutes.com/docs/python/&#34; target=&#34;_blank&#34;&gt;Learn X in Y minutes&lt;/a&gt; - free&lt;/li&gt;&#xA;&lt;li&gt;Working on Python projects&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;There are a lot of other resources out there, each one with its own pros and cons. I suggest you to try some of them and find the one that fits you the best. Google is your friend!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Java 17</title>
@@ -55,7 +83,7 @@
       <link>https://vladflore.tech/about/</link>
       <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
       <guid>https://vladflore.tech/about/</guid>
-      <description>&lt;img src=&#34;https://vladflore.tech/images/me.jpg&#34;  alt=&#34;a picture of myself&#34;  class=&#34;center&#34;  style=&#34;border-radius: 8px; float: right;&#34;  /&gt;&#xA;&#xA;&#xA;&lt;p&gt;Hi Internet,&lt;/p&gt;&#xA;&lt;p&gt;this is Vlad writing and I welcome you to my corner of Internet where I share stuff about &lt;strong&gt;Software Engineering&lt;/strong&gt;, &lt;strong&gt;Computer Science&lt;/strong&gt;, and life in general.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m not that big on talking about myself, so I&amp;rsquo;m just gonna keep it short and to the point.&lt;/p&gt;</description>
+      <description>&lt;img src=&#34;https://vladflore.tech/images/me.jpg&#34;  alt=&#34;a picture of myself&#34;  class=&#34;center&#34;  style=&#34;border-radius: 8px; float: right;&#34;  /&gt;&#xA;&#xA;&#xA;&lt;p&gt;Hi Internet,&lt;/p&gt;&#xA;&lt;p&gt;this is Vlad writing and I welcome you to my corner of Internet where I share stuff about &lt;strong&gt;Software Engineering&lt;/strong&gt;, &lt;strong&gt;Computer Science&lt;/strong&gt;, and life in general.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m not that big on talking about myself, so I&amp;rsquo;m just gonna keep it short and to the point.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Q: Who are you, Vlad?&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; Just a man on this planet, currently living in Spain and working as a Software Engineer.&#xA;I love learning new things and challenging myself with new things, especially when it comes to Software Engineering and Computer Science. I also like travelling and exploring new places. Check my &lt;a href=&#34;https://www.linkedin.com/in/vlad-flore-a709723b/&#34; target=&#34;_blank&#34;&gt;LinkedIn&lt;/a&gt; profile should you want to learn more about the professional Vlad. Feel free to also have a look at the &lt;a href=&#34;https://github.com/vladflore&#34; target=&#34;_blank&#34;&gt;GitHub&lt;/a&gt; profile should you be interested into my commits.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Git Animated 4</title>

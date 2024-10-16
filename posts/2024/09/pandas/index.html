@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Vlad Flore ">
+<meta name="description" content="Intro Pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language. It was created by Wes McKinney in 2008.
+The name has nothing to do with the cute animal, it&rsquo;s derived from the term &ldquo;panel data&rdquo;, an econometrics term for data sets that include observations over multiple time periods for the same individuals. It is also a play on the phrase &ldquo;Python data analysis&rdquo;.
+" />
+<meta name="keywords" content=", ml, learning, pandas, mlzoomcamp" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://vladflore.tech/posts/2024/09/pandas/" />
+
+
+    <title>
+        
+            Pandas :: vladflore.tech 
+        
+    </title>
+
+
+
+
+
+<link rel="stylesheet" href="/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css" integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE=">
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+
+  <meta itemprop="name" content="Pandas">
+  <meta itemprop="description" content="Intro Pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language. It was created by Wes McKinney in 2008.
+The name has nothing to do with the cute animal, it’s derived from the term “panel data”, an econometrics term for data sets that include observations over multiple time periods for the same individuals. It is also a play on the phrase “Python data analysis”.">
+  <meta itemprop="datePublished" content="2024-09-25T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-09-25T00:00:00+00:00">
+  <meta itemprop="wordCount" content="2101">
+  <meta itemprop="image" content="https://vladflore.tech/">
+  <meta itemprop="keywords" content="Ml,Learning,Pandas,Mlzoomcamp">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://vladflore.tech/">
+  <meta name="twitter:title" content="Pandas">
+  <meta name="twitter:description" content="Intro Pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language. It was created by Wes McKinney in 2008.
+The name has nothing to do with the cute animal, it’s derived from the term “panel data”, an econometrics term for data sets that include observations over multiple time periods for the same individuals. It is also a play on the phrase “Python data analysis”.">
+
+
+
+    <meta property="og:url" content="https://vladflore.tech/posts/2024/09/pandas/">
+  <meta property="og:site_name" content="vladflore.tech">
+  <meta property="og:title" content="Pandas">
+  <meta property="og:description" content="Intro Pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language. It was created by Wes McKinney in 2008.
+The name has nothing to do with the cute animal, it’s derived from the term “panel data”, an econometrics term for data sets that include observations over multiple time periods for the same individuals. It is also a play on the phrase “Python data analysis”.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-09-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-09-25T00:00:00+00:00">
+    <meta property="article:tag" content="Ml">
+    <meta property="article:tag" content="Learning">
+    <meta property="article:tag" content="Pandas">
+    <meta property="article:tag" content="Mlzoomcamp">
+    <meta property="og:image" content="https://vladflore.tech/">
+
+
+
+
+
+
+    <meta property="article:published_time" content="2024-09-25 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RE8EZYX8D9"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RE8EZYX8D9');
+        }
+      </script>
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text ">
+                $ cd ~</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#a9a9b3;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/posts/">Posts</a></li><li><a href="/portfolio/">Portfolio</a></li><li><a href="/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        10 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://vladflore.tech/posts/2024/09/pandas/">Pandas</a>
+      </h1>
+
+      
+
+      
+        <hr />
+        <aside id="toc">
+          <div class="toc-title">Table of Contents</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#the-environment">The environment</a></li>
+    <li><a href="#data-structures">Data Structures</a></li>
+    <li><a href="#operations-on-series">Operations on Series</a>
+      <ul>
+        <li><a href="#create-a-series-with-a-default-index">Create a Series with a default index</a></li>
+        <li><a href="#create-a-series-with-a-custom-index">Create a Series with a custom index</a></li>
+        <li><a href="#selecting-values-from-a-series">Selecting values from a Series</a></li>
+        <li><a href="#from-python-dictionary-to-series-and-back">From Python dictionary to Series and back</a></li>
+        <li><a href="#data-alignment-for-arithmetic-operations">Data alignment for arithmetic operations</a></li>
+      </ul>
+    </li>
+    <li><a href="#operations-on-dataframe">Operations on DataFrame</a>
+      <ul>
+        <li><a href="#creating-a-dataframe-from-a-dictionary-of-equal-length-lists">Creating a DataFrame from a dictionary of equal-length lists</a></li>
+        <li><a href="#retrieving-a-column-from-a-dataframe-as-a-series">Retrieving a column from a DataFrame as a Series</a></li>
+        <li><a href="#retrieving-a-row-from-a-dataframe-as-a-series">Retrieving a row from a DataFrame as a Series</a></li>
+        <li><a href="#assigning-values-to-a-column">Assigning values to a column</a></li>
+        <li><a href="#adding-a-new-column">Adding a new column</a></li>
+        <li><a href="#deleting-a-column">Deleting a column</a></li>
+        <li><a href="#transposing-a-dataframe">Transposing a DataFrame</a></li>
+        <li><a href="#from-dataframe-to-numpys-ndarray">From DataFrame to Numpy&rsquo;s ndarray</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-index-object">The Index object</a></li>
+    <li><a href="#essential-functionality">Essential functionality</a>
+      <ul>
+        <li><a href="#reindexing">Reindexing</a></li>
+        <li><a href="#dropping-entries-from-an-axis">Dropping entries from an axis</a></li>
+        <li><a href="#indexing-selection-and-filtering">Indexing, selection, and filtering</a></li>
+        <li><a href="#sorting">Sorting</a></li>
+      </ul>
+    </li>
+    <li><a href="#reading-and-writing-data">Reading and writing data</a>
+      <ul>
+        <li><a href="#reading-a-csv-file">Reading a CSV file</a></li>
+        <li><a href="#writing-a-csv-file">Writing a CSV file</a></li>
+      </ul>
+    </li>
+    <li><a href="#data-cleaning">Data cleaning</a>
+      <ul>
+        <li><a href="#missing-data">Missing data</a></li>
+        <li><a href="#filtering-out-missing-data">Filtering out missing data</a></li>
+        <li><a href="#filling-in-missing-data">Filling in missing data</a></li>
+        <li><a href="#removing-duplicates">Removing duplicates</a></li>
+        <li><a href="#applying-functions-or-mapping">Applying functions or mapping</a></li>
+      </ul>
+    </li>
+    <li><a href="#outro">Outro</a></li>
+  </ul>
+</nav>
+        </aside>
+        <hr />
+
+      
+
+      <div class="post-content">
+        <h2 id="intro">Intro</h2>
+<p><a href="https://pandas.pydata.org/" target="_blank">Pandas</a> is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language. It was created by Wes McKinney in 2008.</p>
+<p>The name has nothing to do with the cute animal, it&rsquo;s derived from the term &ldquo;panel data&rdquo;, an econometrics term for data sets that include observations over multiple time periods for the same individuals. It is also a play on the phrase &ldquo;Python data analysis&rdquo;.</p>
+<p>A good resource to learn more about Pandas is the book &ldquo;Python for Data Analysis&rdquo; by Wes McKinney.</p>
+<h2 id="the-environment">The environment</h2>
+<p>Make sure you can run the following commands in your terminal, without errors:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3.12 --version
+</span></span><span style="display:flex;"><span>Python 3.12.4
+</span></span></code></pre></div><p>Inside the Python&rsquo;s REPL (Read-Eval-Print Loop), you get inside by typing <code>python3.12</code> in the terminal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>print(np<span style="color:#f92672">.</span>__version__)
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1.26.4</span>
+</span></span><span style="display:flex;"><span>print(pd<span style="color:#f92672">.</span>__version__)
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2.2.2</span>
+</span></span></code></pre></div><p>If you get similar results, you are ready to go.</p>
+<h2 id="data-structures">Data Structures</h2>
+<p>The main data structures in Pandas are the <code>Series</code> and <code>DataFrame</code> objects.</p>
+<p>The <code>Series</code> object is a one-dimensional array-like object containing a sequence of values of the same type and an associated array of data labels, called its index.</p>
+<p>The <code>DataFrame</code> object is a two-dimensional array with both row and column indices. The name comes from the R <code>data.frame</code> object.</p>
+<h2 id="operations-on-series">Operations on Series</h2>
+<p>Below are some examples of using the <code>Series</code> object.</p>
+<h3 id="create-a-series-with-a-default-index">Create a Series with a default index</h3>
+<p>The string representation of a Series shows the index on the left and the values on the right.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>s <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">7</span>])
+</span></span><span style="display:flex;"><span>s
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>    <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>    <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>    <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span>    <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span>    <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span>dtype: int64
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>s<span style="color:#f92672">.</span>array
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>NumpyExtensionArray<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>]
+</span></span><span style="display:flex;"><span>Length: <span style="color:#ae81ff">7</span>, dtype: int64
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>s<span style="color:#f92672">.</span>index
+</span></span><span style="display:flex;"><span>RangeIndex(start<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, stop<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span>, step<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><h3 id="create-a-series-with-a-custom-index">Create a Series with a custom index</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>s <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series([<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">77</span>,<span style="color:#ae81ff">777</span>], index<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;c&#39;</span>])
+</span></span><span style="display:flex;"><span>s
+</span></span><span style="display:flex;"><span>a      <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span>b     <span style="color:#ae81ff">77</span>
+</span></span><span style="display:flex;"><span>c    <span style="color:#ae81ff">777</span>
+</span></span><span style="display:flex;"><span>dtype: int64
+</span></span></code></pre></div><h3 id="selecting-values-from-a-series">Selecting values from a Series</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>s <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series([<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">77</span>,<span style="color:#ae81ff">777</span>], index<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;c&#39;</span>])
+</span></span><span style="display:flex;"><span>s[<span style="color:#e6db74">&#39;b&#39;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">77</span>
+</span></span><span style="display:flex;"><span>s[[<span style="color:#e6db74">&#39;c&#39;</span>,<span style="color:#e6db74">&#39;b&#39;</span>,<span style="color:#e6db74">&#39;a&#39;</span>]]
+</span></span><span style="display:flex;"><span>c    <span style="color:#ae81ff">777</span>
+</span></span><span style="display:flex;"><span>b     <span style="color:#ae81ff">77</span>
+</span></span><span style="display:flex;"><span>a      <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span>dtype: int64
+</span></span></code></pre></div><h3 id="from-python-dictionary-to-series-and-back">From Python dictionary to Series and back</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>data <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>:<span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#ae81ff">2</span>:<span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#ae81ff">3</span>:<span style="color:#e6db74">&#39;c&#39;</span>}
+</span></span><span style="display:flex;"><span>s <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series(data)
+</span></span><span style="display:flex;"><span>s
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>    a
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>    b
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>    c
+</span></span><span style="display:flex;"><span>dtype: object
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>s<span style="color:#f92672">.</span>to_dict()
+</span></span><span style="display:flex;"><span>{<span style="color:#ae81ff">1</span>: <span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#ae81ff">2</span>: <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#ae81ff">3</span>: <span style="color:#e6db74">&#39;c&#39;</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># passing `index` changes the order of the elements</span>
+</span></span><span style="display:flex;"><span>s <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series(data, index<span style="color:#f92672">=</span>[<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>s
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>    c
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>    b
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>    a
+</span></span><span style="display:flex;"><span>dtype: object
+</span></span></code></pre></div><h3 id="data-alignment-for-arithmetic-operations">Data alignment for arithmetic operations</h3>
+<p>Exemplified for addition, but it works for other operations as well.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>s1 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series({<span style="color:#e6db74">&#39;a&#39;</span>:<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;b&#39;</span>:<span style="color:#ae81ff">2</span>})
+</span></span><span style="display:flex;"><span>s2 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series({<span style="color:#e6db74">&#39;a&#39;</span>:<span style="color:#ae81ff">9</span>, <span style="color:#e6db74">&#39;b&#39;</span>:<span style="color:#ae81ff">8</span>})
+</span></span><span style="display:flex;"><span>s1 <span style="color:#f92672">+</span> s2
+</span></span><span style="display:flex;"><span>a    <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>b    <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>dtype: int64
+</span></span></code></pre></div><h2 id="operations-on-dataframe">Operations on DataFrame</h2>
+<h3 id="creating-a-dataframe-from-a-dictionary-of-equal-length-lists">Creating a DataFrame from a dictionary of equal-length lists</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>frame <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;even&#39;</span>:[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">8</span>], <span style="color:#e6db74">&#39;odd&#39;</span>:[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">9</span>], <span style="color:#e6db74">&#39;prime&#39;</span>:[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">7</span>]})
+</span></span><span style="display:flex;"><span>frame
+</span></span><span style="display:flex;"><span>   even  odd  prime
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>      <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">2</span>    <span style="color:#ae81ff">3</span>      <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>     <span style="color:#ae81ff">4</span>    <span style="color:#ae81ff">5</span>      <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>     <span style="color:#ae81ff">6</span>    <span style="color:#ae81ff">7</span>      <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>     <span style="color:#ae81ff">8</span>    <span style="color:#ae81ff">9</span>      <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># to change the order of the columns use the `columns` parameter</span>
+</span></span><span style="display:flex;"><span>frame <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;even&#39;</span>:[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">8</span>], <span style="color:#e6db74">&#39;odd&#39;</span>:[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">9</span>], <span style="color:#e6db74">&#39;prime&#39;</span>:[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">7</span>]}, columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;prime&#39;</span>,<span style="color:#e6db74">&#39;odd&#39;</span>,<span style="color:#e6db74">&#39;even&#39;</span>])
+</span></span><span style="display:flex;"><span>frame
+</span></span><span style="display:flex;"><span>   prime  odd  even
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>      <span style="color:#ae81ff">2</span>    <span style="color:#ae81ff">3</span>     <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>      <span style="color:#ae81ff">3</span>    <span style="color:#ae81ff">5</span>     <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>      <span style="color:#ae81ff">5</span>    <span style="color:#ae81ff">7</span>     <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>      <span style="color:#ae81ff">7</span>    <span style="color:#ae81ff">9</span>     <span style="color:#ae81ff">8</span>
+</span></span></code></pre></div><h3 id="retrieving-a-column-from-a-dataframe-as-a-series">Retrieving a column from a DataFrame as a Series</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>frame <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;even&#39;</span>:[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">8</span>], <span style="color:#e6db74">&#39;odd&#39;</span>:[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">9</span>], <span style="color:#e6db74">&#39;prime&#39;</span>:[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">7</span>]})
+</span></span><span style="display:flex;"><span>primes <span style="color:#f92672">=</span> frame[<span style="color:#e6db74">&#39;prime&#39;</span>]
+</span></span><span style="display:flex;"><span>primes
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>    <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>    <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>    <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span>Name: prime, dtype: int64
+</span></span><span style="display:flex;"><span>type(primes)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">pandas</span><span style="color:#f92672">.</span>core<span style="color:#f92672">.</span>series<span style="color:#f92672">.</span>Series<span style="color:#e6db74">&#39;&gt;</span>
+</span></span></code></pre></div><h3 id="retrieving-a-row-from-a-dataframe-as-a-series">Retrieving a row from a DataFrame as a Series</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>frame <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;even&#39;</span>:[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">8</span>], <span style="color:#e6db74">&#39;odd&#39;</span>:[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">9</span>], <span style="color:#e6db74">&#39;prime&#39;</span>:[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">7</span>]})
+</span></span><span style="display:flex;"><span>frame<span style="color:#f92672">.</span>loc[<span style="color:#ae81ff">4</span>]
+</span></span><span style="display:flex;"><span>even     <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>odd      <span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span>prime    <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span>Name: <span style="color:#ae81ff">4</span>, dtype: int64
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>frame<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">4</span>]
+</span></span><span style="display:flex;"><span>even     <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>odd      <span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span>prime    <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span>Name: <span style="color:#ae81ff">4</span>, dtype: int64
+</span></span></code></pre></div><h3 id="assigning-values-to-a-column">Assigning values to a column</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>frame
+</span></span><span style="display:flex;"><span>   even  odd  prime
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>      <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">2</span>    <span style="color:#ae81ff">3</span>      <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>     <span style="color:#ae81ff">4</span>    <span style="color:#ae81ff">5</span>      <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>     <span style="color:#ae81ff">6</span>    <span style="color:#ae81ff">7</span>      <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>     <span style="color:#ae81ff">8</span>    <span style="color:#ae81ff">9</span>      <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span>frame<span style="color:#f92672">.</span>even <span style="color:#f92672">=</span> [<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">10</span>]
+</span></span><span style="display:flex;"><span>frame
+</span></span><span style="display:flex;"><span>   even  odd  prime
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">2</span>    <span style="color:#ae81ff">1</span>      <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">4</span>    <span style="color:#ae81ff">3</span>      <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>     <span style="color:#ae81ff">6</span>    <span style="color:#ae81ff">5</span>      <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>     <span style="color:#ae81ff">8</span>    <span style="color:#ae81ff">7</span>      <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>    <span style="color:#ae81ff">10</span>    <span style="color:#ae81ff">9</span>      <span style="color:#ae81ff">7</span>
+</span></span></code></pre></div><h3 id="adding-a-new-column">Adding a new column</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>frame
+</span></span><span style="display:flex;"><span>   even  odd  prime
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>      <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">2</span>    <span style="color:#ae81ff">3</span>      <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>     <span style="color:#ae81ff">4</span>    <span style="color:#ae81ff">5</span>      <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>     <span style="color:#ae81ff">6</span>    <span style="color:#ae81ff">7</span>      <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>     <span style="color:#ae81ff">8</span>    <span style="color:#ae81ff">9</span>      <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span>frame[<span style="color:#e6db74">&#39;prime_is_odd&#39;</span>] <span style="color:#f92672">=</span> frame[<span style="color:#e6db74">&#39;prime&#39;</span>] <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>frame
+</span></span><span style="display:flex;"><span>   even  odd  prime  prime_is_odd
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>      <span style="color:#ae81ff">1</span>          <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">2</span>    <span style="color:#ae81ff">3</span>      <span style="color:#ae81ff">2</span>         <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>     <span style="color:#ae81ff">4</span>    <span style="color:#ae81ff">5</span>      <span style="color:#ae81ff">3</span>          <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>     <span style="color:#ae81ff">6</span>    <span style="color:#ae81ff">7</span>      <span style="color:#ae81ff">5</span>          <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>     <span style="color:#ae81ff">8</span>    <span style="color:#ae81ff">9</span>      <span style="color:#ae81ff">7</span>          <span style="color:#66d9ef">True</span>
+</span></span></code></pre></div><h3 id="deleting-a-column">Deleting a column</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>frame<span style="color:#f92672">.</span>columns
+</span></span><span style="display:flex;"><span>Index([<span style="color:#e6db74">&#39;even&#39;</span>, <span style="color:#e6db74">&#39;odd&#39;</span>, <span style="color:#e6db74">&#39;prime&#39;</span>, <span style="color:#e6db74">&#39;prime_is_odd&#39;</span>], dtype<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;object&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">del</span> frame[<span style="color:#e6db74">&#39;prime_is_odd&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>frame<span style="color:#f92672">.</span>columns
+</span></span><span style="display:flex;"><span>Index([<span style="color:#e6db74">&#39;prime&#39;</span>, <span style="color:#e6db74">&#39;odd&#39;</span>, <span style="color:#e6db74">&#39;even&#39;</span>], dtype<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;object&#39;</span>)
+</span></span></code></pre></div><h3 id="transposing-a-dataframe">Transposing a DataFrame</h3>
+<p>i.e. swaping rows and columns</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>frame
+</span></span><span style="display:flex;"><span>   even  odd  prime
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>      <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">2</span>    <span style="color:#ae81ff">3</span>      <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>     <span style="color:#ae81ff">4</span>    <span style="color:#ae81ff">5</span>      <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>     <span style="color:#ae81ff">6</span>    <span style="color:#ae81ff">7</span>      <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>     <span style="color:#ae81ff">8</span>    <span style="color:#ae81ff">9</span>      <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span>frame<span style="color:#f92672">.</span>T
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">3</span>  <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>even   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">4</span>  <span style="color:#ae81ff">6</span>  <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>odd    <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">3</span>  <span style="color:#ae81ff">5</span>  <span style="color:#ae81ff">7</span>  <span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span>prime  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">3</span>  <span style="color:#ae81ff">5</span>  <span style="color:#ae81ff">7</span>
+</span></span></code></pre></div><h3 id="from-dataframe-to-numpys-ndarray">From DataFrame to Numpy&rsquo;s ndarray</h3>
+<p>NumPy arrays will be covered in another post. For now you can think of them as a more powerful version of Python&rsquo;s lists.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>frame
+</span></span><span style="display:flex;"><span>   even  odd  prime
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>      <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">2</span>    <span style="color:#ae81ff">3</span>      <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>     <span style="color:#ae81ff">4</span>    <span style="color:#ae81ff">5</span>      <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>     <span style="color:#ae81ff">6</span>    <span style="color:#ae81ff">7</span>      <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>     <span style="color:#ae81ff">8</span>    <span style="color:#ae81ff">9</span>      <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span>frame<span style="color:#f92672">.</span>to_numpy()
+</span></span><span style="display:flex;"><span>array([[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>],
+</span></span><span style="display:flex;"><span>       [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>],
+</span></span><span style="display:flex;"><span>       [<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">3</span>],
+</span></span><span style="display:flex;"><span>       [<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">5</span>],
+</span></span><span style="display:flex;"><span>       [<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">7</span>]])
+</span></span></code></pre></div><h2 id="the-index-object">The Index object</h2>
+<ul>
+<li>is immutable</li>
+<li>can be shared between data structures</li>
+<li>is array-like and also behaves like a fixed-size <em>set</em></li>
+<li>can contain duplicate labels</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>index <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Index([<span style="color:#e6db74">&#39;a&#39;</span>,<span style="color:#e6db74">&#39;a&#39;</span>,<span style="color:#e6db74">&#39;b&#39;</span>,<span style="color:#e6db74">&#39;c&#39;</span>])
+</span></span><span style="display:flex;"><span>index
+</span></span><span style="display:flex;"><span>Index([<span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;c&#39;</span>], dtype<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;object&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>index[<span style="color:#ae81ff">1</span>:]
+</span></span><span style="display:flex;"><span>Index([<span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;c&#39;</span>], dtype<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;object&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># index[0] = &#39;x&#39; -&gt; TypeError: Index does not support mutable operations</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>s <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>], index<span style="color:#f92672">=</span>index)
+</span></span><span style="display:flex;"><span>s
+</span></span><span style="display:flex;"><span>a    <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>a    <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>b    <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>c    <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>dtype: int64
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>s<span style="color:#f92672">.</span>index <span style="color:#f92672">is</span> index 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>frame <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;even&#39;</span>:[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">8</span>], <span style="color:#e6db74">&#39;odd&#39;</span>:[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">9</span>], <span style="color:#e6db74">&#39;prime&#39;</span>:[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">7</span>]})
+</span></span><span style="display:flex;"><span>frame<span style="color:#f92672">.</span>columns
+</span></span><span style="display:flex;"><span>Index([<span style="color:#e6db74">&#39;even&#39;</span>, <span style="color:#e6db74">&#39;odd&#39;</span>, <span style="color:#e6db74">&#39;prime&#39;</span>], dtype<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;object&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>frame<span style="color:#f92672">.</span>index
+</span></span><span style="display:flex;"><span>RangeIndex(start<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, stop<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>, step<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;odd&#39;</span> <span style="color:#f92672">in</span> frame<span style="color:#f92672">.</span>columns
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span> <span style="color:#f92672">in</span> frame<span style="color:#f92672">.</span>index
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">True</span>
+</span></span></code></pre></div><h2 id="essential-functionality">Essential functionality</h2>
+<h3 id="reindexing">Reindexing</h3>
+<p>i.e. creates a new object with the values rearranged according to the new index.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>obj <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>], index<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;c&#39;</span>])
+</span></span><span style="display:flex;"><span>obj
+</span></span><span style="display:flex;"><span>a    <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>b    <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>c    <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>dtype: int64
+</span></span><span style="display:flex;"><span>obj<span style="color:#f92672">.</span>reindex([<span style="color:#e6db74">&#39;c&#39;</span>,<span style="color:#e6db74">&#39;b&#39;</span>,<span style="color:#e6db74">&#39;a&#39;</span>])
+</span></span><span style="display:flex;"><span>c    <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>b    <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>a    <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>dtype: int64
+</span></span></code></pre></div><h3 id="dropping-entries-from-an-axis">Dropping entries from an axis</h3>
+<p>of a Series:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>obj <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>], index<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;c&#39;</span>])
+</span></span><span style="display:flex;"><span>obj<span style="color:#f92672">.</span>drop(<span style="color:#e6db74">&#39;b&#39;</span>)
+</span></span><span style="display:flex;"><span>a    <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>c    <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>dtype: int64
+</span></span></code></pre></div><p>of a DataFrame:</p>
+<p>This line <code>np.arange(4).reshape((2,2))</code> creates a 2x2 matrix with values from 0 to 3.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>frame <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">4</span>)<span style="color:#f92672">.</span>reshape((<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>)), index<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>], columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;c&#39;</span>, <span style="color:#e6db74">&#39;d&#39;</span>])
+</span></span><span style="display:flex;"><span>frame
+</span></span><span style="display:flex;"><span>   c  d
+</span></span><span style="display:flex;"><span>a  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>b  <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>frame<span style="color:#f92672">.</span>drop(index<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;b&#39;</span>], columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;d&#39;</span>])
+</span></span><span style="display:flex;"><span>   c
+</span></span><span style="display:flex;"><span>a  <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><h3 id="indexing-selection-and-filtering">Indexing, selection, and filtering</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>obj <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>], index<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;c&#39;</span>, <span style="color:#e6db74">&#39;d&#39;</span>])
+</span></span><span style="display:flex;"><span>obj[<span style="color:#e6db74">&#39;b&#39;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>obj<span style="color:#f92672">.</span>loc[[<span style="color:#e6db74">&#39;b&#39;</span>,<span style="color:#e6db74">&#39;a&#39;</span>,<span style="color:#e6db74">&#39;d&#39;</span>]]
+</span></span><span style="display:flex;"><span>b    <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>a    <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>d    <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>dtype: int64
+</span></span><span style="display:flex;"><span>obj[<span style="color:#ae81ff">1</span>] <span style="color:#75715e"># Future warning: integer keys will always be treated as labels</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>obj<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>obj[<span style="color:#ae81ff">2</span>:<span style="color:#ae81ff">4</span>]
+</span></span><span style="display:flex;"><span>c    <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>d    <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>dtype: int64
+</span></span><span style="display:flex;"><span>obj[[<span style="color:#e6db74">&#39;b&#39;</span>,<span style="color:#e6db74">&#39;a&#39;</span>,<span style="color:#e6db74">&#39;d&#39;</span>]]
+</span></span><span style="display:flex;"><span>b    <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>a    <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>d    <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>dtype: int64
+</span></span><span style="display:flex;"><span>obj[obj <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span>]
+</span></span><span style="display:flex;"><span>c    <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>d    <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>dtype: int64
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>frame <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">4</span>)<span style="color:#f92672">.</span>reshape((<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>)), index<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>], columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;c&#39;</span>, <span style="color:#e6db74">&#39;d&#39;</span>])
+</span></span><span style="display:flex;"><span>frame
+</span></span><span style="display:flex;"><span>   c  d
+</span></span><span style="display:flex;"><span>a  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>b  <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>frame<span style="color:#f92672">.</span>loc[<span style="color:#e6db74">&#39;b&#39;</span>]
+</span></span><span style="display:flex;"><span>c    <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>d    <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>Name: b, dtype: int64
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>frame<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>c    <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>d    <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>Name: b, dtype: int64
+</span></span></code></pre></div><h3 id="sorting">Sorting</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>obj <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series([<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">1</span>], index<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;d&#39;</span>, <span style="color:#e6db74">&#39;c&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;a&#39;</span>])
+</span></span><span style="display:flex;"><span>obj<span style="color:#f92672">.</span>sort_index()
+</span></span><span style="display:flex;"><span>a    <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>b    <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>c    <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>d    <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>dtype: int64
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>frame <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">4</span>)<span style="color:#f92672">.</span>reshape((<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>)), index<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;a&#39;</span>], columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;d&#39;</span>, <span style="color:#e6db74">&#39;c&#39;</span>])
+</span></span><span style="display:flex;"><span>frame
+</span></span><span style="display:flex;"><span>   d  c
+</span></span><span style="display:flex;"><span>b  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>a  <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>frame<span style="color:#f92672">.</span>sort_index()
+</span></span><span style="display:flex;"><span>   d  c
+</span></span><span style="display:flex;"><span>a  <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>b  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>frame<span style="color:#f92672">.</span>sort_index(axis<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;columns&#39;</span>)
+</span></span><span style="display:flex;"><span>   c  d
+</span></span><span style="display:flex;"><span>b  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>a  <span style="color:#ae81ff">3</span>  <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>frame<span style="color:#f92672">.</span>sort_index(axis<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;columns&#39;</span>, ascending<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>   d  c
+</span></span><span style="display:flex;"><span>b  <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>a  <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">3</span>
+</span></span></code></pre></div><h2 id="reading-and-writing-data">Reading and writing data</h2>
+<p>Pandas can read and write data from and to a variety of formats, such as CSV, JSON, Excel, SQL databases, and more.</p>
+<p>In this example, we will be focusing on reading and writing CSV files.</p>
+<h3 id="reading-a-csv-file">Reading a CSV file</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat data.csv
+</span></span><span style="display:flex;"><span>col1,col2,col3
+</span></span><span style="display:flex;"><span>1,2,foo
+</span></span><span style="display:flex;"><span>3,4,bar
+</span></span><span style="display:flex;"><span>5,6,baz
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pd.read_csv<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;data.csv&#39;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   col1  col2 col3
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">2</span>  foo
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">3</span>     <span style="color:#ae81ff">4</span>  bar
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>     <span style="color:#ae81ff">5</span>     <span style="color:#ae81ff">6</span>  baz
+</span></span></code></pre></div><p>In case the file does not have a header row, <code>read_csv</code>, has some parameters to help with that.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat data_no_header.csv
+</span></span><span style="display:flex;"><span>1,2,foo
+</span></span><span style="display:flex;"><span>3,4,bar
+</span></span><span style="display:flex;"><span>5,6,baz
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pd.read_csv<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;data_no_header.csv&#39;</span>, header<span style="color:#f92672">=</span>None<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">2</span>  foo
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">3</span>  <span style="color:#ae81ff">4</span>  bar
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">5</span>  <span style="color:#ae81ff">6</span>  baz
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pd.read_csv<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;data_no_header.csv&#39;</span>, names<span style="color:#f92672">=[</span><span style="color:#e6db74">&#39;c1&#39;</span>,<span style="color:#e6db74">&#39;c2&#39;</span>,<span style="color:#e6db74">&#39;c3&#39;</span><span style="color:#f92672">])</span>
+</span></span><span style="display:flex;"><span>   c1  c2   c3
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">2</span>  foo
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">3</span>   <span style="color:#ae81ff">4</span>  bar
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>   <span style="color:#ae81ff">5</span>   <span style="color:#ae81ff">6</span>  baz
+</span></span></code></pre></div><p>We can also specify the index column to be used instead of the default one.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;data.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>   col1  col2 col3
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">2</span>  foo
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">3</span>     <span style="color:#ae81ff">4</span>  bar
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>     <span style="color:#ae81ff">5</span>     <span style="color:#ae81ff">6</span>  baz
+</span></span><span style="display:flex;"><span>pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;data.csv&#39;</span>, index_col<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;col3&#39;</span>)
+</span></span><span style="display:flex;"><span>      col1  col2
+</span></span><span style="display:flex;"><span>col3
+</span></span><span style="display:flex;"><span>foo      <span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>bar      <span style="color:#ae81ff">3</span>     <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>baz      <span style="color:#ae81ff">5</span>     <span style="color:#ae81ff">6</span>
+</span></span></code></pre></div><p>In case the csv file uses another separator, we can specify it using the <code>sep</code> parameter.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;data_with_spaces.csv&#39;</span>, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">s+&#39;</span>)
+</span></span><span style="display:flex;"><span>   col1  col2 col3
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">2</span>  foo
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">3</span>     <span style="color:#ae81ff">4</span>  bar
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>     <span style="color:#ae81ff">5</span>     <span style="color:#ae81ff">6</span>  baz
+</span></span></code></pre></div><p><code>read_csv</code> also allows us to skip specific rows, or to only read a specific number of rows.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;data_with_spaces.csv&#39;</span>, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">s+&#39;</span>)
+</span></span><span style="display:flex;"><span>   col1  col2 col3
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">2</span>  foo
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">3</span>     <span style="color:#ae81ff">4</span>  bar
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>     <span style="color:#ae81ff">5</span>     <span style="color:#ae81ff">6</span>  baz
+</span></span><span style="display:flex;"><span>pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;data_with_spaces.csv&#39;</span>, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">s+&#39;</span>, skiprows<span style="color:#f92672">=</span>[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>])
+</span></span><span style="display:flex;"><span>   col1  col2 col3
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">5</span>     <span style="color:#ae81ff">6</span>  baz
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;data_with_spaces.csv&#39;</span>, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">s+&#39;</span>)
+</span></span><span style="display:flex;"><span>   col1  col2 col3
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">2</span>  foo
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">3</span>     <span style="color:#ae81ff">4</span>  bar
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>     <span style="color:#ae81ff">5</span>     <span style="color:#ae81ff">6</span>  baz
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>     <span style="color:#ae81ff">7</span>     <span style="color:#ae81ff">8</span>  bax
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>     <span style="color:#ae81ff">9</span>    <span style="color:#ae81ff">10</span>  bay
+</span></span><span style="display:flex;"><span>pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;data_with_spaces.csv&#39;</span>, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">s+&#39;</span>, nrows<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>   col1  col2 col3
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">2</span>  foo
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">3</span>     <span style="color:#ae81ff">4</span>  bar
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>     <span style="color:#ae81ff">5</span>     <span style="color:#ae81ff">6</span>  baz
+</span></span></code></pre></div><h3 id="writing-a-csv-file">Writing a CSV file</h3>
+<p><code>to_csv</code> writes a DataFrame to a CSV file. It offers a variety of parameters to customize the output, among them are <code>sep</code>, <code>header</code>, and <code>columns</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;data_with_spaces.csv&#39;</span>, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">s+&#39;</span>, nrows<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>data
+</span></span><span style="display:flex;"><span>   col1  col2 col3
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">2</span>  foo
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">3</span>     <span style="color:#ae81ff">4</span>  bar
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>     <span style="color:#ae81ff">5</span>     <span style="color:#ae81ff">6</span>  baz
+</span></span><span style="display:flex;"><span>data<span style="color:#f92672">.</span>to_csv(<span style="color:#e6db74">&#39;new_data.csv&#39;</span>, sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;|&#39;</span>, header<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;col2&#39;</span>,<span style="color:#e6db74">&#39;col3&#39;</span>])
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat new_data.csv
+</span></span><span style="display:flex;"><span>|col2|col3
+</span></span><span style="display:flex;"><span>0|2|foo
+</span></span><span style="display:flex;"><span>1|4|bar
+</span></span><span style="display:flex;"><span>2|6|baz
+</span></span></code></pre></div><h2 id="data-cleaning">Data cleaning</h2>
+<h3 id="missing-data">Missing data</h3>
+<p>Python&rsquo;s <code>None</code> and NumPy&rsquo;s <code>np.nan</code>(<code>np</code> comes from <code>import numpy as np</code>) are considered missing data in Pandas.</p>
+<p><code>na</code> stands for &ldquo;not available&rdquo;.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>s <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,np<span style="color:#f92672">.</span>nan,<span style="color:#66d9ef">None</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>])
+</span></span><span style="display:flex;"><span>s
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">2.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>    NaN
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>    NaN
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>    <span style="color:#ae81ff">3.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span>    <span style="color:#ae81ff">4.0</span>
+</span></span><span style="display:flex;"><span>dtype: float64
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>s<span style="color:#f92672">.</span>isna()
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>    <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>    <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>     <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>     <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>    <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span>    <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>dtype: bool
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>s<span style="color:#f92672">.</span>notna()
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>     <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>     <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>    <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>    <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>     <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span>     <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>dtype: bool
+</span></span></code></pre></div><p><code>notna()</code> is the opposite of <code>isna()</code>.</p>
+<h3 id="filtering-out-missing-data">Filtering out missing data</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>s <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,np<span style="color:#f92672">.</span>nan,<span style="color:#66d9ef">None</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>])
+</span></span><span style="display:flex;"><span>s
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">2.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>    NaN
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>    NaN
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>    <span style="color:#ae81ff">3.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span>    <span style="color:#ae81ff">4.0</span>
+</span></span><span style="display:flex;"><span>dtype: float64
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>s<span style="color:#f92672">.</span>dropna()
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">2.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>    <span style="color:#ae81ff">3.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span>    <span style="color:#ae81ff">4.0</span>
+</span></span><span style="display:flex;"><span>dtype: float64
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame([[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>],[<span style="color:#ae81ff">4</span>,<span style="color:#66d9ef">None</span>,<span style="color:#ae81ff">5</span>],[<span style="color:#66d9ef">None</span>,<span style="color:#66d9ef">None</span>,np<span style="color:#f92672">.</span>nan]])
+</span></span><span style="display:flex;"><span>data
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1.0</span>  <span style="color:#ae81ff">2.0</span>  <span style="color:#ae81ff">3.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">4.0</span>  NaN  <span style="color:#ae81ff">5.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>  NaN  NaN  NaN
+</span></span><span style="display:flex;"><span>data<span style="color:#f92672">.</span>dropna()
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1.0</span>  <span style="color:#ae81ff">2.0</span>  <span style="color:#ae81ff">3.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># to drop only rows that are all NA</span>
+</span></span><span style="display:flex;"><span>data<span style="color:#f92672">.</span>dropna(how<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;all&#39;</span>)
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1.0</span>  <span style="color:#ae81ff">2.0</span>  <span style="color:#ae81ff">3.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">4.0</span>  NaN  <span style="color:#ae81ff">5.0</span>
+</span></span></code></pre></div><p>For dropping columns we need to specify <code>axis='columns'</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>data
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1.0</span>  <span style="color:#ae81ff">2.0</span>  <span style="color:#ae81ff">3.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">4.0</span>  NaN  <span style="color:#ae81ff">5.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>  NaN  NaN  NaN
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># add a new column with all NA values</span>
+</span></span><span style="display:flex;"><span>data[len(data<span style="color:#f92672">.</span>columns)] <span style="color:#f92672">=</span> [<span style="color:#66d9ef">None</span>,<span style="color:#66d9ef">None</span>,<span style="color:#66d9ef">None</span>]
+</span></span><span style="display:flex;"><span>data
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">2</span>     <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1.0</span>  <span style="color:#ae81ff">2.0</span>  <span style="color:#ae81ff">3.0</span>  <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">4.0</span>  NaN  <span style="color:#ae81ff">5.0</span>  <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>  NaN  NaN  NaN  <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>data<span style="color:#f92672">.</span>dropna(axis<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;columns&#39;</span>, how<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;all&#39;</span>)
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1.0</span>  <span style="color:#ae81ff">2.0</span>  <span style="color:#ae81ff">3.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">4.0</span>  NaN  <span style="color:#ae81ff">5.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>  NaN  NaN  NaN
+</span></span></code></pre></div><h3 id="filling-in-missing-data">Filling in missing data</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>data
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">2</span>     <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1.0</span>  <span style="color:#ae81ff">2.0</span>  <span style="color:#ae81ff">3.0</span>  <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">4.0</span>  NaN  <span style="color:#ae81ff">5.0</span>  <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>  NaN  NaN  NaN  <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>data<span style="color:#f92672">.</span>fillna(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1.0</span>  <span style="color:#ae81ff">2.0</span>  <span style="color:#ae81ff">3.0</span>  <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">4.0</span>  <span style="color:#ae81ff">0.0</span>  <span style="color:#ae81ff">5.0</span>  <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">0.0</span>  <span style="color:#ae81ff">0.0</span>  <span style="color:#ae81ff">0.0</span>  <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>data<span style="color:#f92672">.</span>fillna({<span style="color:#ae81ff">0</span>:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>:<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>:<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>:<span style="color:#f92672">-</span><span style="color:#ae81ff">4</span>})
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1.0</span>  <span style="color:#ae81ff">2.0</span>  <span style="color:#ae81ff">3.0</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">4.0</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span>  <span style="color:#ae81ff">5.0</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1.0</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">3.0</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">4</span>
+</span></span></code></pre></div><h3 id="removing-duplicates">Removing duplicates</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame([[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>],[<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">5</span>],[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>]])
+</span></span><span style="display:flex;"><span>data
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">4</span>  <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># returns a boolean Series indicating whether each row is a duplicate</span>
+</span></span><span style="display:flex;"><span>data<span style="color:#f92672">.</span>duplicated()
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>    <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>    <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>     <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>dtype: bool
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>data<span style="color:#f92672">.</span>drop_duplicates()
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">4</span>  <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">5</span>
+</span></span></code></pre></div><p>By defaault, <code>drop_duplicates</code> looks at all columns, but we can specify a subset of columns to consider.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>data
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1.0</span>  <span style="color:#ae81ff">2.0</span>  <span style="color:#ae81ff">3.0</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">4.0</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span>  <span style="color:#ae81ff">5.0</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1.0</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">3.0</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>data<span style="color:#f92672">.</span>drop_duplicates(subset<span style="color:#f92672">=</span>[<span style="color:#ae81ff">3</span>])
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">0</span>    <span style="color:#ae81ff">1</span>    <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1.0</span>  <span style="color:#ae81ff">2.0</span>  <span style="color:#ae81ff">3.0</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">4</span>
+</span></span></code></pre></div><h3 id="applying-functions-or-mapping">Applying functions or mapping</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame([[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>],[<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">5</span>],[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>]])
+</span></span><span style="display:flex;"><span>data
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">4</span>  <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">f</span>(x):
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>     <span style="color:#66d9ef">return</span> x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>data[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">=</span> data[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">.</span>map(f)
+</span></span><span style="display:flex;"><span>data
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">2</span>   <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">3</span>   <span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">4</span>  <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">5</span>  <span style="color:#ae81ff">25</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">3</span>   <span style="color:#ae81ff">9</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>digits <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame([[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>],[<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>]])
+</span></span><span style="display:flex;"><span>digits
+</span></span><span style="display:flex;"><span>   <span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">3</span>  <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>d <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span> <span style="color:#ae81ff">1</span>: <span style="color:#e6db74">&#39;one&#39;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span> <span style="color:#ae81ff">2</span>: <span style="color:#e6db74">&#39;two&#39;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span> <span style="color:#ae81ff">3</span>: <span style="color:#e6db74">&#39;three&#39;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span> <span style="color:#ae81ff">4</span>: <span style="color:#e6db74">&#39;four&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>digits[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> digits[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>map(d)
+</span></span><span style="display:flex;"><span>digits[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> digits[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>map(d)
+</span></span><span style="display:flex;"><span>digits
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>    one   two
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>  three  four
+</span></span></code></pre></div><h2 id="outro">Outro</h2>
+<p>This post covered the basics of Pandas, a powerful data manipulation tool built on top of Python. We learned about the main data structures in Pandas, the <code>Series</code> and <code>DataFrame</code> objects, and how to perform operations on them.</p>
+<p>This is just the tip of the iceberg, Pandas has a lot more to offer, and I encourage you to explore the <a href="https://pandas.pydata.org/docs/" target="_blank">official documentation</a> and other resources to learn more about it.</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://vladflore.tech/tags/ml/">ml</a></span>
+        <span class="tag"><a href="https://vladflore.tech/tags/learning/">learning</a></span>
+        <span class="tag"><a href="https://vladflore.tech/tags/pandas/">pandas</a></span>
+        <span class="tag"><a href="https://vladflore.tech/tags/mlzoomcamp/">mlzoomcamp</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        2101 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2024-09-25 02:00
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+
+  
+  
+  <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2024%2f09%2fpandas%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+    <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+        <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="resp-sharing-button__link" href="mailto:?subject=Pandas&amp;body=https%3a%2f%2fvladflore.tech%2fposts%2f2024%2f09%2fpandas%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+    <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fvladflore.tech%2fposts%2f2024%2f09%2fpandas%2f&amp;title=Pandas&amp;summary=Pandas&amp;source=https%3a%2f%2fvladflore.tech%2fposts%2f2024%2f09%2fpandas%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+    <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  <a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2024%2f09%2fpandas%2f&amp;resubmit=true&amp;title=Pandas" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+    <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      </div>
+
+    
+    <div class="pagination">
+        
+
+        <div class="pagination__buttons">
+            
+            <span class="button previous">
+                <a href="https://vladflore.tech/posts/2024/09/numpy/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">NumPy</span>
+                </a>
+            </span>
+            
+
+            
+            <span class="button next">
+                <a href="https://vladflore.tech/posts/2024/09/learning...-machine-learning/">
+                    <span class="button__text">Learning... Machine Learning</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+      
+        <div id="comments">
+          <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vladflore-tech" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      
+    
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2024</span>
+            <span><a href="https://vladflore.tech/">Vlad Flore</a></span>
+            
+            <span><a href="https://vladflore.tech/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            
+        </div>
+    </div>
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://themes.gohugo.io/themes/hugo-theme-hello-friend-ng/">hello-friend-ng</a> theme</span>
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.e89fda0f29b95d33f6f4224dd9e5cf69d84aff3818be2b0d73e731689cc374261b016d17d46f8381962fb4a1577ba3017b1f23509d894f6e66431f988c00889e.js" integrity="sha512-6J/aDym5XTP29CJN2eXPadhK/zgYvisNc&#43;cxaJzDdCYbAW0X1G&#43;DgZYvtKFXe6MBex8jUJ2JT25mQx&#43;YjACIng=="></script>
+
+
+
+
+    </body>
+</html>
