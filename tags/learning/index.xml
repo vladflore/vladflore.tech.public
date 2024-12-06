@@ -6,8 +6,15 @@
     <description>Recent content in Learning on vladflore.tech</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 14 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 06 Dec 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://vladflore.tech/tags/learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Machine Learning Zoomcamp: Module 3 Recap</title>
+      <link>https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/</link>
+      <pubDate>Fri, 06 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/</guid>
+      <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;This post is a recap of the Machine Learning Zoomcamp Module 3.&lt;/p&gt;&#xA;&lt;p&gt;Below are the posts for the previous modules:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/&#34;&gt;Machine Learning Zoomcamp Module 1&lt;/a&gt; - points received: 9 (7/7 for questions + 2 bonus for learning in public)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/&#34;&gt;Machine Learning Zoomcamp Module 2&lt;/a&gt; - points received: 5 (5/6 for questions + 0 bonus for learning in public)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;For module 2 I managed to score 5 points out of 6 for the questions. While the code and the result I got were correct, I interpreted the result incorrectly, choosing the wrong answer. Oh well, it happens&amp;hellip;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Machine Learning Zoomcamp: Module 2 Recap</title>
       <link>https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/</link>

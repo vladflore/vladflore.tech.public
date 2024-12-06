@@ -9,6 +9,123 @@
         <atom:link href="https://vladflore.tech/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
+            <title>Machine Learning Zoomcamp: Module 3 Recap</title>
+            <link>https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/</link>
+            <pubDate>Fri, 06 Dec 2024 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/</guid>
+            <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This post is a recap of the Machine Learning Zoomcamp Module 3.&lt;/p&gt;
+&lt;p&gt;Below are the posts for the previous modules:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/&#34;&gt;Machine Learning Zoomcamp Module 1&lt;/a&gt; - points received: 9 (7/7 for questions + 2 bonus for learning in public)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/&#34;&gt;Machine Learning Zoomcamp Module 2&lt;/a&gt; - points received: 5 (5/6 for questions + 0 bonus for learning in public)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For module 2 I managed to score 5 points out of 6 for the questions. While the code and the result I got were correct, I interpreted the result incorrectly, choosing the wrong answer. Oh well, it happens&amp;hellip;&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<h2 id="intro">Intro</h2>
+<p>This post is a recap of the Machine Learning Zoomcamp Module 3.</p>
+<p>Below are the posts for the previous modules:</p>
+<ol>
+<li><a href="https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/">Machine Learning Zoomcamp Module 1</a> - points received: 9 (7/7 for questions + 2 bonus for learning in public)</li>
+<li><a href="https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/">Machine Learning Zoomcamp Module 2</a> - points received: 5 (5/6 for questions + 0 bonus for learning in public)</li>
+</ol>
+<p>For module 2 I managed to score 5 points out of 6 for the questions. While the code and the result I got were correct, I interpreted the result incorrectly, choosing the wrong answer. Oh well, it happens&hellip;</p>
+<h2 id="the-gist-of-the-module">The gist of the module</h2>
+<p>While the previous module was all about regression, i.e. predicting a continuous value, this module is about classification, i.e. predicting a category. As we have just two categories, we are talking about <em>binary classification</em>.</p>
+<h2 id="the-dataset">The dataset</h2>
+<p>As with all machine learning problems, we begin with the dataset. In this module, the dataset focuses on predicting customer churn, determining whether a customer is likely to leave or stay. The dataset used for the homework focuses on predicting if a customer has subscribed a term deposit or not.</p>
+<h2 id="data-preparation-and-eda">Data preparation and EDA</h2>
+<p>One of the first steps in implementing a machine learning model is to prepare the data and perform exploratory data analysis (EDA).</p>
+<p>Regarding data preparation, we need to:</p>
+<ul>
+<li>bring the columns and values within to a common format, i.e. lowercase, no spaces, etc.</li>
+<li>perform some numerical conversions</li>
+<li>handling missing values</li>
+<li>encoding categorical variables, i.e. <code>yes</code>/<code>no</code> to <code>1</code>/<code>0</code></li>
+</ul>
+<p>Regarding EDA, we need to:</p>
+<ul>
+<li>check the distribution of the target variable</li>
+<li>check the distribution of the features</li>
+<li>calculate the correlation between the features</li>
+<li>calculate the mutual information between the features and the target variable</li>
+</ul>
+<h2 id="training-a-model">Training a model</h2>
+<p>The next step is to train a model. In this module, we used the logistic regression model. The logistic regression model is a linear model that predicts the probability of an outcome. In our case the outcome is binary.</p>
+<p>Before proceeding with the training, we need to split the data into training, validation, and test sets. The training set is used to train the model, the validation set is used to tune the hyperparameters, and the test set is used to evaluate the model.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df_train, df_remaining <span style="color:#f92672">=</span> train_test_split(df, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.4</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">42</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df_val, df_test <span style="color:#f92672">=</span> train_test_split(df_remaining, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">42</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>y_train <span style="color:#f92672">=</span> df_train<span style="color:#f92672">.</span>y<span style="color:#f92672">.</span>values
+</span></span><span style="display:flex;"><span>y_val <span style="color:#f92672">=</span> df_val<span style="color:#f92672">.</span>y<span style="color:#f92672">.</span>values
+</span></span><span style="display:flex;"><span>y_test <span style="color:#f92672">=</span> df_test<span style="color:#f92672">.</span>y<span style="color:#f92672">.</span>values
+</span></span></code></pre></div><h3 id="performing-one-hot-encoding">Performing one-hot encoding</h3>
+<p>Before training the model, we need to perform one-hot encoding on the categorical variables. One-hot encoding is a process of converting categorical variables into a form that could be provided to ML algorithms to do a better job in prediction. Below we use the homework dataset to perform one-hot encoding.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.feature_extraction <span style="color:#f92672">import</span> DictVectorizer
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>numerical_features <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;balance&#39;</span>, <span style="color:#e6db74">&#39;previous&#39;</span>, <span style="color:#e6db74">&#39;pdays&#39;</span>, <span style="color:#e6db74">&#39;campaign&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>, <span style="color:#e6db74">&#39;day&#39;</span>, <span style="color:#e6db74">&#39;duration&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>categorical_features <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;education&#39;</span>, <span style="color:#e6db74">&#39;housing&#39;</span>, <span style="color:#e6db74">&#39;month&#39;</span>, <span style="color:#e6db74">&#39;contact&#39;</span>, <span style="color:#e6db74">&#39;marital&#39;</span>, <span style="color:#e6db74">&#39;poutcome&#39;</span>, <span style="color:#e6db74">&#39;job&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dict_train <span style="color:#f92672">=</span> df_train[numerical_features<span style="color:#f92672">+</span>categorical_features]<span style="color:#f92672">.</span>to_dict(orient<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;records&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dv <span style="color:#f92672">=</span> DictVectorizer(sparse<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>X_train <span style="color:#f92672">=</span> dv<span style="color:#f92672">.</span>fit_transform(dict_train)
+</span></span></code></pre></div><p>After the one-hot encoding the feature names are stored in the <code>dv.get_feature_names_out()</code> method, and look like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;age&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;balance&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;campaign&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;contact=cellular&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;contact=telephone&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;contact=unknown&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;day&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;duration&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;education=primary&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;education=secondary&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;education=tertiary&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;education=unknown&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;housing=no&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;housing=yes&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;poutcome=failure&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;poutcome=other&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;poutcome=success&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;poutcome=unknown&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;previous&#39;</span>
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><h3 id="training-a-logistic-regression-model">Training a logistic regression model</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LogisticRegression
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> LogisticRegression(solver<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;liblinear&#39;</span>, C<span style="color:#f92672">=</span><span style="color:#ae81ff">1.0</span>, max_iter<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">42</span>)
+</span></span><span style="display:flex;"><span>model<span style="color:#f92672">.</span>fit(X_train, y_train)
+</span></span></code></pre></div><p>The model is trained using the training set and the target variable. The <code>solver</code> parameter is set to <code>liblinear</code>, which is a good choice for small datasets. The <code>C</code> parameter is set to <code>1.0</code>, which is the default value. The <code>max_iter</code> parameter is set to <code>1000</code>, which is the maximum number of iterations taken for the solvers to converge. The <code>random_state</code> parameter is set to <code>42</code> to ensure reproducibility.</p>
+<h2 id="making-predictions">Making predictions</h2>
+<p>After training the model, we can make predictions using the validation set.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>dict_val <span style="color:#f92672">=</span> df_val<span style="color:#f92672">.</span>to_dict(orient<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;records&#39;</span>)
+</span></span><span style="display:flex;"><span>dv <span style="color:#f92672">=</span> DictVectorizer(sparse<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>X_val <span style="color:#f92672">=</span> dv<span style="color:#f92672">.</span>fit_transform(dict_val)
+</span></span><span style="display:flex;"><span>y_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict_proba(X_val)[:, <span style="color:#ae81ff">1</span>]
+</span></span></code></pre></div><p>One last step is to make a decission based on the predictions. In this case, we use a threshold of <code>0.5</code> to determine if a customer has subscribed a term deposit or not.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>y_decission <span style="color:#f92672">=</span> y_pred <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0.5</span>
+</span></span></code></pre></div><p>After this step, we can calculate the accuracy of the model.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>(y_val <span style="color:#f92672">==</span> y_decission)<span style="color:#f92672">.</span>mean()
+</span></span></code></pre></div><p>We can do one final check by calculating the accuracy of the model using the test set.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>dict_test <span style="color:#f92672">=</span> df_test<span style="color:#f92672">.</span>to_dict(orient<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;records&#39;</span>)
+</span></span><span style="display:flex;"><span>X_test <span style="color:#f92672">=</span> dv<span style="color:#f92672">.</span>fit_transform(dict_test)
+</span></span><span style="display:flex;"><span>y_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict_proba(X_test)[:, <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>y_decission <span style="color:#f92672">=</span> y_pred <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>(y_test <span style="color:#f92672">==</span> y_decission)<span style="color:#f92672">.</span>mean()
+</span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
+<p>This module was a great introduction to binary classification. We learned how to prepare the data, perform EDA, train a model, and make predictions. We also learned how to evaluate the model using the accuracy metric.</p>
+<p>The homework code can be found <a href="https://github.com/vladflore/machine-learning-zoomcamp-cohort-2024/blob/main/03-classification-hw.ipynb" target="_blank">here</a>.</p>
+]]></content>
+        </item>
+        
+        <item>
             <title>Machine Learning Zoomcamp: Module 2 Recap</title>
             <link>https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/</link>
             <pubDate>Mon, 14 Oct 2024 00:00:00 +0000</pubDate>

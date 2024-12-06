@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Vlad Flore ">
+<meta name="description" content="Intro This post is a recap of the Machine Learning Zoomcamp Module 3.
+Below are the posts for the previous modules:
+Machine Learning Zoomcamp Module 1 - points received: 9 (7/7 for questions &#43; 2 bonus for learning in public) Machine Learning Zoomcamp Module 2 - points received: 5 (5/6 for questions &#43; 0 bonus for learning in public) For module 2 I managed to score 5 points out of 6 for the questions. While the code and the result I got were correct, I interpreted the result incorrectly, choosing the wrong answer. Oh well, it happens&hellip;
+" />
+<meta name="keywords" content=", ml, learning, mlzoomcamp" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/" />
+
+
+    <title>
+        
+            Machine Learning Zoomcamp: Module 3 Recap :: vladflore.tech 
+        
+    </title>
+
+
+
+
+
+<link rel="stylesheet" href="/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css" integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE=">
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+
+  <meta itemprop="name" content="Machine Learning Zoomcamp: Module 3 Recap">
+  <meta itemprop="description" content="Intro This post is a recap of the Machine Learning Zoomcamp Module 3.
+Below are the posts for the previous modules:
+Machine Learning Zoomcamp Module 1 - points received: 9 (7/7 for questions &#43; 2 bonus for learning in public) Machine Learning Zoomcamp Module 2 - points received: 5 (5/6 for questions &#43; 0 bonus for learning in public) For module 2 I managed to score 5 points out of 6 for the questions. While the code and the result I got were correct, I interpreted the result incorrectly, choosing the wrong answer. Oh well, it happens…">
+  <meta itemprop="datePublished" content="2024-12-06T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-12-06T00:00:00+00:00">
+  <meta itemprop="wordCount" content="763">
+  <meta itemprop="image" content="https://vladflore.tech/">
+  <meta itemprop="keywords" content="Ml,Learning,Mlzoomcamp">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://vladflore.tech/">
+  <meta name="twitter:title" content="Machine Learning Zoomcamp: Module 3 Recap">
+  <meta name="twitter:description" content="Intro This post is a recap of the Machine Learning Zoomcamp Module 3.
+Below are the posts for the previous modules:
+Machine Learning Zoomcamp Module 1 - points received: 9 (7/7 for questions &#43; 2 bonus for learning in public) Machine Learning Zoomcamp Module 2 - points received: 5 (5/6 for questions &#43; 0 bonus for learning in public) For module 2 I managed to score 5 points out of 6 for the questions. While the code and the result I got were correct, I interpreted the result incorrectly, choosing the wrong answer. Oh well, it happens…">
+
+
+
+    <meta property="og:url" content="https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/">
+  <meta property="og:site_name" content="vladflore.tech">
+  <meta property="og:title" content="Machine Learning Zoomcamp: Module 3 Recap">
+  <meta property="og:description" content="Intro This post is a recap of the Machine Learning Zoomcamp Module 3.
+Below are the posts for the previous modules:
+Machine Learning Zoomcamp Module 1 - points received: 9 (7/7 for questions &#43; 2 bonus for learning in public) Machine Learning Zoomcamp Module 2 - points received: 5 (5/6 for questions &#43; 0 bonus for learning in public) For module 2 I managed to score 5 points out of 6 for the questions. While the code and the result I got were correct, I interpreted the result incorrectly, choosing the wrong answer. Oh well, it happens…">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-12-06T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-12-06T00:00:00+00:00">
+    <meta property="article:tag" content="Ml">
+    <meta property="article:tag" content="Learning">
+    <meta property="article:tag" content="Mlzoomcamp">
+    <meta property="og:image" content="https://vladflore.tech/">
+
+
+
+
+
+
+    <meta property="article:published_time" content="2024-12-06 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RE8EZYX8D9"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RE8EZYX8D9');
+        }
+      </script>
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text ">
+                $ cd ~</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#a9a9b3;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/posts/">Posts</a></li><li><a href="/portfolio/">Portfolio</a></li><li><a href="/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        4 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/">Machine Learning Zoomcamp: Module 3 Recap</a>
+      </h1>
+
+      
+
+      
+        <hr />
+        <aside id="toc">
+          <div class="toc-title">Table of Contents</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#the-gist-of-the-module">The gist of the module</a></li>
+    <li><a href="#the-dataset">The dataset</a></li>
+    <li><a href="#data-preparation-and-eda">Data preparation and EDA</a></li>
+    <li><a href="#training-a-model">Training a model</a>
+      <ul>
+        <li><a href="#performing-one-hot-encoding">Performing one-hot encoding</a></li>
+        <li><a href="#training-a-logistic-regression-model">Training a logistic regression model</a></li>
+      </ul>
+    </li>
+    <li><a href="#making-predictions">Making predictions</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+        </aside>
+        <hr />
+
+      
+
+      <div class="post-content">
+        <h2 id="intro">Intro</h2>
+<p>This post is a recap of the Machine Learning Zoomcamp Module 3.</p>
+<p>Below are the posts for the previous modules:</p>
+<ol>
+<li><a href="https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/">Machine Learning Zoomcamp Module 1</a> - points received: 9 (7/7 for questions + 2 bonus for learning in public)</li>
+<li><a href="https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/">Machine Learning Zoomcamp Module 2</a> - points received: 5 (5/6 for questions + 0 bonus for learning in public)</li>
+</ol>
+<p>For module 2 I managed to score 5 points out of 6 for the questions. While the code and the result I got were correct, I interpreted the result incorrectly, choosing the wrong answer. Oh well, it happens&hellip;</p>
+<h2 id="the-gist-of-the-module">The gist of the module</h2>
+<p>While the previous module was all about regression, i.e. predicting a continuous value, this module is about classification, i.e. predicting a category. As we have just two categories, we are talking about <em>binary classification</em>.</p>
+<h2 id="the-dataset">The dataset</h2>
+<p>As with all machine learning problems, we begin with the dataset. In this module, the dataset focuses on predicting customer churn, determining whether a customer is likely to leave or stay. The dataset used for the homework focuses on predicting if a customer has subscribed a term deposit or not.</p>
+<h2 id="data-preparation-and-eda">Data preparation and EDA</h2>
+<p>One of the first steps in implementing a machine learning model is to prepare the data and perform exploratory data analysis (EDA).</p>
+<p>Regarding data preparation, we need to:</p>
+<ul>
+<li>bring the columns and values within to a common format, i.e. lowercase, no spaces, etc.</li>
+<li>perform some numerical conversions</li>
+<li>handling missing values</li>
+<li>encoding categorical variables, i.e. <code>yes</code>/<code>no</code> to <code>1</code>/<code>0</code></li>
+</ul>
+<p>Regarding EDA, we need to:</p>
+<ul>
+<li>check the distribution of the target variable</li>
+<li>check the distribution of the features</li>
+<li>calculate the correlation between the features</li>
+<li>calculate the mutual information between the features and the target variable</li>
+</ul>
+<h2 id="training-a-model">Training a model</h2>
+<p>The next step is to train a model. In this module, we used the logistic regression model. The logistic regression model is a linear model that predicts the probability of an outcome. In our case the outcome is binary.</p>
+<p>Before proceeding with the training, we need to split the data into training, validation, and test sets. The training set is used to train the model, the validation set is used to tune the hyperparameters, and the test set is used to evaluate the model.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df_train, df_remaining <span style="color:#f92672">=</span> train_test_split(df, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.4</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">42</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df_val, df_test <span style="color:#f92672">=</span> train_test_split(df_remaining, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">42</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>y_train <span style="color:#f92672">=</span> df_train<span style="color:#f92672">.</span>y<span style="color:#f92672">.</span>values
+</span></span><span style="display:flex;"><span>y_val <span style="color:#f92672">=</span> df_val<span style="color:#f92672">.</span>y<span style="color:#f92672">.</span>values
+</span></span><span style="display:flex;"><span>y_test <span style="color:#f92672">=</span> df_test<span style="color:#f92672">.</span>y<span style="color:#f92672">.</span>values
+</span></span></code></pre></div><h3 id="performing-one-hot-encoding">Performing one-hot encoding</h3>
+<p>Before training the model, we need to perform one-hot encoding on the categorical variables. One-hot encoding is a process of converting categorical variables into a form that could be provided to ML algorithms to do a better job in prediction. Below we use the homework dataset to perform one-hot encoding.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.feature_extraction <span style="color:#f92672">import</span> DictVectorizer
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>numerical_features <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;balance&#39;</span>, <span style="color:#e6db74">&#39;previous&#39;</span>, <span style="color:#e6db74">&#39;pdays&#39;</span>, <span style="color:#e6db74">&#39;campaign&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>, <span style="color:#e6db74">&#39;day&#39;</span>, <span style="color:#e6db74">&#39;duration&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>categorical_features <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;education&#39;</span>, <span style="color:#e6db74">&#39;housing&#39;</span>, <span style="color:#e6db74">&#39;month&#39;</span>, <span style="color:#e6db74">&#39;contact&#39;</span>, <span style="color:#e6db74">&#39;marital&#39;</span>, <span style="color:#e6db74">&#39;poutcome&#39;</span>, <span style="color:#e6db74">&#39;job&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dict_train <span style="color:#f92672">=</span> df_train[numerical_features<span style="color:#f92672">+</span>categorical_features]<span style="color:#f92672">.</span>to_dict(orient<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;records&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dv <span style="color:#f92672">=</span> DictVectorizer(sparse<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>X_train <span style="color:#f92672">=</span> dv<span style="color:#f92672">.</span>fit_transform(dict_train)
+</span></span></code></pre></div><p>After the one-hot encoding the feature names are stored in the <code>dv.get_feature_names_out()</code> method, and look like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;age&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;balance&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;campaign&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;contact=cellular&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;contact=telephone&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;contact=unknown&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;day&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;duration&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;education=primary&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;education=secondary&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;education=tertiary&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;education=unknown&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;housing=no&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;housing=yes&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;poutcome=failure&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;poutcome=other&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;poutcome=success&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;poutcome=unknown&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;previous&#39;</span>
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><h3 id="training-a-logistic-regression-model">Training a logistic regression model</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LogisticRegression
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> LogisticRegression(solver<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;liblinear&#39;</span>, C<span style="color:#f92672">=</span><span style="color:#ae81ff">1.0</span>, max_iter<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">42</span>)
+</span></span><span style="display:flex;"><span>model<span style="color:#f92672">.</span>fit(X_train, y_train)
+</span></span></code></pre></div><p>The model is trained using the training set and the target variable. The <code>solver</code> parameter is set to <code>liblinear</code>, which is a good choice for small datasets. The <code>C</code> parameter is set to <code>1.0</code>, which is the default value. The <code>max_iter</code> parameter is set to <code>1000</code>, which is the maximum number of iterations taken for the solvers to converge. The <code>random_state</code> parameter is set to <code>42</code> to ensure reproducibility.</p>
+<h2 id="making-predictions">Making predictions</h2>
+<p>After training the model, we can make predictions using the validation set.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>dict_val <span style="color:#f92672">=</span> df_val<span style="color:#f92672">.</span>to_dict(orient<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;records&#39;</span>)
+</span></span><span style="display:flex;"><span>dv <span style="color:#f92672">=</span> DictVectorizer(sparse<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>X_val <span style="color:#f92672">=</span> dv<span style="color:#f92672">.</span>fit_transform(dict_val)
+</span></span><span style="display:flex;"><span>y_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict_proba(X_val)[:, <span style="color:#ae81ff">1</span>]
+</span></span></code></pre></div><p>One last step is to make a decission based on the predictions. In this case, we use a threshold of <code>0.5</code> to determine if a customer has subscribed a term deposit or not.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>y_decission <span style="color:#f92672">=</span> y_pred <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0.5</span>
+</span></span></code></pre></div><p>After this step, we can calculate the accuracy of the model.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>(y_val <span style="color:#f92672">==</span> y_decission)<span style="color:#f92672">.</span>mean()
+</span></span></code></pre></div><p>We can do one final check by calculating the accuracy of the model using the test set.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>dict_test <span style="color:#f92672">=</span> df_test<span style="color:#f92672">.</span>to_dict(orient<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;records&#39;</span>)
+</span></span><span style="display:flex;"><span>X_test <span style="color:#f92672">=</span> dv<span style="color:#f92672">.</span>fit_transform(dict_test)
+</span></span><span style="display:flex;"><span>y_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict_proba(X_test)[:, <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>y_decission <span style="color:#f92672">=</span> y_pred <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>(y_test <span style="color:#f92672">==</span> y_decission)<span style="color:#f92672">.</span>mean()
+</span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
+<p>This module was a great introduction to binary classification. We learned how to prepare the data, perform EDA, train a model, and make predictions. We also learned how to evaluate the model using the accuracy metric.</p>
+<p>The homework code can be found <a href="https://github.com/vladflore/machine-learning-zoomcamp-cohort-2024/blob/main/03-classification-hw.ipynb" target="_blank">here</a>.</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://vladflore.tech/tags/ml/">ml</a></span>
+        <span class="tag"><a href="https://vladflore.tech/tags/learning/">learning</a></span>
+        <span class="tag"><a href="https://vladflore.tech/tags/mlzoomcamp/">mlzoomcamp</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        763 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2024-12-06 01:00
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+
+  
+  
+  <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2024%2f12%2fmachine-learning-zoomcamp-module-3-recap%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+    <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+        <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="resp-sharing-button__link" href="mailto:?subject=Machine%20Learning%20Zoomcamp%3a%20Module%203%20Recap&amp;body=https%3a%2f%2fvladflore.tech%2fposts%2f2024%2f12%2fmachine-learning-zoomcamp-module-3-recap%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+    <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fvladflore.tech%2fposts%2f2024%2f12%2fmachine-learning-zoomcamp-module-3-recap%2f&amp;title=Machine%20Learning%20Zoomcamp%3a%20Module%203%20Recap&amp;summary=Machine%20Learning%20Zoomcamp%3a%20Module%203%20Recap&amp;source=https%3a%2f%2fvladflore.tech%2fposts%2f2024%2f12%2fmachine-learning-zoomcamp-module-3-recap%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+    <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  <a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2024%2f12%2fmachine-learning-zoomcamp-module-3-recap%2f&amp;resubmit=true&amp;title=Machine%20Learning%20Zoomcamp%3a%20Module%203%20Recap" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+    <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      </div>
+
+    
+    <div class="pagination">
+        
+
+        <div class="pagination__buttons">
+            
+
+            
+            <span class="button next">
+                <a href="https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/">
+                    <span class="button__text">Machine Learning Zoomcamp: Module 2 Recap</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+      
+        <div id="comments">
+          <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vladflore-tech" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      
+    
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2024</span>
+            <span><a href="https://vladflore.tech/">Vlad Flore</a></span>
+            
+            <span><a href="https://vladflore.tech/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            
+        </div>
+    </div>
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://themes.gohugo.io/themes/hugo-theme-hello-friend-ng/">hello-friend-ng</a> theme</span>
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.e89fda0f29b95d33f6f4224dd9e5cf69d84aff3818be2b0d73e731689cc374261b016d17d46f8381962fb4a1577ba3017b1f23509d894f6e66431f988c00889e.js" integrity="sha512-6J/aDym5XTP29CJN2eXPadhK/zgYvisNc&#43;cxaJzDdCYbAW0X1G&#43;DgZYvtKFXe6MBex8jUJ2JT25mQx&#43;YjACIng=="></script>
+
+
+
+
+    </body>
+</html>
