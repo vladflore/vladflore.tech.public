@@ -5,8 +5,105 @@
         <description>Recent content in Posts on vladflore.tech</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Wed, 25 Sep 2024 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Fri, 06 Dec 2024 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://vladflore.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Machine Learning Zoomcamp: Module 2 Recap</title>
+            <link>https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/</link>
+            <pubDate>Mon, 14 Oct 2024 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/</guid>
+            <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;In this post I will make a recap of the Machine Learning Zoomcamp Module 2.&lt;/p&gt;
+&lt;p&gt;The posts for the previous modules, together with the points I received for each module&amp;rsquo;s homework, are listed below:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/&#34;&gt;Machine Learning Zoomcamp Module 1&lt;/a&gt; - points received: &lt;em&gt;9&lt;/em&gt; (&lt;em&gt;7&lt;/em&gt;/7 for questions + &lt;em&gt;2&lt;/em&gt; bonus for learning in public)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;the-gist-of-the-module&#34;&gt;The gist of the module&lt;/h2&gt;
+&lt;p&gt;The problem tackled in this module was the prediction of car prices based on a dataset containing car features.&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<h2 id="intro">Intro</h2>
+<p>In this post I will make a recap of the Machine Learning Zoomcamp Module 2.</p>
+<p>The posts for the previous modules, together with the points I received for each module&rsquo;s homework, are listed below:</p>
+<ol>
+<li><a href="https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/">Machine Learning Zoomcamp Module 1</a> - points received: <em>9</em> (<em>7</em>/7 for questions + <em>2</em> bonus for learning in public)</li>
+</ol>
+<h2 id="the-gist-of-the-module">The gist of the module</h2>
+<p>The problem tackled in this module was the prediction of car prices based on a dataset containing car features.</p>
+<p>This type of problem is called a regression problem, and the main idea is to try to predict a <em>continuous value</em>, in this case, the price of a car, based on a set of car features, using a Machine Learning model. For this problem, the model used was the <em>Linear Regression</em> model.</p>
+<p>To get a real taste of how such a problem could be solved, the model was implemented from scratch using Python and NumPy, while the dataset was explored and manipulated using Pandas and Matplotlib.</p>
+<h2 id="the-dataset">The dataset</h2>
+<p>As with all things in Machine Learning, the first step is to get the data and make a sense of it.</p>
+<p>The dataset used in this module was the <a href="https://www.kaggle.com/datasets/CooperUnion/cardataset" target="_blank">Car Features and MSRP</a> from Kaggle.</p>
+<p>Note that I will be using <a href="https://raw.githubusercontent.com/alexeygrigorev/datasets/master/laptops.csv" target="_blank">another dataset</a>, the one from the homework, to illustrate the concepts discussed in this post. While the datasets are different, the process is the same.</p>
+<p>As it is often the case, the dataset may require some cleaning and preprocessing before it could be used to train a model. One such action was normalizing the column names. To get rid of inconsistencies, all columns were converted to lowercase, and the spaces were replaced with underscores.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://raw.githubusercontent.com/alexeygrigorev/datasets/master/laptops.csv&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(url)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cols <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>columns<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>lower()<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;\s+&#39;</span>,<span style="color:#e6db74">&#39;_&#39;</span>, regex<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>columns <span style="color:#f92672">=</span> cols
+</span></span></code></pre></div><p>A similar conversion process can be applied to the values in the columns, to make sure that the data is consistent and easy to work with.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>string_columns <span style="color:#f92672">=</span> list(df<span style="color:#f92672">.</span>dtypes[df<span style="color:#f92672">.</span>dtypes <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;object&#39;</span>]<span style="color:#f92672">.</span>index)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> col <span style="color:#f92672">in</span> string_columns:
+</span></span><span style="display:flex;"><span>    df[col] <span style="color:#f92672">=</span> df[col]<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>lower()<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;\s+&#39;</span>,<span style="color:#e6db74">&#39;_&#39;</span>, regex<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span></code></pre></div><p>Another common preprocessing step is to handle missing values. For instance, if a column contains missing values, one could replace them with the mean of the column.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#f92672">.</span>screen <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>screen<span style="color:#f92672">.</span>fillna(df<span style="color:#f92672">.</span>screen<span style="color:#f92672">.</span>mean())
+</span></span></code></pre></div><p>Looking at the target variable, i.e. the variable we want to predict, is also important. In this case, the target variable is the price of the car. It is a good idea to check the distribution of the target variable, as it can give us some insights into the data. One way to do this is to plot a histogram of the target variable, using a library like Seaborn.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> seaborn <span style="color:#66d9ef">as</span> sns
+</span></span><span style="display:flex;"><span>fp <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>final_price
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>histplot(fp, bins<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>)
+</span></span></code></pre></div><p>One imediate observation could be that the data is not normally distributed. This could be a problem, as the Linear Regression model works better with normally distributed data. One way to address this issue is to apply a transformation to the target variable. One such transformation is the logarithmic transformation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>fp <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>log1p(df<span style="color:#f92672">.</span>final_price)
+</span></span></code></pre></div><p>Plotting the histogram of the transformed target variable could show a more normally distributed data.</p>
+<p>Before training the model, we have to split the data into <em>training</em>, <em>validation</em> and <em>testing</em> sets. The training set is used to train the model, the validation set is used to tune the hyperparameters of the model, and the testing set is used to evaluate the model&rsquo;s performance. A common split is 60% for training, 20% for validation, and 20% for testing.</p>
+<p>Without relying on libraries like Scikit-Learn, we can split the data by shuffling the indices of the dataset and then splitting the indices into the three sets.</p>
+<h2 id="training-the-model">Training the model</h2>
+<p>Training the model refers to the process by which an algorithm learns the relationship between the input features and the target variable. In this case, the algorithm used was the Linear Regression model. The artifacts of the training process are the <em>weights</em> and the <em>bias</em> of the model.</p>
+<p>Linear Regression is a simple model that tries to <em>find the best line that fits the data</em>. The line is defined by the equation <code>y = w1*x1 + w2*x2 + ... + wn*xn + b</code>, where <code>w1, w2, ..., wn</code> are the weights, <code>x1, x2, ..., xn</code> are the input features, and <code>b</code> is the bias. In the module bias was named <code>w0</code>. It is also called the <em>intercept</em>, which is the value of the target variable when all the input features are zero, i.e. the value of the target variable when there is no influence from the input features.</p>
+<p>For a single feature, x, and its weight, w, the equation becomes <code>y = w*x + b</code>. This is nothing else than the equation of a line, where <code>w</code> is the slope of the line, and <code>b</code> is the y-intercept. The intercept is where the line crosses the y-axis, and the slope is the rate at which the line rises or falls, or mathematically, the change in y divided by the change in x.</p>
+<p>Considering we have many observations, we can arrange the input features in a matrix, X, and the target variable in a vector, y. The equation of the model becomes <code>y = X*w + b</code>, where <code>X</code> is a matrix of shape <code>(n_samples, n_features)</code>, <code>w</code> is a vector of shape <code>(n_features, 1)</code>, and <code>b</code> is a scalar.</p>
+<p>Now we are talking about matrix-vector multiplication, which means we can think at <code>b</code> as a vector of ones, and add it as a column to the matrix <code>X</code>. This way, the equation becomes <code>y = X*w</code>, where <code>X</code> is a matrix of shape <code>(n_samples, n_features + 1)</code>, <code>w</code> is a vector of shape <code>(n_features + 1, 1)</code>, and <code>y</code> is a vector of shape <code>(n_samples, 1)</code>.</p>
+<p>If the matrix <code>X</code> is invertible (i.e. it is a square matrix and its determinant is not zero), we can find the weights, <code>w</code>, by multiplying the inverse of <code>X</code> with <code>y</code>.</p>
+<p>If matrix <code>X</code> is not invertible, we have to make use of the transpose of <code>X</code>, <code>X^T</code>, which multiplied with <code>X</code> gives a square matrix, <code>X^T*X</code>, also called the <a href="https://en.wikipedia.org/wiki/Gram_matrix" target="_blank">Gram matrix</a>, which <em>could</em> be invertible. If this is the case, the weights can be found as <code>w = (X^T*X)^-1*X^T*y</code>, where <code>^-1</code> is the matrix inverse.</p>
+<p>If the Gram matrix is not invertible, we need to talk about regularization, a bit later on in this post.</p>
+<h3 id="feature-engineering">Feature engineering</h3>
+<p>In order to improve the model performance, we can engineer the features. This means that we can create new features from the existing ones, or transform the existing features in a way that makes them more informative. This basically means that the feature matrix, <code>X</code>, can contain more columns than the original dataset.</p>
+<p>For example, if one of the features is the <em>status</em> of a laptop, i.e. weather it is <em>new</em> or <em>refurbished</em>, we can add two new columns to the feature matrix, one for each status, let&rsquo;s say, <code>is_new</code> and <code>is_refurbished</code>. If the laptop is new, the value of <code>is_new</code> is 1, and the value of <code>is_refurbished</code> is 0. If the laptop is refurbished, the value of <code>is_new</code> is 0, and the value of <code>is_refurbished</code> is 1.</p>
+<h3 id="regularization">Regularization</h3>
+<p>We saw that the Gram matrix may not be invertible. This happens when the matrix is <em>singular</em>, i.e. it has a determinant of zero. This could happen when the number of features is not the same as the number of observations, or when the features are <em>collinear</em>, i.e. they are linearly dependent. Collinearity just means that one or more columns in the feature matrix can be expressed as a linear combination of the other columns. For instance, if we have two columns, <code>x1</code> and <code>x2</code>, and <code>x2 = 2*x1</code>, then the two columns are collinear.</p>
+<p>One way to address this issue is to add a factor to the diagonal of the Gram matrix, called the <em>regularization term</em>. This term is a scalar, <code>r</code>, multiplied with the identity matrix, <code>I</code>, and added to the Gram matrix. The equation becomes <code>w = (X^T*X + r*I)^-1*X^T*y</code>.</p>
+<p>This equation can be nicely expressed in Python code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">train_linear_regression_reg</span>(X, y, r<span style="color:#f92672">=</span><span style="color:#ae81ff">0.0</span>):
+</span></span><span style="display:flex;"><span>  ones <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>ones(X<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]) <span style="color:#75715e"># create a vector of ones</span>
+</span></span><span style="display:flex;"><span>  X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>column_stack([ones, X]) <span style="color:#75715e"># add the vector of ones as a column to the matrix X</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  XTX <span style="color:#f92672">=</span> X<span style="color:#f92672">.</span>T<span style="color:#f92672">.</span>dot(X) <span style="color:#75715e"># calculate the Gram matrix</span>
+</span></span><span style="display:flex;"><span>  reg <span style="color:#f92672">=</span> r <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>eye(XTX<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]) <span style="color:#75715e"># create the regularization term</span>
+</span></span><span style="display:flex;"><span>  XTX <span style="color:#f92672">=</span> XTX <span style="color:#f92672">+</span> reg <span style="color:#75715e"># add the regularization term to the Gram matrix</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  XTX_inv <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linalg<span style="color:#f92672">.</span>inv(XTX) <span style="color:#75715e"># calculate the inverse of the Gram matrix</span>
+</span></span><span style="display:flex;"><span>  w <span style="color:#f92672">=</span> XTX_inv<span style="color:#f92672">.</span>dot(X<span style="color:#f92672">.</span>T)<span style="color:#f92672">.</span>dot(y) <span style="color:#75715e"># calculate the weights</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> w[<span style="color:#ae81ff">0</span>], w[<span style="color:#ae81ff">1</span>:] <span style="color:#75715e"># return the bias and the weights</span>
+</span></span></code></pre></div><h2 id="model-evaluation">Model evaluation</h2>
+<p>Once we have our model trained, i.e. we know the weights and the bias, we can evaluate its performance. One way to do this is to calculate the root mean squared error (RMSE) of the model. The RMSE is a measure of the difference between the predicted values and the actual values. The lower the RMSE, the better the model.</p>
+<p>The RMSE is calculated as the square root of the mean of the squared differences between the predicted values and the actual values. The equation is <code>RMSE = sqrt(mean((y_pred - y)^2))</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">rmse</span>(y, y_pred):
+</span></span><span style="display:flex;"><span>  se <span style="color:#f92672">=</span> (y <span style="color:#f92672">-</span> y_pred) <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>  mse <span style="color:#f92672">=</span> se<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> np<span style="color:#f92672">.</span>sqrt(mse)
+</span></span></code></pre></div><p>We can do this for the validation set and the testing set, and compare the RMSE values. If the RMSE of the testing set is much higher than the RMSE of the validation set, it could be a sign of overfitting, i.e. the model is too complex and it is fitting the noise in the data, rather than the underlying pattern.</p>
+<p>Once we have a fairly good model, we can use it to make predictions on new data.</p>
+<h2 id="using-the-model">Using the model</h2>
+<p>Using the model just means to apply the weights and the bias to the new data. The equation is the same as the one used to train the model, <code>y = X*w + b</code>, where <code>X</code> is the feature matrix of the new data, <code>w</code> is the weights of the model, and <code>b</code> is the bias.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">predict</span>(X, w, b):
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> X<span style="color:#f92672">.</span>dot(w) <span style="color:#f92672">+</span> b
+</span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
+<p>In this module, we learned how to train a Linear Regression model from scratch, using Python and NumPy. We also learned how to preprocess the data, engineer the features, and evaluate the model. We also learned about regularization and how to address the issue of collinearity.</p>
+<p>The homework code can be found <a href="https://github.com/vladflore/machine-learning-zoomcamp-cohort-2024/blob/main/02-regression-hw.ipynb" target="_blank">here</a>.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Machine Learning Zoomcamp: Module 1 Recap</title>

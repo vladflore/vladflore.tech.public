@@ -6,8 +6,15 @@
     <description>Recent content on vladflore.tech</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 25 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 14 Oct 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://vladflore.tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Machine Learning Zoomcamp: Module 2 Recap</title>
+      <link>https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/</link>
+      <pubDate>Mon, 14 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/</guid>
+      <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;In this post I will make a recap of the Machine Learning Zoomcamp Module 2.&lt;/p&gt;&#xA;&lt;p&gt;The posts for the previous modules, together with the points I received for each module&amp;rsquo;s homework, are listed below:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/&#34;&gt;Machine Learning Zoomcamp Module 1&lt;/a&gt; - points received: &lt;em&gt;9&lt;/em&gt; (&lt;em&gt;7&lt;/em&gt;/7 for questions + &lt;em&gt;2&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;the-gist-of-the-module&#34;&gt;The gist of the module&lt;/h2&gt;&#xA;&lt;p&gt;The problem tackled in this module was the prediction of car prices based on a dataset containing car features.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Machine Learning Zoomcamp: Module 1 Recap</title>
       <link>https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/</link>

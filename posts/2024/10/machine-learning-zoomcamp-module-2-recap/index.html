@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Vlad Flore ">
+<meta name="description" content="Intro In this post I will make a recap of the Machine Learning Zoomcamp Module 2.
+The posts for the previous modules, together with the points I received for each module&rsquo;s homework, are listed below:
+Machine Learning Zoomcamp Module 1 - points received: 9 (7/7 for questions &#43; 2 bonus for learning in public) The gist of the module The problem tackled in this module was the prediction of car prices based on a dataset containing car features.
+" />
+<meta name="keywords" content=", ml, learning, mlzoomcamp" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/" />
+
+
+    <title>
+        
+            Machine Learning Zoomcamp: Module 2 Recap :: vladflore.tech 
+        
+    </title>
+
+
+
+
+
+<link rel="stylesheet" href="/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css" integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE=">
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+
+  <meta itemprop="name" content="Machine Learning Zoomcamp: Module 2 Recap">
+  <meta itemprop="description" content="Intro In this post I will make a recap of the Machine Learning Zoomcamp Module 2.
+The posts for the previous modules, together with the points I received for each module’s homework, are listed below:
+Machine Learning Zoomcamp Module 1 - points received: 9 (7/7 for questions &#43; 2 bonus for learning in public) The gist of the module The problem tackled in this module was the prediction of car prices based on a dataset containing car features.">
+  <meta itemprop="datePublished" content="2024-10-14T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-10-14T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1733">
+  <meta itemprop="image" content="https://vladflore.tech/">
+  <meta itemprop="keywords" content="Ml,Learning,Mlzoomcamp">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://vladflore.tech/">
+  <meta name="twitter:title" content="Machine Learning Zoomcamp: Module 2 Recap">
+  <meta name="twitter:description" content="Intro In this post I will make a recap of the Machine Learning Zoomcamp Module 2.
+The posts for the previous modules, together with the points I received for each module’s homework, are listed below:
+Machine Learning Zoomcamp Module 1 - points received: 9 (7/7 for questions &#43; 2 bonus for learning in public) The gist of the module The problem tackled in this module was the prediction of car prices based on a dataset containing car features.">
+
+
+
+    <meta property="og:url" content="https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/">
+  <meta property="og:site_name" content="vladflore.tech">
+  <meta property="og:title" content="Machine Learning Zoomcamp: Module 2 Recap">
+  <meta property="og:description" content="Intro In this post I will make a recap of the Machine Learning Zoomcamp Module 2.
+The posts for the previous modules, together with the points I received for each module’s homework, are listed below:
+Machine Learning Zoomcamp Module 1 - points received: 9 (7/7 for questions &#43; 2 bonus for learning in public) The gist of the module The problem tackled in this module was the prediction of car prices based on a dataset containing car features.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-10-14T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-10-14T00:00:00+00:00">
+    <meta property="article:tag" content="Ml">
+    <meta property="article:tag" content="Learning">
+    <meta property="article:tag" content="Mlzoomcamp">
+    <meta property="og:image" content="https://vladflore.tech/">
+
+
+
+
+
+
+    <meta property="article:published_time" content="2024-10-14 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RE8EZYX8D9"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RE8EZYX8D9');
+        }
+      </script>
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text ">
+                $ cd ~</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#a9a9b3;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/posts/">Posts</a></li><li><a href="/portfolio/">Portfolio</a></li><li><a href="/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        9 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/">Machine Learning Zoomcamp: Module 2 Recap</a>
+      </h1>
+
+      
+
+      
+        <hr />
+        <aside id="toc">
+          <div class="toc-title">Table of Contents</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#the-gist-of-the-module">The gist of the module</a></li>
+    <li><a href="#the-dataset">The dataset</a></li>
+    <li><a href="#training-the-model">Training the model</a>
+      <ul>
+        <li><a href="#feature-engineering">Feature engineering</a></li>
+        <li><a href="#regularization">Regularization</a></li>
+      </ul>
+    </li>
+    <li><a href="#model-evaluation">Model evaluation</a></li>
+    <li><a href="#using-the-model">Using the model</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+        </aside>
+        <hr />
+
+      
+
+      <div class="post-content">
+        <h2 id="intro">Intro</h2>
+<p>In this post I will make a recap of the Machine Learning Zoomcamp Module 2.</p>
+<p>The posts for the previous modules, together with the points I received for each module&rsquo;s homework, are listed below:</p>
+<ol>
+<li><a href="https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/">Machine Learning Zoomcamp Module 1</a> - points received: <em>9</em> (<em>7</em>/7 for questions + <em>2</em> bonus for learning in public)</li>
+</ol>
+<h2 id="the-gist-of-the-module">The gist of the module</h2>
+<p>The problem tackled in this module was the prediction of car prices based on a dataset containing car features.</p>
+<p>This type of problem is called a regression problem, and the main idea is to try to predict a <em>continuous value</em>, in this case, the price of a car, based on a set of car features, using a Machine Learning model. For this problem, the model used was the <em>Linear Regression</em> model.</p>
+<p>To get a real taste of how such a problem could be solved, the model was implemented from scratch using Python and NumPy, while the dataset was explored and manipulated using Pandas and Matplotlib.</p>
+<h2 id="the-dataset">The dataset</h2>
+<p>As with all things in Machine Learning, the first step is to get the data and make a sense of it.</p>
+<p>The dataset used in this module was the <a href="https://www.kaggle.com/datasets/CooperUnion/cardataset" target="_blank">Car Features and MSRP</a> from Kaggle.</p>
+<p>Note that I will be using <a href="https://raw.githubusercontent.com/alexeygrigorev/datasets/master/laptops.csv" target="_blank">another dataset</a>, the one from the homework, to illustrate the concepts discussed in this post. While the datasets are different, the process is the same.</p>
+<p>As it is often the case, the dataset may require some cleaning and preprocessing before it could be used to train a model. One such action was normalizing the column names. To get rid of inconsistencies, all columns were converted to lowercase, and the spaces were replaced with underscores.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://raw.githubusercontent.com/alexeygrigorev/datasets/master/laptops.csv&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(url)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cols <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>columns<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>lower()<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;\s+&#39;</span>,<span style="color:#e6db74">&#39;_&#39;</span>, regex<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>columns <span style="color:#f92672">=</span> cols
+</span></span></code></pre></div><p>A similar conversion process can be applied to the values in the columns, to make sure that the data is consistent and easy to work with.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>string_columns <span style="color:#f92672">=</span> list(df<span style="color:#f92672">.</span>dtypes[df<span style="color:#f92672">.</span>dtypes <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;object&#39;</span>]<span style="color:#f92672">.</span>index)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> col <span style="color:#f92672">in</span> string_columns:
+</span></span><span style="display:flex;"><span>    df[col] <span style="color:#f92672">=</span> df[col]<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>lower()<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;\s+&#39;</span>,<span style="color:#e6db74">&#39;_&#39;</span>, regex<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span></code></pre></div><p>Another common preprocessing step is to handle missing values. For instance, if a column contains missing values, one could replace them with the mean of the column.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#f92672">.</span>screen <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>screen<span style="color:#f92672">.</span>fillna(df<span style="color:#f92672">.</span>screen<span style="color:#f92672">.</span>mean())
+</span></span></code></pre></div><p>Looking at the target variable, i.e. the variable we want to predict, is also important. In this case, the target variable is the price of the car. It is a good idea to check the distribution of the target variable, as it can give us some insights into the data. One way to do this is to plot a histogram of the target variable, using a library like Seaborn.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> seaborn <span style="color:#66d9ef">as</span> sns
+</span></span><span style="display:flex;"><span>fp <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>final_price
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>histplot(fp, bins<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>)
+</span></span></code></pre></div><p>One imediate observation could be that the data is not normally distributed. This could be a problem, as the Linear Regression model works better with normally distributed data. One way to address this issue is to apply a transformation to the target variable. One such transformation is the logarithmic transformation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>fp <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>log1p(df<span style="color:#f92672">.</span>final_price)
+</span></span></code></pre></div><p>Plotting the histogram of the transformed target variable could show a more normally distributed data.</p>
+<p>Before training the model, we have to split the data into <em>training</em>, <em>validation</em> and <em>testing</em> sets. The training set is used to train the model, the validation set is used to tune the hyperparameters of the model, and the testing set is used to evaluate the model&rsquo;s performance. A common split is 60% for training, 20% for validation, and 20% for testing.</p>
+<p>Without relying on libraries like Scikit-Learn, we can split the data by shuffling the indices of the dataset and then splitting the indices into the three sets.</p>
+<h2 id="training-the-model">Training the model</h2>
+<p>Training the model refers to the process by which an algorithm learns the relationship between the input features and the target variable. In this case, the algorithm used was the Linear Regression model. The artifacts of the training process are the <em>weights</em> and the <em>bias</em> of the model.</p>
+<p>Linear Regression is a simple model that tries to <em>find the best line that fits the data</em>. The line is defined by the equation <code>y = w1*x1 + w2*x2 + ... + wn*xn + b</code>, where <code>w1, w2, ..., wn</code> are the weights, <code>x1, x2, ..., xn</code> are the input features, and <code>b</code> is the bias. In the module bias was named <code>w0</code>. It is also called the <em>intercept</em>, which is the value of the target variable when all the input features are zero, i.e. the value of the target variable when there is no influence from the input features.</p>
+<p>For a single feature, x, and its weight, w, the equation becomes <code>y = w*x + b</code>. This is nothing else than the equation of a line, where <code>w</code> is the slope of the line, and <code>b</code> is the y-intercept. The intercept is where the line crosses the y-axis, and the slope is the rate at which the line rises or falls, or mathematically, the change in y divided by the change in x.</p>
+<p>Considering we have many observations, we can arrange the input features in a matrix, X, and the target variable in a vector, y. The equation of the model becomes <code>y = X*w + b</code>, where <code>X</code> is a matrix of shape <code>(n_samples, n_features)</code>, <code>w</code> is a vector of shape <code>(n_features, 1)</code>, and <code>b</code> is a scalar.</p>
+<p>Now we are talking about matrix-vector multiplication, which means we can think at <code>b</code> as a vector of ones, and add it as a column to the matrix <code>X</code>. This way, the equation becomes <code>y = X*w</code>, where <code>X</code> is a matrix of shape <code>(n_samples, n_features + 1)</code>, <code>w</code> is a vector of shape <code>(n_features + 1, 1)</code>, and <code>y</code> is a vector of shape <code>(n_samples, 1)</code>.</p>
+<p>If the matrix <code>X</code> is invertible (i.e. it is a square matrix and its determinant is not zero), we can find the weights, <code>w</code>, by multiplying the inverse of <code>X</code> with <code>y</code>.</p>
+<p>If matrix <code>X</code> is not invertible, we have to make use of the transpose of <code>X</code>, <code>X^T</code>, which multiplied with <code>X</code> gives a square matrix, <code>X^T*X</code>, also called the <a href="https://en.wikipedia.org/wiki/Gram_matrix" target="_blank">Gram matrix</a>, which <em>could</em> be invertible. If this is the case, the weights can be found as <code>w = (X^T*X)^-1*X^T*y</code>, where <code>^-1</code> is the matrix inverse.</p>
+<p>If the Gram matrix is not invertible, we need to talk about regularization, a bit later on in this post.</p>
+<h3 id="feature-engineering">Feature engineering</h3>
+<p>In order to improve the model performance, we can engineer the features. This means that we can create new features from the existing ones, or transform the existing features in a way that makes them more informative. This basically means that the feature matrix, <code>X</code>, can contain more columns than the original dataset.</p>
+<p>For example, if one of the features is the <em>status</em> of a laptop, i.e. weather it is <em>new</em> or <em>refurbished</em>, we can add two new columns to the feature matrix, one for each status, let&rsquo;s say, <code>is_new</code> and <code>is_refurbished</code>. If the laptop is new, the value of <code>is_new</code> is 1, and the value of <code>is_refurbished</code> is 0. If the laptop is refurbished, the value of <code>is_new</code> is 0, and the value of <code>is_refurbished</code> is 1.</p>
+<h3 id="regularization">Regularization</h3>
+<p>We saw that the Gram matrix may not be invertible. This happens when the matrix is <em>singular</em>, i.e. it has a determinant of zero. This could happen when the number of features is not the same as the number of observations, or when the features are <em>collinear</em>, i.e. they are linearly dependent. Collinearity just means that one or more columns in the feature matrix can be expressed as a linear combination of the other columns. For instance, if we have two columns, <code>x1</code> and <code>x2</code>, and <code>x2 = 2*x1</code>, then the two columns are collinear.</p>
+<p>One way to address this issue is to add a factor to the diagonal of the Gram matrix, called the <em>regularization term</em>. This term is a scalar, <code>r</code>, multiplied with the identity matrix, <code>I</code>, and added to the Gram matrix. The equation becomes <code>w = (X^T*X + r*I)^-1*X^T*y</code>.</p>
+<p>This equation can be nicely expressed in Python code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">train_linear_regression_reg</span>(X, y, r<span style="color:#f92672">=</span><span style="color:#ae81ff">0.0</span>):
+</span></span><span style="display:flex;"><span>  ones <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>ones(X<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]) <span style="color:#75715e"># create a vector of ones</span>
+</span></span><span style="display:flex;"><span>  X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>column_stack([ones, X]) <span style="color:#75715e"># add the vector of ones as a column to the matrix X</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  XTX <span style="color:#f92672">=</span> X<span style="color:#f92672">.</span>T<span style="color:#f92672">.</span>dot(X) <span style="color:#75715e"># calculate the Gram matrix</span>
+</span></span><span style="display:flex;"><span>  reg <span style="color:#f92672">=</span> r <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>eye(XTX<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]) <span style="color:#75715e"># create the regularization term</span>
+</span></span><span style="display:flex;"><span>  XTX <span style="color:#f92672">=</span> XTX <span style="color:#f92672">+</span> reg <span style="color:#75715e"># add the regularization term to the Gram matrix</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  XTX_inv <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linalg<span style="color:#f92672">.</span>inv(XTX) <span style="color:#75715e"># calculate the inverse of the Gram matrix</span>
+</span></span><span style="display:flex;"><span>  w <span style="color:#f92672">=</span> XTX_inv<span style="color:#f92672">.</span>dot(X<span style="color:#f92672">.</span>T)<span style="color:#f92672">.</span>dot(y) <span style="color:#75715e"># calculate the weights</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> w[<span style="color:#ae81ff">0</span>], w[<span style="color:#ae81ff">1</span>:] <span style="color:#75715e"># return the bias and the weights</span>
+</span></span></code></pre></div><h2 id="model-evaluation">Model evaluation</h2>
+<p>Once we have our model trained, i.e. we know the weights and the bias, we can evaluate its performance. One way to do this is to calculate the root mean squared error (RMSE) of the model. The RMSE is a measure of the difference between the predicted values and the actual values. The lower the RMSE, the better the model.</p>
+<p>The RMSE is calculated as the square root of the mean of the squared differences between the predicted values and the actual values. The equation is <code>RMSE = sqrt(mean((y_pred - y)^2))</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">rmse</span>(y, y_pred):
+</span></span><span style="display:flex;"><span>  se <span style="color:#f92672">=</span> (y <span style="color:#f92672">-</span> y_pred) <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>  mse <span style="color:#f92672">=</span> se<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> np<span style="color:#f92672">.</span>sqrt(mse)
+</span></span></code></pre></div><p>We can do this for the validation set and the testing set, and compare the RMSE values. If the RMSE of the testing set is much higher than the RMSE of the validation set, it could be a sign of overfitting, i.e. the model is too complex and it is fitting the noise in the data, rather than the underlying pattern.</p>
+<p>Once we have a fairly good model, we can use it to make predictions on new data.</p>
+<h2 id="using-the-model">Using the model</h2>
+<p>Using the model just means to apply the weights and the bias to the new data. The equation is the same as the one used to train the model, <code>y = X*w + b</code>, where <code>X</code> is the feature matrix of the new data, <code>w</code> is the weights of the model, and <code>b</code> is the bias.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">predict</span>(X, w, b):
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> X<span style="color:#f92672">.</span>dot(w) <span style="color:#f92672">+</span> b
+</span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
+<p>In this module, we learned how to train a Linear Regression model from scratch, using Python and NumPy. We also learned how to preprocess the data, engineer the features, and evaluate the model. We also learned about regularization and how to address the issue of collinearity.</p>
+<p>The homework code can be found <a href="https://github.com/vladflore/machine-learning-zoomcamp-cohort-2024/blob/main/02-regression-hw.ipynb" target="_blank">here</a>.</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://vladflore.tech/tags/ml/">ml</a></span>
+        <span class="tag"><a href="https://vladflore.tech/tags/learning/">learning</a></span>
+        <span class="tag"><a href="https://vladflore.tech/tags/mlzoomcamp/">mlzoomcamp</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        1733 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2024-10-14 02:00
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+
+  
+  
+  <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2024%2f10%2fmachine-learning-zoomcamp-module-2-recap%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+    <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+        <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="resp-sharing-button__link" href="mailto:?subject=Machine%20Learning%20Zoomcamp%3a%20Module%202%20Recap&amp;body=https%3a%2f%2fvladflore.tech%2fposts%2f2024%2f10%2fmachine-learning-zoomcamp-module-2-recap%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+    <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fvladflore.tech%2fposts%2f2024%2f10%2fmachine-learning-zoomcamp-module-2-recap%2f&amp;title=Machine%20Learning%20Zoomcamp%3a%20Module%202%20Recap&amp;summary=Machine%20Learning%20Zoomcamp%3a%20Module%202%20Recap&amp;source=https%3a%2f%2fvladflore.tech%2fposts%2f2024%2f10%2fmachine-learning-zoomcamp-module-2-recap%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+    <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  <a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2024%2f10%2fmachine-learning-zoomcamp-module-2-recap%2f&amp;resubmit=true&amp;title=Machine%20Learning%20Zoomcamp%3a%20Module%202%20Recap" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+    <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      </div>
+
+    
+    <div class="pagination">
+        
+
+        <div class="pagination__buttons">
+            
+
+            
+            <span class="button next">
+                <a href="https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/">
+                    <span class="button__text">Machine Learning Zoomcamp: Module 1 Recap</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+      
+        <div id="comments">
+          <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vladflore-tech" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      
+    
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2024</span>
+            <span><a href="https://vladflore.tech/">Vlad Flore</a></span>
+            
+            <span><a href="https://vladflore.tech/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            
+        </div>
+    </div>
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://themes.gohugo.io/themes/hugo-theme-hello-friend-ng/">hello-friend-ng</a> theme</span>
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.e89fda0f29b95d33f6f4224dd9e5cf69d84aff3818be2b0d73e731689cc374261b016d17d46f8381962fb4a1577ba3017b1f23509d894f6e66431f988c00889e.js" integrity="sha512-6J/aDym5XTP29CJN2eXPadhK/zgYvisNc&#43;cxaJzDdCYbAW0X1G&#43;DgZYvtKFXe6MBex8jUJ2JT25mQx&#43;YjACIng=="></script>
+
+
+
+
+    </body>
+</html>
