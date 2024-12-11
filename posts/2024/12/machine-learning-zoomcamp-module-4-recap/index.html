@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Vlad Flore ">
+<meta name="description" content="Intro This post is a recap of the Machine Learning Zoomcamp Module 4.
+Below are the posts for the previous modules:
+Machine Learning Zoomcamp Module 1 - points received: 9 (7/7 for questions &#43; 2 bonus for learning in public) Machine Learning Zoomcamp Module 2 - points received: 5 (5/6 for questions &#43; 0 bonus for learning in public) Machine Learning Zoomcamp Module 3 - points received: 7 (6/6 for questions &#43; 1 bonus for learning in public) The gist of the module This module focuses on the evaluation of classification models. It covers various metrics used for this purpose, including accuracy, precision, recall, F1 score, and ROC-AUC. The lessons build upon the dataset and model from the previous module, which involves predicting customer churn. The objective is to determine whether a customer is likely to leave or remain, using a logistic regression model.
+" />
+<meta name="keywords" content=", ml, learning, mlzoomcamp" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-4-recap/" />
+
+
+    <title>
+        
+            Machine Learning Zoomcamp: Module 4 Recap :: vladflore.tech 
+        
+    </title>
+
+
+
+
+
+<link rel="stylesheet" href="/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css" integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE=">
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+
+  <meta itemprop="name" content="Machine Learning Zoomcamp: Module 4 Recap">
+  <meta itemprop="description" content="Intro This post is a recap of the Machine Learning Zoomcamp Module 4.
+Below are the posts for the previous modules:
+Machine Learning Zoomcamp Module 1 - points received: 9 (7/7 for questions &#43; 2 bonus for learning in public) Machine Learning Zoomcamp Module 2 - points received: 5 (5/6 for questions &#43; 0 bonus for learning in public) Machine Learning Zoomcamp Module 3 - points received: 7 (6/6 for questions &#43; 1 bonus for learning in public) The gist of the module This module focuses on the evaluation of classification models. It covers various metrics used for this purpose, including accuracy, precision, recall, F1 score, and ROC-AUC. The lessons build upon the dataset and model from the previous module, which involves predicting customer churn. The objective is to determine whether a customer is likely to leave or remain, using a logistic regression model.">
+  <meta itemprop="datePublished" content="2024-12-11T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-12-11T00:00:00+00:00">
+  <meta itemprop="wordCount" content="883">
+  <meta itemprop="image" content="https://vladflore.tech/">
+  <meta itemprop="keywords" content="Ml,Learning,Mlzoomcamp">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://vladflore.tech/">
+  <meta name="twitter:title" content="Machine Learning Zoomcamp: Module 4 Recap">
+  <meta name="twitter:description" content="Intro This post is a recap of the Machine Learning Zoomcamp Module 4.
+Below are the posts for the previous modules:
+Machine Learning Zoomcamp Module 1 - points received: 9 (7/7 for questions &#43; 2 bonus for learning in public) Machine Learning Zoomcamp Module 2 - points received: 5 (5/6 for questions &#43; 0 bonus for learning in public) Machine Learning Zoomcamp Module 3 - points received: 7 (6/6 for questions &#43; 1 bonus for learning in public) The gist of the module This module focuses on the evaluation of classification models. It covers various metrics used for this purpose, including accuracy, precision, recall, F1 score, and ROC-AUC. The lessons build upon the dataset and model from the previous module, which involves predicting customer churn. The objective is to determine whether a customer is likely to leave or remain, using a logistic regression model.">
+
+
+
+    <meta property="og:url" content="https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-4-recap/">
+  <meta property="og:site_name" content="vladflore.tech">
+  <meta property="og:title" content="Machine Learning Zoomcamp: Module 4 Recap">
+  <meta property="og:description" content="Intro This post is a recap of the Machine Learning Zoomcamp Module 4.
+Below are the posts for the previous modules:
+Machine Learning Zoomcamp Module 1 - points received: 9 (7/7 for questions &#43; 2 bonus for learning in public) Machine Learning Zoomcamp Module 2 - points received: 5 (5/6 for questions &#43; 0 bonus for learning in public) Machine Learning Zoomcamp Module 3 - points received: 7 (6/6 for questions &#43; 1 bonus for learning in public) The gist of the module This module focuses on the evaluation of classification models. It covers various metrics used for this purpose, including accuracy, precision, recall, F1 score, and ROC-AUC. The lessons build upon the dataset and model from the previous module, which involves predicting customer churn. The objective is to determine whether a customer is likely to leave or remain, using a logistic regression model.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-12-11T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-12-11T00:00:00+00:00">
+    <meta property="article:tag" content="Ml">
+    <meta property="article:tag" content="Learning">
+    <meta property="article:tag" content="Mlzoomcamp">
+    <meta property="og:image" content="https://vladflore.tech/">
+
+
+
+
+
+
+    <meta property="article:published_time" content="2024-12-11 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RE8EZYX8D9"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RE8EZYX8D9');
+        }
+      </script>
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text ">
+                $ cd ~</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#a9a9b3;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/posts/">Posts</a></li><li><a href="/portfolio/">Portfolio</a></li><li><a href="/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        5 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-4-recap/">Machine Learning Zoomcamp: Module 4 Recap</a>
+      </h1>
+
+      
+
+      
+        <hr />
+        <aside id="toc">
+          <div class="toc-title">Table of Contents</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#the-gist-of-the-module">The gist of the module</a></li>
+    <li><a href="#accuracy">Accuracy</a></li>
+    <li><a href="#confusion-matrix">Confusion matrix</a></li>
+    <li><a href="#precision">Precision</a></li>
+    <li><a href="#recall">Recall</a></li>
+    <li><a href="#f1-score">F1 score</a></li>
+    <li><a href="#roc-curve">ROC curve</a></li>
+    <li><a href="#area-under-the-roc-curve">Area Under the ROC curve</a></li>
+    <li><a href="#cross-validation">Cross-validation</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+        </aside>
+        <hr />
+
+      
+
+      <div class="post-content">
+        <h2 id="intro">Intro</h2>
+<p>This post is a recap of the Machine Learning Zoomcamp Module 4.</p>
+<p>Below are the posts for the previous modules:</p>
+<ol>
+<li><a href="https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/">Machine Learning Zoomcamp Module 1</a> - points received: 9 (7/7 for questions + 2 bonus for learning in public)</li>
+<li><a href="https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/">Machine Learning Zoomcamp Module 2</a> - points received: 5 (5/6 for questions + 0 bonus for learning in public)</li>
+<li><a href="https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/">Machine Learning Zoomcamp Module 3</a> - points received: 7 (6/6 for questions + 1 bonus for learning in public)</li>
+</ol>
+<h2 id="the-gist-of-the-module">The gist of the module</h2>
+<p>This module focuses on the evaluation of classification models. It covers various metrics used for this purpose, including <em>accuracy</em>, <em>precision</em>, <em>recall</em>, <em>F1 score</em>, and <em>ROC-AUC</em>. The lessons build upon the dataset and model from the previous module, which involves predicting customer churn. The objective is to determine whether a customer is likely to leave or remain, using a logistic regression model.</p>
+<h2 id="accuracy">Accuracy</h2>
+<p>Accuracy is a common metric used to evaluate classification models. It measures the proportion of correct predictions made by the model. However, accuracy alone may not provide a complete picture of the model&rsquo;s performance, especially in imbalanced datasets.</p>
+<h2 id="confusion-matrix">Confusion matrix</h2>
+<p>The <em>confusion matrix</em> is a tabular representation of the model&rsquo;s predictions against the actual values. It consists of four components: <em>true positives</em>, <em>true negatives</em>, <em>false positives</em>, and <em>false negatives</em>. These components are used to calculate other evaluation metrics such as precision, recall, and F1 score.</p>
+<p>True positives (TP) are the cases where the model correctly predicts the positive class.
+True negatives (TN) are the cases where the model correctly predicts the negative class.
+False positives (FP) are the cases where the model incorrectly predicts the positive class.
+False negatives (FN) are the cases where the model incorrectly predicts the negative class.</p>
+<p>Visually, the confusion matrix looks like this:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: left">Predicted Positive</th>
+          <th style="text-align: left">Predicted Negative</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Actual Positive</td>
+          <td style="text-align: left">True Positive (TP)</td>
+          <td style="text-align: left">False Negative (FN)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Actual Negative</td>
+          <td style="text-align: left">False Positive (FP)</td>
+          <td style="text-align: left">True Negative (TN)</td>
+      </tr>
+  </tbody>
+</table>
+<p>Using these components, the accuracy is nothing else than the sum of the true positives and true negatives divided by the total number of observations.</p>
+<pre tabindex="0"><code>Accuracy = (TP + TN) / (TP + TN + FP + FN)
+</code></pre><h2 id="precision">Precision</h2>
+<p><em>Precision</em> measures the proportion of true positive predictions among all positive predictions made by the model. It is calculated as the ratio of true positives to the sum of true positives and false positives.</p>
+<pre tabindex="0"><code>Precision = TP / (TP + FP)
+</code></pre><h2 id="recall">Recall</h2>
+<p><em>Recall</em>, also known as sensitivity or true positive rate, measures the proportion of true positive predictions among all actual positive cases. It is calculated as the ratio of true positives to the sum of true positives and false negatives.</p>
+<pre tabindex="0"><code>Recall = TP / (TP + FN)
+</code></pre><h2 id="f1-score">F1 score</h2>
+<p>The <em>F1 score</em> is the harmonic mean of precision and recall. It provides a balance between the two metrics and is useful when the classes are imbalanced.</p>
+<p>An F1 score of 1 indicates a perfect model, while a score of 0 indicates a model that performs no better than random. The relative contribution of precision and recall to the F1 score are equal.</p>
+<pre tabindex="0"><code>F1 Score = 2 * (Precision * Recall) / (Precision + Recall)
+</code></pre><h2 id="roc-curve">ROC curve</h2>
+<p>The <em>Receiver Operating Characteristic (ROC) curve</em> is a graphical representation of the trade-off between the true positive rate (recall), which we want to maximize, and the false positive rate, which we want to minimize, of a classification model. It is used to evaluate the performance of the model across different thresholds.</p>
+<p>False positive rate (FPR) is the proportion of false positive predictions among all actual negative cases. It is calculated as the ratio of false positives to the sum of false positives and true negatives.</p>
+<p>True positive rate (TPR) is the same as recall.</p>
+<p>The ROC curve plots the TPR against the FPR for different threshold values.</p>
+<h2 id="area-under-the-roc-curve">Area Under the ROC curve</h2>
+<p>The Area Under the ROC Curve (AUC-ROC) is a metric used to evaluate the performance of a binary classification model. It measures the model&rsquo;s ability to distinguish between the two classes (positive and negative) across all possible classification thresholds.</p>
+<p>AUC-ROC answers the question, &ldquo;What is the probability that the model will rank a randomly chosen positive instance higher than a randomly chosen negative instance?&rdquo;</p>
+<p>The AUC-ROC score ranges from 0 to 1, where a score of 0.5 indicates a model that performs no better than random, and a score of 1 indicates a perfect model.</p>
+<h2 id="cross-validation">Cross-validation</h2>
+<p><em>Cross-validation</em> is a technique used to evaluate the performance of a machine learning model. It involves splitting the dataset into multiple subsets, training the model on some subsets, and testing it on others. This process is repeated multiple times to obtain a more reliable estimate of the model&rsquo;s performance.</p>
+<p>The most common form of cross-validation is k-fold cross-validation, where the dataset is divided into k subsets (folds). The model is trained on k-1 folds and tested on the remaining fold. This process is repeated k times, with each fold serving as the test set once.</p>
+<p>This technique is applied in the parameter tuning process to select the best hyperparameters for the model.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This module provides an overview of the evaluation metrics used to assess the performance of classification models. It covers the importance of accuracy, precision, recall, F1-score, ROC-AUC, and the confusion matrix in evaluating the model&rsquo;s performance.</p>
+<p>The homework code can be found <a href="https://github.com/vladflore/machine-learning-zoomcamp-cohort-2024/blob/main/04-classification-evaluation-metrics-hw.ipynb" target="_blank">here</a>.</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://vladflore.tech/tags/ml/">ml</a></span>
+        <span class="tag"><a href="https://vladflore.tech/tags/learning/">learning</a></span>
+        <span class="tag"><a href="https://vladflore.tech/tags/mlzoomcamp/">mlzoomcamp</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        883 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2024-12-11 01:00
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+
+  
+  
+  <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2024%2f12%2fmachine-learning-zoomcamp-module-4-recap%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+    <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+        <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="resp-sharing-button__link" href="mailto:?subject=Machine%20Learning%20Zoomcamp%3a%20Module%204%20Recap&amp;body=https%3a%2f%2fvladflore.tech%2fposts%2f2024%2f12%2fmachine-learning-zoomcamp-module-4-recap%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+    <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fvladflore.tech%2fposts%2f2024%2f12%2fmachine-learning-zoomcamp-module-4-recap%2f&amp;title=Machine%20Learning%20Zoomcamp%3a%20Module%204%20Recap&amp;summary=Machine%20Learning%20Zoomcamp%3a%20Module%204%20Recap&amp;source=https%3a%2f%2fvladflore.tech%2fposts%2f2024%2f12%2fmachine-learning-zoomcamp-module-4-recap%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+    <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  <a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2024%2f12%2fmachine-learning-zoomcamp-module-4-recap%2f&amp;resubmit=true&amp;title=Machine%20Learning%20Zoomcamp%3a%20Module%204%20Recap" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+    <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      </div>
+
+    
+    <div class="pagination">
+        
+
+        <div class="pagination__buttons">
+            
+
+            
+            <span class="button next">
+                <a href="https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/">
+                    <span class="button__text">Machine Learning Zoomcamp: Module 3 Recap</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+      
+        <div id="comments">
+          <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vladflore-tech" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      
+    
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2024</span>
+            <span><a href="https://vladflore.tech/">Vlad Flore</a></span>
+            
+            <span><a href="https://vladflore.tech/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            
+        </div>
+    </div>
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://themes.gohugo.io/themes/hugo-theme-hello-friend-ng/">hello-friend-ng</a> theme</span>
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.e89fda0f29b95d33f6f4224dd9e5cf69d84aff3818be2b0d73e731689cc374261b016d17d46f8381962fb4a1577ba3017b1f23509d894f6e66431f988c00889e.js" integrity="sha512-6J/aDym5XTP29CJN2eXPadhK/zgYvisNc&#43;cxaJzDdCYbAW0X1G&#43;DgZYvtKFXe6MBex8jUJ2JT25mQx&#43;YjACIng=="></script>
+
+
+
+
+    </body>
+</html>

@@ -5,8 +5,95 @@
         <description>Recent content in Posts on vladflore.tech</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Fri, 06 Dec 2024 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Wed, 11 Dec 2024 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://vladflore.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Machine Learning Zoomcamp: Module 4 Recap</title>
+            <link>https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-4-recap/</link>
+            <pubDate>Wed, 11 Dec 2024 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-4-recap/</guid>
+            <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This post is a recap of the Machine Learning Zoomcamp Module 4.&lt;/p&gt;
+&lt;p&gt;Below are the posts for the previous modules:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/&#34;&gt;Machine Learning Zoomcamp Module 1&lt;/a&gt; - points received: 9 (7/7 for questions + 2 bonus for learning in public)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/&#34;&gt;Machine Learning Zoomcamp Module 2&lt;/a&gt; - points received: 5 (5/6 for questions + 0 bonus for learning in public)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/&#34;&gt;Machine Learning Zoomcamp Module 3&lt;/a&gt; - points received: 7 (6/6 for questions + 1 bonus for learning in public)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;the-gist-of-the-module&#34;&gt;The gist of the module&lt;/h2&gt;
+&lt;p&gt;This module focuses on the evaluation of classification models. It covers various metrics used for this purpose, including &lt;em&gt;accuracy&lt;/em&gt;, &lt;em&gt;precision&lt;/em&gt;, &lt;em&gt;recall&lt;/em&gt;, &lt;em&gt;F1 score&lt;/em&gt;, and &lt;em&gt;ROC-AUC&lt;/em&gt;. The lessons build upon the dataset and model from the previous module, which involves predicting customer churn. The objective is to determine whether a customer is likely to leave or remain, using a logistic regression model.&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<h2 id="intro">Intro</h2>
+<p>This post is a recap of the Machine Learning Zoomcamp Module 4.</p>
+<p>Below are the posts for the previous modules:</p>
+<ol>
+<li><a href="https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/">Machine Learning Zoomcamp Module 1</a> - points received: 9 (7/7 for questions + 2 bonus for learning in public)</li>
+<li><a href="https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/">Machine Learning Zoomcamp Module 2</a> - points received: 5 (5/6 for questions + 0 bonus for learning in public)</li>
+<li><a href="https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/">Machine Learning Zoomcamp Module 3</a> - points received: 7 (6/6 for questions + 1 bonus for learning in public)</li>
+</ol>
+<h2 id="the-gist-of-the-module">The gist of the module</h2>
+<p>This module focuses on the evaluation of classification models. It covers various metrics used for this purpose, including <em>accuracy</em>, <em>precision</em>, <em>recall</em>, <em>F1 score</em>, and <em>ROC-AUC</em>. The lessons build upon the dataset and model from the previous module, which involves predicting customer churn. The objective is to determine whether a customer is likely to leave or remain, using a logistic regression model.</p>
+<h2 id="accuracy">Accuracy</h2>
+<p>Accuracy is a common metric used to evaluate classification models. It measures the proportion of correct predictions made by the model. However, accuracy alone may not provide a complete picture of the model&rsquo;s performance, especially in imbalanced datasets.</p>
+<h2 id="confusion-matrix">Confusion matrix</h2>
+<p>The <em>confusion matrix</em> is a tabular representation of the model&rsquo;s predictions against the actual values. It consists of four components: <em>true positives</em>, <em>true negatives</em>, <em>false positives</em>, and <em>false negatives</em>. These components are used to calculate other evaluation metrics such as precision, recall, and F1 score.</p>
+<p>True positives (TP) are the cases where the model correctly predicts the positive class.
+True negatives (TN) are the cases where the model correctly predicts the negative class.
+False positives (FP) are the cases where the model incorrectly predicts the positive class.
+False negatives (FN) are the cases where the model incorrectly predicts the negative class.</p>
+<p>Visually, the confusion matrix looks like this:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: left">Predicted Positive</th>
+          <th style="text-align: left">Predicted Negative</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Actual Positive</td>
+          <td style="text-align: left">True Positive (TP)</td>
+          <td style="text-align: left">False Negative (FN)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Actual Negative</td>
+          <td style="text-align: left">False Positive (FP)</td>
+          <td style="text-align: left">True Negative (TN)</td>
+      </tr>
+  </tbody>
+</table>
+<p>Using these components, the accuracy is nothing else than the sum of the true positives and true negatives divided by the total number of observations.</p>
+<pre tabindex="0"><code>Accuracy = (TP + TN) / (TP + TN + FP + FN)
+</code></pre><h2 id="precision">Precision</h2>
+<p><em>Precision</em> measures the proportion of true positive predictions among all positive predictions made by the model. It is calculated as the ratio of true positives to the sum of true positives and false positives.</p>
+<pre tabindex="0"><code>Precision = TP / (TP + FP)
+</code></pre><h2 id="recall">Recall</h2>
+<p><em>Recall</em>, also known as sensitivity or true positive rate, measures the proportion of true positive predictions among all actual positive cases. It is calculated as the ratio of true positives to the sum of true positives and false negatives.</p>
+<pre tabindex="0"><code>Recall = TP / (TP + FN)
+</code></pre><h2 id="f1-score">F1 score</h2>
+<p>The <em>F1 score</em> is the harmonic mean of precision and recall. It provides a balance between the two metrics and is useful when the classes are imbalanced.</p>
+<p>An F1 score of 1 indicates a perfect model, while a score of 0 indicates a model that performs no better than random. The relative contribution of precision and recall to the F1 score are equal.</p>
+<pre tabindex="0"><code>F1 Score = 2 * (Precision * Recall) / (Precision + Recall)
+</code></pre><h2 id="roc-curve">ROC curve</h2>
+<p>The <em>Receiver Operating Characteristic (ROC) curve</em> is a graphical representation of the trade-off between the true positive rate (recall), which we want to maximize, and the false positive rate, which we want to minimize, of a classification model. It is used to evaluate the performance of the model across different thresholds.</p>
+<p>False positive rate (FPR) is the proportion of false positive predictions among all actual negative cases. It is calculated as the ratio of false positives to the sum of false positives and true negatives.</p>
+<p>True positive rate (TPR) is the same as recall.</p>
+<p>The ROC curve plots the TPR against the FPR for different threshold values.</p>
+<h2 id="area-under-the-roc-curve">Area Under the ROC curve</h2>
+<p>The Area Under the ROC Curve (AUC-ROC) is a metric used to evaluate the performance of a binary classification model. It measures the model&rsquo;s ability to distinguish between the two classes (positive and negative) across all possible classification thresholds.</p>
+<p>AUC-ROC answers the question, &ldquo;What is the probability that the model will rank a randomly chosen positive instance higher than a randomly chosen negative instance?&rdquo;</p>
+<p>The AUC-ROC score ranges from 0 to 1, where a score of 0.5 indicates a model that performs no better than random, and a score of 1 indicates a perfect model.</p>
+<h2 id="cross-validation">Cross-validation</h2>
+<p><em>Cross-validation</em> is a technique used to evaluate the performance of a machine learning model. It involves splitting the dataset into multiple subsets, training the model on some subsets, and testing it on others. This process is repeated multiple times to obtain a more reliable estimate of the model&rsquo;s performance.</p>
+<p>The most common form of cross-validation is k-fold cross-validation, where the dataset is divided into k subsets (folds). The model is trained on k-1 folds and tested on the remaining fold. This process is repeated k times, with each fold serving as the test set once.</p>
+<p>This technique is applied in the parameter tuning process to select the best hyperparameters for the model.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This module provides an overview of the evaluation metrics used to assess the performance of classification models. It covers the importance of accuracy, precision, recall, F1-score, ROC-AUC, and the confusion matrix in evaluating the model&rsquo;s performance.</p>
+<p>The homework code can be found <a href="https://github.com/vladflore/machine-learning-zoomcamp-cohort-2024/blob/main/04-classification-evaluation-metrics-hw.ipynb" target="_blank">here</a>.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Machine Learning Zoomcamp: Module 3 Recap</title>
