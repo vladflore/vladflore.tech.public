@@ -5,7 +5,7 @@
         <description>Recent content in Posts on vladflore.tech</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Wed, 11 Dec 2024 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Thu, 19 Dec 2024 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://vladflore.tech/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
@@ -18,9 +18,9 @@
 &lt;p&gt;This post is a recap of the Machine Learning Zoomcamp Module 4.&lt;/p&gt;
 &lt;p&gt;Below are the posts for the previous modules:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/&#34;&gt;Machine Learning Zoomcamp Module 1&lt;/a&gt; - points received: 9 (7/7 for questions + 2 bonus for learning in public)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/&#34;&gt;Machine Learning Zoomcamp Module 2&lt;/a&gt; - points received: 5 (5/6 for questions + 0 bonus for learning in public)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/&#34;&gt;Machine Learning Zoomcamp Module 3&lt;/a&gt; - points received: 7 (6/6 for questions + 1 bonus for learning in public)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/&#34;&gt;Machine Learning Zoomcamp Module 1&lt;/a&gt; - points received: &lt;em&gt;9&lt;/em&gt; (&lt;em&gt;7&lt;/em&gt;/7 for questions + &lt;em&gt;2&lt;/em&gt; bonus for learning in public)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/&#34;&gt;Machine Learning Zoomcamp Module 2&lt;/a&gt; - points received: &lt;em&gt;5&lt;/em&gt; (&lt;em&gt;5&lt;/em&gt;/6 for questions + &lt;em&gt;0&lt;/em&gt; bonus for learning in public)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/&#34;&gt;Machine Learning Zoomcamp Module 3&lt;/a&gt; - points received: &lt;em&gt;7&lt;/em&gt; (&lt;em&gt;6&lt;/em&gt;/6 for questions + &lt;em&gt;1&lt;/em&gt; bonus for learning in public)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;the-gist-of-the-module&#34;&gt;The gist of the module&lt;/h2&gt;
 &lt;p&gt;This module focuses on the evaluation of classification models. It covers various metrics used for this purpose, including &lt;em&gt;accuracy&lt;/em&gt;, &lt;em&gt;precision&lt;/em&gt;, &lt;em&gt;recall&lt;/em&gt;, &lt;em&gt;F1 score&lt;/em&gt;, and &lt;em&gt;ROC-AUC&lt;/em&gt;. The lessons build upon the dataset and model from the previous module, which involves predicting customer churn. The objective is to determine whether a customer is likely to leave or remain, using a logistic regression model.&lt;/p&gt;</description>
@@ -28,9 +28,9 @@
 <p>This post is a recap of the Machine Learning Zoomcamp Module 4.</p>
 <p>Below are the posts for the previous modules:</p>
 <ol>
-<li><a href="https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/">Machine Learning Zoomcamp Module 1</a> - points received: 9 (7/7 for questions + 2 bonus for learning in public)</li>
-<li><a href="https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/">Machine Learning Zoomcamp Module 2</a> - points received: 5 (5/6 for questions + 0 bonus for learning in public)</li>
-<li><a href="https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/">Machine Learning Zoomcamp Module 3</a> - points received: 7 (6/6 for questions + 1 bonus for learning in public)</li>
+<li><a href="https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/">Machine Learning Zoomcamp Module 1</a> - points received: <em>9</em> (<em>7</em>/7 for questions + <em>2</em> bonus for learning in public)</li>
+<li><a href="https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/">Machine Learning Zoomcamp Module 2</a> - points received: <em>5</em> (<em>5</em>/6 for questions + <em>0</em> bonus for learning in public)</li>
+<li><a href="https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/">Machine Learning Zoomcamp Module 3</a> - points received: <em>7</em> (<em>6</em>/6 for questions + <em>1</em> bonus for learning in public)</li>
 </ol>
 <h2 id="the-gist-of-the-module">The gist of the module</h2>
 <p>This module focuses on the evaluation of classification models. It covers various metrics used for this purpose, including <em>accuracy</em>, <em>precision</em>, <em>recall</em>, <em>F1 score</em>, and <em>ROC-AUC</em>. The lessons build upon the dataset and model from the previous module, which involves predicting customer churn. The objective is to determine whether a customer is likely to leave or remain, using a logistic regression model.</p>
@@ -46,21 +46,21 @@ False negatives (FN) are the cases where the model incorrectly predicts the nega
 <table>
   <thead>
       <tr>
-          <th style="text-align: left"></th>
-          <th style="text-align: left">Predicted Positive</th>
-          <th style="text-align: left">Predicted Negative</th>
+          <th></th>
+          <th>Predicted Positive</th>
+          <th>Predicted Negative</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">Actual Positive</td>
-          <td style="text-align: left">True Positive (TP)</td>
-          <td style="text-align: left">False Negative (FN)</td>
+          <td>Actual Positive</td>
+          <td>True Positive (TP)</td>
+          <td>False Negative (FN)</td>
       </tr>
       <tr>
-          <td style="text-align: left">Actual Negative</td>
-          <td style="text-align: left">False Positive (FP)</td>
-          <td style="text-align: left">True Negative (TN)</td>
+          <td>Actual Negative</td>
+          <td>False Positive (FP)</td>
+          <td>True Negative (TN)</td>
       </tr>
   </tbody>
 </table>
@@ -105,16 +105,16 @@ False negatives (FN) are the cases where the model incorrectly predicts the nega
 &lt;p&gt;This post is a recap of the Machine Learning Zoomcamp Module 3.&lt;/p&gt;
 &lt;p&gt;Below are the posts for the previous modules:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/&#34;&gt;Machine Learning Zoomcamp Module 1&lt;/a&gt; - points received: 9 (7/7 for questions + 2 bonus for learning in public)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/&#34;&gt;Machine Learning Zoomcamp Module 2&lt;/a&gt; - points received: 5 (5/6 for questions + 0 bonus for learning in public)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/&#34;&gt;Machine Learning Zoomcamp Module 1&lt;/a&gt; - points received: &lt;em&gt;9&lt;/em&gt; (&lt;em&gt;7&lt;/em&gt;/7 for questions + &lt;em&gt;2&lt;/em&gt; bonus for learning in public)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/&#34;&gt;Machine Learning Zoomcamp Module 2&lt;/a&gt; - points received: &lt;em&gt;5&lt;/em&gt; (&lt;em&gt;5&lt;/em&gt;/6 for questions + &lt;em&gt;0&lt;/em&gt; bonus for learning in public)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;For module 2 I managed to score 5 points out of 6 for the questions. While the code and the result I got were correct, I interpreted the result incorrectly, choosing the wrong answer. Oh well, it happens&amp;hellip;&lt;/p&gt;</description>
             <content type="html"><![CDATA[<h2 id="intro">Intro</h2>
 <p>This post is a recap of the Machine Learning Zoomcamp Module 3.</p>
 <p>Below are the posts for the previous modules:</p>
 <ol>
-<li><a href="https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/">Machine Learning Zoomcamp Module 1</a> - points received: 9 (7/7 for questions + 2 bonus for learning in public)</li>
-<li><a href="https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/">Machine Learning Zoomcamp Module 2</a> - points received: 5 (5/6 for questions + 0 bonus for learning in public)</li>
+<li><a href="https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/">Machine Learning Zoomcamp Module 1</a> - points received: <em>9</em> (<em>7</em>/7 for questions + <em>2</em> bonus for learning in public)</li>
+<li><a href="https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/">Machine Learning Zoomcamp Module 2</a> - points received: <em>5</em> (<em>5</em>/6 for questions + <em>0</em> bonus for learning in public)</li>
 </ol>
 <p>For module 2 I managed to score 5 points out of 6 for the questions. While the code and the result I got were correct, I interpreted the result incorrectly, choosing the wrong answer. Oh well, it happens&hellip;</p>
 <h2 id="the-gist-of-the-module">The gist of the module</h2>
@@ -1097,7 +1097,19 @@ I want to be part of the latter group.</p>
 &lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/&#34;&gt;part one&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;learning-resources&#34;&gt;Learning resources&lt;/h2&gt;
-&lt;p&gt;Before going into the details of the second part, I want to enumerate some of the resources I used and I am still using to learn/brush up on Python, beside the ones I mentioned in the first part:&lt;/p&gt;</description>
+&lt;p&gt;Before going into the details of the second part, I want to enumerate some of the resources I used and I am still using to learn/brush up on Python, beside the ones I mentioned in the first part:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://cs50.harvard.edu/python/2022/&#34; target=&#34;_blank&#34;&gt;CS50’s Introduction to Programming with Python, 2022&lt;/a&gt; - free/payed&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dabeaz-course.github.io/practical-python/&#34; target=&#34;_blank&#34;&gt;Practical Python Programming, a course by David Beazley&lt;/a&gt; - free. Note: search for content made by David Beazley, he is a great!&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://edube.org/&#34; target=&#34;_blank&#34;&gt;OpenEDG Python courses&lt;/a&gt; - free&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hyperskill.org&#34; target=&#34;_blank&#34;&gt;Hyperskill Python tracks&lt;/a&gt; - payed&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.educative.io/&#34; target=&#34;_blank&#34;&gt;Educative.io Python courses&lt;/a&gt; - payed&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.python.org/3/tutorial/index.html&#34; target=&#34;_blank&#34;&gt;The Python Tutorial&lt;/a&gt; - free&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://realpython.com/&#34; target=&#34;_blank&#34;&gt;Real Python&lt;/a&gt; - free/payed&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://learnxinyminutes.com/docs/python/&#34; target=&#34;_blank&#34;&gt;Learn X in Y minutes&lt;/a&gt; - free&lt;/li&gt;
+&lt;li&gt;Working on Python projects&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There are a lot of other resources out there, each one with its own pros and cons. I suggest you to try some of them and find the one that fits you the best. Google is your friend!&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>This is the second part of the series &ldquo;Learning Python as a Java developer&rdquo;. If you are interested in the other ones, check the links below:</p>
 <ul>
 <li><a href="https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/">part one</a></li>
@@ -1548,11 +1560,8 @@ git checkout feature
 git rebase master
 </code></pre><p>Here is the video(there is no audio):</p>
 
-
-    
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/mD_58aLFz_8?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
-      ></iframe>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/mD_58aLFz_8?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
 
 <!-- raw HTML omitted -->
@@ -1610,11 +1619,8 @@ git merge feature
 git branch -d feature
 </code></pre><p>Here is the video(there is no audio):</p>
 
-
-    
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Tmfz3nN992k?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
-      ></iframe>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Tmfz3nN992k?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
 
 <!-- raw HTML omitted -->
@@ -1661,11 +1667,8 @@ If you are interested in the other ones, check the links below:</p>
 </span></span><span style="display:flex;"><span>git branch -d feature
 </span></span></code></pre></div><p>Here is the video(there is no audio):</p>
 
-
-    
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/wHSZ70Pi0iE?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
-      ></iframe>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/wHSZ70Pi0iE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
 
 <!-- raw HTML omitted -->
@@ -1720,11 +1723,8 @@ With this series I am trying to visually depict how different Git commands and a
 </span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#39;F2&#39;</span>
 </span></span></code></pre></div><p>Here is the video(there is no audio):</p>
 
-
-    
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/3BlX1IiKqm8?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
-      ></iframe>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/3BlX1IiKqm8?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
 
 <!-- raw HTML omitted -->
@@ -2174,11 +2174,11 @@ You should see your SonarQube page.</p>
 <p>First step is to <em>enable the mutation testing support</em>, which means that you have to <em>install a plugin</em>.
 For this, login with the default credentials <code>admin/admin</code>, go to <code>Administration -&gt; Marketplace</code> and search for <code>Mutation Analysis</code> <a href="https://github.com/devcon5io/mutation-analysis-plugin" target="_blank">plugin</a> and install it.
 Restart the server.</p>
-<p><img alt="sonar-mt-plugin" src="/images/sonar-mt-plugin.png"></p>
+<p><img src="/images/sonar-mt-plugin.png" alt="sonar-mt-plugin"></p>
 <p>Next, we need to create a new <em>quality profile</em>, which will contain the <em>default SonarQube Java rules</em> and the <em>Mutation Analysis rules</em> and set it as the <em>default profile for Java</em>.</p>
 <p>Follow the steps listed in <a href="https://dzone.com/articles/mutation-testing-with-sonarqube" target="_blank">this article</a> under the section <em>Enable the Mutation Analysis Rules</em> to achieve the above mentioned.</p>
 <p>When finished it should look something similar to this:</p>
-<p><img alt="sonar-mt-plugin" src="/images/sonar-mt-java-rules.png"></p>
+<p><img src="/images/sonar-mt-java-rules.png" alt="sonar-mt-plugin"></p>
 <p>Now SonarQube should be able to interpret the mutation testing results too.</p>
 <p>Before drilling down through your project and hunting down your mutations you have to upload the mutation analysis for the project in question.</p>
 <p>I am using Maven as a build automation tool for my project and my <code>pom.xml</code> is updated accordingly.</p>
@@ -2188,7 +2188,7 @@ Restart the server.</p>
 accordingly to contain the IP of your EC2 instance hosting the SonarQube Server.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mvn clean verify org.pitest:pitest-maven:mutationCoverage sonar:sonar -Dsonar.host.url<span style="color:#f92672">=</span>http://&lt;IPv4 Public IP&gt;:9000
 </span></span></code></pre></div><p>And voilà the analysis of my project at that point in time (including the mutation analysis):</p>
-<p><img alt="sonar-mt-plugin" src="/images/sonar-analysis.png"></p>
+<p><img src="/images/sonar-analysis.png" alt="sonar-mt-plugin"></p>
 <p>Now go write those unit tests, kill those mutants and reach a 90%+ code coverage. I dare you! ;)</p>
 <p>Happy code crafting!</p>
 ]]></content>

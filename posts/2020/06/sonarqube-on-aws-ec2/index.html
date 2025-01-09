@@ -135,7 +135,7 @@ The motivation behind I wanted a SonarQube Server running in the cloud so that m
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="/posts/">Posts</a></li><li><a href="/portfolio/">Portfolio</a></li><li><a href="/about/">About</a></li>
+    <ul class="menu__inner"><li><a href="/posts/">Posts</a></li><li><a href="/portfolio/">Portfolio</a></li><li><a href="/about/">About</a></li><li><a href="/files/Vlad-Emil_Flore_-_Senior_Software_Engineer.pdf">CV</a></li>
     </ul>
 </nav>
 
@@ -312,11 +312,11 @@ You should see your SonarQube page.</p>
 <p>First step is to <em>enable the mutation testing support</em>, which means that you have to <em>install a plugin</em>.
 For this, login with the default credentials <code>admin/admin</code>, go to <code>Administration -&gt; Marketplace</code> and search for <code>Mutation Analysis</code> <a href="https://github.com/devcon5io/mutation-analysis-plugin" target="_blank">plugin</a> and install it.
 Restart the server.</p>
-<p><img alt="sonar-mt-plugin" src="/images/sonar-mt-plugin.png"></p>
+<p><img src="/images/sonar-mt-plugin.png" alt="sonar-mt-plugin"></p>
 <p>Next, we need to create a new <em>quality profile</em>, which will contain the <em>default SonarQube Java rules</em> and the <em>Mutation Analysis rules</em> and set it as the <em>default profile for Java</em>.</p>
 <p>Follow the steps listed in <a href="https://dzone.com/articles/mutation-testing-with-sonarqube" target="_blank">this article</a> under the section <em>Enable the Mutation Analysis Rules</em> to achieve the above mentioned.</p>
 <p>When finished it should look something similar to this:</p>
-<p><img alt="sonar-mt-plugin" src="/images/sonar-mt-java-rules.png"></p>
+<p><img src="/images/sonar-mt-java-rules.png" alt="sonar-mt-plugin"></p>
 <p>Now SonarQube should be able to interpret the mutation testing results too.</p>
 <p>Before drilling down through your project and hunting down your mutations you have to upload the mutation analysis for the project in question.</p>
 <p>I am using Maven as a build automation tool for my project and my <code>pom.xml</code> is updated accordingly.</p>
@@ -326,7 +326,7 @@ Restart the server.</p>
 accordingly to contain the IP of your EC2 instance hosting the SonarQube Server.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mvn clean verify org.pitest:pitest-maven:mutationCoverage sonar:sonar -Dsonar.host.url<span style="color:#f92672">=</span>http://&lt;IPv4 Public IP&gt;:9000
 </span></span></code></pre></div><p>And voilà the analysis of my project at that point in time (including the mutation analysis):</p>
-<p><img alt="sonar-mt-plugin" src="/images/sonar-analysis.png"></p>
+<p><img src="/images/sonar-analysis.png" alt="sonar-mt-plugin"></p>
 <p>Now go write those unit tests, kill those mutants and reach a 90%+ code coverage. I dare you! ;)</p>
 <p>Happy code crafting!</p>
 
