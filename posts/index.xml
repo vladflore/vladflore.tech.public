@@ -5,8 +5,65 @@
         <description>Recent content in Posts on vlad·flore · tech</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Sun, 26 Jan 2025 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Thu, 10 Apr 2025 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://vladflore.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Machine Learning Zoomcamp: The Rest</title>
+            <link>https://vladflore.tech/posts/2025/04/machine-learning-zoomcamp-the-rest/</link>
+            <pubDate>Thu, 10 Apr 2025 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2025/04/machine-learning-zoomcamp-the-rest/</guid>
+            <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;This post covers the rest of the modules of the Machine Learning Zoomcamp, including the midterm and the two capstone projects.&lt;/p&gt;
+&lt;p&gt;Below are the posts for the previous modules:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/&#34;&gt;Machine Learning Zoomcamp Module 1&lt;/a&gt; - points received: &lt;em&gt;9&lt;/em&gt; (&lt;em&gt;7&lt;/em&gt;/7 for questions + &lt;em&gt;2&lt;/em&gt; bonus for learning in public)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/&#34;&gt;Machine Learning Zoomcamp Module 2&lt;/a&gt; - points received: &lt;em&gt;5&lt;/em&gt; (&lt;em&gt;5&lt;/em&gt;/6 for questions + &lt;em&gt;0&lt;/em&gt; bonus for learning in public)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/&#34;&gt;Machine Learning Zoomcamp Module 3&lt;/a&gt; - points received: &lt;em&gt;7&lt;/em&gt; (&lt;em&gt;6&lt;/em&gt;/6 for questions + &lt;em&gt;1&lt;/em&gt; bonus for learning in public)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-4-recap/&#34;&gt;Machine Learning Zoomcamp Module 4&lt;/a&gt; - points received: &lt;em&gt;6&lt;/em&gt; (&lt;em&gt;6&lt;/em&gt;/6 for questions + &lt;em&gt;0&lt;/em&gt; bonus for learning in public)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2025/01/machine-learning-zoomcamp-module-5-recap/&#34;&gt;Machine Learning Zoomcamp Module 5&lt;/a&gt; - points received: &lt;em&gt;6&lt;/em&gt; (&lt;em&gt;6&lt;/em&gt;/6 for questions + &lt;em&gt;0&lt;/em&gt; bonus for learning in public)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;module-6---decision-trees-and-ensemble-learning&#34;&gt;Module 6 - Decision Trees and Ensemble Learning&lt;/h2&gt;
+&lt;p&gt;Points received: &lt;em&gt;6&lt;/em&gt;&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<h2 id="intro">Intro</h2>
+<p>This post covers the rest of the modules of the Machine Learning Zoomcamp, including the midterm and the two capstone projects.</p>
+<p>Below are the posts for the previous modules:</p>
+<ol>
+<li><a href="https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/">Machine Learning Zoomcamp Module 1</a> - points received: <em>9</em> (<em>7</em>/7 for questions + <em>2</em> bonus for learning in public)</li>
+<li><a href="https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/">Machine Learning Zoomcamp Module 2</a> - points received: <em>5</em> (<em>5</em>/6 for questions + <em>0</em> bonus for learning in public)</li>
+<li><a href="https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/">Machine Learning Zoomcamp Module 3</a> - points received: <em>7</em> (<em>6</em>/6 for questions + <em>1</em> bonus for learning in public)</li>
+<li><a href="https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-4-recap/">Machine Learning Zoomcamp Module 4</a> - points received: <em>6</em> (<em>6</em>/6 for questions + <em>0</em> bonus for learning in public)</li>
+<li><a href="https://vladflore.tech/posts/2025/01/machine-learning-zoomcamp-module-5-recap/">Machine Learning Zoomcamp Module 5</a> - points received: <em>6</em> (<em>6</em>/6 for questions + <em>0</em> bonus for learning in public)</li>
+</ol>
+<h2 id="module-6---decision-trees-and-ensemble-learning">Module 6 - Decision Trees and Ensemble Learning</h2>
+<p>Points received: <em>6</em></p>
+<p>The homework code can be found <a href="https://github.com/vladflore/machine-learning-zoomcamp-cohort-2024/blob/main/06-trees-hw.ipynb" target="_blank">here</a>.</p>
+<h2 id="midterm-project">Midterm Project</h2>
+<p>Passed ✅ w/ <em>23</em> points.</p>
+<p>The project can be found <a href="https://github.com/vladflore/machine-learning-zoomcamp-cohort-2024/tree/main/midterm" target="_blank">here</a>.</p>
+<h2 id="module-8---neural-networks-and-deep-learning">Module 8 - Neural Networks and Deep Learning</h2>
+<p>Points received: <em>6</em></p>
+<p>The homework can be found <a href="https://github.com/vladflore/machine-learning-zoomcamp-cohort-2024/blob/main/08-deep-learning-hw.ipynb" target="_blank">here</a>.</p>
+<h2 id="module-9---serverless-deep-learning">Module 9 - Serverless Deep Learning</h2>
+<p>Points received: <em>6</em></p>
+<p>The homework can be found <a href="https://github.com/vladflore/machine-learning-zoomcamp-cohort-2024/tree/main/09-serverless" target="_blank">here</a>.</p>
+<h2 id="module-10---kubernetes-and-tensorflow-serving">Module 10 - Kubernetes and TensorFlow Serving</h2>
+<p>Points received: <em>7</em></p>
+<p>The homework can be found <a href="https://github.com/vladflore/machine-learning-zoomcamp-cohort-2024/tree/main/10-k8s" target="_blank">here</a>.</p>
+<h2 id="capstone-1-project">Capstone 1 Project</h2>
+<p>Passed ✅ w/ <em>21</em> points.</p>
+<p>The project can be found <a href="https://github.com/vladflore/machine-learning-zoomcamp-cohort-2024/tree/main/capstone1" target="_blank">here</a>.</p>
+<h2 id="capstone-2-project">Capstone 2 Project</h2>
+<p>Passed ✅ w/ <em>24</em> points.</p>
+<p>The project can be found <a href="https://github.com/vladflore/machine-learning-zoomcamp-cohort-2024/tree/main/capstone2" target="_blank">here</a>.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Total score: <em>127</em></p>
+<p>Positioned <em>27</em> of <em>760</em> students who have submited at least one homework.</p>
+<p><a href="https://certificate.datatalks.club/ml-zoomcamp/2024/8a544aac437ae33c0a6ff12c8547ac2f9d1bb859.pdf" target="_blank">Certificate</a>.</p>
+<p>Overall, the course was very well structured and the content was very well presented. The projects were challenging but doable, and the community was very supportive. I would highly recommend this course to anyone interested in getting into machine learning. The course is very hands-on and provides a lot of practical experience.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Machine Learning Zoomcamp: Module 5 Recap</title>
