@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Vlad Flore ">
+<meta name="description" content="Meet Java 24 Java 24 is not a LTS version. The last LTS version was Java 21, released in September 2023.
+In this post, I will tackle some of the new features and improvements that Java 24 brings to the table. Note that some of them might have been introduced in previous versions, but for the sake of completeness, I will include them here.
+In my post about Java 17, I mentioned some of the noteworthy features introduced in that version, in this post I will focus on the new features introduced since then.
+" />
+<meta name="keywords" content=", java" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://vladflore.tech/posts/2025/04/java-17-24/" />
+
+
+    <title>
+        
+            Java &gt; 17 &amp;&amp; &lt;= 24 :: vlad·flore · tech 
+        
+    </title>
+
+
+
+
+
+<link rel="stylesheet" href="/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css" integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE=">
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+
+  <meta itemprop="name" content="Java &gt; 17 && &lt;= 24">
+  <meta itemprop="description" content="Meet Java 24 Java 24 is not a LTS version. The last LTS version was Java 21, released in September 2023.
+In this post, I will tackle some of the new features and improvements that Java 24 brings to the table. Note that some of them might have been introduced in previous versions, but for the sake of completeness, I will include them here.
+In my post about Java 17, I mentioned some of the noteworthy features introduced in that version, in this post I will focus on the new features introduced since then.">
+  <meta itemprop="datePublished" content="2025-04-29T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-04-29T00:00:00+00:00">
+  <meta itemprop="wordCount" content="3741">
+  <meta itemprop="image" content="https://vladflore.tech/">
+  <meta itemprop="keywords" content="Java">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://vladflore.tech/">
+  <meta name="twitter:title" content="Java &gt; 17 && &lt;= 24">
+  <meta name="twitter:description" content="Meet Java 24 Java 24 is not a LTS version. The last LTS version was Java 21, released in September 2023.
+In this post, I will tackle some of the new features and improvements that Java 24 brings to the table. Note that some of them might have been introduced in previous versions, but for the sake of completeness, I will include them here.
+In my post about Java 17, I mentioned some of the noteworthy features introduced in that version, in this post I will focus on the new features introduced since then.">
+
+
+
+    <meta property="og:url" content="https://vladflore.tech/posts/2025/04/java-17-24/">
+  <meta property="og:site_name" content="vlad·flore · tech">
+  <meta property="og:title" content="Java &gt; 17 && &lt;= 24">
+  <meta property="og:description" content="Meet Java 24 Java 24 is not a LTS version. The last LTS version was Java 21, released in September 2023.
+In this post, I will tackle some of the new features and improvements that Java 24 brings to the table. Note that some of them might have been introduced in previous versions, but for the sake of completeness, I will include them here.
+In my post about Java 17, I mentioned some of the noteworthy features introduced in that version, in this post I will focus on the new features introduced since then.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-04-29T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-04-29T00:00:00+00:00">
+    <meta property="article:tag" content="Java">
+    <meta property="og:image" content="https://vladflore.tech/">
+
+
+
+
+
+
+    <meta property="article:published_time" content="2025-04-29 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RE8EZYX8D9"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RE8EZYX8D9');
+        }
+      </script>
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text ">
+                $ cd ~</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#a9a9b3;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/posts/">Posts</a></li><li><a href="/portfolio/">Portfolio</a></li><li><a href="/about/">About</a></li><li><a href="/files/Vlad-Emil_Flore_-_Senior_Software_Engineer.pdf">CV</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        18 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://vladflore.tech/posts/2025/04/java-17-24/">Java &gt; 17 &amp;&amp; &lt;= 24</a>
+      </h1>
+
+      
+
+      
+        <hr />
+        <aside id="toc">
+          <div class="toc-title">Table of Contents</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#meet-java-24">Meet Java 24</a></li>
+    <li><a href="#java-18">Java 18</a>
+      <ul>
+        <li><a href="#utf-8-by-default">UTF-8 by default</a></li>
+        <li><a href="#simple-web-server">Simple Web Server</a></li>
+        <li><a href="#code-snippets-in-javadoc">Code Snippets in JavaDoc</a></li>
+      </ul>
+    </li>
+    <li><a href="#java-19">Java 19</a></li>
+    <li><a href="#java-20">Java 20</a></li>
+    <li><a href="#java-21">Java 21</a>
+      <ul>
+        <li><a href="#sequenced-collections">Sequenced Collections</a></li>
+        <li><a href="#record-patterns">Record Patterns</a></li>
+        <li><a href="#pattern-matching-for-switch">Pattern Matching for Switch</a></li>
+        <li><a href="#virtual-threads">Virtual Threads</a></li>
+      </ul>
+    </li>
+    <li><a href="#java-22">Java 22</a>
+      <ul>
+        <li><a href="#foreign-function--memory-api">Foreign Function &amp; Memory API</a></li>
+        <li><a href="#unnamed-variables-and-patterns">Unnamed Variables and Patterns</a></li>
+        <li><a href="#launch-multi-file-source-code-programs">Launch Multi-File Source-Code Programs</a></li>
+      </ul>
+    </li>
+    <li><a href="#java-23">Java 23</a>
+      <ul>
+        <li><a href="#markdown-documentation-comments">Markdown Documentation Comments</a></li>
+      </ul>
+    </li>
+    <li><a href="#java-24">Java 24</a>
+      <ul>
+        <li><a href="#class-file-api">Class-File API</a></li>
+        <li><a href="#stream-gatherers">Stream Gatherers</a></li>
+        <li><a href="#synchronized-virtual-threads-without-pinning">Synchronized Virtual Threads without Pinning</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+        </aside>
+        <hr />
+
+      
+
+      <div class="post-content">
+        <h2 id="meet-java-24">Meet Java 24</h2>
+<p>Java 24 is <em>not</em> a <em>LTS version</em>. The last LTS version was Java 21, released in September 2023.</p>
+<p>In this post, I will tackle some of the new features and improvements that Java 24 brings to the table. Note that some of them might have been introduced in previous versions, but for the sake of completeness, I will include them here.</p>
+<p>In my <a href="https://vladflore.tech/posts/2022/07/java-17/">post about Java 17</a>, I mentioned some of the noteworthy features introduced in that version, in this post I will focus on the new features introduced since then.</p>
+<p>Note that I will not cover all the features, but only the ones I find interesting. For a complete list of features feel free to check the <a href="https://openjdk.org/projects/jdk/" target="_blank">JDK Project page</a>.</p>
+<h2 id="java-18">Java 18</h2>
+<h3 id="utf-8-by-default">UTF-8 by default</h3>
+<p>This can be summarized as:</p>
+<blockquote>
+<p><em>Specify UTF-8 as the default charset of the standard Java APIs. With this change, APIs that depend upon the default charset will behave consistently across all implementations, operating systems, locales, and configurations.</em></p>
+<p>&ndash; <!-- raw HTML omitted --><a href="https://openjdk.org/jeps/400" target="_blank">JEP 400: UTF-8 by Default</a><!-- raw HTML omitted --></p>
+</blockquote>
+<p>The implementation of <code>Charset.defaultCharset()</code> will return the UTF-8 charset by default, unless overridden with the system property <code>file.encoding</code>. If the value is <code>COMPAT</code>, the default charset is derived from the <code>native.encoding</code> system property, which depends on the locale and charset of the underlying operating system.</p>
+<p>A quick way to see the default charset of the current JDK is with the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>java -XshowSettings:properties -version 2&gt;&amp;<span style="color:#ae81ff">1</span> | grep file.encoding
+</span></span></code></pre></div><h3 id="simple-web-server">Simple Web Server</h3>
+<p>The Simple Web Server is a minimal HTTP server for serving a single directory hierarchy, and it can be used via the dedicated command-line tool <code>jwebserver</code> or programmatically via its API.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>jwebserver
+</span></span><span style="display:flex;"><span>Binding to loopback by default. For all interfaces use <span style="color:#e6db74">&#34;-b 0.0.0.0&#34;</span> or <span style="color:#e6db74">&#34;-b ::&#34;</span>.
+</span></span><span style="display:flex;"><span>Serving &lt;directory&gt; and subdirectories on 127.0.0.1 port <span style="color:#ae81ff">8000</span>
+</span></span><span style="display:flex;"><span>URL http://127.0.0.1:8000/
+</span></span></code></pre></div><p>The same can be achieved programmatically with the following code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> server <span style="color:#f92672">=</span> SimpleFileServer.<span style="color:#a6e22e">createFileServer</span>(<span style="color:#66d9ef">new</span> InetSocketAddress(8080),
+</span></span><span style="display:flex;"><span>        Path.<span style="color:#a6e22e">of</span>(<span style="color:#e6db74">&#34;/&#34;</span>),
+</span></span><span style="display:flex;"><span>        OutputLevel.<span style="color:#a6e22e">VERBOSE</span>);
+</span></span><span style="display:flex;"><span>server.<span style="color:#a6e22e">start</span>();
+</span></span></code></pre></div><p>For more information, check the <a href="https://openjdk.org/jeps/408" target="_blank">JEP 408: Simple Web Server</a>.</p>
+<h3 id="code-snippets-in-javadoc">Code Snippets in JavaDoc</h3>
+<p><a href="https://openjdk.org/jeps/413" target="_blank">JEP 413: Code Snippets in Java API Documentation</a> introduces a new tag, <code>@snippet</code>, that allows you to include code snippets in your JavaDoc comments.</p>
+<p>Here are some examples of how to use it. The JavaDoc comment of the class <code>A</code> includes an inline code snippet, and two external code snippets. The external code snippets are the entire class <code>B</code> and the named region of the class <code>B</code> called <code>say-howdy</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * {@snippet :
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * System.out.println(&#34;This is a polite class.&#34;);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * {@snippet class = B}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * {@snippet class = B region = say-howdy}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Hello, A!&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">B</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Hello, B!&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// @start region = say-howdy</span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Howdy, B!&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// @end</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In order to generate the JavaDoc with the code snippets, we need to run the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>javadoc -d docs --snippet-path . A.java
+</span></span></code></pre></div><p>This will generate the JavaDoc in the <code>docs</code> directory. Note the <code>--snippet-path</code> option, which specifies the path to the code snippets, in this case the current source directory.</p>
+<p>This is how it looks like:</p>
+
+    <img src="/images/javadoc.jpeg"  alt="Java Doc of class A"  class="center"  style="border-radius: 8px;"  />
+
+
+<h2 id="java-19">Java 19</h2>
+<p>Not to be dismissive of the work done in Java 19, but I will not cover it here, as it does not introduce any final features and of personal interest. Feel free to check the <a href="https://openjdk.org/projects/jdk/19/" target="_blank">Java 19 release notes</a> for more information.</p>
+<h2 id="java-20">Java 20</h2>
+<p>Idem. Please check the <a href="https://openjdk.org/projects/jdk/20/" target="_blank">Java 20 release notes</a> for more information.</p>
+<h2 id="java-21">Java 21</h2>
+<p>This is a LTS version, released in September 2023. Check the <a href="https://openjdk.org/projects/jdk/21/" target="_blank">Java 21 release notes</a>.</p>
+<h3 id="sequenced-collections">Sequenced Collections</h3>
+<p><a href="https://openjdk.org/jeps/431" target="_blank">JEP 431: Sequenced Collections</a> introduces new interfaces to represent collections with a defined encounter order. This means that each such collection has a well-defined first element, second element, and so on, up to the last element.</p>
+<p>The new interfaces are:</p>
+<ul>
+<li><code>SequencedCollection</code> -&gt; a collection with a defined encounter order</li>
+<li><code>SequencedSet</code> -&gt; a set with a defined encounter order</li>
+<li><code>SequencedMap</code> -&gt; a map with a defined encounter order</li>
+</ul>
+<p>The diagrams below show how the new interfaces fit into the existing collections type hierarchy.</p>
+<pre class="mermaid">graph TD
+    Collection --- Set
+    Collection --- SequencedCollection
+    Collection --- Queue
+
+    Set --- SequencedSet
+    SequencedSet --- SortedSet
+    SortedSet --- NavigableSet
+    SequencedSet --- LinkedHashSet
+    Set --- SortedSet
+
+    SequencedCollection --- List
+    SequencedCollection --- Deque
+    SequencedCollection --- SequencedSet
+
+    Queue --- Deque
+
+    Map --- SequencedMap
+    SequencedMap --- SortedMap
+    SequencedMap --- LinkedHashMap
+    SortedMap --- NavigableMap
+
+    classDef highlight stroke:orange,stroke-width:2px;
+    class SequencedCollection highlight;
+    class SequencedSet highlight;
+    class SequencedMap highlight;
+</pre>
+<h3 id="record-patterns">Record Patterns</h3>
+<p>Record patterns enable the deconstruction of records into their components. This allows you to extract the values of a record in a more concise way. Check the following example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">record</span> <span style="color:#a6e22e">Point</span>(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y) {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">record</span> <span style="color:#a6e22e">Circle</span>(Point center, <span style="color:#66d9ef">int</span> radius) <span style="color:#66d9ef">implements</span> Shape {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">record</span> <span style="color:#a6e22e">Line</span>(Point start, Point end) <span style="color:#66d9ef">implements</span> Shape {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">sealed</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Shape</span> permits Circle, Line {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">printShape</span>(Shape s) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// the old way</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (s <span style="color:#66d9ef">instanceof</span> Circle) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> circle <span style="color:#f92672">=</span> (Circle) s;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> txt <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Center: (%d, %d) Radius: %d&#34;</span>.<span style="color:#a6e22e">formatted</span>(
+</span></span><span style="display:flex;"><span>                circle.<span style="color:#a6e22e">center</span>().<span style="color:#a6e22e">x</span>(),
+</span></span><span style="display:flex;"><span>                circle.<span style="color:#a6e22e">center</span>().<span style="color:#a6e22e">y</span>(),
+</span></span><span style="display:flex;"><span>                circle.<span style="color:#a6e22e">radius</span>());
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(txt);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// the new way using record patterns</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (s <span style="color:#66d9ef">instanceof</span> <span style="color:#a6e22e">Circle</span>(Point(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y), <span style="color:#66d9ef">int</span> radius)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> txt <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Center: (%d, %d) Radius: %d&#34;</span>.<span style="color:#a6e22e">formatted</span>(x, y, radius);
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(txt);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// same as before, but using `var`</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (s <span style="color:#66d9ef">instanceof</span> <span style="color:#a6e22e">Circle</span>(Point(<span style="color:#66d9ef">var</span> x, <span style="color:#66d9ef">var</span> y), <span style="color:#66d9ef">var</span> radius)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> txt <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Center: (%d, %d) Radius: %d&#34;</span>.<span style="color:#a6e22e">formatted</span>(x, y, radius);
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(txt);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// an exaustive(note that `Shape` is sealed) switch expression that makes use of record patterns</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> txt1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">switch</span> (s) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> Circle(Point(<span style="color:#66d9ef">var</span> x, <span style="color:#66d9ef">var</span> y), <span style="color:#66d9ef">var</span> radius) <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;Center: (%d, %d) Radius: %d&#34;</span>.<span style="color:#a6e22e">formatted</span>(x, y, radius);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> Line(Point(<span style="color:#66d9ef">var</span> startX, <span style="color:#66d9ef">var</span> startY), Point(<span style="color:#66d9ef">var</span> endX, <span style="color:#66d9ef">var</span> endY)) <span style="color:#f92672">-&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Start: (%d, %d) End: (%d, %d)&#34;</span>.<span style="color:#a6e22e">formatted</span>(startX, startY, endX, endY);
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(txt1);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> circle <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Circle(<span style="color:#66d9ef">new</span> Point(1, 2), 3);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> line <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Line(<span style="color:#66d9ef">new</span> Point(7, 7), <span style="color:#66d9ef">new</span> Point(77, 77));
+</span></span><span style="display:flex;"><span>printShape(circle);
+</span></span><span style="display:flex;"><span>printShape(line);
+</span></span></code></pre></div><p>Running the above code will produce the following output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Center: <span style="color:#f92672">(</span>1, 2<span style="color:#f92672">)</span> Radius: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>Center: <span style="color:#f92672">(</span>1, 2<span style="color:#f92672">)</span> Radius: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>Center: <span style="color:#f92672">(</span>1, 2<span style="color:#f92672">)</span> Radius: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>Center: <span style="color:#f92672">(</span>1, 2<span style="color:#f92672">)</span> Radius: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>Start: <span style="color:#f92672">(</span>7, 7<span style="color:#f92672">)</span> End: <span style="color:#f92672">(</span>77, 77<span style="color:#f92672">)</span>
+</span></span></code></pre></div><h3 id="pattern-matching-for-switch">Pattern Matching for Switch</h3>
+<p>The example above, besides showing the new record patterns, also shows the new pattern matching for switch expressions. This allows you to use patterns in switch expressions, making them more powerful and expressive.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> txt1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">switch</span> (s) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> Circle(Point(<span style="color:#66d9ef">var</span> x, <span style="color:#66d9ef">var</span> y), <span style="color:#66d9ef">var</span> radius) <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;Center: (%d, %d) Radius: %d&#34;</span>.<span style="color:#a6e22e">formatted</span>(x, y, radius);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> Line(Point(<span style="color:#66d9ef">var</span> startX, <span style="color:#66d9ef">var</span> startY), Point(<span style="color:#66d9ef">var</span> endX, <span style="color:#66d9ef">var</span> endY)) <span style="color:#f92672">-&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Start: (%d, %d) End: (%d, %d)&#34;</span>.<span style="color:#a6e22e">formatted</span>(startX, startY, endX, endY);
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>Let&rsquo;s see another example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.regex.Pattern;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AboutSwitchPatternMatching</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> colors <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;red, blue, green,yellow, RED, Blue, grEEn, YELLow&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> pattern <span style="color:#f92672">=</span> Pattern.<span style="color:#a6e22e">compile</span>(<span style="color:#e6db74">&#34;,\\s*&#34;</span>);
+</span></span><span style="display:flex;"><span>        pattern.<span style="color:#a6e22e">splitAsStream</span>(colors).<span style="color:#a6e22e">map</span>(AboutSwitchPatternMatching::translateColorToGerman)
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">forEach</span>(System.<span style="color:#a6e22e">out</span>::println);
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(translateColorToGerman(<span style="color:#66d9ef">null</span>));
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(translateColorToGerman(<span style="color:#e6db74">&#34;purple&#34;</span>));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> String <span style="color:#a6e22e">translateColorToGerman</span>(String colorInEnglish) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">switch</span> (colorInEnglish) {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// string matching ignoring case</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> String s when s.<span style="color:#a6e22e">equalsIgnoreCase</span>(<span style="color:#e6db74">&#34;red&#34;</span>) <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;rot&#34;</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> String s when s.<span style="color:#a6e22e">equalsIgnoreCase</span>(<span style="color:#e6db74">&#34;blue&#34;</span>) <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;blau&#34;</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> String s when s.<span style="color:#a6e22e">equalsIgnoreCase</span>(<span style="color:#e6db74">&#34;green&#34;</span>) <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;gruen&#34;</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> String s when s.<span style="color:#a6e22e">equalsIgnoreCase</span>(<span style="color:#e6db74">&#34;yellow&#34;</span>) <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;gelb&#34;</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// `null` case must be handled separately</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;Unsupported color:&#34;</span> <span style="color:#f92672">+</span> colorInEnglish;
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// to make `switch` exhaustive, we need a `default` case</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">default</span> <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;Unsupported color:&#34;</span> <span style="color:#f92672">+</span> colorInEnglish;
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Note: the two lines above can be combined into one:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// case null, default -&gt; &#34;Unsupported color:&#34; + colorInEnglish;</span>
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>While the example above works fine, using <code>enum</code>s will improve the code substantially.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> Color {
+</span></span><span style="display:flex;"><span>    RED, BLUE, GREEN, YELLOW, PURPLE
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// the main code changes slightly</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> colors <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;red, blue, green,yellow, RED, Blue, grEEn, YELLow&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> pattern <span style="color:#f92672">=</span> Pattern.<span style="color:#a6e22e">compile</span>(<span style="color:#e6db74">&#34;,\\s*&#34;</span>);
+</span></span><span style="display:flex;"><span>pattern.<span style="color:#a6e22e">splitAsStream</span>(colors)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// otherwise mapping to `Color` will fail for some values</span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">map</span>(String::toUpperCase)
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">map</span>(Color::valueOf)
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">map</span>(AboutSwitchPatternMatching::translateColorToGerman)
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">forEach</span>(System.<span style="color:#a6e22e">out</span>::println);
+</span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(translateColorToGerman(<span style="color:#66d9ef">null</span>));
+</span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(translateColorToGerman(Color.<span style="color:#a6e22e">PURPLE</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> String <span style="color:#a6e22e">translateColorToGerman</span>(Color colorInEnglish) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">switch</span> (colorInEnglish) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// this is now an exhaustive `switch`</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> Color.<span style="color:#a6e22e">RED</span> <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;rot&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> Color.<span style="color:#a6e22e">BLUE</span> <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;blau&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> Color.<span style="color:#a6e22e">GREEN</span> <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;gruen&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> Color.<span style="color:#a6e22e">YELLOW</span> <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;gelb&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> Color.<span style="color:#a6e22e">PURPLE</span> <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;lila&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;Unsupported color:&#34;</span> <span style="color:#f92672">+</span> colorInEnglish;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Another important point to keep in mind is <em>case label dominance</em>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Object str <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;this is a string&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> res <span style="color:#f92672">=</span> <span style="color:#66d9ef">switch</span> (str) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> CharSequence cs <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;A sequence of length: &#34;</span> <span style="color:#f92672">+</span> cs.<span style="color:#a6e22e">length</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> String s <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;A string: &#34;</span> <span style="color:#f92672">+</span> s; <span style="color:#75715e">// COMPILATION ERROR: this case label is dominated by one of the preceding case labels, i.e. a `String` is a `CharSequence`</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">default</span> <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;Something else&#34;</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(res);
+</span></span></code></pre></div><p>Switching the order of the case labels fixes the compilation error.</p>
+<p>Note that changing the definition of <code>str</code>, from <code>Object</code> to <code>String</code>, leads to other compilation errors, <em>duplicate unconditional pattern</em>, for the second case label, and <em>switch has both an unconditional pattern and a default label</em>, for the default label. We now need to remove the default label, and one of the remaining two case labels. By this time, our switch would have only one case label.</p>
+<h3 id="virtual-threads">Virtual Threads</h3>
+<p><a href="https://openjdk.org/jeps/444" target="_blank">JEP 444: Virtual Threads</a> introduces Virtual Threads, maybe the most important feature in Java 21. Make sure to go through the JEP, as I will not cover all the aspects.</p>
+<blockquote>
+<p>Virtual threads are lightweight threads that dramatically reduce the effort of writing, maintaining, and observing high-throughput concurrent applications.</p>
+<p>&ndash; <!-- raw HTML omitted --><a href="https://openjdk.org/jeps/444" target="_blank">JEP 444: Virtual Threads</a><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Before seeing some code let&rsquo;s go through some buzzwords related to this feature:</p>
+<ul>
+<li><em>virtual thread</em> -&gt; an instance of <code>java.lang.Thread</code> that is not tied to a particular <em>OS thread</em></li>
+<li><em>M:N scheduling</em> -&gt; virtual threads employ M:N scheduling, where a large number (M) of virtual threads is scheduled to run on a smaller number (N) of OS threads. Other types of scheduling include 1:1, for platform threads, and M:1 for Java&rsquo;s <em>green threads</em>, that all shared one OS thread</li>
+<li><em>structured concurrency</em> -&gt; tries to simplify multithreading programming, by treating multiple tasks running in different threads as a single unit of work</li>
+<li><em>platform thread</em> -&gt; an instance of <code>java.lang.Thread</code> implemented in the traditional way, as a thin wrapper around an OS thread</li>
+<li><em>carrier thread</em> -&gt; the platform thread to which the scheduler assigns a virtual thread is called the virtual thread&rsquo;s carrier. A VT can be scheduled on different carriers over the course of its lifetime</li>
+<li><em>mounting</em> and <em>unmounting</em> -&gt; to run code in a virtual thread, the JDK&rsquo;s virtual thread scheduler assigns the virtual thread for execution on a platform thread by mounting the virtual thread on a platform thread. A VT can unmount from its carrier, at which point the platform thread is free and can carry a different VT</li>
+<li><em>pinning</em> -&gt; a VT is pinned to its carrier when it executes code insider a synchronized block or method, or when it executes a native method or a foreign function. This can hinder scalability, but it does not make an application incorrect</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.concurrent.Executors;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.concurrent.ThreadFactory;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AboutVirtualThreads</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) <span style="color:#66d9ef">throws</span> InterruptedException {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// the work to be done</span>
+</span></span><span style="display:flex;"><span>        Runnable r <span style="color:#f92672">=</span> () <span style="color:#f92672">-&gt;</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> tName <span style="color:#f92672">=</span> Thread.<span style="color:#a6e22e">currentThread</span>().<span style="color:#a6e22e">getName</span>();
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> isVirtual <span style="color:#f92672">=</span> Thread.<span style="color:#a6e22e">currentThread</span>().<span style="color:#a6e22e">isVirtual</span>();
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Hello from &#34;</span> <span style="color:#f92672">+</span> tName <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;. Am I virtual? &#34;</span> <span style="color:#f92672">+</span> isVirtual);
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// using a builder via the `.ofVirtual()`</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> t1 <span style="color:#f92672">=</span> Thread.<span style="color:#a6e22e">ofVirtual</span>().<span style="color:#a6e22e">name</span>(<span style="color:#e6db74">&#34;my-virtual-thread-1&#34;</span>).<span style="color:#a6e22e">start</span>(r);
+</span></span><span style="display:flex;"><span>        t1.<span style="color:#a6e22e">join</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// convenient method for creating a VT and scheduling it to execute</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> t2 <span style="color:#f92672">=</span> Thread.<span style="color:#a6e22e">startVirtualThread</span>(r);
+</span></span><span style="display:flex;"><span>        t2.<span style="color:#a6e22e">setName</span>(<span style="color:#e6db74">&#34;my-virtual-thread-2&#34;</span>);
+</span></span><span style="display:flex;"><span>        t2.<span style="color:#a6e22e">join</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// using a thread factory to create a VT for each task submitted</span>
+</span></span><span style="display:flex;"><span>        ThreadFactory tf <span style="color:#f92672">=</span> Thread.<span style="color:#a6e22e">ofVirtual</span>().<span style="color:#a6e22e">name</span>(<span style="color:#e6db74">&#34;my-virtual-thread-&#34;</span>, 3).<span style="color:#a6e22e">factory</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> (<span style="color:#66d9ef">var</span> executor <span style="color:#f92672">=</span> Executors.<span style="color:#a6e22e">newThreadPerTaskExecutor</span>(tf)) {
+</span></span><span style="display:flex;"><span>            executor.<span style="color:#a6e22e">submit</span>(r);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// executor that starts a new VT for each task</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> (<span style="color:#66d9ef">var</span> executor <span style="color:#f92672">=</span> Executors.<span style="color:#a6e22e">newVirtualThreadPerTaskExecutor</span>()) {
+</span></span><span style="display:flex;"><span>            executor.<span style="color:#a6e22e">submit</span>(r);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// creates a platform thread using the new API</span>
+</span></span><span style="display:flex;"><span>        Thread t4 <span style="color:#f92672">=</span> Thread.<span style="color:#a6e22e">ofPlatform</span>().<span style="color:#a6e22e">name</span>(<span style="color:#e6db74">&#34;my-platform-thread-1&#34;</span>).<span style="color:#a6e22e">start</span>(r);
+</span></span><span style="display:flex;"><span>        t4.<span style="color:#a6e22e">join</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The code from above produces the following output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Hello from my-virtual-thread-1. Am I virtual? true
+</span></span><span style="display:flex;"><span>Hello from my-virtual-thread-2. Am I virtual? true
+</span></span><span style="display:flex;"><span>Hello from my-virtual-thread-3. Am I virtual? true
+</span></span><span style="display:flex;"><span>Hello from . Am I virtual? true
+</span></span><span style="display:flex;"><span>Hello from my-platform-thread-1. Am I virtual? false
+</span></span></code></pre></div><p>The main API differences between <em>virtual</em> and <em>platform</em> threads are:</p>
+<ul>
+<li>the public <code>Thread</code> constructors cannot create virtual threads</li>
+<li>virtual threads are always daemon threads, they cannot be changed to be non-daemon</li>
+<li>virtual threads have a fixed priority, <code>Thread.NORM_PRIORITY</code>, this priority cannot be changed</li>
+<li>virtual threads are not active members of thread groups</li>
+</ul>
+<p>Here are some <em>guidelines</em> to keep in mind when using virtual threads:</p>
+<ul>
+<li>one thread per task: as virtual threads are lightweight, there is no need to reuse of pool them, just create a new one for each task</li>
+<li>blocking I/O inside a <code>synchronized</code> block can pin a virtual thread - this limitation has been removed in Java 24, via <a href="https://openjdk.org/jeps/491" target="_blank">JEP 491: Synchronize Virtual Threads without Pinning</a></li>
+<li>minimize thread-local usage: as VTs can be in the millions, excessive use of thread-local variables can lead to memory issues</li>
+<li>VTs are most useful when blocking I/O or some other blocking operations, <code>BlockingQueue.take()</code>, are involved, i.e. the workload is not CPU-bound</li>
+</ul>
+<h2 id="java-22">Java 22</h2>
+<h3 id="foreign-function--memory-api">Foreign Function &amp; Memory API</h3>
+<p><a href="https://openjdk.org/jeps/454" target="_blank">JEP 454: Foreign Function &amp; Memory API</a> introduces a new API that allows Java programs to interoperate with code and data outside of the Java runtime. This includes calling native functions and accessing native memory.</p>
+<p>There is a lot going on in this JEP, so I will not cover it all. Instead, I will show you a simple example of how to use it. Feel free to check the JEP&rsquo;s page.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.lang.foreign.*;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.lang.invoke.MethodHandle;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.lang.invoke.MethodHandles;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StrlenExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) <span style="color:#66d9ef">throws</span> Throwable {
+</span></span><span style="display:flex;"><span>        Linker linker <span style="color:#f92672">=</span> Linker.<span style="color:#a6e22e">nativeLinker</span>();
+</span></span><span style="display:flex;"><span>        SymbolLookup stdlib <span style="color:#f92672">=</span> linker.<span style="color:#a6e22e">defaultLookup</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        MemorySegment strlenFunc <span style="color:#f92672">=</span> stdlib.<span style="color:#a6e22e">find</span>(<span style="color:#e6db74">&#34;strlen&#34;</span>)
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">orElseThrow</span>(() <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">new</span> RuntimeException(<span style="color:#e6db74">&#34;strlen not found&#34;</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        FunctionDescriptor strlenDesc <span style="color:#f92672">=</span> FunctionDescriptor.<span style="color:#a6e22e">of</span>(ValueLayout.<span style="color:#a6e22e">JAVA_LONG</span>, ValueLayout.<span style="color:#a6e22e">ADDRESS</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        MethodHandle strlen <span style="color:#f92672">=</span> linker.<span style="color:#a6e22e">downcallHandle</span>(strlenFunc, strlenDesc);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> (Arena arena <span style="color:#f92672">=</span> Arena.<span style="color:#a6e22e">ofConfined</span>()) {
+</span></span><span style="display:flex;"><span>            MemorySegment cString <span style="color:#f92672">=</span> arena.<span style="color:#a6e22e">allocateFrom</span>(<span style="color:#e6db74">&#34;Hello, FFM!&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">long</span> length <span style="color:#f92672">=</span> (<span style="color:#66d9ef">long</span>) strlen.<span style="color:#a6e22e">invoke</span>(cString);
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Length: &#34;</span> <span style="color:#f92672">+</span> length);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The code uses Java 22&rsquo;s Foreign Function &amp; Memory (FFM) API to call the native C <code>strlen</code> function, which calculates the length of a C-style string. It first obtains a <em>linker</em> and locates the <code>strlen</code> symbol from the standard C library. Then, it defines the function signature using a <code>FunctionDescriptor</code>, creates a <em>method handle</em> to invoke it, and allocates native memory for the input string using <code>arena.allocateFrom(&quot;Hello, FFM!&quot;)</code>. Finally, it calls the native <code>strlen</code> function and prints the resulting length. The use of Arena ensures safe memory management by automatically freeing the memory when done.</p>
+<p>Running the code with the command below will print the length of the string:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>java --enable-native-access<span style="color:#f92672">=</span>ALL-UNNAMED StrlenExample.java
+</span></span><span style="display:flex;"><span>Length: <span style="color:#ae81ff">11</span>
+</span></span></code></pre></div><p>The <code>--enable-native-access=ALL-UNNAMED</code> flag is necessary to allow the unnamed module (i.e., code not in a named module) to access native code.</p>
+<h3 id="unnamed-variables-and-patterns">Unnamed Variables and Patterns</h3>
+<p><a href="https://openjdk.org/jeps/456" target="_blank">JEP 456: Unnamed Variables &amp; Patterns</a> summarizes this enhancement as follows:</p>
+<blockquote>
+<p>Enhance the Java programming language with unnamed variables and unnamed patterns, which can be used when <em>variable declarations</em> or <em>nested patterns</em> are required but never used. Both are denoted by the underscore character, _.</p>
+<p>&ndash; <!-- raw HTML omitted --><a href="https://openjdk.org/jeps/456" target="_blank">JEP 456: Unnamed Variables &amp; Patterns</a><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Let&rsquo;s see some examples:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.List;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AboutUnnamedVarsAndPatterns</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> words <span style="color:#f92672">=</span> List.<span style="color:#a6e22e">of</span>(<span style="color:#e6db74">&#34;one&#34;</span>, <span style="color:#e6db74">&#34;two&#34;</span>, <span style="color:#e6db74">&#34;three&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> counter <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// we do not do anything with a word</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (String _ : words) {
+</span></span><span style="display:flex;"><span>            counter<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(counter);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> a <span style="color:#f92672">=</span> 1;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> b <span style="color:#f92672">=</span> 2;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// normally, the next line would be removed, in this case it illustrates a point</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> _ <span style="color:#f92672">=</span> 3;
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(a <span style="color:#f92672">+</span> b);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> notANumber <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;boom&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> _ <span style="color:#f92672">=</span> Integer.<span style="color:#a6e22e">parseInt</span>(notANumber);
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (NumberFormatException _) {
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Bad number: &#34;</span> <span style="color:#f92672">+</span> notANumber);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(generateText(<span style="color:#66d9ef">new</span> Circle(<span style="color:#66d9ef">new</span> Point(0, 0), 1)));
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(generateText(<span style="color:#66d9ef">new</span> Line(<span style="color:#66d9ef">new</span> Point(1, 1), <span style="color:#66d9ef">new</span> Point(2, 2))));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> String <span style="color:#a6e22e">generateText</span>(Shape s) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">switch</span> (s) {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// an example of unnamed pattern variable: `var _`, as we are not interested in</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// the circle&#39;s radius</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> Circle(Point(<span style="color:#66d9ef">var</span> x, <span style="color:#66d9ef">var</span> y), <span style="color:#66d9ef">var</span> _) <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;Center: (%d, %d)&#34;</span>.<span style="color:#a6e22e">formatted</span>(x, y);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// as we are not interested in the second point we can ignore it completely,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// this is an example of a unnnamed pattern</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> Line(Point(<span style="color:#66d9ef">var</span> startX, <span style="color:#66d9ef">var</span> startY), _) <span style="color:#f92672">-&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Start: (%d, %d)&#34;</span>.<span style="color:#a6e22e">formatted</span>(startX, startY);
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">record</span> <span style="color:#a6e22e">Point</span>(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y) {
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">sealed</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Shape</span> permits Circle, Line {
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">record</span> <span style="color:#a6e22e">Circle</span>(Point center, <span style="color:#66d9ef">int</span> radius) <span style="color:#66d9ef">implements</span> Shape {
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">record</span> <span style="color:#a6e22e">Line</span>(Point start, Point end) <span style="color:#66d9ef">implements</span> Shape {
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>To summarize, we have:</p>
+<ul>
+<li><code>for (String _ : words) {</code> -&gt; unnamed variable</li>
+<li><code>var _ = 3;</code> -&gt; unnamed variable</li>
+<li><code>catch (NumberFormatException _) {</code> -&gt; unnamed variable</li>
+<li><code>case Circle(Point(var x, var y), var _) -&gt;</code> -&gt; unnamed pattern variable</li>
+<li><code>case Line(Point(var startX, var startY), _) -&gt;</code> -&gt; unnamed pattern</li>
+</ul>
+<h3 id="launch-multi-file-source-code-programs">Launch Multi-File Source-Code Programs</h3>
+<p><a href="https://openjdk.org/jeps/458" target="_blank">JEP 458: Launch Multi-File Source-Code Programs</a> enhances the java application launcher to be able to run a program supplied as multiple files of Java source code.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// File: First.java</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">First</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(First.<span style="color:#a6e22e">class</span>.<span style="color:#a6e22e">getName</span>());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// File: Second.java</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Second</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span>() {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(Second.<span style="color:#a6e22e">class</span>.<span style="color:#a6e22e">getName</span>());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// File: JEP458.java</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JEP458</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> first <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> First();
+</span></span><span style="display:flex;"><span>        first.<span style="color:#a6e22e">run</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> second <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Second();
+</span></span><span style="display:flex;"><span>        second.<span style="color:#a6e22e">run</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Running <code>java JEP458.java</code> will print:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>First
+</span></span><span style="display:flex;"><span>Second
+</span></span></code></pre></div><h2 id="java-23">Java 23</h2>
+<h3 id="markdown-documentation-comments">Markdown Documentation Comments</h3>
+<p><a href="https://openjdk.org/jeps/467" target="_blank">JEP 467: Markdown Documentation Comments</a> introduces a new way to write documentation comments using Markdown syntax.</p>
+<p>Let&rsquo;s have a look at the following example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JEP467</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// ## Start of documentation</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// This _documentation_ was written in Markdown.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - `This`</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - is</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - cool.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// Simple tables are supported:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// | Latin | Greek |</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// |-------|-------|</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// | a     | alpha |</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// | b     | beta  |</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// This is some Java code:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// ```java</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// System.out.println(&#34;Mind blowing&#34;);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// ```</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// ## End of documentation</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(greet(<span style="color:#e6db74">&#34;Vlad&#34;</span>));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// This method builds a greeting and gives it back.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// @param name the name to use in the greeting</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// @return a greeting as a string</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> String <span style="color:#a6e22e">greet</span>(String name) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Hello, %s!&#34;</span>.<span style="color:#a6e22e">formatted</span>(name);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Note the use of the <code>///</code> prefix for the documentation comments.</p>
+<p>Give it a run with the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>javadoc -d docs JEP467.java
+</span></span></code></pre></div><h2 id="java-24">Java 24</h2>
+<h3 id="class-file-api">Class-File API</h3>
+<p><a href="https://openjdk.org/jeps/484" target="_blank">JEP 484: Class-File API</a> provides a standard API for parsing, generating, and transforming Java class files. Take a look at the JEP for more information, as I will not cover it here.</p>
+<h3 id="stream-gatherers">Stream Gatherers</h3>
+<p><a href="https://openjdk.org/jeps/485" target="_blank">JEP 485: Stream Gatherers</a> enhances the Stream API to support <em>custom <strong>intermediate</strong> operations</em>, allowing stream pipelines to transform data in ways that are <em>not easily achievable</em> with the existing operations.</p>
+<p>The core concept is a <em>gatherer</em>, which represents a transform of the elements of a stream. Gatherers can be used to transform elements in a one-to-one, one-to-many, many-to-one, or many-to-many fashion. They can also track previously seen elements in order to influence the transformation of subsequent elements.</p>
+<p>From a technical point of view, there are three elements involved in this API:</p>
+<ul>
+<li>the <code>java.util.stream.Gatherer</code> interface, which models a gatherer</li>
+<li>the <code>gather</code> method in the <code>java.util.stream.Stream</code> interface, which takes a <code>Gatherer</code> as an argument</li>
+<li>the <code>java.util.stream.Gatherers</code> class, which provides a set of built-in gatherers</li>
+</ul>
+<p>The <code>java.util.stream.Gatherers</code> class introduces the following built-in gatherers:</p>
+<ul>
+<li><a href="https://cr.openjdk.org/~vklang/gatherers/api/java.base/java/util/stream/Gatherers.html#fold%28java.util.function.Supplier,java.util.function.BiFunction%29" target="_blank">fold</a> - performs an ordered reduction-like transformation</li>
+<li><a href="https://cr.openjdk.org/~vklang/gatherers/api/java.base/java/util/stream/Gatherers.html#mapConcurrent%28int,java.util.function.Function%29" target="_blank">mapConcurrent</a> - executes a mapping function with a configured level of max concurrency, using virtual threads, preserving the ordering of the stream</li>
+<li><a href="https://cr.openjdk.org/~vklang/gatherers/api/java.base/java/util/stream/Gatherers.html#scan%28java.util.function.Supplier,java.util.function.BiFunction%29" target="_blank">scan</a> - performs an incremental accumulation starting from an initial value, and each subsequent value being obtained by applying the given function to the current value and the next input element</li>
+<li><a href="https://cr.openjdk.org/~vklang/gatherers/api/java.base/java/util/stream/Gatherers.html#windowFixed%28int%29" target="_blank">windowFixed</a> - gathers elements into a window of a fixed size</li>
+<li><a href="https://cr.openjdk.org/~vklang/gatherers/api/java.base/java/util/stream/Gatherers.html#windowSliding%28int%29" target="_blank">windowSliding</a> - gathers elements into windows of a given size, where each subsequent window includes all elements of the previous window, except for the least recent</li>
+</ul>
+<p>Let&rsquo;s see now some examples:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.List;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.stream.Gatherers;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.stream.Stream;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AboutGatherers</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;&gt;</span> result1 <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>                Stream.<span style="color:#a6e22e">of</span>(1, 2, 3, 4, 5, 6, 7, 8).<span style="color:#a6e22e">gather</span>(Gatherers.<span style="color:#a6e22e">windowFixed</span>(3)).<span style="color:#a6e22e">toList</span>();
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;result1 = &#34;</span> <span style="color:#f92672">+</span> result1);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;&gt;</span> result2 <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>                Stream.<span style="color:#a6e22e">of</span>(1, 2, 3, 4, 5, 6, 7, 8).<span style="color:#a6e22e">gather</span>(Gatherers.<span style="color:#a6e22e">windowSliding</span>(2)).<span style="color:#a6e22e">toList</span>();
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;result2 = &#34;</span> <span style="color:#f92672">+</span> result2);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> result3 <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>                Stream.<span style="color:#a6e22e">of</span>(1, 2, 3, 4, 5, 6, 7, 8, 9)
+</span></span><span style="display:flex;"><span>                        .<span style="color:#a6e22e">gather</span>(
+</span></span><span style="display:flex;"><span>                                Gatherers.<span style="color:#a6e22e">scan</span>(() <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;&#34;</span>, (string, number) <span style="color:#f92672">-&gt;</span> string <span style="color:#f92672">+</span> number)
+</span></span><span style="display:flex;"><span>                        )
+</span></span><span style="display:flex;"><span>                        .<span style="color:#a6e22e">toList</span>();
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;result3 = &#34;</span> <span style="color:#f92672">+</span> result3);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> result4 <span style="color:#f92672">=</span> Stream.<span style="color:#a6e22e">iterate</span>(1, n <span style="color:#f92672">-&gt;</span> n <span style="color:#f92672">+</span> 1).<span style="color:#a6e22e">limit</span>(9).<span style="color:#a6e22e">gather</span>(
+</span></span><span style="display:flex;"><span>                Gatherers.<span style="color:#a6e22e">mapConcurrent</span>(3, n <span style="color:#f92672">-&gt;</span> n <span style="color:#f92672">*</span> n)
+</span></span><span style="display:flex;"><span>        ).<span style="color:#a6e22e">toList</span>();
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;result4 = &#34;</span> <span style="color:#f92672">+</span> result4);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        String result5 <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>                Stream.<span style="color:#a6e22e">of</span>(1, 2, 3, 4, 5, 6, 7, 8, 9)
+</span></span><span style="display:flex;"><span>                        .<span style="color:#a6e22e">gather</span>(
+</span></span><span style="display:flex;"><span>                                Gatherers.<span style="color:#a6e22e">fold</span>(() <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;&#34;</span>, (string, number) <span style="color:#f92672">-&gt;</span> string <span style="color:#f92672">+</span> number)
+</span></span><span style="display:flex;"><span>                        ).<span style="color:#a6e22e">findFirst</span>().<span style="color:#a6e22e">orElse</span>(<span style="color:#e6db74">&#34;&#34;</span>);
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;result5 = &#34;</span> <span style="color:#f92672">+</span> result5);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The output of the code above is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>result1 <span style="color:#f92672">=</span> <span style="color:#f92672">[[</span>1, 2, 3<span style="color:#f92672">]</span>, <span style="color:#f92672">[</span>4, 5, 6<span style="color:#f92672">]</span>, <span style="color:#f92672">[</span>7, 8<span style="color:#f92672">]]</span>
+</span></span><span style="display:flex;"><span>result2 <span style="color:#f92672">=</span> <span style="color:#f92672">[[</span>1, 2<span style="color:#f92672">]</span>, <span style="color:#f92672">[</span>2, 3<span style="color:#f92672">]</span>, <span style="color:#f92672">[</span>3, 4<span style="color:#f92672">]</span>, <span style="color:#f92672">[</span>4, 5<span style="color:#f92672">]</span>, <span style="color:#f92672">[</span>5, 6<span style="color:#f92672">]</span>, <span style="color:#f92672">[</span>6, 7<span style="color:#f92672">]</span>, <span style="color:#f92672">[</span>7, 8<span style="color:#f92672">]]</span>
+</span></span><span style="display:flex;"><span>result3 <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>1, 12, 123, 1234, 12345, 123456, 1234567, 12345678, 123456789<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>result4 <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>1, 4, 9, 16, 25, 36, 49, 64, 81<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>result5 <span style="color:#f92672">=</span> <span style="color:#ae81ff">123456789</span>
+</span></span></code></pre></div><p>We can also write our own gatherers. The following example shows how to implement a custom gatherer that implements the <em>distinct by length</em> operation. This means that we will only keep the first occurrence of each element, based on its length.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> Gatherer<span style="color:#f92672">&lt;</span>String, Set<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span>, String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">distinctByLength</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Gatherer.<span style="color:#a6e22e">ofSequential</span>(
+</span></span><span style="display:flex;"><span>            HashSet::<span style="color:#66d9ef">new</span>,
+</span></span><span style="display:flex;"><span>            (seen, element, downstream) <span style="color:#f92672">-&gt;</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (downstream.<span style="color:#a6e22e">isRejecting</span>()) {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (seen.<span style="color:#a6e22e">add</span>(element.<span style="color:#a6e22e">length</span>())) {
+</span></span><span style="display:flex;"><span>                    downstream.<span style="color:#a6e22e">push</span>(element);
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Using the custom gatherer is as simple as:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> distinctByLength <span style="color:#f92672">=</span> Stream.<span style="color:#a6e22e">of</span>(<span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#e6db74">&#34;bc&#34;</span>, <span style="color:#e6db74">&#34;de&#34;</span>, <span style="color:#e6db74">&#34;fgh&#34;</span>).<span style="color:#a6e22e">gather</span>(distinctByLength()).<span style="color:#a6e22e">toList</span>();
+</span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(distinctByLength);
+</span></span></code></pre></div><p>The output of the code above is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>a, bc, fgh<span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>Have a look at the <a href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/stream/Gatherer.html" target="_blank">Gatherer interface</a>, especially at the <code>ofSequential</code> and <code>of</code> methods, to see  in more detail how to implement your own gatherers. In the example above, we used the <code>ofSequential</code> method, which is a convenience method, that calls the <code>of</code> method, passing in the <em>initializer</em> and the <em>integrator</em>. The <em>combiner</em> and the <em>finisher</em> are the default ones.</p>
+<h3 id="synchronized-virtual-threads-without-pinning">Synchronized Virtual Threads without Pinning</h3>
+<p><a href="https://openjdk.org/jeps/491" target="_blank">JEP 491: Synchronize Virtual Threads without Pinning</a> fixes the issue of <em>pinning</em> virtual threads when using <code>synchronized</code> blocks or methods. This means that we can now use <code>synchronized</code> blocks and methods without pinning the virtual thread to its carrier. Check the JEP&rsquo;s page for the nitty-gritty details.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The Java language is evolving like never before, and the features I touched upon in this post are just a small part of the whole picture. Make sure to check the release notes for each version for a complete picture. The language itself is becoming more expressive and powerful and tackles areas that were previously the main domain of other languages. This is a good thing! It&rsquo;s a good time to be a Java developer.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.oracle.com/es/java/technologies/java-se-support-roadmap.html" target="_blank">Java SE Support Roadmap</a></li>
+<li><a href="https://openjdk.org/projects/jdk/24/" target="_blank">Java 24</a></li>
+</ul>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://vladflore.tech/tags/java/">java</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        3741 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2025-04-29 02:00
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+
+  
+  
+  <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2025%2f04%2fjava-17-24%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+    <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+        <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="resp-sharing-button__link" href="mailto:?subject=Java%20%3e%2017%20%26%26%20%3c%3d%2024&amp;body=https%3a%2f%2fvladflore.tech%2fposts%2f2025%2f04%2fjava-17-24%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+    <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fvladflore.tech%2fposts%2f2025%2f04%2fjava-17-24%2f&amp;title=Java%20%3e%2017%20%26%26%20%3c%3d%2024&amp;summary=Java%20%3e%2017%20%26%26%20%3c%3d%2024&amp;source=https%3a%2f%2fvladflore.tech%2fposts%2f2025%2f04%2fjava-17-24%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+    <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  <a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2025%2f04%2fjava-17-24%2f&amp;resubmit=true&amp;title=Java%20%3e%2017%20%26%26%20%3c%3d%2024" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+    <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      </div>
+
+    
+    <div class="pagination">
+        
+
+        <div class="pagination__buttons">
+            
+
+            
+            <span class="button next">
+                <a href="https://vladflore.tech/posts/2025/04/machine-learning-zoomcamp-the-rest/">
+                    <span class="button__text">Machine Learning Zoomcamp: The Rest</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+      
+        <div id="comments">
+          <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vladflore-tech" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      
+    
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2025</span>
+            <span><a href="https://vladflore.tech/">Vlad Flore</a></span>
+            
+            <span><a href="https://vladflore.tech/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            
+        </div>
+    </div>
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://themes.gohugo.io/themes/hugo-theme-hello-friend-ng/">hello-friend-ng</a> theme</span>
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.e89fda0f29b95d33f6f4224dd9e5cf69d84aff3818be2b0d73e731689cc374261b016d17d46f8381962fb4a1577ba3017b1f23509d894f6e66431f988c00889e.js" integrity="sha512-6J/aDym5XTP29CJN2eXPadhK/zgYvisNc&#43;cxaJzDdCYbAW0X1G&#43;DgZYvtKFXe6MBex8jUJ2JT25mQx&#43;YjACIng=="></script>
+
+
+
+
+<script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs";
+    const settings = localStorage.getItem("theme") === "dark" ?
+        {
+            startOnLoad: true,
+            theme: "dark",
+            darkMode: true,
+            themeVariables: {
+                tertiaryColor: "#dee3ed"
+            }
+        }
+        :
+        {
+            startOnLoad: true,
+            theme: "base",
+            darkMode: false,
+            themeVariables: {
+                tertiaryColor: "#dee3ed"
+            }
+        }
+    ;
+    mermaid.initialize(settings);
+</script>
+
+    </body>
+</html>
