@@ -5,8 +5,228 @@
         <description>Recent content in Posts on vlad·flore · tech</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Tue, 29 Apr 2025 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Sat, 03 May 2025 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://vladflore.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Let&#39;s make some calls</title>
+            <link>https://vladflore.tech/posts/2025/05/lets-make-some-calls/</link>
+            <pubDate>Sat, 03 May 2025 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2025/05/lets-make-some-calls/</guid>
+            <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;One of the most important things in programming is making HTTP calls to talk with some API. Java has very good support for this, and in this post, we will see how to call some HTTP endpoints using Java&amp;rsquo;s &lt;code&gt;HttpClient&lt;/code&gt; class. This class is part of the &lt;em&gt;Java 11&lt;/em&gt; standard library, so you don&amp;rsquo;t need any external dependencies to use it.&lt;/p&gt;
+&lt;h2 id=&#34;a-closer-look-at-the-http-client&#34;&gt;A closer look at the HTTP client&lt;/h2&gt;
+&lt;p&gt;Besides the &lt;code&gt;HttpClient&lt;/code&gt; class, there are a few other classes that we will use in this post:&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>One of the most important things in programming is making HTTP calls to talk with some API. Java has very good support for this, and in this post, we will see how to call some HTTP endpoints using Java&rsquo;s <code>HttpClient</code> class. This class is part of the <em>Java 11</em> standard library, so you don&rsquo;t need any external dependencies to use it.</p>
+<h2 id="a-closer-look-at-the-http-client">A closer look at the HTTP client</h2>
+<p>Besides the <code>HttpClient</code> class, there are a few other classes that we will use in this post:</p>
+<ul>
+<li><code>HttpRequest</code>: This class represents an HTTP request</li>
+<li><code>HttpResponse</code>: This class represents an HTTP response</li>
+<li><code>HttpRequest.BodyPublishers</code>: This class contains static methods to create request bodies</li>
+<li><code>HttpResponse.BodyHandlers</code>: This class contains static methods to create response bodies</li>
+</ul>
+<p>The new HTTP APIs can be found in the <code>java.net.http</code> package.</p>
+<p>It&rsquo;s important to note that the new HTTP client is intended to replace the legacy <code>HttpURLConnection</code> class, which is still part of Java but considered outdated. The modern <code>HttpClient</code> not only simplifies making HTTP requests, but also adds powerful features like asynchronous calls, native WebSocket support, and HTTP/2 compatibility—making it a more robust and developer-friendly option overall.</p>
+<p>The endpoint we will be using for the following examples is the <a href="https://jsonplaceholder.typicode.com/" target="_blank">JSONPlaceholder</a> API, which is a free online REST API that you can use for testing and prototyping.</p>
+<p>The steps are similar for all the requests we will be making:</p>
+<ol>
+<li>Create an <code>HttpClient</code> instance; can be reused for multiple requests</li>
+<li>Create an <code>HttpRequest</code> instance</li>
+<li>Send the request and get the response</li>
+<li>Process the response, i.e. either return the raw body or parse it into a Java object</li>
+</ol>
+<h2 id="creating-an-http-client">Creating an HTTP client</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.net.http.HttpClient;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">try</span> (<span style="color:#66d9ef">var</span> client <span style="color:#f92672">=</span> HttpClient.<span style="color:#a6e22e">newHttpClient</span>()) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Use the client to make requests</span>
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">catch</span> (IOException <span style="color:#f92672">|</span> InterruptedException e) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> RuntimeException(e);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Since <code>HttpClient</code> implements <code>java.lang.AutoCloseable</code> we need to close the resource when we are done with it, the easiest way to do this is by wrapping the instantiation with a <code>try-with-resources</code> block.</p>
+<h2 id="creating-an-http-request">Creating an HTTP request</h2>
+<h3 id="get-request">GET request</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String GET_SINGLE_ENDPOINT <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://jsonplaceholder.typicode.com/posts/1&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> request <span style="color:#f92672">=</span> HttpRequest.<span style="color:#a6e22e">newBuilder</span>()
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">uri</span>(<span style="color:#66d9ef">new</span> URI(GET_SINGLE_ENDPOINT))
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">GET</span>()
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">build</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>HttpResponse<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> response <span style="color:#f92672">=</span> client.<span style="color:#a6e22e">send</span>(request, HttpResponse.<span style="color:#a6e22e">BodyHandlers</span>.<span style="color:#a6e22e">ofString</span>());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>String responseBody <span style="color:#f92672">=</span> response.<span style="color:#a6e22e">body</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> responseStatusCode <span style="color:#f92672">=</span> response.<span style="color:#a6e22e">statusCode</span>();
+</span></span></code></pre></div><p>To fetch all the posts, instead of a single post, we can do the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String GET_ALL_ENDPOINT <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://jsonplaceholder.typicode.com/posts&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> request <span style="color:#f92672">=</span> HttpRequest.<span style="color:#a6e22e">newBuilder</span>().<span style="color:#a6e22e">uri</span>(<span style="color:#66d9ef">new</span> URI(GET_ALL_ENDPOINT)).<span style="color:#a6e22e">GET</span>().<span style="color:#a6e22e">build</span>();
+</span></span><span style="display:flex;"><span>HttpResponse<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> response <span style="color:#f92672">=</span> client.<span style="color:#a6e22e">send</span>(request, HttpResponse.<span style="color:#a6e22e">BodyHandlers</span>.<span style="color:#a6e22e">ofString</span>());
+</span></span><span style="display:flex;"><span>String responseBody <span style="color:#f92672">=</span> response.<span style="color:#a6e22e">body</span>();
+</span></span></code></pre></div><p>If the raw response body is a JSON string, we can use a library like <a href="https://github.com/FasterXML/jackson" target="_blank">Jackson</a> or <a href="https://github.com/google/gson" target="_blank">Gson</a> to parse it into a Java object.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> com.fasterxml.jackson.databind.ObjectMapper;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> objectMapper <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ObjectMapper();
+</span></span><span style="display:flex;"><span>Post<span style="color:#f92672">[]</span> posts <span style="color:#f92672">=</span> objectMapper.<span style="color:#a6e22e">readValue</span>(responseBody, Post<span style="color:#f92672">[]</span>.<span style="color:#a6e22e">class</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> gson <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Gson();
+</span></span><span style="display:flex;"><span>Post<span style="color:#f92672">[]</span> posts <span style="color:#f92672">=</span> gson.<span style="color:#a6e22e">fromJson</span>(responseBody, Post<span style="color:#f92672">[]</span>.<span style="color:#a6e22e">class</span>);
+</span></span></code></pre></div><p>Make sure to add the Jackson or Gson dependency to your <code>pom.xml</code> file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;groupId&gt;</span>com.fasterxml.jackson.core<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;artifactId&gt;</span>jackson-databind<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;version&gt;</span>2.17.2<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;groupId&gt;</span>com.google.code.gson<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;artifactId&gt;</span>gson<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;version&gt;</span>2.13.1<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><p>For the following code examples, making the request and getting the raw body is the same.</p>
+<h3 id="post-request">POST request</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String POST_ENDPOINT <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://jsonplaceholder.typicode.com/posts&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> body <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;title&#34;: &#34;foo&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;body&#34;: &#34;bar&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;userId&#34;: 1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> request <span style="color:#f92672">=</span> HttpRequest.<span style="color:#a6e22e">newBuilder</span>()
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">uri</span>(<span style="color:#66d9ef">new</span> URI(POST_ENDPOINT))
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">POST</span>(HttpRequest.<span style="color:#a6e22e">BodyPublishers</span>.<span style="color:#a6e22e">ofString</span>(body))
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">headers</span>(<span style="color:#e6db74">&#34;Content-Type&#34;</span>, <span style="color:#e6db74">&#34;application/json&#34;</span>)
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">build</span>();
+</span></span></code></pre></div><p>For a POST with no body, simply use <code>HttpRequest.BodyPublishers.noBody()</code>.</p>
+<h3 id="put-request">PUT request</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String PUT_ENDPOINT <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://jsonplaceholder.typicode.com/posts/1&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> body <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;id&#34;:1,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;title&#34;: &#34;FOO&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;body&#34;: &#34;BAR&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;userId&#34;: 1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> request <span style="color:#f92672">=</span> HttpRequest.<span style="color:#a6e22e">newBuilder</span>()
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">uri</span>(URI.<span style="color:#a6e22e">create</span>(PUT_ENDPOINT))
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">PUT</span>(HttpRequest.<span style="color:#a6e22e">BodyPublishers</span>.<span style="color:#a6e22e">ofString</span>(body))
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">headers</span>(<span style="color:#e6db74">&#34;Content-Type&#34;</span>, <span style="color:#e6db74">&#34;application/json&#34;</span>)
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">build</span>();
+</span></span></code></pre></div><h3 id="patch-request">PATCH request</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String PATCH_ENDPOINT <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://jsonplaceholder.typicode.com/posts/1&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> body <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;title&#34; : &#34;dummy title&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> request <span style="color:#f92672">=</span> HttpRequest.<span style="color:#a6e22e">newBuilder</span>()
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">uri</span>(<span style="color:#66d9ef">new</span> URI(PATCH_ENDPOINT))
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">method</span>(<span style="color:#e6db74">&#34;PATCH&#34;</span>, HttpRequest.<span style="color:#a6e22e">BodyPublishers</span>.<span style="color:#a6e22e">ofString</span>(body))
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">headers</span>(<span style="color:#e6db74">&#34;Content-Type&#34;</span>, <span style="color:#e6db74">&#34;application/json&#34;</span>)
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">build</span>();
+</span></span></code></pre></div><h3 id="delete-request">DELETE request</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> String DELETE_ENDPOINT <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://jsonplaceholder.typicode.com/posts/1&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> request <span style="color:#f92672">=</span> HttpRequest.<span style="color:#a6e22e">newBuilder</span>()
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">uri</span>(<span style="color:#66d9ef">new</span> URI(DELETE_ENDPOINT))
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">DELETE</span>()
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">build</span>();
+</span></span></code></pre></div><h2 id="making-asynchronous-calls">Making asynchronous calls</h2>
+<p>Making asynchronous calls is very similar to making synchronous calls. The only difference is that we need to use the <code>sendAsync</code> method instead of the <code>send</code> method, and deal with the <code>CompletableFuture</code> that is returned.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeAsyncRequest</span>(HttpClient client, HttpRequest request) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// send the request asynchronously</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> future <span style="color:#f92672">=</span> client.<span style="color:#a6e22e">sendAsync</span>(request, HttpResponse.<span style="color:#a6e22e">BodyHandlers</span>.<span style="color:#a6e22e">ofString</span>())
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// process the response</span>
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">thenApply</span>(App::handleResponse)
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// consume the response, by printing the first 5 posts</span>
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">thenAccept</span>(posts <span style="color:#f92672">-&gt;</span> Arrays.<span style="color:#a6e22e">stream</span>(posts).<span style="color:#a6e22e">limit</span>(5).<span style="color:#a6e22e">forEach</span>(System.<span style="color:#a6e22e">out</span>::println));
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// wait for the future to complete, before proceeding with the program</span>
+</span></span><span style="display:flex;"><span>    future.<span style="color:#a6e22e">join</span>();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> Post<span style="color:#f92672">[]</span> <span style="color:#a6e22e">handleResponse</span>(HttpResponse<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> response) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> statusCode <span style="color:#f92672">=</span> response.<span style="color:#a6e22e">statusCode</span>();
+</span></span><span style="display:flex;"><span>    System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;response.statusCode() = &#34;</span> <span style="color:#f92672">+</span> statusCode);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (statusCode <span style="color:#f92672">==</span> 200) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> ObjectMapper().<span style="color:#a6e22e">readValue</span>(response.<span style="color:#a6e22e">body</span>(), Post<span style="color:#f92672">[]</span>.<span style="color:#a6e22e">class</span>);
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (JsonProcessingException e) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> RuntimeException(e);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Unsuccessful response.&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Post<span style="color:#f92672">[]</span>{};
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="specifying-other-options">Specifying other options</h2>
+<p>When building the <em>client</em>, we can specify various options, such as:</p>
+<ul>
+<li>the <em>proxy</em> to use: <code>.proxy(ProxySelector.getDefault())</code></li>
+<li>the <em>redirect policy</em>: <code>.followRedirects(HttpClient.Redirect.ALWAYS)</code></li>
+<li>the <em>authenticator</em>: <code>.authenticator(auth)</code></li>
+<li>the <em>executor</em>: <code>.executor(Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors()))</code></li>
+</ul>
+<p>When building the <em>request</em>, we can specify various options, such as:</p>
+<ul>
+<li>the <em>timeout</em>: <code>.timeout(Duration.ofSeconds(1))</code></li>
+<li>the <em>headers</em>: <code>.header(&quot;Content-Type&quot;, &quot;application/json&quot;)</code></li>
+<li>the <em>protocol version</em>: <code>.version(HttpClient.Version.HTTP_2)</code></li>
+<li>the <em>body publishers</em>: <code>.POST(HttpRequest.BodyPublishers.ofString(body))</code></li>
+</ul>
+<p>There are a couple of other body publishers that we can use, such as:</p>
+<ul>
+<li><code>HttpRequest.BodyPublishers.ofFile()</code>: body content taken from the file</li>
+<li><code>HttpRequest.BodyPublishers.ofInputStream()</code>: body content taken from an input stream</li>
+<li><code>HttpRequest.BodyPublishers.ofByteArray()</code>: body content taken from the byte array</li>
+</ul>
+<p>When <em>sending the request</em> we can specify how the response body should be handled, such as:</p>
+<ul>
+<li><code>HttpResponse.BodyHandlers.ofString()</code>: returns the response body as a string</li>
+<li><code>HttpResponse.BodyHandlers.ofByteArray()</code>: returns the response body as a byte array</li>
+<li><code>HttpResponse.BodyHandlers.ofFile()</code>: returns the response body as a file</li>
+<li><code>HttpResponse.BodyHandlers.ofInputStream()</code>: returns the response body as an input stream</li>
+<li><code>HttpResponse.BodyHandlers.ofPublisher()</code>: returns the response body as a publisher</li>
+<li><code>HttpResponse.BodyHandlers.ofLines()</code>: returns the response body as a stream of lines</li>
+</ul>
+<h3 id="authentication">Authentication</h3>
+<p>When creating the client, we can specify an <code>Authenticator</code> to use for authentication. The <code>Authenticator</code> is a class that provides a way to authenticate requests. We can extend it, and override the <code>getPasswordAuthentication</code> method to provide the credentials.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.net.Authenticator;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.net.PasswordAuthentication;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyAuthenticator</span> <span style="color:#66d9ef">extends</span> Authenticator {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> PasswordAuthentication <span style="color:#a6e22e">getPasswordAuthentication</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> PasswordAuthentication(
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;username&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;password&#34;</span>.<span style="color:#a6e22e">toCharArray</span>()
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Alternatively, we can set the <code>Authorization</code> header in the request, and use a basic authentication scheme or a bearer token.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// for the basic authentication scheme</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> auth <span style="color:#f92672">=</span> Base64.<span style="color:#a6e22e">getEncoder</span>().<span style="color:#a6e22e">encodeToString</span>(<span style="color:#e6db74">&#34;username:password&#34;</span>.<span style="color:#a6e22e">getBytes</span>());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> getRequest <span style="color:#f92672">=</span> HttpRequest.<span style="color:#a6e22e">newBuilder</span>(<span style="color:#66d9ef">new</span> URI(<span style="color:#e6db74">&#34;&lt;endpoint&gt;&#34;</span>))
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// set a bearer token</span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">header</span>(<span style="color:#e6db74">&#34;Authorization&#34;</span>, <span style="color:#e6db74">&#34;Bearer &lt;token&gt;&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// or set a basic authentication scheme</span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">header</span>(<span style="color:#e6db74">&#34;Authorization&#34;</span>, <span style="color:#e6db74">&#34;Basic &#34;</span> <span style="color:#f92672">+</span> auth)
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">GET</span>()
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">build</span>();
+</span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
+<p>In this post, we have seen how to make HTTP calls using Java&rsquo;s <code>HttpClient</code> class. We have seen how to create a client, create a request, and send the request. We have also seen how to make asynchronous calls and specify various options for the client and the request.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Java &gt; 17 &amp;&amp; &lt;= 24</title>
