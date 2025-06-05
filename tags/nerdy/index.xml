@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>vlad·flore · tech</title>
-    <link>https://vladflore.tech/</link>
-    <description>Recent content on vlad·flore · tech</description>
+    <title>Nerdy on vlad·flore · tech</title>
+    <link>https://vladflore.tech/tags/nerdy/</link>
+    <description>Recent content in Nerdy on vlad·flore · tech</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sat, 03 May 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://vladflore.tech/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://vladflore.tech/tags/nerdy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Let&#39;s make some calls</title>
       <link>https://vladflore.tech/posts/2025/05/lets-make-some-calls/</link>
@@ -79,20 +79,6 @@
       <description>&lt;h2 id=&#34;the-whys&#34;&gt;The Whys&lt;/h2&gt;&#xA;&lt;p&gt;The time has come. I will learn Machine Learning, or at least, I&amp;rsquo;ll be trying my best to do so. You might now ask yourself, &lt;em&gt;why machine learning?&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Nowadays, Machine Learning(ML), is on a lot of people&amp;rsquo;s minds, especially after the rise of the LLMs (Large Language Models).&lt;/p&gt;&#xA;&lt;p&gt;To not know about ML is to be left behind. I want to be part of the future, and I want to be able to understand the technology that will shape it.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Portfolio</title>
-      <link>https://vladflore.tech/portfolio/</link>
-      <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/portfolio/</guid>
-      <description>&lt;h2 id=&#34;about-this-portfolio&#34;&gt;About This Portfolio&lt;/h2&gt;&#xA;&lt;p&gt;Creating a portfolio is a great way to showcase your work and interests. It can also be a strong motivator to keep learning and building once you get started. Not only does it help you highlight your skills and experience to potential employers or clients, but it also helps you stand out from the crowd.&lt;/p&gt;&#xA;&lt;p&gt;That said, building a portfolio can feel daunting — especially when you&amp;rsquo;re just starting out.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Life update</title>
-      <link>https://vladflore.tech/posts/2024/09/life-update/</link>
-      <pubDate>Fri, 06 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2024/09/life-update/</guid>
-      <description>&lt;p&gt;It&amp;rsquo;s been 20 months since I moved to another country, and life has been quite interesting since then.&lt;/p&gt;&#xA;&lt;p&gt;To give some context, I left Germany at the beginning of January 2023 and moved to Barcelona, Spain. In other words, I swapped &lt;em&gt;Bratwurst&lt;/em&gt;, &lt;em&gt;Bretzel&lt;/em&gt;, and cold weather for &lt;em&gt;jamón&lt;/em&gt;, &lt;em&gt;crema catalana&lt;/em&gt;, and warm weather. This is, of course, an oversimplification, but it&amp;rsquo;s still accurate.&lt;/p&gt;&#xA;&lt;p&gt;As you may know, moving to a new country is not easy, even with help. Because of this, the first few weeks and even months were a bit hectic and different from what I expected.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Learning Python as a Java developer - 2/</title>
       <link>https://vladflore.tech/posts/2023/06/learning-python-as-a-java-developer-2/</link>
       <pubDate>Mon, 12 Jun 2023 00:00:00 +0000</pubDate>
@@ -112,13 +98,6 @@
       <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
       <guid>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/</guid>
       <description>&lt;h2 id=&#34;becoming-a-pythonista&#34;&gt;Becoming a Pythonista&lt;/h2&gt;&#xA;&lt;p&gt;If the term &amp;ldquo;pythonista&amp;rdquo; seems unusual or off-putting to you, rest assured that you are not the only one. Personally, I find the word somewhat amusing, and I had to &lt;a href=&#34;https://en.wiktionary.org/wiki/Pythonista&#34; target=&#34;_blank&#34;&gt;look it up&lt;/a&gt; initially. After all, &amp;ldquo;Python programmer&amp;rdquo; or &amp;ldquo;Python software engineer&amp;rdquo; would suffice, right? Regardless, this post is not about what we call individuals who work with Python; rather, it&amp;rsquo;s about sharing my experience of learning Python as a Java software engineer.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>About</title>
-      <link>https://vladflore.tech/about/</link>
-      <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/about/</guid>
-      <description>&lt;img src=&#34;https://vladflore.tech/images/me.jpg&#34;  alt=&#34;A picture of myself&#34;  class=&#34;center&#34;  style=&#34;border-radius: 8px; float: right;&#34;  /&gt;&#xA;&#xA;&#xA;&lt;p&gt;Hi Internet,&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m Vlad — welcome to my little corner of the web where I share thoughts on &lt;strong&gt;Software Engineering&lt;/strong&gt;, &lt;strong&gt;Computer Science&lt;/strong&gt;, and life in general.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m not big on writing about myself, so let’s keep it short and sweet.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;Q: Who are you, Vlad?&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; I&amp;rsquo;m a curious human currently living in Spain and working as a Software Engineer.&lt;br&gt;&#xA;I enjoy learning, solving problems, and diving into all things tech. I also have a passion for travel, discovering new places, and fitness.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Git Animated 4</title>
@@ -156,13 +135,6 @@
       <description>&lt;p&gt;Software developers write code&amp;hellip;or at least they should, provided they can escape the long boring meetings which finish with no conclusions or, God forbid, with the next appointment&amp;hellip;to discuss more.&lt;/p&gt;&#xA;&lt;p&gt;When we monetize this action of writing code, we usually do it as part of a job, which comes with its pros and cons, and such we have to stay in the legal framework of that working contract. This legal framework might very well prevent us from contributing to Open Source Software(OSS), so make sure to read the fine print!&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Nine Months Later</title>
-      <link>https://vladflore.tech/posts/2021/05/nine-months-later/</link>
-      <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2021/05/nine-months-later/</guid>
-      <description>&lt;p&gt;&amp;hellip;if you were thinking about screaming little humans, I am afraid I will disappoint you and it might be that this post is not for you.&lt;/p&gt;&#xA;&lt;p&gt;If you are still reading, then you might be one of those people, who thought of something else what could have happened in a period of nine months. I salute you and encourage you to read on!&lt;/p&gt;&#xA;&lt;p&gt;2020 was a special year, for the world and for me as well, on one side we had that &lt;em&gt;end of the world kind of global infestation&lt;/em&gt; thing, on the other side I managed to make some changes, which hopefully will pay-off in the near future, dare saying some of them have already payed-off.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Java 11</title>
       <link>https://vladflore.tech/posts/2020/09/java-11/</link>
       <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
@@ -189,13 +161,6 @@
       <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
       <guid>https://vladflore.tech/posts/2020/03/shell-magic/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE 1:&lt;/em&gt;&lt;/strong&gt; This page contains some shell &lt;em&gt;magic&lt;/em&gt; which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE 2:&lt;/em&gt;&lt;/strong&gt; Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.&#xA;Some of them might also require sudo access, so I am just going to assume that you know what you are doing. You have been warned!&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Hello World</title>
-      <link>https://vladflore.tech/posts/2020/02/hello-world/</link>
-      <pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2020/02/hello-world/</guid>
-      <description>&lt;p&gt;Hello Internet,&lt;/p&gt;&#xA;&lt;p&gt;so this is my first blog post, which I hope will be one of many more to come. This is more of a &lt;em&gt;hello world&lt;/em&gt; kind of post,&#xA;a way to cut my teeth into blogging and see if it&amp;rsquo;s something I would like doing.&lt;/p&gt;&#xA;&lt;p&gt;Should you wonder by now why &lt;em&gt;hello world&lt;/em&gt;,&#xA;well just ask someone who works in IT and has learned at least one programming language.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Software Craftsmanship</title>

@@ -9,7 +9,7 @@
 <meta name="description" content="Intro In one of my previous posts, I mentioned that I was taking the Machine Learning Zoomcamp course. I have completed the first module of the course, and I wanted to share a recap of what I learned. In addition to that, I&rsquo;d go one step further and add some extra bits of information here and there.
 What is Machine Learning? To answer this, we need to understand what learning is. Learning is the process of acquiring knowledge or skills through experience, study, or being taught. A simple Google search would give you this definition. Wikipedia defines learning similarly, adding that &ldquo;[&hellip;]the ability to learn is possessed by humans, non-human animals, and some machines[&hellip;]&rdquo;. When learning is done by machines, we refer to it as Machine Learning (ML). In simple terms, ML is the process of teaching a computer to learn from data. The computer uses the data to identify patterns and make decisions without being explicitly programmed to do so.
 " />
-<meta name="keywords" content=", ml, learning, mlzoomcamp" />
+<meta name="keywords" content=", ml, learning, mlzoomcamp, nerdy" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
 <link rel="canonical" href="https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/" />
@@ -50,7 +50,7 @@ What is Machine Learning? To answer this, we need to understand what learning is
   <meta itemprop="dateModified" content="2024-09-25T00:00:00+00:00">
   <meta itemprop="wordCount" content="1465">
   <meta itemprop="image" content="https://vladflore.tech/">
-  <meta itemprop="keywords" content="Ml,Learning,Mlzoomcamp">
+  <meta itemprop="keywords" content="Ml,Learning,Mlzoomcamp,Nerdy">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://vladflore.tech/">
@@ -73,6 +73,7 @@ What is Machine Learning? To answer this, we need to understand what learning is
     <meta property="article:tag" content="Ml">
     <meta property="article:tag" content="Learning">
     <meta property="article:tag" content="Mlzoomcamp">
+    <meta property="article:tag" content="Nerdy">
     <meta property="og:image" content="https://vladflore.tech/">
 
 
@@ -272,7 +273,7 @@ The model is then a function that takes <code>X</code> as input and tries to pre
 <p>The <em>training set</em> is used to train the model, the <em>validation set</em> is used to evaluate the model, this might imply additional <em>tweaking of the model</em>, and the <em>test set</em> is used to evaluate the final model. The training-evaluation-tweaking process is repeated and the best model is chosen based on the performance on the validation set. This model is then evaluated on the test set.</p>
 <h2 id="tools-and-libraries">Tools and Libraries</h2>
 <p>Previously I mentioned that there are tools and libraries that can help you with each phase of the CRISP-DM process. Two of the most commonly used libraries in Python are <em>NumPy</em> and <em>Pandas</em>. Pandas is used for data manipulation and analysis, while NumPy is used for numerical computing.</p>
-<p>See <a href="https://vladflore.tech/posts/2024/09/numpy/">NumPy</a> and <a href="https://vladflore.tech/posts/2024/09/pandas/">Pandas</a> for more information.</p>
+<p>See <a href="">NumPy</a> and <a href="https://vladflore.tech/posts/2024/09/pandas/">Pandas</a> for more information.</p>
 <p>To make use of these tools one has to set up their Python environment. One way to do this is to use <a href="https://www.anaconda.com/download" target="_blank">Anaconda</a>, which is a distribution of Python that comes with all the tools and libraries you need for data science and machine learning. Once you have Anaconda installed, you can optionally create a virtual environment, activate it, install the libraries you need, and start working on your project.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>conda create -n myenvironment python<span style="color:#f92672">=</span>3.11
 </span></span><span style="display:flex;"><span>conda activate myenvironment
@@ -294,6 +295,7 @@ The model is then a function that takes <code>X</code> as input and tries to pre
         <span class="tag"><a href="https://vladflore.tech/tags/ml/">ml</a></span>
         <span class="tag"><a href="https://vladflore.tech/tags/learning/">learning</a></span>
         <span class="tag"><a href="https://vladflore.tech/tags/mlzoomcamp/">mlzoomcamp</a></span>
+        <span class="tag"><a href="https://vladflore.tech/tags/nerdy/">nerdy</a></span>
         
     </p>
 
@@ -400,8 +402,8 @@ The model is then a function that takes <code>X</code> as input and tries to pre
 
             
             <span class="button next">
-                <a href="https://vladflore.tech/posts/2024/09/numpy/">
-                    <span class="button__text">NumPy</span>
+                <a href="https://vladflore.tech/posts/2024/09/pandas/">
+                    <span class="button__text">Pandas</span>
                     <span class="button__icon">→</span>
                 </a>
             </span>
@@ -411,29 +413,6 @@ The model is then a function that takes <code>X</code> as input and tries to pre
 
 
     
-      
-        <div id="comments">
-          <div id="disqus_thread"></div>
-<script>
-    window.disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "vladflore-tech" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-        </div>
       
     
 

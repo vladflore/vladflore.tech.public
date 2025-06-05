@@ -51,13 +51,6 @@
       <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://vladflore.tech/posts/2024/09/learning...-machine-learning/&#34;&gt;one of my previous posts&lt;/a&gt;, I mentioned that I was taking the &lt;a href=&#34;https://datatalks.club/blog/guide-to-free-online-courses-at-datatalks-club.html#machine-learning-zoomcamp&#34; target=&#34;_blank&#34;&gt;Machine Learning Zoomcamp&lt;/a&gt; course. I have completed the first module of the course, and I wanted to share a recap of what I learned. In addition to that, I&amp;rsquo;d go one step further and add some extra bits of information here and there.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-machine-learning&#34;&gt;What is Machine Learning?&lt;/h2&gt;&#xA;&lt;p&gt;To answer this, we need to understand what &lt;em&gt;learning&lt;/em&gt; is. Learning is the process of acquiring knowledge or skills through experience, study, or being taught. A simple Google search would give you this definition. &lt;a href=&#34;https://en.wikipedia.org/wiki/Learning&#34; target=&#34;_blank&#34;&gt;Wikipedia&lt;/a&gt; defines &lt;em&gt;learning&lt;/em&gt; similarly, adding that &amp;ldquo;[&amp;hellip;]the ability to learn is possessed by humans, non-human animals, and &lt;em&gt;some machines&lt;/em&gt;[&amp;hellip;]&amp;rdquo;. When learning is done by machines, we refer to it as &lt;em&gt;Machine Learning&lt;/em&gt; (ML). In simple terms, ML is the process of teaching a computer to learn from &lt;em&gt;data&lt;/em&gt;. The computer uses the data to identify patterns and make decisions without being explicitly programmed to do so.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>NumPy</title>
-      <link>https://vladflore.tech/posts/2024/09/numpy/</link>
-      <pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2024/09/numpy/</guid>
-      <description>&lt;p&gt;&amp;hellip;coming&amp;hellip; soon?&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Pandas</title>
       <link>https://vladflore.tech/posts/2024/09/pandas/</link>
       <pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
