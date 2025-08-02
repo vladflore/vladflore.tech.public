@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vlad-Emil Flore - Software Engineer</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        background-color: #f8f9fa;
+      }
+      .resume-container {
+        max-width: 1000px;
+        margin: 40px auto;
+        background: white;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .header-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 40px;
+      }
+      .header-content {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+      }
+      .profile-picture {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        object-fit: cover;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+      .header-text {
+        flex: 1;
+      }
+      .header-section h1 {
+        font-size: 3rem;
+        font-weight: 300;
+        margin-bottom: 10px;
+        letter-spacing: 2px;
+      }
+      .header-section h2 {
+        font-size: 1.5rem;
+        font-weight: 300;
+        opacity: 0.9;
+      }
+      .sidebar {
+        background-color: #f1f3f4;
+        min-height: 100vh;
+      }
+      .section-title {
+        color: #667eea;
+        font-weight: 600;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #667eea;
+      }
+      .sidebar .section-title {
+        color: #495057;
+      }
+      .contact-item {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+      }
+      .contact-item i {
+        width: 20px;
+        margin-right: 10px;
+        color: #667eea;
+      }
+      .job-title {
+        color: #495057;
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+      .company-name {
+        color: #667eea;
+        font-weight: 500;
+      }
+      .date-range {
+        color: #6c757d;
+        font-style: italic;
+        font-size: 0.9rem;
+      }
+      .tech-stack {
+        background-color: #e9ecef;
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 10px;
+        font-size: 0.9rem;
+      }
+      .tech-stack strong {
+        color: #495057;
+      }
+      .education-item,
+      .cert-item {
+        margin-bottom: 20px;
+      }
+      .grade {
+        color: #28a745;
+        font-weight: 500;
+      }
+      .language-item {
+        margin-bottom: 10px;
+        padding: 8px 12px;
+        background-color: #e7f3ff;
+        border-radius: 5px;
+        border-left: 4px solid #667eea;
+      }
+      .hobbies-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .hobby-tag {
+        background-color: #667eea;
+        color: white;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+      }
+      .profile-highlights {
+        background-color: #f8f9fa;
+        border-left: 4px solid #667eea;
+        padding: 20px;
+        margin-bottom: 30px;
+      }
+      .employment-item {
+        margin-bottom: 30px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid #e9ecef;
+      }
+      .employment-item:last-child {
+        border-bottom: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="resume-container">
+      <!-- Header -->
+      <div class="header-section">
+        <div class="header-content">
+          <img
+            src="/images/me_official_no_background.png"
+            alt="Vlad-Emil Flore"
+            class="profile-picture"
+          />
+          <div class="header-text">
+            <h1>Vlad-Emil Flore</h1>
+            <h2>Software Engineer</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-0">
+        <!-- Sidebar -->
+        <div class="col-md-4 sidebar p-4">
+          <!-- Details -->
+          <div class="mb-4">
+            <h3 class="section-title">Details</h3>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>flore.vlad@gmail.com</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Barcelona, Spain</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-birthday-cake"></i>
+              <span>15.11.1985</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-globe"></i>
+              <span>Romania</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-flag"></i>
+              <span>Romanian</span>
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div class="mb-4">
+            <h3 class="section-title">Education</h3>
+            <div class="education-item">
+              <div class="fw-bold">Master of Science in Informatics</div>
+              <div class="company-name">West University of Timisoara</div>
+              <div class="date-range">2008 — 2010</div>
+              <div class="small mt-1">
+                Focus on Artificial Intelligence and Distributed Computing
+              </div>
+              <div class="grade">Grade: 9 of 10</div>
+            </div>
+            <div class="education-item">
+              <div class="fw-bold">Bachelor of Science in Informatics</div>
+              <div class="company-name">West University of Timisoara</div>
+              <div class="date-range">2004 — 2008</div>
+              <div class="grade">
+                Grade: 9.67 of 10 (ranked 7 of 95 graduates)
+              </div>
+            </div>
+          </div>
+
+          <div class="break"></div>
+
+          <!-- Languages -->
+          <div class="mb-4">
+            <h3 class="section-title">Languages</h3>
+            <div class="language-item">Romanian</div>
+            <div class="language-item">English</div>
+            <div class="language-item">German</div>
+          </div>
+
+          <!-- Skills -->
+          <div class="mb-4">
+            <h3 class="section-title">Skills</h3>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <i class="fas fa-code me-2 text-primary"></i>
+                Backend Development (Java, Python, Kotlin)
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-vial me-2 text-primary"></i>
+                Testing (JUnit, Pytest, Cucumber)
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-shield-alt me-2 text-primary"></i>
+                Coding Practices (Clean Code, TDD, DDD)
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-server me-2 text-primary"></i>
+                RESTful APIs, GraphQL
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-cogs me-2 text-primary"></i>
+                Spring Framework, Spring Boot, Django
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-cubes me-2 text-primary"></i>
+                Microservices & Cloud-Native Architecture
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-comments me-2 text-primary"></i>
+                Messaging Systems (RabbitMQ, EventStoreDB)
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-database me-2 text-primary"></i>
+                Databases (PostgreSQL, Oracle)
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-cloud me-2 text-primary"></i>
+                Kubernetes, Docker, AWS
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-tools me-2 text-primary"></i>
+                Build Tools (Maven, Gradle)
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-rocket me-2 text-primary"></i>
+                CI/CD (Git, GitHub, GitHub Actions, GitLab, TeamCity, Argo CD,
+                Jenkins, Helm, Ansible)
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-users me-2 text-primary"></i>
+                Team Leadership & Mentoring
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-chalkboard-teacher me-2 text-primary"></i>
+                Technical Documentation & Knowledge Sharing
+              </li>
+            </ul>
+          </div>
+
+          <div class="break"></div>
+
+          <!-- Links -->
+          <div class="mb-4 mt-1">
+            <h3 class="section-title">Links</h3>
+            <ul class="list-unstyled">
+              <li class="contact-item">
+                <i class="fab fa-github"></i>
+                <a
+                  href="https://github.com/vladflore"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub</a
+                >
+              </li>
+              <li class="contact-item">
+                <i class="fab fa-linkedin"></i>
+                <a
+                  href="https://www.linkedin.com/in/vladflore/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >LinkedIn</a
+                >
+              </li>
+              <li class="contact-item">
+                <i class="fas fa-globe"></i>
+                <a
+                  href="https://vladflore.tech"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Personal Website</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Hobbies -->
+          <div class="mb-4">
+            <h3 class="section-title">Hobbies</h3>
+            <div class="hobbies-list">
+              <span class="hobby-tag">Fitness</span>
+              <span class="hobby-tag">Travelling</span>
+              <span class="hobby-tag">Reading</span>
+              <span class="hobby-tag">Foreign Languages</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-8 p-4">
+          <!-- Profile -->
+          <div class="mb-4">
+            <h3 class="section-title">Profile</h3>
+            <div class="profile-highlights">
+              <ul class="mb-0">
+                <li>
+                  <strong>Experienced Software Engineer</strong> with a strong
+                  focus on <strong>backend development</strong> using Java,
+                  Kotlin, and Python
+                </li>
+                <li>Extensive hands-on experience with various frameworks</li>
+                <li>
+                  Proven ability to <strong>lead development teams</strong> in
+                  agile environments, ensuring timely delivery and code quality
+                </li>
+                <li>
+                  Worked on both
+                  <strong>greenfield and brownfield projects</strong> across
+                  public sector services, content management platforms, and
+                  intelligence document processing solutions
+                </li>
+                <li>
+                  Skilled in building
+                  <strong>scalable, cloud-native applications</strong> and
+                  maintaining complex, legacy systems
+                </li>
+                <li>
+                  Passionate about
+                  <strong>knowledge sharing, mentoring</strong> team members,
+                  and fostering a collaborative development culture
+                </li>
+                <li>
+                  Committed to <strong>continuous learning</strong> and staying
+                  current with emerging technologies, architectures, and best
+                  practices
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="break"></div>
+
+          <!-- Employment History -->
+          <div class="mb-4">
+            <h3 class="section-title">Employment History</h3>
+
+            <div class="employment-item">
+              <div class="job-title">Python Software Engineer</div>
+              <div class="company-name">ExB Group, Remote</div>
+              <div class="date-range">February 2023 — November 2024</div>
+              <ul class="mt-3">
+                <li>
+                  Implemented key features within a microservices-based
+                  architecture for a web-based Intelligent Document Processing
+                  (IDP) solution
+                </li>
+                <li>
+                  Designed and developed scalable, decoupled microservices in
+                  Python, enhancing system robustness and performance under high
+                  workloads
+                </li>
+                <li>
+                  Leveraged Kubernetes for efficient deployment, scaling, and
+                  orchestration of services in a cloud-native environment
+                </li>
+              </ul>
+              <div class="tech-stack">
+                <strong>Tech Stack:</strong> Python, Django, GraphQL,
+                PostGraphile, PostgreSQL, EventStoreDB, RabbitMQ, Kubernetes,
+                KEDA, AWS S3, MinIO, Linux, Git, GitLab
+              </div>
+            </div>
+
+            <div class="employment-item">
+              <div class="job-title">Educational Content Creator</div>
+              <div class="company-name">Hyperskill, Remote</div>
+              <div class="date-range">October 2023 — March 2024</div>
+              <ul class="mt-3">
+                <li>
+                  Created and enhanced educational content for the Spring Boot
+                  track offered by JetBrains Academy through the Hyperskill
+                  platform, contributing to high-quality, hands-on learning
+                  experiences for aspiring developers
+                </li>
+              </ul>
+            </div>
+
+            <div class="break"></div>
+
+            <div class="employment-item">
+              <div class="job-title">Java Software Engineer</div>
+              <div class="company-name">ExB Group, Remote</div>
+              <div class="date-range">March 2021 — February 2023</div>
+              <ul class="mt-3">
+                <li>
+                  Designed and implemented new features in Java and Kotlin for a
+                  document processing and text/information extraction pipeline
+                  powered Machine Learning models
+                </li>
+                <li>
+                  Developed a microservice for dynamic, cost-efficient
+                  deployment and management of NLP models on AWS EKS
+                </li>
+                <li>
+                  Contributed to architectural improvements of key components
+                  within the processing pipeline
+                </li>
+                <li>
+                  Led internal technical workshops focused on clean code
+                  principles and improving overall code quality
+                </li>
+                <li>
+                  Conducted regular code reviews and participated in pair
+                  programming to foster collaboration and knowledge sharing
+                </li>
+                <li>
+                  Advocated for tooling and workflow improvements to streamline
+                  the developer experience and reduce friction in daily tasks
+                </li>
+                <li>
+                  Built a process for automated generation of technical
+                  documentation using AsciiDoc and Antora
+                </li>
+                <li>
+                  Participated in cultural fit interviews as part of the hiring
+                  process, supporting team and company growth
+                </li>
+              </ul>
+              <div class="tech-stack">
+                <strong>Tech Stack:</strong> Java 11/17, Kotlin, Python, Spring
+                Framework, Spring Boot, JUnit, Docker, Kubernetes, Helm, AWS
+                EKS, Akka, Argo CD, TeamCity, Linux, AsciiDoc, Antora, Git
+              </div>
+            </div>
+
+            <div class="break"></div>
+
+            <div class="employment-item">
+              <div class="job-title">Lead Software Developer</div>
+              <div class="company-name">
+                IT-Systemhaus der Bundesagentur für Arbeit, Nürnberg
+              </div>
+              <div class="date-range">September 2019 — April 2020</div>
+              <ul class="mt-3">
+                <li>
+                  Served as Lead Developer for one of two agile development
+                  teams, guiding technical direction and team collaboration
+                </li>
+                <li>
+                  Defined and evolved the application's architecture to support
+                  scalability and maintainability
+                </li>
+                <li>
+                  Promoted clean code and consistent development practices to
+                  maintain code quality
+                </li>
+                <li>
+                  Collaboratively decomposed features into manageable tasks,
+                  ensuring effective sprint planning and delivery
+                </li>
+                <li>
+                  Implemented and tested application features across the full
+                  stack, maintaining close alignment with business requirements
+                </li>
+              </ul>
+              <div class="tech-stack">
+                <strong>Tech Stack:</strong> Java SE 8, Java EE 7, Angular,
+                Angular Material, TypeScript, JavaScript, JUnit, Cucumber,
+                Jenkins, Docker, Linux, Oracle Database, Git
+              </div>
+            </div>
+
+            <div class="employment-item">
+              <div class="job-title">Full Stack Developer</div>
+              <div class="company-name">
+                Bundesamt für Migration und Flüchtlinge (BAMF), Nürnberg
+              </div>
+              <div class="date-range">May 2018 — September 2019</div>
+              <ul class="mt-3">
+                <li>
+                  Implemented features across both frontend and backend of a web
+                  application
+                </li>
+                <li>
+                  Improved and maintained project documentation to support
+                  developer onboarding and knowledge sharing
+                </li>
+                <li>
+                  Managed DevOps-related tasks and supported deployment
+                  activities to ensure smooth delivery and system stability
+                </li>
+              </ul>
+              <div class="tech-stack">
+                <strong>Tech Stack:</strong> Java SE 8, Spring Framework, Spring
+                Boot, JUnit, Angular, TypeScript, JavaScript, Ansible, Jenkins,
+                Docker, Oracle Database, Linux, Git
+              </div>
+            </div>
+
+            <div class="break"></div>
+
+            <div class="employment-item">
+              <div class="job-title">Software Developer</div>
+              <div class="company-name">
+                IT-Systemhaus der Bundesagentur für Arbeit, Nürnberg
+              </div>
+              <div class="date-range">May 2014 — February 2018</div>
+              <ul class="mt-3">
+                <li>
+                  Developed a publishing workflow for web content within Oracle
+                  CMS, streamlining the content creation and approval process
+                </li>
+                <li>
+                  Extended the CMS by implementing custom tools and features to
+                  support efficient content management and improve the user
+                  experience for content editors
+                </li>
+              </ul>
+              <div class="tech-stack">
+                <strong>Tech Stack:</strong> Oracle WebCenter Content, Java,
+                HTML, CSS, JavaScript, Oracle Database, Linux, CVS, Git
+              </div>
+            </div>
+
+            <div class="employment-item">
+              <div class="job-title">Senior Technical Consultant</div>
+              <div class="company-name">virtual7 GmbH, Nürnberg</div>
+              <div class="date-range">February 2019 — May 2020</div>
+              <ul class="mt-3">
+                <li>
+                  Delivered software solutions across various client projects as
+                  part of agile development teams
+                </li>
+                <li>
+                  Implemented new features, resolved bugs, and participated in
+                  the full SDLC
+                </li>
+                <li>
+                  Acted as a software consultant, adapting quickly to different
+                  domains and tech stacks
+                </li>
+              </ul>
+              <div class="tech-stack">
+                <strong>Tech Stack:</strong> Java, Java EE, JavaScript, HTML,
+                CSS, Angular, Oracle Database, Oracle WebCenter Content
+              </div>
+            </div>
+
+            <div class="employment-item">
+              <div class="job-title">Senior Technical Consultant</div>
+              <div class="company-name">virtual7 Romania, Timisoara</div>
+              <div class="date-range">May 2014 — January 2019</div>
+              <ul class="mt-3">
+                <li>
+                  Delivered software solutions across various client projects as
+                  part of agile development teams
+                </li>
+                <li>
+                  Implemented new features, resolved bugs, and participated in
+                  the full SDLC
+                </li>
+                <li>
+                  Acted as a software consultant, adapting quickly to different
+                  domains and tech stacks
+                </li>
+              </ul>
+              <div class="tech-stack">
+                <strong>Tech Stack:</strong> Java, Java EE, JavaScript, HTML,
+                CSS, Angular, Oracle Database, Oracle WebCenter Content
+              </div>
+            </div>
+
+            <div class="employment-item">
+              <div class="job-title">Software Developer</div>
+              <div class="company-name">virtual7 Romania, Timisoara</div>
+              <div class="date-range">February 2008 — April 2014</div>
+              <ul class="mt-3">
+                <li>
+                  Contributed to diverse software projects across multiple
+                  industries
+                </li>
+                <li>
+                  Participated in the development of software solutions in a
+                  range of domains
+                </li>
+              </ul>
+              <div class="tech-stack">
+                <strong>Tech Stack:</strong> Java, Java EE, ORM, JavaScript,
+                HTML, CSS, Oracle Database, Oracle WebCenter Content
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function downloadCV() {
+        const element = document.querySelector(".resume-container");
+        const originalMarginTop = element.style.marginTop;
+        element.style.marginTop = "0px";
+
+        const options = {
+          margin: [10, 10, 10, 10],
+          filename: "Vlad-Emil_Flore_Software_Engineer_CV.pdf",
+          image: { type: "jpeg", quality: 1.0 },
+          html2canvas: { scale: 2, useCORS: true, scrollY: 0 },
+          jsPDF: { unit: "pt", format: "a4", orientation: "portrait" },
+          pagebreak: {
+            mode: ["css"],
+            before: ".break",
+          },
+        };
+        html2pdf()
+          .set(options)
+          .from(element)
+          .save()
+          .then(() => {
+            element.style.marginTop = originalMarginTop;
+          });
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        const downloadButton = document.createElement("button");
+        downloadButton.textContent = "Download CV as PDF";
+        downloadButton.className = "btn btn-primary mb-4";
+        downloadButton.style.position = "fixed";
+        downloadButton.style.bottom = "20px";
+        downloadButton.style.right = "20px";
+        downloadButton.onclick = downloadCV;
+        document.body.appendChild(downloadButton);
+      });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
