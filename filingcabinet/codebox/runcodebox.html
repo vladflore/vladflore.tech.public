@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
+    <script src="js.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css.css" />
+  </head>
+  <body>
+    <div id="sidebar">
+      <h3>Files</h3>
+      <div id="search-container">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search files..."
+          onkeyup="handleSearchKeyup(event)"
+          oninput="handleSearchInput()"
+        />
+        <button id="search-btn" onclick="searchFiles()">
+          <i class="bi bi-search"></i>
+        </button>
+        <button id="clear-search" onclick="clearSearch()">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+      <div id="files"></div>
+      <div id="resize-handle"></div>
+    </div>
+
+    <div id="main">
+      <div id="controls">
+        <span id="currentFile">No file selected</span>
+        <button onclick="runCode()">
+          <i class="bi bi-play-fill"></i>
+          Run
+        </button>
+      </div>
+      <div id="editor"></div>
+      <pre id="output"></pre>
+    </div>
+
+    <div id="info-icon" onclick="toggleInfoPopup()">
+      <i class="bi bi-info-lg"></i>
+    </div>
+
+    <div id="info-popup">
+      <button class="close-btn" onclick="hideInfoPopup()">
+        <i class="bi bi-x"></i>
+      </button>
+      <h4>About This Code Runner</h4>
+      <p>
+        This web application allows you to browse, edit, and run Python and Java
+        files directly from a GitHub repository.
+      </p>
+      <p>
+        Select a file from the sidebar to load it into the editor. You can edit
+        the code and click the "Run" button to execute it. The output will be
+        displayed below the editor.
+      </p>
+      <p>
+        The application uses the Piston API to run the code in a secure
+        environment.
+      </p>
+      <p>Enjoy coding!</p>
+    </div>
+  </body>
+</html>
