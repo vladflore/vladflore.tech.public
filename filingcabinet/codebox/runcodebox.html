@@ -12,7 +12,14 @@
   </head>
   <body>
     <div id="sidebar">
-      <h3>Files</h3>
+      <h3>
+        Files
+        <span
+          id="file-counts"
+          style="font-size: 14px; color: #888; font-weight: normal"
+          >(0 total)</span
+        >
+      </h3>
       <div id="search-container">
         <input
           type="text"
@@ -29,8 +36,21 @@
         </button>
       </div>
       <div id="files"></div>
-      <div id="resize-handle"></div>
     </div>
+
+    <div id="collapsible-panel">
+      <div id="collapsible-content">
+        <h4>Details</h4>
+        <div id="file-info">
+          <p><em>Select a file to view details</em></p>
+        </div>
+      </div>
+      <div id="panel-resize-handle"></div>
+    </div>
+
+    <button id="collapse-toggle" onclick="togglePanel()">
+      <i class="bi bi-chevron-left" id="collapse-icon"></i>
+    </button>
 
     <div id="main">
       <div id="controls">
@@ -53,19 +73,18 @@
         <i class="bi bi-x"></i>
       </button>
       <h4>About This Code Runner</h4>
-      <p>
-        This web application allows you to browse, edit, and run Python and Java
-        files directly from a GitHub repository.
-      </p>
-      <p>
-        Select a file from the sidebar to load it into the editor. You can edit
-        the code and click the "Run" button to execute it. The output will be
-        displayed below the editor.
-      </p>
-      <p>
-        The application uses the Piston API to run the code in a secure
-        environment.
-      </p>
+      <p></p>
+      <h4><i class="bi bi-keyboard"></i> Keyboard Shortcuts</h4>
+      <ul style="margin: 10px 0; padding-left: 20px">
+        <li style="margin: 5px 0"><code>Shift + R</code> - Run code</li>
+        <li style="margin: 5px 0"><code>Ctrl/⌘ + F</code> - Focus search</li>
+        <li style="margin: 5px 0">
+          <code>Ctrl/⌘ + E</code> - Toggle Problem Info
+        </li>
+        <li style="margin: 5px 0">
+          <code>Ctrl/⌘ + I</code> - Toggle this popup
+        </li>
+      </ul>
       <p>Enjoy coding!</p>
     </div>
   </body>
