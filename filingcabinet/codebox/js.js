@@ -30,6 +30,8 @@ const GITHUB_USER = "vladflore";
 const GITHUB_REPO = "coding-challenges";
 const GITHUB_BRANCH = "refactor";
 
+const EXCLUDED_FILES = ["find.py"];
+
 let currentFile = null;
 let files = [];
 let filteredFiles = [];
@@ -82,7 +84,8 @@ async function fetchRepoFiles() {
     files = data.tree.filter(
       (f) =>
         f.type === "blob" &&
-        (f.path.endsWith(".py") || f.path.endsWith(".java"))
+        (f.path.endsWith(".py") || f.path.endsWith(".java")) &&
+        !EXCLUDED_FILES.includes(f.path.split("/").pop())
     );
 
     filteredFiles = [...files];
