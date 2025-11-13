@@ -257,7 +257,12 @@ async function loadProblemInfo(filePath) {
 
     document.getElementById("file-info").innerHTML = `
       <div style="background: #333; padding: 12px; border-radius: 6px; font-size: 14px;">
-        <pre style="margin: 0; white-space: pre-wrap; font-family: inherit;">${infoContent}</pre>
+      <div style="margin: 0; font-family: inherit;">
+        <style>
+        #file-info * { margin: 1 !important; }
+        </style>
+        ${infoContent}
+      </div>
       </div>
     `;
   } catch (error) {
