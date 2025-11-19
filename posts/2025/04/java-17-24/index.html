@@ -245,7 +245,8 @@ In my post about Java 17, I mentioned some of the noteworthy features introduced
 <p>This can be summarized as:</p>
 <blockquote>
 <p><em>Specify UTF-8 as the default charset of the standard Java APIs. With this change, APIs that depend upon the default charset will behave consistently across all implementations, operating systems, locales, and configurations.</em></p>
-<p>&ndash; <!-- raw HTML omitted --><a href="https://openjdk.org/jeps/400" target="_blank">JEP 400: UTF-8 by Default</a><!-- raw HTML omitted --></p></blockquote>
+<p>&ndash; <!-- raw HTML omitted --><a href="https://openjdk.org/jeps/400" target="_blank">JEP 400: UTF-8 by Default</a><!-- raw HTML omitted --></p>
+</blockquote>
 <p>The implementation of <code>Charset.defaultCharset()</code> will return the UTF-8 charset by default, unless overridden with the system property <code>file.encoding</code>. If the value is <code>COMPAT</code>, the default charset is derived from the <code>native.encoding</code> system property, which depends on the locale and charset of the underlying operating system.</p>
 <p>A quick way to see the default charset of the current JDK is with the following command:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>java -XshowSettings:properties -version 2&gt;&amp;<span style="color:#ae81ff">1</span> | grep file.encoding
@@ -467,7 +468,8 @@ In my post about Java 17, I mentioned some of the noteworthy features introduced
 <p><a href="https://openjdk.org/jeps/444" target="_blank">JEP 444: Virtual Threads</a> introduces Virtual Threads, maybe the most important feature in Java 21. Make sure to go through the JEP, as I will not cover all the aspects.</p>
 <blockquote>
 <p>Virtual threads are lightweight threads that dramatically reduce the effort of writing, maintaining, and observing high-throughput concurrent applications.</p>
-<p>&ndash; <!-- raw HTML omitted --><a href="https://openjdk.org/jeps/444" target="_blank">JEP 444: Virtual Threads</a><!-- raw HTML omitted --></p></blockquote>
+<p>&ndash; <!-- raw HTML omitted --><a href="https://openjdk.org/jeps/444" target="_blank">JEP 444: Virtual Threads</a><!-- raw HTML omitted --></p>
+</blockquote>
 <p>Before seeing some code let&rsquo;s go through some buzzwords related to this feature:</p>
 <ul>
 <li><em>virtual thread</em> -&gt; an instance of <code>java.lang.Thread</code> that is not tied to a particular <em>OS thread</em></li>
@@ -573,7 +575,8 @@ In my post about Java 17, I mentioned some of the noteworthy features introduced
 <p><a href="https://openjdk.org/jeps/456" target="_blank">JEP 456: Unnamed Variables &amp; Patterns</a> summarizes this enhancement as follows:</p>
 <blockquote>
 <p>Enhance the Java programming language with unnamed variables and unnamed patterns, which can be used when <em>variable declarations</em> or <em>nested patterns</em> are required but never used. Both are denoted by the underscore character, _.</p>
-<p>&ndash; <!-- raw HTML omitted --><a href="https://openjdk.org/jeps/456" target="_blank">JEP 456: Unnamed Variables &amp; Patterns</a><!-- raw HTML omitted --></p></blockquote>
+<p>&ndash; <!-- raw HTML omitted --><a href="https://openjdk.org/jeps/456" target="_blank">JEP 456: Unnamed Variables &amp; Patterns</a><!-- raw HTML omitted --></p>
+</blockquote>
 <p>Let&rsquo;s see some examples:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.List;
 </span></span><span style="display:flex;"><span>

@@ -204,10 +204,12 @@ NOTE 2: Please be advised that some commands listed here could have unwanted eff
 
       <div class="post-content">
         <blockquote>
-<p><strong><em>NOTE 1:</em></strong> This page contains some shell <em>magic</em> which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.</p></blockquote>
+<p><strong><em>NOTE 1:</em></strong> This page contains some shell <em>magic</em> which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.</p>
+</blockquote>
 <blockquote>
 <p><strong><em>NOTE 2:</em></strong> Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.
-Some of them might also require sudo access, so I am just going to assume that you know what you are doing. You have been warned!</p></blockquote>
+Some of them might also require sudo access, so I am just going to assume that you know what you are doing. You have been warned!</p>
+</blockquote>
 <h2 id="11-from-uppercase-to-lowercase-and-from-space-to-underscore">11. From uppercase to lowercase and from space to underscore</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;Building REST services with Spring&#39;</span> | tr <span style="color:#e6db74">&#39;[:upper:]&#39;</span> <span style="color:#e6db74">&#39;[:lower:]&#39;</span> | tr <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#e6db74">&#39;_&#39;</span> | xclip -sel c
 </span></span></code></pre></div><p>Transform <code>tr</code> uppercase letters <code>[:upper:]</code> to lowercase <code>[:lower:]</code>, then replace the space <code> </code> with an underscore <code>_</code> and finally copy <code>xclip</code> the result to clipboard <code>-sel c</code>. After this you can paste the text wherever you need it. To prove the usefulness of this, instead of copying the result into the clipboard, pipe it into <code>xargs</code> to, for instance, create a folder, like: <code>...| xargs mkdir -p</code>.</p>

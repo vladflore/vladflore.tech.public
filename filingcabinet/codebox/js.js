@@ -85,6 +85,8 @@ async function fetchRepoFiles() {
         (f.path.endsWith(".py") || f.path.endsWith(".java"))
     );
 
+    files.sort((a, b) => a.path.toLowerCase().localeCompare(b.path.toLowerCase()));
+
     filteredFiles = [...files];
     renderFileList();
 

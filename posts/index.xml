@@ -248,7 +248,8 @@
 <p>This can be summarized as:</p>
 <blockquote>
 <p><em>Specify UTF-8 as the default charset of the standard Java APIs. With this change, APIs that depend upon the default charset will behave consistently across all implementations, operating systems, locales, and configurations.</em></p>
-<p>&ndash; <!-- raw HTML omitted --><a href="https://openjdk.org/jeps/400" target="_blank">JEP 400: UTF-8 by Default</a><!-- raw HTML omitted --></p></blockquote>
+<p>&ndash; <!-- raw HTML omitted --><a href="https://openjdk.org/jeps/400" target="_blank">JEP 400: UTF-8 by Default</a><!-- raw HTML omitted --></p>
+</blockquote>
 <p>The implementation of <code>Charset.defaultCharset()</code> will return the UTF-8 charset by default, unless overridden with the system property <code>file.encoding</code>. If the value is <code>COMPAT</code>, the default charset is derived from the <code>native.encoding</code> system property, which depends on the locale and charset of the underlying operating system.</p>
 <p>A quick way to see the default charset of the current JDK is with the following command:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>java -XshowSettings:properties -version 2&gt;&amp;<span style="color:#ae81ff">1</span> | grep file.encoding
@@ -470,7 +471,8 @@
 <p><a href="https://openjdk.org/jeps/444" target="_blank">JEP 444: Virtual Threads</a> introduces Virtual Threads, maybe the most important feature in Java 21. Make sure to go through the JEP, as I will not cover all the aspects.</p>
 <blockquote>
 <p>Virtual threads are lightweight threads that dramatically reduce the effort of writing, maintaining, and observing high-throughput concurrent applications.</p>
-<p>&ndash; <!-- raw HTML omitted --><a href="https://openjdk.org/jeps/444" target="_blank">JEP 444: Virtual Threads</a><!-- raw HTML omitted --></p></blockquote>
+<p>&ndash; <!-- raw HTML omitted --><a href="https://openjdk.org/jeps/444" target="_blank">JEP 444: Virtual Threads</a><!-- raw HTML omitted --></p>
+</blockquote>
 <p>Before seeing some code let&rsquo;s go through some buzzwords related to this feature:</p>
 <ul>
 <li><em>virtual thread</em> -&gt; an instance of <code>java.lang.Thread</code> that is not tied to a particular <em>OS thread</em></li>
@@ -576,7 +578,8 @@
 <p><a href="https://openjdk.org/jeps/456" target="_blank">JEP 456: Unnamed Variables &amp; Patterns</a> summarizes this enhancement as follows:</p>
 <blockquote>
 <p>Enhance the Java programming language with unnamed variables and unnamed patterns, which can be used when <em>variable declarations</em> or <em>nested patterns</em> are required but never used. Both are denoted by the underscore character, _.</p>
-<p>&ndash; <!-- raw HTML omitted --><a href="https://openjdk.org/jeps/456" target="_blank">JEP 456: Unnamed Variables &amp; Patterns</a><!-- raw HTML omitted --></p></blockquote>
+<p>&ndash; <!-- raw HTML omitted --><a href="https://openjdk.org/jeps/456" target="_blank">JEP 456: Unnamed Variables &amp; Patterns</a><!-- raw HTML omitted --></p>
+</blockquote>
 <p>Let&rsquo;s see some examples:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.List;
 </span></span><span style="display:flex;"><span>
@@ -3014,7 +3017,8 @@ This could indeed work, the challenge is to have an idea to get you started and 
 even better than that. <strong>Code Kata</strong>s for the win!</p>
 <p>A <a href="https://en.wikipedia.org/wiki/Kata" target="_blank">Kata</a> is, according to Wikipedia</p>
 <blockquote>
-<p>a detailed choreographed pattern of martial arts movements made to be practised alone, and within groups and in unison when training&quot;.</p></blockquote>
+<p>a detailed choreographed pattern of martial arts movements made to be practised alone, and within groups and in unison when training&quot;.</p>
+</blockquote>
 <p>A <a href="http://codekata.com" target="_blank">Code Kata</a> tries to bring the element of practice to the software development. It&rsquo;s when/where you practice the skill you want to acquire
 or improve.</p>
 <p>If you want to take a deeper dive into this, check <a href="https://www.amazon.com/Coding-Dojo-Handbook-Emily-Bache/dp/919811803X" target="_blank">this book by Emily Bache</a>, where you can find more on code katas, the notion of coding dojo und much more.
@@ -3068,7 +3072,8 @@ and to practice, because, as we all know, practice makes perfect!</p>
 <h3 id="prepare-the-ec2-instance-for-sonarqube-installation">Prepare the EC2 instance for SonarQube installation.</h3>
 <p>You won&rsquo;t have pretty much anything pre-installed so you&rsquo;ll have to do it yourself.</p>
 <blockquote>
-<p><strong><em>NOTE:</em></strong> most of the commands require sudo access, so&hellip;you have been warned!</p></blockquote>
+<p><strong><em>NOTE:</em></strong> most of the commands require sudo access, so&hellip;you have been warned!</p>
+</blockquote>
 <h3 id="update-the-system">Update the system</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt update
 </span></span><span style="display:flex;"><span>sudo apt upgrade
@@ -3162,15 +3167,18 @@ accordingly to contain the IP of your EC2 instance hosting the SonarQube Server.
             
             <guid>https://vladflore.tech/posts/2020/03/shell-magic/</guid>
             <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE 1:&lt;/em&gt;&lt;/strong&gt; This page contains some shell &lt;em&gt;magic&lt;/em&gt; which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE 1:&lt;/em&gt;&lt;/strong&gt; This page contains some shell &lt;em&gt;magic&lt;/em&gt; which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE 2:&lt;/em&gt;&lt;/strong&gt; Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.
 Some of them might also require sudo access, so I am just going to assume that you know what you are doing. You have been warned!&lt;/p&gt;</description>
             <content type="html"><![CDATA[<blockquote>
-<p><strong><em>NOTE 1:</em></strong> This page contains some shell <em>magic</em> which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.</p></blockquote>
+<p><strong><em>NOTE 1:</em></strong> This page contains some shell <em>magic</em> which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.</p>
+</blockquote>
 <blockquote>
 <p><strong><em>NOTE 2:</em></strong> Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.
-Some of them might also require sudo access, so I am just going to assume that you know what you are doing. You have been warned!</p></blockquote>
+Some of them might also require sudo access, so I am just going to assume that you know what you are doing. You have been warned!</p>
+</blockquote>
 <h2 id="11-from-uppercase-to-lowercase-and-from-space-to-underscore">11. From uppercase to lowercase and from space to underscore</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;Building REST services with Spring&#39;</span> | tr <span style="color:#e6db74">&#39;[:upper:]&#39;</span> <span style="color:#e6db74">&#39;[:lower:]&#39;</span> | tr <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#e6db74">&#39;_&#39;</span> | xclip -sel c
 </span></span></code></pre></div><p>Transform <code>tr</code> uppercase letters <code>[:upper:]</code> to lowercase <code>[:lower:]</code>, then replace the space <code> </code> with an underscore <code>_</code> and finally copy <code>xclip</code> the result to clipboard <code>-sel c</code>. After this you can paste the text wherever you need it. To prove the usefulness of this, instead of copying the result into the clipboard, pipe it into <code>xargs</code> to, for instance, create a folder, like: <code>...| xargs mkdir -p</code>.</p>
