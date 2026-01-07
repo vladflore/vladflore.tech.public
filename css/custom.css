@@ -1,0 +1,8 @@
+/* Highlight specific lines in code blocks */
+.highlight-line {
+  background-color: rgba(100, 149, 237, 0.15) !important;
+  display: inline !important;
+  padding: 0.1em 0.3em !important;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(100, 149, 237, 0.3);
+}

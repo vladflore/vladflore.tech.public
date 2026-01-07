@@ -6,8 +6,15 @@
     <description>Recent content in Java on vlad·flore · tech</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 03 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 07 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://vladflore.tech/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java 25</title>
+      <link>https://vladflore.tech/posts/2026/01/java-25/</link>
+      <pubDate>Wed, 07 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2026/01/java-25/</guid>
+      <description>&lt;h2 id=&#34;meet-java-25&#34;&gt;Meet Java 25&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://openjdk.org/projects/jdk/25/&#34; target=&#34;_blank&#34;&gt;JDK 25&lt;/a&gt; reached General Availability on 16 September 2025.&lt;/p&gt;&#xA;&lt;p&gt;Java 25 continues the trend toward safer concurrency, reduced boilerplate, and better ergonomics—especially for modern, cloud-native and virtual-thread-heavy applications.&lt;/p&gt;&#xA;&lt;p&gt;Some of the most notable features include:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Scoped Values&lt;/li&gt;&#xA;&lt;li&gt;Module Import Declarations&lt;/li&gt;&#xA;&lt;li&gt;Compact Source Files and Instance Main Methods&lt;/li&gt;&#xA;&lt;li&gt;Flexible Constructor Bodies&lt;/li&gt;&#xA;&lt;li&gt;Compact Object Headers&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;There are many more features and improvements in this release, but in this post, I will highlight just a few, for a comprehensive list, check out the &lt;a href=&#34;https://openjdk.org/projects/jdk/25/&#34; target=&#34;_blank&#34;&gt;official JDK 25 release notes&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Let&#39;s make some calls</title>
       <link>https://vladflore.tech/posts/2025/05/lets-make-some-calls/</link>

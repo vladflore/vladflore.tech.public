@@ -5,8 +5,360 @@
         <description>Recent content in Posts on vlad·flore · tech</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Tue, 30 Dec 2025 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Wed, 07 Jan 2026 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://vladflore.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Java 25</title>
+            <link>https://vladflore.tech/posts/2026/01/java-25/</link>
+            <pubDate>Wed, 07 Jan 2026 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2026/01/java-25/</guid>
+            <description>&lt;h2 id=&#34;meet-java-25&#34;&gt;Meet Java 25&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://openjdk.org/projects/jdk/25/&#34; target=&#34;_blank&#34;&gt;JDK 25&lt;/a&gt; reached General Availability on 16 September 2025.&lt;/p&gt;
+&lt;p&gt;Java 25 continues the trend toward safer concurrency, reduced boilerplate, and better ergonomics—especially for modern, cloud-native and virtual-thread-heavy applications.&lt;/p&gt;
+&lt;p&gt;Some of the most notable features include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Scoped Values&lt;/li&gt;
+&lt;li&gt;Module Import Declarations&lt;/li&gt;
+&lt;li&gt;Compact Source Files and Instance Main Methods&lt;/li&gt;
+&lt;li&gt;Flexible Constructor Bodies&lt;/li&gt;
+&lt;li&gt;Compact Object Headers&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There are many more features and improvements in this release, but in this post, I will highlight just a few, for a comprehensive list, check out the &lt;a href=&#34;https://openjdk.org/projects/jdk/25/&#34; target=&#34;_blank&#34;&gt;official JDK 25 release notes&lt;/a&gt;.&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<h2 id="meet-java-25">Meet Java 25</h2>
+<p><a href="https://openjdk.org/projects/jdk/25/" target="_blank">JDK 25</a> reached General Availability on 16 September 2025.</p>
+<p>Java 25 continues the trend toward safer concurrency, reduced boilerplate, and better ergonomics—especially for modern, cloud-native and virtual-thread-heavy applications.</p>
+<p>Some of the most notable features include:</p>
+<ul>
+<li>Scoped Values</li>
+<li>Module Import Declarations</li>
+<li>Compact Source Files and Instance Main Methods</li>
+<li>Flexible Constructor Bodies</li>
+<li>Compact Object Headers</li>
+</ul>
+<p>There are many more features and improvements in this release, but in this post, I will highlight just a few, for a comprehensive list, check out the <a href="https://openjdk.org/projects/jdk/25/" target="_blank">official JDK 25 release notes</a>.</p>
+<h3 id="scoped-values">Scoped Values</h3>
+<p><a href="https://openjdk.org/jeps/506" target="_blank">JEP 506</a></p>
+<p>Scoped Values provide a way to share immutable context data across a well-defined execution scope, without relying on thread-local storage. They are designed for modern Java, especially in the presence of virtual threads and structured concurrency.</p>
+<p>Typical use cases include propagating request-scoped data such as user identity, trace IDs, or transaction metadata—without explicitly passing parameters through every method call.</p>
+<blockquote>
+<p><strong>The big picture:</strong></p>
+<p><code>ThreadLocal</code> → thread-bound mutable state (legacy, problematic with virtual threads)</p>
+<p><code>ScopedValue</code> → scope-bound immutable context (modern, safe, structured)</p>
+</blockquote>
+<p>Let&rsquo;s look at a simple example of how Scoped Values work and contrast them with ThreadLocal. The example below demonstrates how to implement <em>tracing</em> of operations using both approaches.</p>
+<blockquote>
+<p><strong>About tracing:</strong></p>
+<p>Tracing is a technique used to monitor and log the execution of operations within an application. It helps in understanding the flow of requests, diagnosing issues, and analyzing performance by recording key events and data points during the execution of code. It relies on passing context information, like <code>trace ID</code>s and/or <code>span ID</code>s, through various layers of the application.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.time.Instant;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.UUID;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TracingDemo</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">record</span> <span style="color:#a6e22e">TraceContext</span>(String traceId, String spanId) {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> ScopedValue<span style="color:#f92672">&lt;</span>TraceContext<span style="color:#f92672">&gt;</span> TRACE <span style="color:#f92672">=</span> ScopedValue.<span style="color:#a6e22e">newInstance</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">new</span> TracingDemo().<span style="color:#a6e22e">handleRequest</span>();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">handleRequest</span>() {
+</span></span><span style="display:flex;"><span>    TraceContext root <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TraceContext(newTraceId(), <span style="color:#e6db74">&#34;root&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ScopedValue.<span style="color:#a6e22e">where</span>(TRACE, root).<span style="color:#a6e22e">run</span>(
+</span></span><span style="display:flex;"><span>            () <span style="color:#f92672">-&gt;</span> {
+</span></span><span style="display:flex;"><span>              log(<span style="color:#e6db74">&#34;Handling request&#34;</span>);
+</span></span><span style="display:flex;"><span>              queryDatabase();
+</span></span><span style="display:flex;"><span>              callExternalService();
+</span></span><span style="display:flex;"><span>              log(<span style="color:#e6db74">&#34;Request completed&#34;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">queryDatabase</span>() {
+</span></span><span style="display:flex;"><span>    withSpan(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;db&#34;</span>,
+</span></span><span style="display:flex;"><span>        () <span style="color:#f92672">-&gt;</span> {
+</span></span><span style="display:flex;"><span>          sleep(300);
+</span></span><span style="display:flex;"><span>          log(<span style="color:#e6db74">&#34;Querying database&#34;</span>);
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">callExternalService</span>() {
+</span></span><span style="display:flex;"><span>    withSpan(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;http&#34;</span>,
+</span></span><span style="display:flex;"><span>        () <span style="color:#f92672">-&gt;</span> {
+</span></span><span style="display:flex;"><span>          sleep(500);
+</span></span><span style="display:flex;"><span>          log(<span style="color:#e6db74">&#34;Calling external service&#34;</span>);
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">withSpan</span>(String spanName, Runnable task) {
+</span></span><span style="display:flex;"><span>    TraceContext parent <span style="color:#f92672">=</span> TRACE.<span style="color:#a6e22e">get</span>();
+</span></span><span style="display:flex;"><span>    TraceContext child <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TraceContext(parent.<span style="color:#a6e22e">traceId</span>(), spanName);
+</span></span><span style="display:flex;"><span>    ScopedValue.<span style="color:#a6e22e">where</span>(TRACE, child).<span style="color:#a6e22e">run</span>(task);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">log</span>(String message) {
+</span></span><span style="display:flex;"><span>    TraceContext ctx <span style="color:#f92672">=</span> TRACE.<span style="color:#a6e22e">get</span>();
+</span></span><span style="display:flex;"><span>    System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">printf</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;%s [trace=%s span=%s] %s%n&#34;</span>, Instant.<span style="color:#a6e22e">now</span>(), ctx.<span style="color:#a6e22e">traceId</span>(), ctx.<span style="color:#a6e22e">spanId</span>(), message);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">static</span> String <span style="color:#a6e22e">newTraceId</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;trace-&#34;</span> <span style="color:#f92672">+</span> UUID.<span style="color:#a6e22e">randomUUID</span>();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sleep</span>(<span style="color:#66d9ef">long</span> millis) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>      Thread.<span style="color:#a6e22e">sleep</span>(millis);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (InterruptedException e) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> RuntimeException(e);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Running the code above with <code>java --enable-preview TracingDemo.java</code> produces output similar to the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>2026-01-02T14:01:18.638861Z <span style="color:#f92672">[</span>trace<span style="color:#f92672">=</span>trace-4c3f324f-bc37-4141-a0dc-8062c31423ea span<span style="color:#f92672">=</span>root<span style="color:#f92672">]</span> Handling request
+</span></span><span style="display:flex;"><span>2026-01-02T14:01:18.943390Z <span style="color:#f92672">[</span>trace<span style="color:#f92672">=</span>trace-4c3f324f-bc37-4141-a0dc-8062c31423ea span<span style="color:#f92672">=</span>db<span style="color:#f92672">]</span> Querying database
+</span></span><span style="display:flex;"><span>2026-01-02T14:01:19.452530Z <span style="color:#f92672">[</span>trace<span style="color:#f92672">=</span>trace-4c3f324f-bc37-4141-a0dc-8062c31423ea span<span style="color:#f92672">=</span>http<span style="color:#f92672">]</span> Calling external service
+</span></span><span style="display:flex;"><span>2026-01-02T14:01:19.453604Z <span style="color:#f92672">[</span>trace<span style="color:#f92672">=</span>trace-4c3f324f-bc37-4141-a0dc-8062c31423ea span<span style="color:#f92672">=</span>root<span style="color:#f92672">]</span> Request completed
+</span></span></code></pre></div><p>Note that the <code>traceId</code> remains consistent across the different operations, while the <code>spanId</code> changes to reflect the current operation being performed. This demonstrates how Scoped Values can effectively propagate context information through various layers of an application without <em>explicit parameter passing</em>.</p>
+<p>Contrasting this with a <code>ThreadLocal</code> approach would involve more boilerplate code. Here&rsquo;s how the same tracing functionality would look using <code>ThreadLocal</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.time.Instant;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.UUID;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TracingDemo</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">record</span> <span style="color:#a6e22e">TraceContext</span>(String traceId, String spanId) {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> ThreadLocal<span style="color:#f92672">&lt;</span>TraceContext<span style="color:#f92672">&gt;</span> TRACE <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ThreadLocal<span style="color:#f92672">&lt;&gt;</span>(); <span style="color:#75715e">// [!code highlight]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">new</span> TracingDemo().<span style="color:#a6e22e">handleRequest</span>();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">handleRequest</span>() {
+</span></span><span style="display:flex;"><span>    TraceContext root <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TraceContext(newTraceId(), <span style="color:#e6db74">&#34;root&#34;</span>);
+</span></span><span style="display:flex;"><span>    TRACE.<span style="color:#a6e22e">set</span>(root); <span style="color:#75715e">// [!code highlight]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>      log(<span style="color:#e6db74">&#34;Handling request&#34;</span>);
+</span></span><span style="display:flex;"><span>      queryDatabase();
+</span></span><span style="display:flex;"><span>      callExternalService();
+</span></span><span style="display:flex;"><span>      log(<span style="color:#e6db74">&#34;Request completed&#34;</span>);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">finally</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// ⚠️ must remember to clean up, or else trace leaks!</span>
+</span></span><span style="display:flex;"><span>      TRACE.<span style="color:#a6e22e">remove</span>(); <span style="color:#75715e">// [!code highlight]</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">queryDatabase</span>() {
+</span></span><span style="display:flex;"><span>    withSpan(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;db&#34;</span>,
+</span></span><span style="display:flex;"><span>        () <span style="color:#f92672">-&gt;</span> {
+</span></span><span style="display:flex;"><span>          sleep(300);
+</span></span><span style="display:flex;"><span>          log(<span style="color:#e6db74">&#34;Querying database&#34;</span>);
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">callExternalService</span>() {
+</span></span><span style="display:flex;"><span>    withSpan(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;http&#34;</span>,
+</span></span><span style="display:flex;"><span>        () <span style="color:#f92672">-&gt;</span> {
+</span></span><span style="display:flex;"><span>          sleep(500);
+</span></span><span style="display:flex;"><span>          log(<span style="color:#e6db74">&#34;Calling external service&#34;</span>);
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">withSpan</span>(String spanName, Runnable task) {
+</span></span><span style="display:flex;"><span>    TraceContext parent <span style="color:#f92672">=</span> TRACE.<span style="color:#a6e22e">get</span>();
+</span></span><span style="display:flex;"><span>    TraceContext child <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TraceContext(parent.<span style="color:#a6e22e">traceId</span>(), spanName);
+</span></span><span style="display:flex;"><span>    TRACE.<span style="color:#a6e22e">set</span>(child); <span style="color:#75715e">// [!code highlight]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>      task.<span style="color:#a6e22e">run</span>();
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">finally</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// ⚠️ must remember to restore previous context</span>
+</span></span><span style="display:flex;"><span>      TRACE.<span style="color:#a6e22e">set</span>(parent); <span style="color:#75715e">// [!code highlight]</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">log</span>(String message) {
+</span></span><span style="display:flex;"><span>    TraceContext ctx <span style="color:#f92672">=</span> TRACE.<span style="color:#a6e22e">get</span>();
+</span></span><span style="display:flex;"><span>    System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">printf</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;%s [trace=%s span=%s] %s%n&#34;</span>, Instant.<span style="color:#a6e22e">now</span>(), ctx.<span style="color:#a6e22e">traceId</span>(), ctx.<span style="color:#a6e22e">spanId</span>(), message);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">static</span> String <span style="color:#a6e22e">newTraceId</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;trace-&#34;</span> <span style="color:#f92672">+</span> UUID.<span style="color:#a6e22e">randomUUID</span>();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sleep</span>(<span style="color:#66d9ef">long</span> millis) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>      Thread.<span style="color:#a6e22e">sleep</span>(millis);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (InterruptedException e) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> RuntimeException(e);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This approach produces the same output as the Scoped Values example, but can be more error-prone:</p>
+<ul>
+<li>forgotten cleanup → trace leaks</li>
+<li>exceptions break restoration</li>
+<li>parallel execution loses context</li>
+<li>virtual threads make it worse</li>
+<li>nested spans are fragile</li>
+</ul>
+<p>Takeaway: Scoped Values make contextual data propagation explicit, safe, and composable—without the lifecycle hazards of ThreadLocal.</p>
+<h3 id="module-import-declarations">Module Import Declarations</h3>
+<p><a href="https://openjdk.org/jeps/511" target="_blank">JEP 511</a></p>
+<p>This feature introduces a new way to import all of the packages exported by a module using a single import statement. Two immediate benefits of this feature are:</p>
+<ul>
+<li>avoid the noise of multiple type-import-on-demand declarations (e.g., <code>import com.foo.bar.*</code>)</li>
+<li>beginner-friendly way to start using core Java APIs and third-party libraries and fundamental Java classes without having to learn where they are located in a package hierarchy.</li>
+</ul>
+<p>The syntax for a module import declaration is: <code>import module &lt;module-name&gt;;</code></p>
+<p>Let&rsquo;s look at an example of how to use module import declarations.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> module java.<span style="color:#a6e22e">base</span>; <span style="color:#75715e">// [!code highlight]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ModuleImportDemo</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> strings <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">[]</span> {<span style="color:#e6db74">&#34;apple&#34;</span>, <span style="color:#e6db74">&#34;berry&#34;</span>, <span style="color:#e6db74">&#34;citrus&#34;</span>};
+</span></span><span style="display:flex;"><span>    Function<span style="color:#f92672">&lt;</span>String, String<span style="color:#f92672">&gt;</span> firstLetterUppercase <span style="color:#f92672">=</span> s <span style="color:#f92672">-&gt;</span> s.<span style="color:#a6e22e">toUpperCase</span>().<span style="color:#a6e22e">substring</span>(0, 1);
+</span></span><span style="display:flex;"><span>    Map<span style="color:#f92672">&lt;</span>String, String<span style="color:#f92672">&gt;</span> map <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>        Stream.<span style="color:#a6e22e">of</span>(strings).<span style="color:#a6e22e">collect</span>(Collectors.<span style="color:#a6e22e">toMap</span>(firstLetterUppercase, Function.<span style="color:#a6e22e">identity</span>()));
+</span></span><span style="display:flex;"><span>    IO.<span style="color:#a6e22e">println</span>(map);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Without the module import declaration, you would need to either import each type individually or use type-import-on-demand declarations, i.e.:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Map;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.function.Function;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.stream.Collectors;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.stream.Stream;
+</span></span></code></pre></div><p>or</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.*;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.function.*;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.stream.*;
+</span></span></code></pre></div><p>For compact source files, the <code>java.base</code> module is <em>implicitly</em> imported, which means that the example above could be written like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Compact source file with implicit java.base module import</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> strings <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">[]</span> {<span style="color:#e6db74">&#34;apple&#34;</span>, <span style="color:#e6db74">&#34;berry&#34;</span>, <span style="color:#e6db74">&#34;citrus&#34;</span>};
+</span></span><span style="display:flex;"><span>    Function<span style="color:#f92672">&lt;</span>String, String<span style="color:#f92672">&gt;</span> firstLetterUppercase <span style="color:#f92672">=</span> s <span style="color:#f92672">-&gt;</span> s.<span style="color:#a6e22e">toUpperCase</span>().<span style="color:#a6e22e">substring</span>(0, 1);
+</span></span><span style="display:flex;"><span>    Map<span style="color:#f92672">&lt;</span>String, String<span style="color:#f92672">&gt;</span> map <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>        Stream.<span style="color:#a6e22e">of</span>(strings).<span style="color:#a6e22e">collect</span>(Collectors.<span style="color:#a6e22e">toMap</span>(firstLetterUppercase, Function.<span style="color:#a6e22e">identity</span>()));
+</span></span><span style="display:flex;"><span>    IO.<span style="color:#a6e22e">println</span>(map);
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>In case of ambiguous imports, adding a single-type-import declaration resolves the ambiguousity:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> module java.<span style="color:#a6e22e">sql</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// import module java.base; -&gt; not needed as it&#39;s implicitly imported in compact source files</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// without the single-type-import declaration below, Date would be ambiguous</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Date;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    IO.<span style="color:#a6e22e">println</span>(<span style="color:#66d9ef">new</span> Date());
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="compact-source-files-and-instance-main-methods">Compact Source Files and Instance Main Methods</h3>
+<p><a href="https://openjdk.org/jeps/512" target="_blank">JEP 512</a></p>
+<p>The goal of this feature is to make Java more approachable for small programs, scripts, and learning scenarios—without removing the option to write fully structured code.</p>
+<p>Do not fret if the terms &ldquo;compact source files&rdquo; and &ldquo;instance main methods&rdquo; are new to you and maybe somewhat confusing. In essence, this feature introduces a more concise way to write Java programs by allowing you to omit boilerplate code such as class declarations and static <code>main</code> methods.</p>
+<p>Basically, we can get from this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// in a file named HelloWorld.java</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloWorld</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Hello, World!&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>to this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// in a file with any name, as long as the name is a valid Java class name</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// this is a ⚠️ compact source file</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>() { <span style="color:#75715e">// &lt;-- this is the ⚠️ instance main method</span>
+</span></span><span style="display:flex;"><span>    System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Hello, World!&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Both versions can be run by either compiling them with <code>javac</code> and then running with <code>java</code>, or by running them directly with the source-code launcher.</p>
+<p>A &ldquo;half-way&rdquo; version is to write the code like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Jep512</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>() { <span style="color:#75715e">// &lt;-- this is the ⚠️ instance main method</span>
+</span></span><span style="display:flex;"><span>    System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Hello, World!&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This can be run the same as before.</p>
+<p>Last two versions can be slightly modified to accept command-line arguments, as well. From <code>void main()</code> to <code>void main(String[] args)</code>.
+Furthermore, the <code>println</code> statement can be simplified to just <code>IO.println(&quot;Hello, World!&quot;);</code>.</p>
+<p>Let&rsquo;s look at another example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// in a file named args_printer.java</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>  IO.<span style="color:#a6e22e">println</span>(Arrays.<span style="color:#a6e22e">toString</span>(args));
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This just works! But, why? How come <code>String</code>, <code>IO</code> and <code>Arrays</code> are available without any imports? The answer is that compact source files <em>implicitly</em> import the <code>java.base</code> module, which <em>exports</em> the <code>java.lang</code> and <code>java.util</code> packages, wherein those types are located.</p>
+<p>We could have written it like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(java.<span style="color:#a6e22e">lang</span>.<span style="color:#a6e22e">String</span><span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>  java.<span style="color:#a6e22e">lang</span>.<span style="color:#a6e22e">IO</span>.<span style="color:#a6e22e">println</span>(java.<span style="color:#a6e22e">util</span>.<span style="color:#a6e22e">Arrays</span>.<span style="color:#a6e22e">toString</span>(args));
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>To check which packages are exported by the <code>java.base</code> module, you can run the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>java --describe-module java.base | grep exports | grep -E <span style="color:#e6db74">&#34;java\.(lang|util)&#34;</span>
+</span></span></code></pre></div><p>which produces the following output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>exports java.lang
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ... other exported packages ...</span>
+</span></span><span style="display:flex;"><span>exports java.util
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ... other exported packages ...</span>
+</span></span></code></pre></div><h3 id="flexible-constructor-bodies">Flexible Constructor Bodies</h3>
+<p><a href="https://openjdk.org/jeps/513" target="_blank">JEP 513</a></p>
+<p>This feature allows statements to appear <em>before</em> an explicit constructor invocation, i.e., <code>super(...)</code> or <code>this(...)</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> module java.<span style="color:#a6e22e">base</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JEP513</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> emp1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Employee(<span style="color:#e6db74">&#34;John&#34;</span>, <span style="color:#e6db74">&#34;Doe&#34;</span>, 42, <span style="color:#e6db74">&#34;Engineering&#34;</span>);
+</span></span><span style="display:flex;"><span>    IO.<span style="color:#a6e22e">println</span>(emp1);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> String firstName;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> String lastName;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> age;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Person(String firstName, String lastName, <span style="color:#66d9ef">int</span> age) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstName</span> <span style="color:#f92672">=</span> firstName;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastName</span> <span style="color:#f92672">=</span> lastName;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> age;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Employee</span> <span style="color:#66d9ef">extends</span> Person {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> String department;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Employee(String firstName, String lastName, <span style="color:#66d9ef">int</span> age, String department) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>List.<span style="color:#a6e22e">of</span>(<span style="color:#e6db74">&#34;HR&#34;</span>, <span style="color:#e6db74">&#34;Sales&#34;</span>, <span style="color:#e6db74">&#34;Engineering&#34;</span>).<span style="color:#a6e22e">contains</span>(department)) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException(<span style="color:#e6db74">&#34;&#39;%s&#39; department not valid.&#34;</span>.<span style="color:#a6e22e">formatted</span>(department));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">department</span> <span style="color:#f92672">=</span> department;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>(firstName, lastName, age); <span style="color:#75715e">// [!code highlight]</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">toString</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Employee(firstName=%s, lastName=%s, age=%d, department=%s)&#34;</span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">formatted</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstName</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastName</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">department</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="compact-object-headers">Compact Object Headers</h3>
+<p><a href="https://openjdk.org/jeps/519" target="_blank">JEP 519</a></p>
+<p>The main idea here is to reduce the memory footprint of Java objects by optimizing the layout of object headers in memory. Various experiments demonstrate that enabling compact object headers improves performance:</p>
+<ul>
+<li>22% less heap space</li>
+<li>8% less CPU time</li>
+<li>15% less garbage collections with G1 and Parallel collectors</li>
+</ul>
+<p>The feature can be enabled with the JVM option <code>-XX:+CompactObjectHeaders</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ java -XX:+UseCompactObjectHeaders MyProgram.java
+</span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
+<p>Java 25 continues the shift toward safer concurrency, lower ceremony, and better performance—without abandoning Java’s core strengths. Features like Scoped Values and compact source files show a clear focus on modern workloads and developer ergonomics.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Let&#39;s make some calls</title>
