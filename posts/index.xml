@@ -5,8 +5,262 @@
         <description>Recent content in Posts on vlad·flore · tech</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Wed, 07 Jan 2026 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Thu, 08 Jan 2026 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://vladflore.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Git bisect</title>
+            <link>https://vladflore.tech/posts/2026/01/git-bisect/</link>
+            <pubDate>Thu, 08 Jan 2026 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2026/01/git-bisect/</guid>
+            <description>&lt;h2 id=&#34;meet-git-bisect&#34;&gt;Meet &lt;code&gt;git bisect&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;When you have a large codebase and a bug has been introduced somewhere in the history, finding the exact commit that introduced the bug can be challenging. This is where &lt;code&gt;git bisect&lt;/code&gt; comes in handy. It automates the process of binary searching through your commit history to find the offending commit.&lt;/p&gt;
+&lt;h3 id=&#34;how-it-works&#34;&gt;How it works&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;start the bisect process by running &lt;code&gt;git bisect start&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;find a known bad commit (the one with the bug) and mark it as bad using &lt;code&gt;git bisect bad &amp;lt;bad-commit-hash&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;find a known good commit (the one without the bug) and mark it as good using &lt;code&gt;git bisect good &amp;lt;good-commit-hash&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Git will now checkout a commit halfway between the good and bad commits. You need to test this commit to see if the bug is present&lt;/li&gt;
+&lt;li&gt;if the bug is present, mark the commit as bad using &lt;code&gt;git bisect bad&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;if the bug is not present, mark the commit as good using &lt;code&gt;git bisect good&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;repeat the testing and marking process until Git narrows down to the exact commit that introduced the bug&lt;/li&gt;
+&lt;li&gt;once the bad commit is found, you can end the bisect process by running &lt;code&gt;git bisect reset&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This might sound a bit tedious, but it can save you a lot of time compared to manually checking each commit. Additionally, you can automate the testing and marking process using &lt;code&gt;git bisect run &amp;lt;script&amp;gt;&lt;/code&gt;, where &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; is a script that tests the code and returns an exit code indicating whether the commit is good or bad.&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<h2 id="meet-git-bisect">Meet <code>git bisect</code></h2>
+<p>When you have a large codebase and a bug has been introduced somewhere in the history, finding the exact commit that introduced the bug can be challenging. This is where <code>git bisect</code> comes in handy. It automates the process of binary searching through your commit history to find the offending commit.</p>
+<h3 id="how-it-works">How it works</h3>
+<ul>
+<li>start the bisect process by running <code>git bisect start</code></li>
+<li>find a known bad commit (the one with the bug) and mark it as bad using <code>git bisect bad &lt;bad-commit-hash&gt;</code></li>
+<li>find a known good commit (the one without the bug) and mark it as good using <code>git bisect good &lt;good-commit-hash&gt;</code></li>
+<li>Git will now checkout a commit halfway between the good and bad commits. You need to test this commit to see if the bug is present</li>
+<li>if the bug is present, mark the commit as bad using <code>git bisect bad</code></li>
+<li>if the bug is not present, mark the commit as good using <code>git bisect good</code></li>
+<li>repeat the testing and marking process until Git narrows down to the exact commit that introduced the bug</li>
+<li>once the bad commit is found, you can end the bisect process by running <code>git bisect reset</code></li>
+</ul>
+<p>This might sound a bit tedious, but it can save you a lot of time compared to manually checking each commit. Additionally, you can automate the testing and marking process using <code>git bisect run &lt;script&gt;</code>, where <code>&lt;script&gt;</code> is a script that tests the code and returns an exit code indicating whether the commit is good or bad.</p>
+<h3 id="example">Example</h3>
+<p>Make sure you have Maven and Java installed. My setup is as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mvn --version
+</span></span><span style="display:flex;"><span>Apache Maven 3.9.11 ...
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>Java version: 25.0.1, vendor: Oracle Corporation, runtime: /Users/vladflore/.sdkman/candidates/java/25.0.1-open
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><blockquote>
+<p><strong>Note:</strong>
+You can use SDKMAN to easily manage multiple versions of Java and Maven on your machine. Check it out at <a href="https://sdkman.io/" target="_blank">sdkman.io</a>.</p>
+</blockquote>
+<p>Let&rsquo;s create a simple Java project using Maven:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mvn archetype:generate <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -DgroupId<span style="color:#f92672">=</span>tech.vladflore.app <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -DartifactId<span style="color:#f92672">=</span>bisect <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -DarchetypeArtifactId<span style="color:#f92672">=</span>maven-archetype-quickstart <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -DarchetypeGroupId<span style="color:#f92672">=</span>org.apache.maven.archetypes <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -DinteractiveMode<span style="color:#f92672">=</span>false
+</span></span></code></pre></div><p>Open it in your favorite IDE and implement a simple binary search algorithm in <code>App.java</code>. Then, write some unit tests in <code>AppTest.java</code>.</p>
+<p>In <code>App.java</code>, implement the binary search algorithm:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> tech.vladflore.app;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">App</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">binarySearch</span>(<span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> arr, <span style="color:#66d9ef">int</span> target) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (arr <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> arr.<span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> 0) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>1;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> left <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> right <span style="color:#f92672">=</span> arr.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> 1;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (left <span style="color:#f92672">&lt;=</span> right) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> mid <span style="color:#f92672">=</span> left <span style="color:#f92672">+</span> (right <span style="color:#f92672">-</span> left) <span style="color:#f92672">/</span> 2;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (arr<span style="color:#f92672">[</span>mid<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> target) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> mid;
+</span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (arr<span style="color:#f92672">[</span>mid<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;</span> target) {
+</span></span><span style="display:flex;"><span>                left <span style="color:#f92672">=</span> mid <span style="color:#f92672">+</span> 1;
+</span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>                right <span style="color:#f92672">=</span> mid <span style="color:#f92672">-</span> 1;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>1;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In <code>AppTest.java</code>, write unit tests for the binary search method:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> tech.vladflore.app;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import static</span> org.junit.jupiter.api.Assertions.assertEquals;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.junit.jupiter.api.Test;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.junit.jupiter.params.ParameterizedTest;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.junit.jupiter.params.provider.CsvSource;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppTest</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Test</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testBinarySearch_ElementFound</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> arr <span style="color:#f92672">=</span> {1, 3, 5, 7, 9, 11, 13};
+</span></span><span style="display:flex;"><span>        assertEquals(3, App.<span style="color:#a6e22e">binarySearch</span>(arr, 7));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Test</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testBinarySearch_ElementNotFound</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> arr <span style="color:#f92672">=</span> {1, 3, 5, 7, 9, 11, 13};
+</span></span><span style="display:flex;"><span>        assertEquals(<span style="color:#f92672">-</span>1, App.<span style="color:#a6e22e">binarySearch</span>(arr, 6));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Test</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testBinarySearch_FirstElement</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> arr <span style="color:#f92672">=</span> {1, 3, 5, 7, 9, 11, 13};
+</span></span><span style="display:flex;"><span>        assertEquals(0, App.<span style="color:#a6e22e">binarySearch</span>(arr, 1));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Test</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testBinarySearch_LastElement</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> arr <span style="color:#f92672">=</span> {1, 3, 5, 7, 9, 11, 13};
+</span></span><span style="display:flex;"><span>        assertEquals(6, App.<span style="color:#a6e22e">binarySearch</span>(arr, 13));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Test</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testBinarySearch_SingleElement_Found</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> arr <span style="color:#f92672">=</span> {5};
+</span></span><span style="display:flex;"><span>        assertEquals(0, App.<span style="color:#a6e22e">binarySearch</span>(arr, 5));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Test</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testBinarySearch_SingleElement_NotFound</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> arr <span style="color:#f92672">=</span> {5};
+</span></span><span style="display:flex;"><span>        assertEquals(<span style="color:#f92672">-</span>1, App.<span style="color:#a6e22e">binarySearch</span>(arr, 3));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Test</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testBinarySearch_EmptyArray</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> arr <span style="color:#f92672">=</span> {};
+</span></span><span style="display:flex;"><span>        assertEquals(<span style="color:#f92672">-</span>1, App.<span style="color:#a6e22e">binarySearch</span>(arr, 5));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Test</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testBinarySearch_NullArray</span>() {
+</span></span><span style="display:flex;"><span>        assertEquals(<span style="color:#f92672">-</span>1, App.<span style="color:#a6e22e">binarySearch</span>(<span style="color:#66d9ef">null</span>, 5));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Test</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testBinarySearch_LargeArray</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> arr <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>1000<span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> arr.<span style="color:#a6e22e">length</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            arr<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> i <span style="color:#f92672">*</span> 2;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        assertEquals(500, App.<span style="color:#a6e22e">binarySearch</span>(arr, 1000));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@ParameterizedTest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@CsvSource</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;1, 0&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;3, 1&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;5, 2&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;7, 3&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;9, 4&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;11, 5&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;13, 6&#34;</span>
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testBinarySearch_ParameterizedAllElements</span>(<span style="color:#66d9ef">int</span> target, <span style="color:#66d9ef">int</span> expectedIndex) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> arr <span style="color:#f92672">=</span> {1, 3, 5, 7, 9, 11, 13};
+</span></span><span style="display:flex;"><span>        assertEquals(expectedIndex, App.<span style="color:#a6e22e">binarySearch</span>(arr, target));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Run <code>mvn clean test</code> to ensure all tests pass.</p>
+<p>Commit everything.</p>
+<p>Right now the git history should show one commit.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --oneline
+</span></span><span style="display:flex;"><span>827ee9a9aa5451626aec62849bd11f1f440b457b <span style="color:#f92672">(</span>HEAD -&gt; main<span style="color:#f92672">)</span> First commit
+</span></span></code></pre></div><p>For the current implementation to work, the array must be sorted in ascending order. Let&rsquo;s implement the invariant that the array is sorted before performing the binary search. Create a new commit with this change.
+Add this in <code>App.java</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> arr.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> 1; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (arr<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">&gt;</span> arr<span style="color:#f92672">[</span>i <span style="color:#f92672">+</span> 1<span style="color:#f92672">]</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException(<span style="color:#e6db74">&#34;Array must be sorted in ascending order&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>And the test for it in <code>AppTest.java</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Test</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testBinarySearch_UnsortedArray_ThrowsException</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> arr <span style="color:#f92672">=</span> {5, 3, 7, 1, 9};
+</span></span><span style="display:flex;"><span>    Assertions.<span style="color:#a6e22e">assertThrows</span>(IllegalArgumentException.<span style="color:#a6e22e">class</span>, () <span style="color:#f92672">-&gt;</span> {
+</span></span><span style="display:flex;"><span>        App.<span style="color:#a6e22e">binarySearch</span>(arr, 7);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Right now the git history should show two commits.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --oneline
+</span></span><span style="display:flex;"><span>9a81359b0c2e67b26ffbb9e51ea3cc2ccaa5a38c <span style="color:#f92672">(</span>HEAD -&gt; main<span style="color:#f92672">)</span> Implement invariant
+</span></span><span style="display:flex;"><span>827ee9a9aa5451626aec62849bd11f1f440b457b First commit
+</span></span></code></pre></div><p>Now, let&rsquo;s introduce a bug in the implementation of the binary search algorithm.</p>
+<p>Change the condition in the while loop from <code>left &lt;= right</code> to <code>left &lt; right</code> in <code>App.java</code>, and commit the change.</p>
+<p>Now the git history should show three commits.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --oneline
+</span></span><span style="display:flex;"><span>e7431eacefd1fafbd46e3b276b687e08e5fa987a <span style="color:#f92672">(</span>HEAD -&gt; main<span style="color:#f92672">)</span> Introduce bug
+</span></span><span style="display:flex;"><span>9a81359b0c2e67b26ffbb9e51ea3cc2ccaa5a38c Implement invariant
+</span></span><span style="display:flex;"><span>827ee9a9aa5451626aec62849bd11f1f440b457b First commit
+</span></span></code></pre></div><p>Let&rsquo;s add some more commits to make the history longer. All of them would be bad commits. Use the following <code>git</code> command to add three more empty commits (⚠️ do not do this in a real project):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i in <span style="color:#f92672">{</span>2..4<span style="color:#f92672">}</span>; <span style="color:#66d9ef">do</span> git commit --allow-empty -m <span style="color:#e6db74">&#34;Bad commit </span>$i<span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>Now the git history should show six commits.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --oneline
+</span></span><span style="display:flex;"><span>345d5f1ace5b93665583ec5d6e33c6a92c5cec95 <span style="color:#f92672">(</span>HEAD -&gt; main<span style="color:#f92672">)</span> Bad commit <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>2dbac1937ed41b26103c022b6579bd855932a8d1 Bad commit <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>46f9a561f097690f86bbb1cf52a94f23294d7f41 Bad commit <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>e7431eacefd1fafbd46e3b276b687e08e5fa987a Introduce bug
+</span></span><span style="display:flex;"><span>9a81359b0c2e67b26ffbb9e51ea3cc2ccaa5a38c Implement invariant
+</span></span><span style="display:flex;"><span>827ee9a9aa5451626aec62849bd11f1f440b457b First commit
+</span></span></code></pre></div><p>We want to find the commit that introduced the bug, i.e. <code>e7431ea</code>. We could do this manually, by following the steps outlined above, or we could use <code>git bisect run</code> to automate the process. For this we need some script that would run the tests and return exit code <code>0</code> if all tests pass, or <code>1</code> if any test fails. Create a file named <code>test.sh</code> with the following content:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>mvn clean test
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>exit_code<span style="color:#f92672">=</span>$?
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $exit_code -ne <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>exit <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>Make the script executable by running <code>chmod +x test.sh</code>.</p>
+<p>Now, run the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git bisect start
+</span></span><span style="display:flex;"><span>git bisect bad HEAD
+</span></span><span style="display:flex;"><span>git bisect good 9a81359b0c2e67b26ffbb
+</span></span><span style="display:flex;"><span>git bisect run ./test.sh
+</span></span></code></pre></div><p>Git will now automatically checkout commits, run the tests using the provided script, and mark commits as good or bad based on the exit code of the script. After a few iterations, it will identify the commit that introduced the bug.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>e7431eacefd1fafbd46e3b276b687e08e5fa987a is the first bad commit
+</span></span><span style="display:flex;"><span>commit e7431eacefd1fafbd46e3b276b687e08e5fa987a
+</span></span><span style="display:flex;"><span>Author: Vlad Flore &lt;flore.vlad@gmail.com&gt;
+</span></span><span style="display:flex;"><span>Date:   Wed Jan <span style="color:#ae81ff">7</span> 17:03:19 <span style="color:#ae81ff">2026</span> +0100
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Introduce bug
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>bisect found first bad commit
+</span></span></code></pre></div><p>So now we know that the commit <code>e7431ea</code> is the one that introduced the bug. To end the bisect session and return to the original HEAD, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git bisect reset
+</span></span></code></pre></div><p>We can compare the identified bad commit with the previous good commit to see what changed:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git diff 9a81359 e7431ea | cat
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>diff --git a/src/main/java/tech/vladflore/app/App.java b/src/main/java/tech/vladflore/app/App.java
+</span></span><span style="display:flex;"><span>index 4084581..588b0aa <span style="color:#ae81ff">100644</span>
+</span></span><span style="display:flex;"><span>--- a/src/main/java/tech/vladflore/app/App.java
+</span></span><span style="display:flex;"><span>+++ b/src/main/java/tech/vladflore/app/App.java
+</span></span><span style="display:flex;"><span>@@ -16,7 +16,7 @@ public class App <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>         int left <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>         int right <span style="color:#f92672">=</span> arr.length - 1;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>-        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>left &lt;<span style="color:#f92672">=</span> right<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>left &lt; right<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>             int mid <span style="color:#f92672">=</span> left + <span style="color:#f92672">(</span>right - left<span style="color:#f92672">)</span> / 2;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>             <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>arr<span style="color:#f92672">[</span>mid<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> target<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span></code></pre></div><p>And here is our bug!</p>
+<h3 id="conclusion">Conclusion</h3>
+<p><code>git bisect</code> is a powerful tool that can save you a lot of time when trying to find the commit that introduced a bug. By automating the binary search process, it allows you to quickly narrow down the range of commits to investigate, making it easier to identify and fix issues in your codebase.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Java 25</title>

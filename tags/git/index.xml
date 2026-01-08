@@ -6,8 +6,15 @@
     <description>Recent content in Git on vlad·flore · tech</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 23 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 08 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://vladflore.tech/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git bisect</title>
+      <link>https://vladflore.tech/posts/2026/01/git-bisect/</link>
+      <pubDate>Thu, 08 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2026/01/git-bisect/</guid>
+      <description>&lt;h2 id=&#34;meet-git-bisect&#34;&gt;Meet &lt;code&gt;git bisect&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;When you have a large codebase and a bug has been introduced somewhere in the history, finding the exact commit that introduced the bug can be challenging. This is where &lt;code&gt;git bisect&lt;/code&gt; comes in handy. It automates the process of binary searching through your commit history to find the offending commit.&lt;/p&gt;&#xA;&lt;h3 id=&#34;how-it-works&#34;&gt;How it works&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;start the bisect process by running &lt;code&gt;git bisect start&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;find a known bad commit (the one with the bug) and mark it as bad using &lt;code&gt;git bisect bad &amp;lt;bad-commit-hash&amp;gt;&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;find a known good commit (the one without the bug) and mark it as good using &lt;code&gt;git bisect good &amp;lt;good-commit-hash&amp;gt;&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Git will now checkout a commit halfway between the good and bad commits. You need to test this commit to see if the bug is present&lt;/li&gt;&#xA;&lt;li&gt;if the bug is present, mark the commit as bad using &lt;code&gt;git bisect bad&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;if the bug is not present, mark the commit as good using &lt;code&gt;git bisect good&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;repeat the testing and marking process until Git narrows down to the exact commit that introduced the bug&lt;/li&gt;&#xA;&lt;li&gt;once the bad commit is found, you can end the bisect process by running &lt;code&gt;git bisect reset&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This might sound a bit tedious, but it can save you a lot of time compared to manually checking each commit. Additionally, you can automate the testing and marking process using &lt;code&gt;git bisect run &amp;lt;script&amp;gt;&lt;/code&gt;, where &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; is a script that tests the code and returns an exit code indicating whether the commit is good or bad.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Git Animated 4</title>
       <link>https://vladflore.tech/posts/2021/12/git-animated-4/</link>
