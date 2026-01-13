@@ -5,9 +5,16 @@
     <link>https://vladflore.tech/tags/java/</link>
     <description>Recent content in Java on vlad·flore · tech</description>
     <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Wed, 07 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 13 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://vladflore.tech/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Compiling and Running a Maven Project with Different Java Versions</title>
+      <link>https://vladflore.tech/posts/2026/01/compiling-and-running-a-maven-project-with-different-java-versions/</link>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2026/01/compiling-and-running-a-maven-project-with-different-java-versions/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s explore how to use multiple versions of Java in a Maven project By this, I mean seemingly &lt;em&gt;compiling&lt;/em&gt; and &lt;em&gt;running&lt;/em&gt; a project with different Java versions.&lt;/p&gt;&#xA;&lt;p&gt;I will be using Java 17, 21 and 25 for this demo. Make sure you have them installed on your machine. You can use &lt;a href=&#34;https://sdkman.io/&#34; target=&#34;_blank&#34;&gt;SDKMAN!&lt;/a&gt; to manage multiple Java versions easily. Additionally, ensure &lt;a href=&#34;https://maven.apache.org/&#34; target=&#34;_blank&#34;&gt;Maven&lt;/a&gt; is installed.&lt;/p&gt;&#xA;&lt;p&gt;As always, there are multiple ways to achieve this. Here, I will demonstrate one approach using &lt;a href=&#34;https://maven.apache.org/guides/mini/guide-using-toolchains.html&#34; target=&#34;_blank&#34;&gt;Maven Toolchains&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Java 25</title>
       <link>https://vladflore.tech/posts/2026/01/java-25/</link>

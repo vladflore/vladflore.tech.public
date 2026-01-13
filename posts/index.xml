@@ -4,9 +4,165 @@
         <link>https://vladflore.tech/posts/</link>
         <description>Recent content in Posts on vlad·flore · tech</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>en</language>
-        <lastBuildDate>Thu, 08 Jan 2026 00:00:00 +0000</lastBuildDate>
+        <language>en-us</language>
+        <lastBuildDate>Tue, 13 Jan 2026 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://vladflore.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Compiling and Running a Maven Project with Different Java Versions</title>
+            <link>https://vladflore.tech/posts/2026/01/compiling-and-running-a-maven-project-with-different-java-versions/</link>
+            <pubDate>Tue, 13 Jan 2026 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2026/01/compiling-and-running-a-maven-project-with-different-java-versions/</guid>
+            <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s explore how to use multiple versions of Java in a Maven project By this, I mean seemingly &lt;em&gt;compiling&lt;/em&gt; and &lt;em&gt;running&lt;/em&gt; a project with different Java versions.&lt;/p&gt;
+&lt;p&gt;I will be using Java 17, 21 and 25 for this demo. Make sure you have them installed on your machine. You can use &lt;a href=&#34;https://sdkman.io/&#34; target=&#34;_blank&#34;&gt;SDKMAN!&lt;/a&gt; to manage multiple Java versions easily. Additionally, ensure &lt;a href=&#34;https://maven.apache.org/&#34; target=&#34;_blank&#34;&gt;Maven&lt;/a&gt; is installed.&lt;/p&gt;
+&lt;p&gt;As always, there are multiple ways to achieve this. Here, I will demonstrate one approach using &lt;a href=&#34;https://maven.apache.org/guides/mini/guide-using-toolchains.html&#34; target=&#34;_blank&#34;&gt;Maven Toolchains&lt;/a&gt;.&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>Let&rsquo;s explore how to use multiple versions of Java in a Maven project By this, I mean seemingly <em>compiling</em> and <em>running</em> a project with different Java versions.</p>
+<p>I will be using Java 17, 21 and 25 for this demo. Make sure you have them installed on your machine. You can use <a href="https://sdkman.io/" target="_blank">SDKMAN!</a> to manage multiple Java versions easily. Additionally, ensure <a href="https://maven.apache.org/" target="_blank">Maven</a> is installed.</p>
+<p>As always, there are multiple ways to achieve this. Here, I will demonstrate one approach using <a href="https://maven.apache.org/guides/mini/guide-using-toolchains.html" target="_blank">Maven Toolchains</a>.</p>
+<h2 id="configure-maven-toolchains">Configure Maven Toolchains</h2>
+<p>First, create a <code>toolchains.xml</code> file in your Maven configuration directory (<code>~/.m2/</code> on Unix-based systems or <code>%USERPROFILE%\.m2\</code> on Windows). This file will define the different Java versions you want to use.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;toolchains&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;toolchain&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;type&gt;</span>jdk<span style="color:#f92672">&lt;/type&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;provides&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;version&gt;</span>17<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/provides&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;jdkHome&gt;</span>/Users/vladflore/.sdkman/candidates/java/17.0.12-oracle<span style="color:#f92672">&lt;/jdkHome&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/configuration&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/toolchain&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;toolchain&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;type&gt;</span>jdk<span style="color:#f92672">&lt;/type&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;provides&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;version&gt;</span>21<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/provides&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;jdkHome&gt;</span>/Users/vladflore/.sdkman/candidates/java/21.0.3-oracle<span style="color:#f92672">&lt;/jdkHome&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/configuration&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/toolchain&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;toolchain&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;type&gt;</span>jdk<span style="color:#f92672">&lt;/type&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;provides&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;version&gt;</span>25<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/provides&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;jdkHome&gt;</span>/Users/vladflore/.sdkman/candidates/java/25.0.1-open<span style="color:#f92672">&lt;/jdkHome&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/configuration&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/toolchain&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/toolchains&gt;</span>
+</span></span></code></pre></div><p>This configuration specifies three different JDK versions and their respective installation paths.</p>
+<h2 id="set-up-maven-project">Set Up Maven Project</h2>
+<p>I will be using a new Maven project for this demonstration.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; mvn archetype:generate -DgroupId<span style="color:#f92672">=</span>tech.vladflore.app -DartifactId<span style="color:#f92672">=</span>multijava -DarchetypeArtifactId<span style="color:#f92672">=</span>maven-archetype-quickstart -DarchetypeGroupId<span style="color:#f92672">=</span>org.apache.maven.archetypes -DinteractiveMode<span style="color:#f92672">=</span>false <span style="color:#f92672">&amp;&amp;</span> cd multijava
+</span></span></code></pre></div><p>Add this code in the <code>App.java</code> file located in <code>src/main/java/tech/vladflore/app/</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> tech.vladflore.app;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">App</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(Runtime.<span style="color:#a6e22e">version</span>());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Now, let&rsquo;s see how to compile this project with different Java versions using Maven Toolchains.</p>
+<p>Update the <code>pom.xml</code> file by including the Maven Toolchains plugin.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;plugin&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.apache.maven.plugins<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>maven-toolchains-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;version&gt;</span>3.2.0<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;executions&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;execution&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;goals&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;goal&gt;</span>toolchain<span style="color:#f92672">&lt;/goal&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/goals&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/execution&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/executions&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;toolchains&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;jdk&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;version&gt;</span>${java.compiler.version}<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/jdk&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/toolchains&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/configuration&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/plugin&gt;</span>
+</span></span></code></pre></div><p>The <code>java.compiler.version</code> property will be set when running Maven commands.</p>
+<p>Do not forget to add it to the properties section of your <code>pom.xml</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;properties&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;maven.compiler.release&gt;</span>${java.compiler.version}<span style="color:#f92672">&lt;/maven.compiler.release&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/properties&gt;</span>
+</span></span></code></pre></div><p>We use <code>maven.compiler.release</code> because it ensures both bytecode level and API compatibility.</p>
+<h2 id="compiling-with-different-java-versions">Compiling with Different Java Versions</h2>
+<p>At this point, we can compile the project using different Java versions. We can check the Java version used during compilation by running <code>javap</code> on the compiled class file and inspecting the version.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; mvn clean compile -Djava.compiler.version<span style="color:#f92672">=</span><span style="color:#ae81ff">17</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; cd target/classes
+</span></span><span style="display:flex;"><span>&gt; javap -verbose tech.vladflore.app.App | grep major
+</span></span></code></pre></div><p>This should output <code>major version: 61</code>, which corresponds to Java 17.</p>
+<p>Let&rsquo;s try with the other version as well.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; mvn clean compile -Djava.compiler.version<span style="color:#f92672">=</span><span style="color:#ae81ff">21</span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>&gt; cd target/classes
+</span></span><span style="display:flex;"><span>&gt; javap -verbose tech.vladflore.app.App | grep major
+</span></span><span style="display:flex;"><span>major version: <span style="color:#ae81ff">65</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; mvn clean compile -Djava.compiler.version<span style="color:#f92672">=</span><span style="color:#ae81ff">25</span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>&gt; cd target/classes
+</span></span><span style="display:flex;"><span>&gt; javap -verbose tech.vladflore.app.App | grep major
+</span></span><span style="display:flex;"><span>major version: <span style="color:#ae81ff">69</span>
+</span></span></code></pre></div><p>So far so good! We have successfully compiled the project with different Java versions.</p>
+<h2 id="running-with-different-java-versions">Running with Different Java Versions</h2>
+<p>If I were to run the project now, i.e. run the only Java class I have, I would get the same output regardless of the compilation version, as it would use the default Java version set in my environment.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; mvn clean compile -Djava.compiler.version<span style="color:#f92672">=</span><span style="color:#ae81ff">17</span> exec:java -Dexec.mainClass<span style="color:#f92672">=</span>tech.vladflore.app.App
+</span></span><span style="display:flex;"><span>&gt; mvn clean compile -Djava.compiler.version<span style="color:#f92672">=</span><span style="color:#ae81ff">21</span> exec:java -Dexec.mainClass<span style="color:#f92672">=</span>tech.vladflore.app.App
+</span></span><span style="display:flex;"><span>&gt; mvn clean compile -Djava.compiler.version<span style="color:#f92672">=</span><span style="color:#ae81ff">25</span> exec:java -Dexec.mainClass<span style="color:#f92672">=</span>tech.vladflore.app.App
+</span></span></code></pre></div><p>They would all output the same Java version, i.e. <code>25.0.1+8-27</code>, because that is the default Java version on my machine.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; java --version
+</span></span><span style="display:flex;"><span>openjdk 25.0.1 2025-10-21
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>&gt; ls -l <span style="color:#e6db74">&#34;</span>$JAVA_HOME<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>/Users/vladflore/.sdkman/candidates/java/current -&gt; 25.0.1-open
+</span></span><span style="display:flex;"><span>&gt; sdk current java
+</span></span><span style="display:flex;"><span>Using java version 25.0.1-open
+</span></span></code></pre></div><p>How do we run the project with different Java versions then?</p>
+<p>One way is to use the <code>JAVA_HOME</code> environment variable to point to the desired Java version before running the project.</p>
+<p>We can do this either by exporting the <code>JAVA_HOME</code> variable in the shell or by letting sdkman handle it for us.</p>
+<p>Another way is to use the <code>exec-maven-plugin</code> <a href="https://www.mojohaus.org/exec-maven-plugin/" target="_blank">plugin</a>.</p>
+<p>Add this to your <code>pom.xml</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;plugin&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.codehaus.mojo<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>exec-maven-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;version&gt;</span>3.1.0<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;executable&gt;</span>${java.runtime.home}/bin/java<span style="color:#f92672">&lt;/executable&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;arguments&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;argument&gt;</span>-cp<span style="color:#f92672">&lt;/argument&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;argument&gt;</span>${project.build.outputDirectory}<span style="color:#f92672">&lt;/argument&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;argument&gt;</span>${main.class}<span style="color:#f92672">&lt;/argument&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/arguments&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/configuration&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/plugin&gt;</span>
+</span></span></code></pre></div><p>The <code>java.runtime.home</code> and <code>main.class</code> properties will be set when running Maven commands.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; mvn clean compile -Djava.compiler.version<span style="color:#f92672">=</span><span style="color:#ae81ff">17</span> exec:exec -Djava.runtime.home<span style="color:#f92672">=</span>/Users/vladflore/.sdkman/candidates/java/17.0.12-oracle -Dmain.class<span style="color:#f92672">=</span>tech.vladflore.app.App
+</span></span></code></pre></div><p>This compiles and runs the project with Java 17.</p>
+<p>Let&rsquo;s compile with 17 and run with 25.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; mvn clean compile -Djava.compiler.version<span style="color:#f92672">=</span><span style="color:#ae81ff">17</span> exec:exec -Djava.runtime.home<span style="color:#f92672">=</span>/Users/vladflore/.sdkman/candidates/java/25.0.1-open -Dmain.class<span style="color:#f92672">=</span>tech.vladflore.app.App
+</span></span></code></pre></div><p>Let&rsquo;s compile with 25 and run with 17.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; mvn clean compile -Djava.compiler.version<span style="color:#f92672">=</span><span style="color:#ae81ff">25</span> exec:exec -Djava.runtime.home<span style="color:#f92672">=</span>/Users/vladflore/.sdkman/candidates/java/17.0.12-oracle -Dmain.class<span style="color:#f92672">=</span>tech.vladflore.app.App
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>💥💥💥
+</span></span></code></pre></div><p>We get the following error:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Error: LinkageError occurred <span style="color:#66d9ef">while</span> loading main class tech.vladflore.app.App
+</span></span><span style="display:flex;"><span>java.lang.UnsupportedClassVersionError: tech/vladflore/app/App has been compiled by a more recent version of the Java Runtime <span style="color:#f92672">(</span>class file version 69.0<span style="color:#f92672">)</span>, this version of the Java Runtime only recognizes class file versions up to 61.0
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>ERROR<span style="color:#f92672">]</span> Command execution failed.
+</span></span></code></pre></div><p>which is expected since we are trying to run a class compiled with a newer Java version on an older Java runtime.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>In this post, we explored how to manage multiple Java versions in a Maven project using Maven Toolchains for compilation and the <code>exec-maven-plugin</code> for running the application with different Java runtimes. This approach allows developers to test and run their applications across various Java versions seamlessly.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Git bisect</title>
@@ -55,11 +211,11 @@ You can use SDKMAN to easily manage multiple versions of Java and Maven on your 
 </blockquote>
 <p>Let&rsquo;s create a simple Java project using Maven:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mvn archetype:generate <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -DgroupId<span style="color:#f92672">=</span>tech.vladflore.app <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -DartifactId<span style="color:#f92672">=</span>bisect <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -DarchetypeArtifactId<span style="color:#f92672">=</span>maven-archetype-quickstart <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -DarchetypeGroupId<span style="color:#f92672">=</span>org.apache.maven.archetypes <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -DinteractiveMode<span style="color:#f92672">=</span>false
+</span></span></span><span style="display:flex;"><span>  -DgroupId<span style="color:#f92672">=</span>tech.vladflore.app <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -DartifactId<span style="color:#f92672">=</span>bisect <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -DarchetypeArtifactId<span style="color:#f92672">=</span>maven-archetype-quickstart <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -DarchetypeGroupId<span style="color:#f92672">=</span>org.apache.maven.archetypes <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -DinteractiveMode<span style="color:#f92672">=</span>false
 </span></span></code></pre></div><p>Open it in your favorite IDE and implement a simple binary search algorithm in <code>App.java</code>. Then, write some unit tests in <code>AppTest.java</code>.</p>
 <p>In <code>App.java</code>, implement the binary search algorithm:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> tech.vladflore.app;
@@ -213,7 +369,7 @@ Add this in <code>App.java</code>:</p>
 </span></span><span style="display:flex;"><span>827ee9a9aa5451626aec62849bd11f1f440b457b First commit
 </span></span></code></pre></div><p>We want to find the commit that introduced the bug, i.e. <code>e7431ea</code>. We could do this manually, by following the steps outlined above, or we could use <code>git bisect run</code> to automate the process. For this we need some script that would run the tests and return exit code <code>0</code> if all tests pass, or <code>1</code> if any test fails. Create a file named <code>test.sh</code> with the following content:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>mvn clean test
+</span></span></span><span style="display:flex;"><span>mvn clean test
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>exit_code<span style="color:#f92672">=</span>$?
 </span></span><span style="display:flex;"><span>
@@ -1567,28 +1723,28 @@ Furthermore, the <code>println</code> statement can be simplified to just <code>
 <h3 id="create-a-dockerfile">Create a <code>Dockerfile</code></h3>
 <p>We can use Docker to containerize the web service.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="display:flex;"><span><span style="color:#75715e"># Use the specified base image</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">svizor/zoomcamp-model:3.11.5-slim</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">svizor/zoomcamp-model:3.11.5-slim</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Set the working directory inside the container</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span> <span style="color:#e6db74">/app</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># Set the working directory inside the container</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">WORKDIR</span> <span style="color:#e6db74">/app</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Copy Pipfile and Pipfile.lock to the working directory</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;Pipfile&#34;</span>, <span style="color:#e6db74">&#34;Pipfile.lock&#34;</span>, <span style="color:#e6db74">&#34;./&#34;</span><span style="color:#f92672">]</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># Copy Pipfile and Pipfile.lock to the working directory</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">COPY</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;Pipfile&#34;</span>, <span style="color:#e6db74">&#34;Pipfile.lock&#34;</span>, <span style="color:#e6db74">&#34;./&#34;</span><span style="color:#f92672">]</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Install pipenv</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> pip install pipenv<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># Install pipenv</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">RUN</span> pip install pipenv<span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Install dependencies defined in Pipfile.lock</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> pipenv install --deploy --system<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># Install dependencies defined in Pipfile.lock</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">RUN</span> pipenv install --deploy --system<span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Copy Python scripts and model files to the working directory</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;*.py&#34;</span>, <span style="color:#e6db74">&#34;model.bin&#34;</span>, <span style="color:#e6db74">&#34;dv.bin&#34;</span>, <span style="color:#e6db74">&#34;./&#34;</span><span style="color:#f92672">]</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># Copy Python scripts and model files to the working directory</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">COPY</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;*.py&#34;</span>, <span style="color:#e6db74">&#34;model.bin&#34;</span>, <span style="color:#e6db74">&#34;dv.bin&#34;</span>, <span style="color:#e6db74">&#34;./&#34;</span><span style="color:#f92672">]</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Expose port 9696 for the web service</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span> <span style="color:#e6db74">9696</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># Expose port 9696 for the web service</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">EXPOSE</span> <span style="color:#e6db74">9696</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Define the entry point for the container</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> [<span style="color:#e6db74">&#34;gunicorn&#34;</span>, <span style="color:#e6db74">&#34;--bind&#34;</span>, <span style="color:#e6db74">&#34;0.0.0.0:9696&#34;</span>, <span style="color:#e6db74">&#34;prediction_service:app&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># Define the entry point for the container</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">ENTRYPOINT</span> [<span style="color:#e6db74">&#34;gunicorn&#34;</span>, <span style="color:#e6db74">&#34;--bind&#34;</span>, <span style="color:#e6db74">&#34;0.0.0.0:9696&#34;</span>, <span style="color:#e6db74">&#34;prediction_service:app&#34;</span>]<span style="color:#960050;background-color:#1e0010">
 </span></span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
 <p>We have seen how to export and load a machine learning model and dictionary vectorizer, together with how to build a web service exposing an endpoint for making predictions and how to containerize the web service.</p>
 <p>The homework code can be found <a href="https://github.com/vladflore/machine-learning-zoomcamp-cohort-2024/tree/main/05-deployment-hw" target="_blank">here</a>.</p>
@@ -3699,13 +3855,13 @@ and to practice, because, as we all know, practice makes perfect!</p>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># go into PostgreSQL</span>
 </span></span><span style="display:flex;"><span>psql
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">--- create the user
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">USER</span> sonarqube <span style="color:#66d9ef">WITH</span> PASSWORD <span style="color:#e6db74">&#39;yourPassword&#39;</span>;
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">USER</span> sonarqube <span style="color:#66d9ef">WITH</span> PASSWORD <span style="color:#e6db74">&#39;yourPassword&#39;</span>;
 </span></span><span style="display:flex;"><span><span style="color:#75715e">--- create the database
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> sonarqube <span style="color:#66d9ef">OWNER</span> sonarqube;
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> sonarqube <span style="color:#66d9ef">OWNER</span> sonarqube;
 </span></span><span style="display:flex;"><span><span style="color:#75715e">--- grant the privileges
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> sonarqube <span style="color:#66d9ef">TO</span> sonarqube;
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> sonarqube <span style="color:#66d9ef">TO</span> sonarqube;
 </span></span><span style="display:flex;"><span><span style="color:#75715e">--- exit PostgreSQL
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#960050;background-color:#1e0010">\</span>q
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">\</span>q
 </span></span></code></pre></div><h3 id="add-inbound-rule-for-the-security-group-the-instance-belongs-to">Add inbound rule for the security group the instance belongs to</h3>
 <p>In order to allow requests to be made to SonarQube you have to add an inbound rule for the security group the EC2 instance belongs to. Find the security group your instance has (on the <code>Instances</code> page, check for the <code>Security Groups</code> column in the table which displays your instances, go to that SG and edit the <code>Inbound Rules</code> by adding a new one for <code>TCP</code> and port <code>9000</code>).</p>
 <h2 id="step-3">Step 3</h2>

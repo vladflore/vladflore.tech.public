@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Vlad Flore ">
+<meta name="description" content="Introduction Let&rsquo;s explore how to use multiple versions of Java in a Maven project By this, I mean seemingly compiling and running a project with different Java versions.
+I will be using Java 17, 21 and 25 for this demo. Make sure you have them installed on your machine. You can use SDKMAN! to manage multiple Java versions easily. Additionally, ensure Maven is installed.
+As always, there are multiple ways to achieve this. Here, I will demonstrate one approach using Maven Toolchains.
+" />
+<meta name="keywords" content=", java, nerdy" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://vladflore.tech/posts/2026/01/compiling-and-running-a-maven-project-with-different-java-versions/" />
+
+
+    <title>
+        
+            Compiling and Running a Maven Project with Different Java Versions :: vlad·flore · tech 
+        
+    </title>
+
+
+
+
+
+<link rel="stylesheet" href="/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css" integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE=">
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+
+  <meta itemprop="name" content="Compiling and Running a Maven Project with Different Java Versions">
+  <meta itemprop="description" content="Introduction Let’s explore how to use multiple versions of Java in a Maven project By this, I mean seemingly compiling and running a project with different Java versions.
+I will be using Java 17, 21 and 25 for this demo. Make sure you have them installed on your machine. You can use SDKMAN! to manage multiple Java versions easily. Additionally, ensure Maven is installed.
+As always, there are multiple ways to achieve this. Here, I will demonstrate one approach using Maven Toolchains.">
+  <meta itemprop="datePublished" content="2026-01-13T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-01-13T00:00:00+00:00">
+  <meta itemprop="wordCount" content="782">
+  <meta itemprop="image" content="https://vladflore.tech/">
+  <meta itemprop="keywords" content="Java,Nerdy">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://vladflore.tech/">
+  <meta name="twitter:title" content="Compiling and Running a Maven Project with Different Java Versions">
+  <meta name="twitter:description" content="Introduction Let’s explore how to use multiple versions of Java in a Maven project By this, I mean seemingly compiling and running a project with different Java versions.
+I will be using Java 17, 21 and 25 for this demo. Make sure you have them installed on your machine. You can use SDKMAN! to manage multiple Java versions easily. Additionally, ensure Maven is installed.
+As always, there are multiple ways to achieve this. Here, I will demonstrate one approach using Maven Toolchains.">
+
+
+
+    <meta property="og:url" content="https://vladflore.tech/posts/2026/01/compiling-and-running-a-maven-project-with-different-java-versions/">
+  <meta property="og:site_name" content="vlad·flore · tech">
+  <meta property="og:title" content="Compiling and Running a Maven Project with Different Java Versions">
+  <meta property="og:description" content="Introduction Let’s explore how to use multiple versions of Java in a Maven project By this, I mean seemingly compiling and running a project with different Java versions.
+I will be using Java 17, 21 and 25 for this demo. Make sure you have them installed on your machine. You can use SDKMAN! to manage multiple Java versions easily. Additionally, ensure Maven is installed.
+As always, there are multiple ways to achieve this. Here, I will demonstrate one approach using Maven Toolchains.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-01-13T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-01-13T00:00:00+00:00">
+    <meta property="article:tag" content="Java">
+    <meta property="article:tag" content="Nerdy">
+    <meta property="og:image" content="https://vladflore.tech/">
+
+
+
+
+
+
+    <meta property="article:published_time" content="2026-01-13 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RE8EZYX8D9"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RE8EZYX8D9');
+        }
+      </script>
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text ">
+                $ cd ~</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#a9a9b3;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/posts/">Posts</a></li><li><a href="/portfolio/">Portfolio</a></li><li><a href="/filingcabinet/cv.html">Resume</a></li><li><a href="/about/">About</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        4 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://vladflore.tech/posts/2026/01/compiling-and-running-a-maven-project-with-different-java-versions/">Compiling and Running a Maven Project with Different Java Versions</a>
+      </h1>
+
+      
+
+      
+        <hr />
+        <aside id="toc">
+          <div class="toc-title">Table of Contents</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#configure-maven-toolchains">Configure Maven Toolchains</a></li>
+    <li><a href="#set-up-maven-project">Set Up Maven Project</a></li>
+    <li><a href="#compiling-with-different-java-versions">Compiling with Different Java Versions</a></li>
+    <li><a href="#running-with-different-java-versions">Running with Different Java Versions</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+        </aside>
+        <hr />
+
+      
+
+      <div class="post-content">
+        <h2 id="introduction">Introduction</h2>
+<p>Let&rsquo;s explore how to use multiple versions of Java in a Maven project By this, I mean seemingly <em>compiling</em> and <em>running</em> a project with different Java versions.</p>
+<p>I will be using Java 17, 21 and 25 for this demo. Make sure you have them installed on your machine. You can use <a href="https://sdkman.io/" target="_blank">SDKMAN!</a> to manage multiple Java versions easily. Additionally, ensure <a href="https://maven.apache.org/" target="_blank">Maven</a> is installed.</p>
+<p>As always, there are multiple ways to achieve this. Here, I will demonstrate one approach using <a href="https://maven.apache.org/guides/mini/guide-using-toolchains.html" target="_blank">Maven Toolchains</a>.</p>
+<h2 id="configure-maven-toolchains">Configure Maven Toolchains</h2>
+<p>First, create a <code>toolchains.xml</code> file in your Maven configuration directory (<code>~/.m2/</code> on Unix-based systems or <code>%USERPROFILE%\.m2\</code> on Windows). This file will define the different Java versions you want to use.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;toolchains&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;toolchain&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;type&gt;</span>jdk<span style="color:#f92672">&lt;/type&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;provides&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;version&gt;</span>17<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/provides&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;jdkHome&gt;</span>/Users/vladflore/.sdkman/candidates/java/17.0.12-oracle<span style="color:#f92672">&lt;/jdkHome&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/configuration&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/toolchain&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;toolchain&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;type&gt;</span>jdk<span style="color:#f92672">&lt;/type&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;provides&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;version&gt;</span>21<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/provides&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;jdkHome&gt;</span>/Users/vladflore/.sdkman/candidates/java/21.0.3-oracle<span style="color:#f92672">&lt;/jdkHome&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/configuration&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/toolchain&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;toolchain&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;type&gt;</span>jdk<span style="color:#f92672">&lt;/type&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;provides&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;version&gt;</span>25<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/provides&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;jdkHome&gt;</span>/Users/vladflore/.sdkman/candidates/java/25.0.1-open<span style="color:#f92672">&lt;/jdkHome&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/configuration&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/toolchain&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/toolchains&gt;</span>
+</span></span></code></pre></div><p>This configuration specifies three different JDK versions and their respective installation paths.</p>
+<h2 id="set-up-maven-project">Set Up Maven Project</h2>
+<p>I will be using a new Maven project for this demonstration.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; mvn archetype:generate -DgroupId<span style="color:#f92672">=</span>tech.vladflore.app -DartifactId<span style="color:#f92672">=</span>multijava -DarchetypeArtifactId<span style="color:#f92672">=</span>maven-archetype-quickstart -DarchetypeGroupId<span style="color:#f92672">=</span>org.apache.maven.archetypes -DinteractiveMode<span style="color:#f92672">=</span>false <span style="color:#f92672">&amp;&amp;</span> cd multijava
+</span></span></code></pre></div><p>Add this code in the <code>App.java</code> file located in <code>src/main/java/tech/vladflore/app/</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> tech.vladflore.app;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">App</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(Runtime.<span style="color:#a6e22e">version</span>());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Now, let&rsquo;s see how to compile this project with different Java versions using Maven Toolchains.</p>
+<p>Update the <code>pom.xml</code> file by including the Maven Toolchains plugin.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;plugin&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.apache.maven.plugins<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>maven-toolchains-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;version&gt;</span>3.2.0<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;executions&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;execution&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;goals&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;goal&gt;</span>toolchain<span style="color:#f92672">&lt;/goal&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/goals&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/execution&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/executions&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;toolchains&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;jdk&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;version&gt;</span>${java.compiler.version}<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;/jdk&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/toolchains&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/configuration&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/plugin&gt;</span>
+</span></span></code></pre></div><p>The <code>java.compiler.version</code> property will be set when running Maven commands.</p>
+<p>Do not forget to add it to the properties section of your <code>pom.xml</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;properties&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;maven.compiler.release&gt;</span>${java.compiler.version}<span style="color:#f92672">&lt;/maven.compiler.release&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/properties&gt;</span>
+</span></span></code></pre></div><p>We use <code>maven.compiler.release</code> because it ensures both bytecode level and API compatibility.</p>
+<h2 id="compiling-with-different-java-versions">Compiling with Different Java Versions</h2>
+<p>At this point, we can compile the project using different Java versions. We can check the Java version used during compilation by running <code>javap</code> on the compiled class file and inspecting the version.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; mvn clean compile -Djava.compiler.version<span style="color:#f92672">=</span><span style="color:#ae81ff">17</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; cd target/classes
+</span></span><span style="display:flex;"><span>&gt; javap -verbose tech.vladflore.app.App | grep major
+</span></span></code></pre></div><p>This should output <code>major version: 61</code>, which corresponds to Java 17.</p>
+<p>Let&rsquo;s try with the other version as well.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; mvn clean compile -Djava.compiler.version<span style="color:#f92672">=</span><span style="color:#ae81ff">21</span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>&gt; cd target/classes
+</span></span><span style="display:flex;"><span>&gt; javap -verbose tech.vladflore.app.App | grep major
+</span></span><span style="display:flex;"><span>major version: <span style="color:#ae81ff">65</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; mvn clean compile -Djava.compiler.version<span style="color:#f92672">=</span><span style="color:#ae81ff">25</span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>&gt; cd target/classes
+</span></span><span style="display:flex;"><span>&gt; javap -verbose tech.vladflore.app.App | grep major
+</span></span><span style="display:flex;"><span>major version: <span style="color:#ae81ff">69</span>
+</span></span></code></pre></div><p>So far so good! We have successfully compiled the project with different Java versions.</p>
+<h2 id="running-with-different-java-versions">Running with Different Java Versions</h2>
+<p>If I were to run the project now, i.e. run the only Java class I have, I would get the same output regardless of the compilation version, as it would use the default Java version set in my environment.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; mvn clean compile -Djava.compiler.version<span style="color:#f92672">=</span><span style="color:#ae81ff">17</span> exec:java -Dexec.mainClass<span style="color:#f92672">=</span>tech.vladflore.app.App
+</span></span><span style="display:flex;"><span>&gt; mvn clean compile -Djava.compiler.version<span style="color:#f92672">=</span><span style="color:#ae81ff">21</span> exec:java -Dexec.mainClass<span style="color:#f92672">=</span>tech.vladflore.app.App
+</span></span><span style="display:flex;"><span>&gt; mvn clean compile -Djava.compiler.version<span style="color:#f92672">=</span><span style="color:#ae81ff">25</span> exec:java -Dexec.mainClass<span style="color:#f92672">=</span>tech.vladflore.app.App
+</span></span></code></pre></div><p>They would all output the same Java version, i.e. <code>25.0.1+8-27</code>, because that is the default Java version on my machine.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; java --version
+</span></span><span style="display:flex;"><span>openjdk 25.0.1 2025-10-21
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>&gt; ls -l <span style="color:#e6db74">&#34;</span>$JAVA_HOME<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>/Users/vladflore/.sdkman/candidates/java/current -&gt; 25.0.1-open
+</span></span><span style="display:flex;"><span>&gt; sdk current java
+</span></span><span style="display:flex;"><span>Using java version 25.0.1-open
+</span></span></code></pre></div><p>How do we run the project with different Java versions then?</p>
+<p>One way is to use the <code>JAVA_HOME</code> environment variable to point to the desired Java version before running the project.</p>
+<p>We can do this either by exporting the <code>JAVA_HOME</code> variable in the shell or by letting sdkman handle it for us.</p>
+<p>Another way is to use the <code>exec-maven-plugin</code> <a href="https://www.mojohaus.org/exec-maven-plugin/" target="_blank">plugin</a>.</p>
+<p>Add this to your <code>pom.xml</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;plugin&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.codehaus.mojo<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>exec-maven-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;version&gt;</span>3.1.0<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;executable&gt;</span>${java.runtime.home}/bin/java<span style="color:#f92672">&lt;/executable&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;arguments&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;argument&gt;</span>-cp<span style="color:#f92672">&lt;/argument&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;argument&gt;</span>${project.build.outputDirectory}<span style="color:#f92672">&lt;/argument&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;argument&gt;</span>${main.class}<span style="color:#f92672">&lt;/argument&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/arguments&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/configuration&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/plugin&gt;</span>
+</span></span></code></pre></div><p>The <code>java.runtime.home</code> and <code>main.class</code> properties will be set when running Maven commands.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; mvn clean compile -Djava.compiler.version<span style="color:#f92672">=</span><span style="color:#ae81ff">17</span> exec:exec -Djava.runtime.home<span style="color:#f92672">=</span>/Users/vladflore/.sdkman/candidates/java/17.0.12-oracle -Dmain.class<span style="color:#f92672">=</span>tech.vladflore.app.App
+</span></span></code></pre></div><p>This compiles and runs the project with Java 17.</p>
+<p>Let&rsquo;s compile with 17 and run with 25.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; mvn clean compile -Djava.compiler.version<span style="color:#f92672">=</span><span style="color:#ae81ff">17</span> exec:exec -Djava.runtime.home<span style="color:#f92672">=</span>/Users/vladflore/.sdkman/candidates/java/25.0.1-open -Dmain.class<span style="color:#f92672">=</span>tech.vladflore.app.App
+</span></span></code></pre></div><p>Let&rsquo;s compile with 25 and run with 17.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; mvn clean compile -Djava.compiler.version<span style="color:#f92672">=</span><span style="color:#ae81ff">25</span> exec:exec -Djava.runtime.home<span style="color:#f92672">=</span>/Users/vladflore/.sdkman/candidates/java/17.0.12-oracle -Dmain.class<span style="color:#f92672">=</span>tech.vladflore.app.App
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>💥💥💥
+</span></span></code></pre></div><p>We get the following error:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Error: LinkageError occurred <span style="color:#66d9ef">while</span> loading main class tech.vladflore.app.App
+</span></span><span style="display:flex;"><span>java.lang.UnsupportedClassVersionError: tech/vladflore/app/App has been compiled by a more recent version of the Java Runtime <span style="color:#f92672">(</span>class file version 69.0<span style="color:#f92672">)</span>, this version of the Java Runtime only recognizes class file versions up to 61.0
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>ERROR<span style="color:#f92672">]</span> Command execution failed.
+</span></span></code></pre></div><p>which is expected since we are trying to run a class compiled with a newer Java version on an older Java runtime.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>In this post, we explored how to manage multiple Java versions in a Maven project using Maven Toolchains for compilation and the <code>exec-maven-plugin</code> for running the application with different Java runtimes. This approach allows developers to test and run their applications across various Java versions seamlessly.</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://vladflore.tech/tags/java/">java</a></span>
+        <span class="tag"><a href="https://vladflore.tech/tags/nerdy/">nerdy</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        782 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2026-01-13 01:00
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+
+  
+  
+  <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2026%2f01%2fcompiling-and-running-a-maven-project-with-different-java-versions%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+    <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+        <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="resp-sharing-button__link" href="mailto:?subject=Compiling%20and%20Running%20a%20Maven%20Project%20with%20Different%20Java%20Versions&amp;body=https%3a%2f%2fvladflore.tech%2fposts%2f2026%2f01%2fcompiling-and-running-a-maven-project-with-different-java-versions%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+    <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fvladflore.tech%2fposts%2f2026%2f01%2fcompiling-and-running-a-maven-project-with-different-java-versions%2f&amp;title=Compiling%20and%20Running%20a%20Maven%20Project%20with%20Different%20Java%20Versions&amp;summary=Compiling%20and%20Running%20a%20Maven%20Project%20with%20Different%20Java%20Versions&amp;source=https%3a%2f%2fvladflore.tech%2fposts%2f2026%2f01%2fcompiling-and-running-a-maven-project-with-different-java-versions%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+    <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  <a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2026%2f01%2fcompiling-and-running-a-maven-project-with-different-java-versions%2f&amp;resubmit=true&amp;title=Compiling%20and%20Running%20a%20Maven%20Project%20with%20Different%20Java%20Versions" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+    <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      </div>
+
+    
+    <div class="pagination">
+        
+
+        <div class="pagination__buttons">
+            
+
+            
+            <span class="button next">
+                <a href="https://vladflore.tech/posts/2026/01/git-bisect/">
+                    <span class="button__text">Git bisect</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+      
+        <div id="comments">
+          <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vladflore-tech" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      
+    
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2025</span>
+            
+            
+            
+            <span>vladflore[dot]tech. All rights reserved.</span>
+        </div>
+    </div>
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span><a href='https://ko-fi.com/D1D41G44WK' target='_blank'><img height='36' style='border:0px;height:36px;margin-top:15px;' src='https://storage.ko-fi.com/cdn/kofi1.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a></span>
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.ad54ad97364f77ede35def9096b162bb1f0b3973aa50b080f5e82fa147f6882e2a7200d7535adbf9b51bebf939f1c1ca9bbe6be87530092aca720eac4a226fda.js" integrity="sha512-rVStlzZPd&#43;3jXe&#43;QlrFiux8LOXOqULCA9egvoUf2iC4qcgDXU1rb&#43;bUb6/k58cHKm75r6HUwCSrKcg6sSiJv2g=="></script>
+
+
+    
+        <script src="/js/line-highlight.js"></script>
+    
+
+
+
+    </body>
+</html>

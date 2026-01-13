@@ -65,7 +65,7 @@ The motivation behind I wanted a SonarQube Server running in the cloud so that m
   <meta property="og:title" content="SonarQube on AWS EC2">
   <meta property="og:description" content="In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you’ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.
 The motivation behind I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is. I also didn’t want to set up my own cloud, so I just sticked with AWS EC2 solution, despite the fact that it is not always for free.">
-  <meta property="og:locale" content="en">
+  <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2020-06-04T00:00:00+00:00">
@@ -95,7 +95,7 @@ The motivation behind I wanted a SonarQube Server running in the cloud so that m
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-RE8EZYX8D9"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -266,13 +266,13 @@ The motivation behind I wanted a SonarQube Server running in the cloud so that m
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># go into PostgreSQL</span>
 </span></span><span style="display:flex;"><span>psql
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">--- create the user
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">USER</span> sonarqube <span style="color:#66d9ef">WITH</span> PASSWORD <span style="color:#e6db74">&#39;yourPassword&#39;</span>;
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">USER</span> sonarqube <span style="color:#66d9ef">WITH</span> PASSWORD <span style="color:#e6db74">&#39;yourPassword&#39;</span>;
 </span></span><span style="display:flex;"><span><span style="color:#75715e">--- create the database
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> sonarqube <span style="color:#66d9ef">OWNER</span> sonarqube;
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> sonarqube <span style="color:#66d9ef">OWNER</span> sonarqube;
 </span></span><span style="display:flex;"><span><span style="color:#75715e">--- grant the privileges
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> sonarqube <span style="color:#66d9ef">TO</span> sonarqube;
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> sonarqube <span style="color:#66d9ef">TO</span> sonarqube;
 </span></span><span style="display:flex;"><span><span style="color:#75715e">--- exit PostgreSQL
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#960050;background-color:#1e0010">\</span>q
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">\</span>q
 </span></span></code></pre></div><h3 id="add-inbound-rule-for-the-security-group-the-instance-belongs-to">Add inbound rule for the security group the instance belongs to</h3>
 <p>In order to allow requests to be made to SonarQube you have to add an inbound rule for the security group the EC2 instance belongs to. Find the security group your instance has (on the <code>Instances</code> page, check for the <code>Security Groups</code> column in the table which displays your instances, go to that SG and edit the <code>Inbound Rules</code> by adding a new one for <code>TCP</code> and port <code>9000</code>).</p>
 <h2 id="step-3">Step 3</h2>
