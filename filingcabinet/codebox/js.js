@@ -35,6 +35,7 @@ let files = [];
 let filteredFiles = [];
 let editor;
 let searchTerm = "";
+let pendingHashOpen = null;
 
 require.config({
   paths: { vs: "https://unpkg.com/monaco-editor@latest/min/vs" },
@@ -49,6 +50,7 @@ require(["vs/editor/editor.main"], function () {
   fetchRepoFiles();
   initializeWindowResize();
   initializePanelResize();
+  initializeHashNavigation();
 });
 
 function initializeWindowResize() {
@@ -89,6 +91,7 @@ async function fetchRepoFiles() {
 
     filteredFiles = [...files];
     renderFileList();
+    openFromHash();
 
     showNotification(`Loaded ${files.length} files from repository`, "success");
   } catch (error) {
@@ -106,6 +109,62 @@ async function fetchRepoFiles() {
         </button>
       </div>
     `;
+  }
+}
+
+function initializeHashNavigation() {
+  window.addEventListener("hashchange", () => {
+    if (files.length === 0) {
+      pendingHashOpen = getHashTag();
+      return;
+    }
+    openFromHash();
+  });
+}
+
+function getHashTag() {
+  const raw = window.location.hash.replace(/^#/, "");
+  if (!raw) return "";
+  try {
+    return decodeURIComponent(raw).trim();
+  } catch {
+    return raw.trim();
+  }
+}
+
+function normalizeTag(tag) {
+  return tag.trim().toLowerCase();
+}
+
+function findFileByTag(tag) {
+  if (!tag) return null;
+
+  const normalizedTag = normalizeTag(tag);
+  const exactPathMatch = files.find(
+    (f) => normalizeTag(f.path) === normalizedTag
+  );
+  if (exactPathMatch) return exactPathMatch;
+
+  return (
+    files.find((f) => {
+      const filename = extractFilename(f.path);
+      const nameWithoutExt = filename.replace(/\.(py|java)$/i, "");
+      return normalizeTag(nameWithoutExt) === normalizedTag;
+    }) || null
+  );
+}
+
+function openFromHash() {
+  const tag = pendingHashOpen || getHashTag();
+  pendingHashOpen = null;
+
+  if (!tag) return;
+
+  const match = findFileByTag(tag);
+  if (match) {
+    loadFile(match.path);
+  } else {
+    showNotification(`No problem found for tag: ${tag}`, "warning");
   }
 }
 
