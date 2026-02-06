@@ -21,7 +21,7 @@
     &lt;img src=&#34;https://vladflore.tech/images/algorithms-narrated.jpeg&#34;  alt=&#34;Screenshot of &#34;  class=&#34;left&#34;  style=&#34;border-radius: 16px;&#34;  /&gt;
 
 
-&lt;p&gt;I&amp;rsquo;ll be kicking off the series with a video on &lt;a href=&#34;https://www.youtube.com/TODO&#34; target=&#34;_blank&#34;&gt;checking if a string is a palindrome, ignoring all non-alphanumeric characters&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ll be kicking off the series with a video on &lt;a href=&#34;https://www.youtube.com/watch?v=jw3Xv2fi3m4&#34; target=&#34;_blank&#34;&gt;checking if a string is a palindrome, ignoring all non-alphanumeric characters&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The code presented in the video is in &lt;em&gt;Java&lt;/em&gt;, and the video is narrated in &lt;em&gt;English&lt;/em&gt;. Note that the solution I chose is just &lt;em&gt;one of many possible solutions&lt;/em&gt; to the problem, and I encourage you to explore other approaches. Alongside the code, you&amp;rsquo;ll find a brief explanation that includes the problem statement, some test cases and the time complexity of the solution.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<h2 id="introduction">Introduction</h2>
 <p>Building on the <a href="https://vladflore.tech/posts/2021/08/git-animated-1/">Git Animated</a> series, I&rsquo;ve started a new project called &ldquo;Algorithms Narrated&rdquo;. This series presents solutions to various algorithmic problems—think <em>LeetCode</em>—by narrating the thought process and steps involved in solving them.</p>
@@ -30,7 +30,7 @@
     <img src="/images/algorithms-narrated.jpeg"  alt="Screenshot of "  class="left"  style="border-radius: 16px;"  />
 
 
-<p>I&rsquo;ll be kicking off the series with a video on <a href="https://www.youtube.com/TODO" target="_blank">checking if a string is a palindrome, ignoring all non-alphanumeric characters</a>.</p>
+<p>I&rsquo;ll be kicking off the series with a video on <a href="https://www.youtube.com/watch?v=jw3Xv2fi3m4" target="_blank">checking if a string is a palindrome, ignoring all non-alphanumeric characters</a>.</p>
 <p>The code presented in the video is in <em>Java</em>, and the video is narrated in <em>English</em>. Note that the solution I chose is just <em>one of many possible solutions</em> to the problem, and I encourage you to explore other approaches. Alongside the code, you&rsquo;ll find a brief explanation that includes the problem statement, some test cases and the time complexity of the solution.</p>
 <p>If you want to try the code, you can do so on <a href="http://vladflore.tech/filingcabinet/codebox/runcodebox.html#IsStringPalindrome" target="_blank">this page</a>.</p>
 <blockquote>
