@@ -5,8 +5,42 @@
         <description>Recent content in Posts on vlad·flore · tech</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 13 Jan 2026 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Fri, 06 Feb 2026 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://vladflore.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Algorithms Narrated</title>
+            <link>https://vladflore.tech/posts/2026/02/algorithms-narrated/</link>
+            <pubDate>Fri, 06 Feb 2026 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2026/02/algorithms-narrated/</guid>
+            <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Building on the &lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-1/&#34;&gt;Git Animated&lt;/a&gt; series, I&amp;rsquo;ve started a new project called &amp;ldquo;Algorithms Narrated&amp;rdquo;. This series presents solutions to various algorithmic problems—think &lt;em&gt;LeetCode&lt;/em&gt;—by narrating the thought process and steps involved in solving them.&lt;/p&gt;
+&lt;h2 id=&#34;the-series&#34;&gt;The Series&lt;/h2&gt;
+
+    &lt;img src=&#34;https://vladflore.tech/images/algorithms-narrated.jpeg&#34;  alt=&#34;Screenshot of &#34;  class=&#34;left&#34;  style=&#34;border-radius: 16px;&#34;  /&gt;
+
+
+&lt;p&gt;I&amp;rsquo;ll be kicking off the series with a video on &lt;a href=&#34;https://www.youtube.com/TODO&#34; target=&#34;_blank&#34;&gt;checking if a string is a palindrome, ignoring all non-alphanumeric characters&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The code presented in the video is in &lt;em&gt;Java&lt;/em&gt;, and the video is narrated in &lt;em&gt;English&lt;/em&gt;. Note that the solution I chose is just &lt;em&gt;one of many possible solutions&lt;/em&gt; to the problem, and I encourage you to explore other approaches. Alongside the code, you&amp;rsquo;ll find a brief explanation that includes the problem statement, some test cases and the time complexity of the solution.&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>Building on the <a href="https://vladflore.tech/posts/2021/08/git-animated-1/">Git Animated</a> series, I&rsquo;ve started a new project called &ldquo;Algorithms Narrated&rdquo;. This series presents solutions to various algorithmic problems—think <em>LeetCode</em>—by narrating the thought process and steps involved in solving them.</p>
+<h2 id="the-series">The Series</h2>
+
+    <img src="/images/algorithms-narrated.jpeg"  alt="Screenshot of "  class="left"  style="border-radius: 16px;"  />
+
+
+<p>I&rsquo;ll be kicking off the series with a video on <a href="https://www.youtube.com/TODO" target="_blank">checking if a string is a palindrome, ignoring all non-alphanumeric characters</a>.</p>
+<p>The code presented in the video is in <em>Java</em>, and the video is narrated in <em>English</em>. Note that the solution I chose is just <em>one of many possible solutions</em> to the problem, and I encourage you to explore other approaches. Alongside the code, you&rsquo;ll find a brief explanation that includes the problem statement, some test cases and the time complexity of the solution.</p>
+<p>If you want to try the code, you can do so on <a href="http://vladflore.tech/filingcabinet/codebox/runcodebox.html#IsStringPalindrome" target="_blank">this page</a>.</p>
+<blockquote>
+<p><em>Note</em>: The code presented in the Codebox is not the <em>exact</em> code from the video, but a slightly longer version so that it can be run and tested more easily.</p>
+</blockquote>
+<p>For this problem there is a <em>Python</em> version of the code as well, which you can find <a href="https://vladflore.tech/filingcabinet/codebox/runcodebox.html#is_string_palindrome" target="_blank">here</a>.</p>
+<p>All future videos in the series will be added to the <a href="https://www.youtube.com/playlist?list=PLgrzxhDrZj_KN3Tu_o9RaMqu9XOfmicps" target="_blank">Algorithms Narrated playlist</a> on my <a href="https://www.youtube.com/@vladflore" target="_blank">YouTube channel</a>, so make sure to subscribe if you want to stay updated on new videos. If you find them helpful, I&rsquo;d appreciate a like (👍) and encourage you to share the series.</p>
+<p>Happy coding!</p>
+]]></content>
+        </item>
         
         <item>
             <title>Compiling and Running a Maven Project with Different Java Versions</title>

@@ -6,20 +6,27 @@
     <description>Recent content in Tags on vlad·flore · tech</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 13 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 06 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://vladflore.tech/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Java</title>
-      <link>https://vladflore.tech/tags/java/</link>
-      <pubDate>Tue, 13 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/tags/java/</guid>
+      <title>Algorithms</title>
+      <link>https://vladflore.tech/tags/algorithms/</link>
+      <pubDate>Fri, 06 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/tags/algorithms/</guid>
       <description></description>
     </item>
     <item>
       <title>Nerdy</title>
       <link>https://vladflore.tech/tags/nerdy/</link>
-      <pubDate>Tue, 13 Jan 2026 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 06 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://vladflore.tech/tags/nerdy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java</title>
+      <link>https://vladflore.tech/tags/java/</link>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/tags/java/</guid>
       <description></description>
     </item>
     <item>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Algorithms on vlad·flore · tech</title>
+    <link>https://vladflore.tech/tags/algorithms/</link>
+    <description>Recent content in Algorithms on vlad·flore · tech</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://vladflore.tech/tags/algorithms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Algorithms Narrated</title>
+      <link>https://vladflore.tech/posts/2026/02/algorithms-narrated/</link>
+      <pubDate>Fri, 06 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2026/02/algorithms-narrated/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Building on the &lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-1/&#34;&gt;Git Animated&lt;/a&gt; series, I&amp;rsquo;ve started a new project called &amp;ldquo;Algorithms Narrated&amp;rdquo;. This series presents solutions to various algorithmic problems—think &lt;em&gt;LeetCode&lt;/em&gt;—by narrating the thought process and steps involved in solving them.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-series&#34;&gt;The Series&lt;/h2&gt;&#xA;&#xA;    &lt;img src=&#34;https://vladflore.tech/images/algorithms-narrated.jpeg&#34;  alt=&#34;Screenshot of &#34;  class=&#34;left&#34;  style=&#34;border-radius: 16px;&#34;  /&gt;&#xA;&#xA;&#xA;&lt;p&gt;I&amp;rsquo;ll be kicking off the series with a video on &lt;a href=&#34;https://www.youtube.com/TODO&#34; target=&#34;_blank&#34;&gt;checking if a string is a palindrome, ignoring all non-alphanumeric characters&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The code presented in the video is in &lt;em&gt;Java&lt;/em&gt;, and the video is narrated in &lt;em&gt;English&lt;/em&gt;. Note that the solution I chose is just &lt;em&gt;one of many possible solutions&lt;/em&gt; to the problem, and I encourage you to explore other approaches. Alongside the code, you&amp;rsquo;ll find a brief explanation that includes the problem statement, some test cases and the time complexity of the solution.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
