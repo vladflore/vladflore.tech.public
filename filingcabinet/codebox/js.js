@@ -6,10 +6,10 @@ function showNotification(message, type = "info") {
     type === "success"
       ? "bi-check-circle"
       : type === "error"
-      ? "bi-exclamation-triangle"
-      : type === "warning"
-      ? "bi-exclamation-circle"
-      : "bi-info-circle";
+        ? "bi-exclamation-triangle"
+        : type === "warning"
+          ? "bi-exclamation-circle"
+          : "bi-info-circle";
 
   toast.innerHTML = `
     <i class="bi ${icon}"></i>
@@ -75,7 +75,7 @@ async function fetchRepoFiles() {
     const response = await fetch(apiUrl);
     if (!response.ok) {
       throw new Error(
-        `GitHub API error: ${response.status} ${response.statusText}`
+        `GitHub API error: ${response.status} ${response.statusText}`,
       );
     }
 
@@ -84,10 +84,12 @@ async function fetchRepoFiles() {
     files = data.tree.filter(
       (f) =>
         f.type === "blob" &&
-        (f.path.endsWith(".py") || f.path.endsWith(".java"))
+        (f.path.endsWith(".py") || f.path.endsWith(".java")),
     );
 
-    files.sort((a, b) => a.path.toLowerCase().localeCompare(b.path.toLowerCase()));
+    files.sort((a, b) =>
+      a.path.toLowerCase().localeCompare(b.path.toLowerCase()),
+    );
 
     filteredFiles = [...files];
     renderFileList();
@@ -141,7 +143,7 @@ function findFileByTag(tag) {
 
   const normalizedTag = normalizeTag(tag);
   const exactPathMatch = files.find(
-    (f) => normalizeTag(f.path) === normalizedTag
+    (f) => normalizeTag(f.path) === normalizedTag,
   );
   if (exactPathMatch) return exactPathMatch;
 
@@ -174,10 +176,10 @@ function extractFilename(filePath) {
 
 function updateFileCounts() {
   const pythonFiles = filteredFiles.filter((f) =>
-    f.path.endsWith(".py")
+    f.path.endsWith(".py"),
   ).length;
   const javaFiles = filteredFiles.filter((f) =>
-    f.path.endsWith(".java")
+    f.path.endsWith(".java"),
   ).length;
   const totalFiles = filteredFiles.length;
 
@@ -243,9 +245,8 @@ function renderFileList() {
 async function loadFile(path) {
   try {
     currentFile = path;
-    document.getElementById(
-      "currentFile"
-    ).innerHTML = `<i class="bi bi-hourglass-split"></i> Loading ${path}...`;
+    document.getElementById("currentFile").innerHTML =
+      `<i class="bi bi-hourglass-split"></i> Loading ${path}...`;
     renderFileList();
 
     const rawUrl = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/${path}`;
@@ -253,7 +254,7 @@ async function loadFile(path) {
     const response = await fetch(rawUrl);
     if (!response.ok) {
       throw new Error(
-        `Failed to load file: ${response.status} ${response.statusText}`
+        `Failed to load file: ${response.status} ${response.statusText}`,
       );
     }
 
@@ -263,8 +264,8 @@ async function loadFile(path) {
     const lang = path.endsWith(".py")
       ? "python"
       : path.endsWith(".java")
-      ? "java"
-      : "plaintext";
+        ? "java"
+        : "plaintext";
     monaco.editor.setModelLanguage(editor.getModel(), lang);
 
     let iconHtml;
@@ -286,9 +287,8 @@ async function loadFile(path) {
     await loadProblemInfo(path);
   } catch (error) {
     console.error("Error loading file:", error);
-    document.getElementById(
-      "currentFile"
-    ).innerHTML = `<i class="bi bi-exclamation-triangle"></i> Error loading ${path}`;
+    document.getElementById("currentFile").innerHTML =
+      `<i class="bi bi-exclamation-triangle"></i> Error loading ${path}`;
     showNotification(`Failed to load file: ${error.message}`, "error");
   }
 }
@@ -345,8 +345,8 @@ async function runCode() {
   const lang = currentFile.endsWith(".py")
     ? "python"
     : currentFile.endsWith(".java")
-    ? "java"
-    : null;
+      ? "java"
+      : null;
 
   if (!lang) {
     document.getElementById("output").textContent = "❌ Unsupported file type";
@@ -374,7 +374,9 @@ async function runCode() {
     });
 
     if (!response.ok) {
-      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      const responseTextAsJson = JSON.parse(await response.text());
+      const message = `HTTP ${response.status}: ${response.statusText}\n${responseTextAsJson.message}`;
+      throw new Error(message);
     }
 
     const result = await response.json();
@@ -489,7 +491,7 @@ function updateToggleButtonPosition() {
   const sidebar = document.getElementById("sidebar");
   const sidebarWidth = parseInt(
     document.defaultView.getComputedStyle(sidebar).width,
-    10
+    10,
   );
 
   if (isPanelCollapsed) {
@@ -538,7 +540,7 @@ function initializePanelResize() {
     startX = e.clientX;
     startWidth = parseInt(
       document.defaultView.getComputedStyle(panel).width,
-      10
+      10,
     );
 
     resizeHandle.classList.add("dragging");
