@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,57 +11,66 @@
     <link rel="stylesheet" href="css.css" />
   </head>
   <body>
-    <div id="sidebar">
-      <h3>
-        Files
-        <span
-          id="file-counts"
-          style="font-size: 14px; color: #888; font-weight: normal"
-          >(0 total)</span
-        >
-      </h3>
-      <div id="search-container">
-        <input
-          type="text"
-          id="search-input"
-          placeholder="Search files..."
-          onkeyup="handleSearchKeyup(event)"
-          oninput="handleSearchInput()"
-        />
-        <button id="search-btn" onclick="searchFiles()">
-          <i class="bi bi-search"></i>
-        </button>
-        <button id="clear-search" onclick="clearSearch()">
-          <i class="bi bi-x"></i>
-        </button>
-      </div>
-      <div id="files"></div>
+    <div id="status-banner" role="alert" aria-live="polite">
+      ⚠️ As of 15.02.2026 code execution is not possible anymore because the
+      public Piston API is no longer available. Please test your code locally,
+      while I explore alternative solutions for code execution. Thank you for
+      your understanding!
     </div>
 
-    <div id="collapsible-panel">
-      <div id="collapsible-content">
-        <h4>Details</h4>
-        <div id="file-info">
-          <p><em>Select a file to view details</em></p>
+    <div id="app-layout">
+      <div id="sidebar">
+        <h3>
+          Files
+          <span
+            id="file-counts"
+            style="font-size: 14px; color: #888; font-weight: normal"
+            >(0 total)</span
+          >
+        </h3>
+        <div id="search-container">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search files..."
+            onkeyup="handleSearchKeyup(event)"
+            oninput="handleSearchInput()"
+          />
+          <button id="search-btn" onclick="searchFiles()">
+            <i class="bi bi-search"></i>
+          </button>
+          <button id="clear-search" onclick="clearSearch()">
+            <i class="bi bi-x"></i>
+          </button>
         </div>
+        <div id="files"></div>
       </div>
-      <div id="panel-resize-handle"></div>
-    </div>
 
-    <button id="collapse-toggle" onclick="togglePanel()">
-      <i class="bi bi-chevron-left" id="collapse-icon"></i>
-    </button>
-
-    <div id="main">
-      <div id="controls">
-        <span id="currentFile">No file selected</span>
-        <button onclick="runCode()">
-          <i class="bi bi-play-fill"></i>
-          Run
-        </button>
+      <div id="collapsible-panel">
+        <div id="collapsible-content">
+          <h4>Details</h4>
+          <div id="file-info">
+            <p><em>Select a file to view details</em></p>
+          </div>
+        </div>
+        <div id="panel-resize-handle"></div>
       </div>
-      <div id="editor"></div>
-      <pre id="output"></pre>
+
+      <button id="collapse-toggle" onclick="togglePanel()">
+        <i class="bi bi-chevron-left" id="collapse-icon"></i>
+      </button>
+
+      <div id="main">
+        <div id="controls">
+          <span id="currentFile">No file selected</span>
+          <button onclick="runCode()">
+            <i class="bi bi-play-fill"></i>
+            Run
+          </button>
+        </div>
+        <div id="editor"></div>
+        <pre id="output"></pre>
+      </div>
     </div>
 
     <div id="info-icon" onclick="toggleInfoPopup()">
