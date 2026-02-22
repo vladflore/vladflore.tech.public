@@ -6,3 +6,66 @@
   border-radius: 3px;
   box-shadow: 0 0 0 1px rgba(100, 149, 237, 0.3);
 }
+
+.menu .submenu .dropdown-content a {
+  display: block;
+  margin: 4px 0;
+  padding: 2px 8px;
+  line-height: 1.2;
+}
+
+.menu .submenu .dropdown-content a:first-child {
+  margin-top: 8px;
+}
+
+.menu .submenu .dropdown-content a:last-child {
+  margin-bottom: 0;
+}
+
+.menu .submenu .dropdown-content a:hover,
+.menu .submenu .dropdown-content a:focus-visible {
+  background: transparent;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 1.5rem;
+}
+
+.cert-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cert-thumb-link {
+  display: block;
+}
+
+.cert-thumb {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.cert-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cert-title {
+  font-weight: 600;
+}
+
+.cert-issued {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}

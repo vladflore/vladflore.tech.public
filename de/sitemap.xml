@@ -2,128 +2,92 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.com/de/posts/2022/02/a/</loc>
-    <lastmod>2022-02-25T17:02:07+01:00</lastmod>
+    <loc>https://vladflore.tech/de/</loc>
+    <lastmod>2026-02-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/posts/2022/02/a/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ro"
-                href="https://example.com/ro/posts/2022/02/a/"
+                href="https://vladflore.tech/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://example.com/de/posts/2022/02/a/"
+                href="https://vladflore.tech/de/"
                 />
   </url><url>
-    <loc>https://example.com/de/posts/</loc>
-    <lastmod>2022-02-25T17:02:07+01:00</lastmod>
+    <loc>https://vladflore.tech/de/certs/</loc>
+    <lastmod>2026-02-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ro"
-                href="https://example.com/ro/posts/"
+                href="https://vladflore.tech/certs/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://example.com/de/posts/"
+                href="https://vladflore.tech/de/certs/"
                 />
   </url><url>
-    <loc>https://example.com/de/tags/</loc>
-    <lastmod>2022-02-25T17:02:07+01:00</lastmod>
+    <loc>https://vladflore.tech/de/portfolio/</loc>
+    <lastmod>2024-09-07T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ro"
-                href="https://example.com/ro/tags/"
+                href="https://vladflore.tech/portfolio/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://example.com/de/tags/"
+                href="https://vladflore.tech/de/portfolio/"
                 />
   </url><url>
-    <loc>https://example.com/de/tags/untagged/</loc>
-    <lastmod>2022-02-25T17:02:07+01:00</lastmod>
+    <loc>https://vladflore.tech/de/about/</loc>
+    <lastmod>2022-03-03T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/tags/untagged/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ro"
-                href="https://example.com/ro/tags/untagged/"
+                href="https://vladflore.tech/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://example.com/de/tags/untagged/"
+                href="https://vladflore.tech/de/about/"
                 />
   </url><url>
-    <loc>https://example.com/de/</loc>
-    <lastmod>2022-02-25T17:02:07+01:00</lastmod>
+    <loc>https://vladflore.tech/de/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ro"
-                href="https://example.com/ro/"
+                href="https://vladflore.tech/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://example.com/de/"
+                href="https://vladflore.tech/de/categories/"
                 />
   </url><url>
-    <loc>https://example.com/de/categories/</loc>
+    <loc>https://vladflore.tech/de/series/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ro"
-                href="https://example.com/ro/categories/"
+                href="https://vladflore.tech/series/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://example.com/de/categories/"
+                href="https://vladflore.tech/de/series/"
                 />
   </url><url>
-    <loc>https://example.com/de/series/</loc>
+    <loc>https://vladflore.tech/de/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/series/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ro"
-                href="https://example.com/ro/series/"
+                href="https://vladflore.tech/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://example.com/de/series/"
+                href="https://vladflore.tech/de/tags/"
                 />
   </url>
 </urlset>

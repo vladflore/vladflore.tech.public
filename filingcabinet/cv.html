@@ -165,9 +165,35 @@
         color: #1a1a1a;
         text-decoration: underline;
       }
+      .top-nav {
+        max-width: 1000px;
+        margin: 24px auto 0;
+        padding: 0 8px;
+      }
+      .back-to-blog {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #2c3e50;
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 14px;
+        border-radius: 8px;
+        font-weight: 600;
+      }
+      .back-to-blog:hover {
+        background: #1a1a1a;
+        color: #fff;
+      }
     </style>
   </head>
   <body>
+    <div class="top-nav">
+      <a class="back-to-blog" href="/">
+        <i class="fas fa-arrow-left"></i>
+        Back to blog
+      </a>
+    </div>
     <div class="resume-container">
       <div class="header-section">
         <div class="header-content">
