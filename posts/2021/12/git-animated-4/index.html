@@ -6,8 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Vlad Flore ">
-<meta name="description" content="This is the forth and last video in the Git Animated series. If you are interested in the other ones, check the links below:
-part one part two part three Another way of integrating changes of a branch into another one is by performing a rebase. Instead of creating a new merge commit, as it happens when we merge two histories, a rebase will change the base of a branch from one commit to another. Changing the base of a branch means changing the commit that branch was created from to be some other commit.
+<meta name="description" content="This is the forth video in the Git Animated series. If you are interested in the other ones, check the links below:
+part one part two part three part five Another way of integrating changes of a branch into another one is by performing a rebase. Instead of creating a new merge commit, as it happens when we merge two histories, a rebase will change the base of a branch from one commit to another. Changing the base of a branch means changing the commit that branch was created from to be some other commit.
 " />
 <meta name="keywords" content=", git, animated, nerdy" />
 <meta name="robots" content="noodp" />
@@ -44,10 +44,10 @@ part one part two part three Another way of integrating changes of a branch into
 
 
   <meta itemprop="name" content="Git Animated 4">
-  <meta itemprop="description" content="This is the forth and last video in the Git Animated series. If you are interested in the other ones, check the links below:
-part one part two part three Another way of integrating changes of a branch into another one is by performing a rebase. Instead of creating a new merge commit, as it happens when we merge two histories, a rebase will change the base of a branch from one commit to another. Changing the base of a branch means changing the commit that branch was created from to be some other commit.">
+  <meta itemprop="description" content="This is the forth video in the Git Animated series. If you are interested in the other ones, check the links below:
+part one part two part three part five Another way of integrating changes of a branch into another one is by performing a rebase. Instead of creating a new merge commit, as it happens when we merge two histories, a rebase will change the base of a branch from one commit to another. Changing the base of a branch means changing the commit that branch was created from to be some other commit.">
   <meta itemprop="datePublished" content="2021-12-23T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2021-12-23T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-03-14T00:00:00+00:00">
   <meta itemprop="wordCount" content="367">
   <meta itemprop="image" content="https://vladflore.tech/">
   <meta itemprop="keywords" content="Git,Animated,Nerdy">
@@ -55,21 +55,21 @@ part one part two part three Another way of integrating changes of a branch into
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://vladflore.tech/">
   <meta name="twitter:title" content="Git Animated 4">
-  <meta name="twitter:description" content="This is the forth and last video in the Git Animated series. If you are interested in the other ones, check the links below:
-part one part two part three Another way of integrating changes of a branch into another one is by performing a rebase. Instead of creating a new merge commit, as it happens when we merge two histories, a rebase will change the base of a branch from one commit to another. Changing the base of a branch means changing the commit that branch was created from to be some other commit.">
+  <meta name="twitter:description" content="This is the forth video in the Git Animated series. If you are interested in the other ones, check the links below:
+part one part two part three part five Another way of integrating changes of a branch into another one is by performing a rebase. Instead of creating a new merge commit, as it happens when we merge two histories, a rebase will change the base of a branch from one commit to another. Changing the base of a branch means changing the commit that branch was created from to be some other commit.">
 
 
 
     <meta property="og:url" content="https://vladflore.tech/posts/2021/12/git-animated-4/">
   <meta property="og:site_name" content="vlad·flore · tech">
   <meta property="og:title" content="Git Animated 4">
-  <meta property="og:description" content="This is the forth and last video in the Git Animated series. If you are interested in the other ones, check the links below:
-part one part two part three Another way of integrating changes of a branch into another one is by performing a rebase. Instead of creating a new merge commit, as it happens when we merge two histories, a rebase will change the base of a branch from one commit to another. Changing the base of a branch means changing the commit that branch was created from to be some other commit.">
+  <meta property="og:description" content="This is the forth video in the Git Animated series. If you are interested in the other ones, check the links below:
+part one part two part three part five Another way of integrating changes of a branch into another one is by performing a rebase. Instead of creating a new merge commit, as it happens when we merge two histories, a rebase will change the base of a branch from one commit to another. Changing the base of a branch means changing the commit that branch was created from to be some other commit.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2021-12-23T00:00:00+00:00">
-    <meta property="article:modified_time" content="2021-12-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-03-14T00:00:00+00:00">
     <meta property="article:tag" content="Git">
     <meta property="article:tag" content="Animated">
     <meta property="article:tag" content="Nerdy">
@@ -230,12 +230,13 @@ part one part two part three Another way of integrating changes of a branch into
       
 
       <div class="post-content">
-        <p>This is the forth and last video in the <strong>Git Animated</strong> series.
+        <p>This is the forth video in the <strong>Git Animated</strong> series.
 If you are interested in the other ones, check the links below:</p>
 <ul>
 <li><a href="https://vladflore.tech/posts/2021/08/git-animated-1/">part one</a></li>
 <li><a href="https://vladflore.tech/posts/2021/08/git-animated-2/">part two</a></li>
 <li><a href="https://vladflore.tech/posts/2021/09/git-animated-3/">part three</a></li>
+<li><a href="https://vladflore.tech/posts/2026/03/git-animated-5/">part five</a></li>
 </ul>
 <p>Another way of integrating changes of a branch into another one is by performing a <strong>rebase</strong>. Instead of creating a new merge commit, as it happens when we <strong>merge</strong> two histories, a rebase will change the base of a branch from one commit to another. Changing the base of a branch means changing the commit that branch was created from to be some other commit.</p>
 <p>In the animation we change the original base of <code>feature</code>, the commit <code>M2</code>, to be <code>M3</code>. Performing this action has the effect of integrating the changes introduced by <code>M3</code> into the <code>feature</code> branch, together with whatever the <code>feature</code> branch already had on it. As you may observe, this action does not produce a new commit containing the changes of both the <code>master</code> and <code>feature</code> branches, rather it creates three new commits, <code>F'0</code>, <code>F'1</code>, <code>F'2</code>, which content-wise are identical to the commits <code>F0</code>, <code>F1</code>, <code>F2</code>, and sticks them after the commit <code>M3</code>. This way, the <code>feature</code> branch contains the changes introduced by the commit <code>M3</code> too.</p>
@@ -305,6 +306,10 @@ git rebase master
         
 
          
+          
+            
+              (Last updated: 2026-03-14 01:00)
+            
           
         
       </p>
