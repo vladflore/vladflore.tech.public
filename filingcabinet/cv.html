@@ -12,10 +12,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       rel="stylesheet"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-family: "Lato", sans-serif;
         line-height: 1.6;
         background-color: #e8e8e8;
       }
@@ -89,8 +92,10 @@
       }
       .job-title {
         color: #1a1a1a;
-        font-weight: 600;
-        font-size: 1.1rem;
+        font-weight: 700;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
       }
       .company-name {
         color: #2c3e50;
@@ -185,6 +190,55 @@
         background: #1a1a1a;
         color: #fff;
       }
+      .kw {
+        font-weight: 700;
+        color: #1a1a1a;
+      }
+
+      @page {
+        size: A4 portrait;
+        margin: 2mm 3mm 5mm;
+      }
+
+      @media print {
+        body {
+          background-color: white;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .top-nav,
+        #printBtn {
+          display: none !important;
+        }
+        .resume-container {
+          max-width: 100%;
+          margin: 0;
+          box-shadow: none;
+          border-radius: 0;
+        }
+        .sidebar {
+          min-height: auto;
+        }
+        .row {
+          display: flex !important;
+        }
+        .col-md-4 {
+          flex: 0 0 32% !important;
+          max-width: 32% !important;
+        }
+        .col-md-8 {
+          flex: 0 0 68% !important;
+          max-width: 68% !important;
+        }
+        .break {
+          break-before: page;
+        }
+        .employment-item,
+        .education-item,
+        .tech-stack {
+          break-inside: avoid;
+        }
+      }
     </style>
   </head>
   <body>
@@ -238,6 +292,11 @@
           <div class="mb-4">
             <h3 class="section-title">Education</h3>
             <div class="education-item">
+              <div class="fw-bold">Machine Learning Specialization</div>
+              <div class="company-name">DeepLearning.AI & Stanford Online</div>
+              <div class="date-range">2026</div>
+            </div>
+            <div class="education-item">
               <div class="fw-bold">Master of Science in Informatics</div>
               <div class="company-name">West University of Timișoara</div>
               <div class="date-range">2008 — 2010</div>
@@ -253,7 +312,7 @@
               <div class="grade">Grade: 9.67/10</div>
             </div>
           </div>
-
+          <div class="break"></div>
           <div class="mb-4 mt-1">
             <h3 class="section-title">Languages</h3>
             <div class="language-item">Romanian (native)</div>
@@ -293,6 +352,7 @@
                 <i class="fas fa-cubes me-2 text-primary"></i>
                 Microservices & Cloud-Native Architecture
               </li>
+              <div class="break"></div>
               <li class="mb-2">
                 <i class="fas fa-comments me-2 text-primary"></i>
                 Messaging and Event-Sourcing Systems (RabbitMQ, EventStoreDB)
@@ -321,8 +381,6 @@
               </li>
             </ul>
           </div>
-
-          <div class="break"></div>
 
           <div class="mb-4 mt-2">
             <h3 class="section-title">Links</h3>
@@ -373,25 +431,28 @@
             <div class="profile-highlights">
               <ul class="mb-0">
                 <li>
-                  Backend Software Engineer specializing in Java and Python,
-                  building scalable, cloud-native applications and modernizing
-                  complex legacy systems
+                  Backend Software Engineer specializing in
+                  <span class="kw">Java, Python</span>, and
+                  <span class="kw">GenAI-powered</span> solutions, building
+                  scalable, cloud-native applications and modernizing complex
+                  legacy systems
                 </li>
                 <li>
-                  Versatile project experience including greenfield and
-                  brownfield initiatives in public sector services, content
-                  management systems, and intelligence document processing
-                  solutions
+                  Versatile project experience across greenfield and brownfield
+                  initiatives in public sector services, content management
+                  systems, and intelligence document processing solutions,
+                  including <span class="kw">AI-assisted</span> data extraction,
+                  classification, and automation
                 </li>
                 <li>
                   Proven leader in agile development environments, driving team
-                  collaboration, ensuring code quality, and meeting project
-                  deadlines
+                  collaboration, ensuring code quality, and consistently
+                  delivering projects on schedule
                 </li>
               </ul>
             </div>
           </div>
-
+          <div class="break"></div>
           <div class="mb-4">
             <h3 class="section-title">Employment History</h3>
 
@@ -401,51 +462,43 @@
               <div class="date-range">January 2025 - present</div>
               <ul class="mt-3">
                 <li>
-                  Designed, developed, and maintained Web APIs (Java and
-                  Python), including integration with external services
+                  Developed and maintained
+                  <span class="kw">scalable Web APIs</span> in Java and Python,
+                  including integrations with external platforms and services
                 </li>
                 <li>
-                  Created educational software engineering content focused on
-                  Java and the JVM ecosystem, Data Structures and Algorithms
+                  Designed and implemented
+                  <span class="kw">LLM- and RAG-powered</span> solutions for
+                  medical coding and document understanding
                 </li>
                 <li>
-                  Designed and implemented LLM- and RAG-based systems for
-                  document understanding and question answering
+                  Worked as a <span class="kw">Java Domain Expert</span> through
+                  Mercor, contributing to AI training, code evaluation, and
+                  technical assessment workflows for LLM systems
                 </li>
                 <li>
-                  Built end-to-end machine learning pipelines from data
-                  preprocessing to model deployment
+                  Built end-to-end machine learning pipelines, covering data
+                  preprocessing, model training, evaluation, and deployment
+                </li>
+                <li>
+                  Led documentation modernization efforts, including migration
+                  to modern documentation platforms to improve maintainability,
+                  structure, and multi-version documentation support
+                </li>
+                <li>
+                  Created software engineering
+                  <span class="kw">educational content</span> focused on Java,
+                  the JVM ecosystem, and Data Structures & Algorithms
                 </li>
               </ul>
-
-              <div class="break"></div>
 
               <div class="tech-stack">
                 <strong>Tech Stack:</strong>
-                Java, Spring (Framework, Boot, AI), Python, FastAPI, Django,
+                Python, FastAPI, Django, Java, Spring (Framework, Boot, AI),
                 PyScript, OpenAPI, Weaviate, PostgreSQL (with pgvector),
                 Generative AI (LLM, RAG, Agentic Systems), LangChain(4j),
                 Ollama, Docker, Kubernetes, AWS (EC2, S3, IAM, Lambda, ECR, ECS,
-                EKS, Bedrock, SageMaker)
-              </div>
-            </div>
-
-            <div class="employment-item">
-              <div class="job-title">Educational Content Creator</div>
-              <div class="company-name">
-                Contract, Hyperskill, Remote (Barcelona)
-              </div>
-              <div class="date-range">October 2023 — March 2024</div>
-              <ul class="mt-3">
-                <li>
-                  Created and enhanced educational content for the Spring Boot
-                  track offered by JetBrains Academy through the Hyperskill
-                  platform, contributing to high-quality, hands-on learning
-                  experiences for aspiring developers
-                </li>
-              </ul>
-              <div class="tech-stack">
-                <strong>Tech Stack:</strong> Java, Spring Framework, Spring Boot
+                EKS, Bedrock, SageMaker), Antora, Docusaurus
               </div>
             </div>
 
@@ -493,14 +546,31 @@
                 </li>
               </ul>
 
-              <div class="break"></div>
-
               <div class="tech-stack">
                 <strong>Tech Stack:</strong> Python, Java, Django, Spring
                 Framework, Spring Boot, Akka, GraphQL, PostGraphile, PostgreSQL,
                 EventStoreDB, RabbitMQ, Docker, Kubernetes, Helm, Keda, AWS S3,
                 MinIO, AWS ECR, AWS ECS, AWS EKS, Git, GitLab, TeamCity, Argo
                 CD, Grafana, AsciiDoc, Antora, Linux, JUnit
+              </div>
+            </div>
+
+            <div class="employment-item">
+              <div class="job-title">Educational Content Creator</div>
+              <div class="company-name">
+                Contract, Hyperskill, Remote (Barcelona)
+              </div>
+              <div class="date-range">October 2023 — March 2024</div>
+              <ul class="mt-3">
+                <li>
+                  Created and enhanced educational content for the Spring Boot
+                  track offered by JetBrains Academy through the Hyperskill
+                  platform, contributing to high-quality, hands-on learning
+                  experiences for aspiring developers
+                </li>
+              </ul>
+              <div class="tech-stack">
+                <strong>Tech Stack:</strong> Java, Spring Framework, Spring Boot
               </div>
             </div>
 
@@ -568,8 +638,6 @@
                 Docker, Oracle Database, Hibernate, Linux, Git
               </div>
             </div>
-
-            <div class="break"></div>
 
             <div class="employment-item">
               <div class="job-title">Software Developer</div>
@@ -646,43 +714,19 @@
     </div>
 
     <script>
-      function downloadCV() {
-        const element = document.querySelector(".resume-container");
-        const originalMarginTop = element.style.marginTop;
-        element.style.marginTop = "0px";
-
-        const options = {
-          margin: [10, 10, 10, 10],
-          filename: "Vlad-Emil_Flore_Software_Engineer_CV.pdf",
-          image: { type: "jpeg", quality: 0.7 },
-          html2canvas: { scale: 2, useCORS: true, scrollY: 0 },
-          jsPDF: {
-            unit: "pt",
-            format: "a4",
-            orientation: "portrait",
-          },
-          pagebreak: {
-            mode: ["css"],
-            before: ".break",
-          },
+      document.addEventListener("DOMContentLoaded", function () {
+        var btn = document.createElement("button");
+        btn.id = "printBtn";
+        btn.textContent = "Save as PDF";
+        btn.className = "btn btn-dark";
+        btn.style.position = "fixed";
+        btn.style.bottom = "20px";
+        btn.style.right = "20px";
+        btn.style.zIndex = "1000";
+        btn.onclick = function () {
+          window.print();
         };
-        html2pdf()
-          .set(options)
-          .from(element)
-          .save()
-          .then(() => {
-            element.style.marginTop = originalMarginTop;
-          });
-      }
-      document.addEventListener("DOMContentLoaded", () => {
-        const downloadButton = document.createElement("button");
-        downloadButton.textContent = "Download CV as PDF";
-        downloadButton.className = "btn btn-dark mb-4";
-        downloadButton.style.position = "fixed";
-        downloadButton.style.bottom = "20px";
-        downloadButton.style.right = "20px";
-        downloadButton.onclick = downloadCV;
-        document.body.appendChild(downloadButton);
+        document.body.appendChild(btn);
       });
     </script>
 
