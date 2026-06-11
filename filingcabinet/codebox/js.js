@@ -330,6 +330,10 @@ async function loadProblemInfo(filePath) {
   }
 }
 
+const PISTON_EXECUTE_URL = window.location.hostname === "localhost"
+  ? "/api/v2/execute"
+  : "https://piston.vladflore.tech/api/v2/execute";
+
 async function runCode() {
   if (!currentFile) {
     showNotification("⚠️ Please select a file first", "warning");
@@ -361,9 +365,9 @@ async function runCode() {
   runButton.innerHTML = '<i class="bi bi-hourglass-split"></i> Running...';
 
   try {
-    const version = lang === "java" ? "15.0.2" : "3.10.0";
+    const version = lang === "java" ? "15.0.2" : "3.12.0";
 
-    const response = await fetch("https://emkc.org/api/v2/piston/execute", {
+    const response = await fetch(PISTON_EXECUTE_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -374,9 +378,14 @@ async function runCode() {
     });
 
     if (!response.ok) {
-      const responseTextAsJson = JSON.parse(await response.text());
-      const message = `HTTP ${response.status}: ${response.statusText}\n${responseTextAsJson.message}`;
-      throw new Error(message);
+      const text = await response.text();
+      let detail = "";
+      try {
+        detail = "\n" + JSON.parse(text).message;
+      } catch {
+        if (text) detail = "\n" + text;
+      }
+      throw new Error(`HTTP ${response.status}: ${response.statusText}${detail}`);
     }
 
     const result = await response.json();
