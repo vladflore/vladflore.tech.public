@@ -8,7 +8,7 @@ body {
   font-family: sans-serif;
   overflow: hidden;
 }
-#status-banner {
+/* #status-banner {
   width: 100%;
   box-sizing: border-box;
   background: #5a2d2d;
@@ -18,7 +18,7 @@ body {
   font-size: 14px;
   line-height: 1.4;
   font-weight: 600;
-}
+} */
 #app-layout {
   flex: 1;
   min-height: 0;
