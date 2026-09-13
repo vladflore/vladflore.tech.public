@@ -29,6 +29,122 @@
   cursor: pointer;
 }
 
+.header {
+  position: relative;
+  z-index: 500;
+}
+
+/* Business card dropdown in the main nav */
+.business-card-menu.submenu {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 12px;
+}
+
+.lang-switch-menu li.dropdown {
+  margin-right: 4px;
+}
+
+.business-card-menu li.dropdown {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+
+.business-card-menu .dropbtn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.business-card-menu .dropbtn svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+.business-card-menu .dropdown-content {
+  display: none !important;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: auto;
+  margin-top: 8px;
+  width: 240px;
+  max-width: 90vw;
+  box-sizing: border-box;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #dcdcdc;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+  text-align: left;
+}
+
+.business-card-menu .dropdown-content.is-open {
+  display: block !important;
+}
+
+[data-theme=dark] .business-card-menu .dropdown-content {
+  border-color: #4e4e57;
+}
+
+@media (prefers-color-scheme: dark) {
+  .business-card-menu .dropdown-content {
+    border-color: #4e4e57;
+  }
+}
+
+.business-card-photo {
+  display: block;
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 0 0.6rem;
+}
+
+.business-card-name {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.business-card-title {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-top: 0.15rem;
+}
+
+.business-card-pitch {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-top: 0.5rem;
+}
+
+.business-card-links {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.business-card-links a {
+  display: flex !important;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.business-card-links a svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
 .cert-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -183,4 +299,52 @@
   .featured-projects-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Support CTA shown after post content */
+.support-cta {
+  margin-top: 2rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.015);
+}
+
+[data-theme=dark] .support-cta {
+  border-color: #4e4e57;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+[data-theme=light] .support-cta {
+  border-color: #dcdcdc;
+  background: rgba(0, 0, 0, 0.015);
+}
+
+@media (prefers-color-scheme: dark) {
+  .support-cta {
+    border-color: #4e4e57;
+    background: rgba(255, 255, 255, 0.03);
+  }
+}
+
+.support-cta p {
+  margin: 0;
+  font-size: 0.95rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.support-cta-badge {
+  display: inline-flex;
+  line-height: 0;
+}
+
+.support-cta-badge img {
+  display: block;
+  height: 28px;
+  width: auto;
+  border-radius: 6px;
+  vertical-align: middle;
 }

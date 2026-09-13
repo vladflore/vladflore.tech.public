@@ -6,8 +6,15 @@
     <description>Recent content in Git on vlad·flore · tech</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 14 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://vladflore.tech/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git Worktrees: Work on Two Branches at Once</title>
+      <link>https://vladflore.tech/posts/2026/09/git-worktrees-work-on-two-branches-at-once/</link>
+      <pubDate>Sun, 13 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2026/09/git-worktrees-work-on-two-branches-at-once/</guid>
+      <description>&lt;h2 id=&#34;meet-git-worktree&#34;&gt;Meet &lt;code&gt;git worktree&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;You&amp;rsquo;re mid-feature, working tree is dirty, half-finished file sitting there uncommitted. Then a bug report lands against &lt;code&gt;main&lt;/code&gt;. The usual way to deal with this:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git stash&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git checkout main&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# fix the bug&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git checkout feature/whatever&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git stash pop&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It works, but it&amp;rsquo;s a dance, and it gets worse the more files you&amp;rsquo;ve touched. &lt;code&gt;git worktree&lt;/code&gt; skips the dance entirely: instead of switching branches inside one working directory, you get a &lt;em&gt;second&lt;/em&gt; working directory, backed by the same repository, checked out to a different branch. Your dirty feature branch stays exactly as you left it while you fix the bug somewhere else.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Git Animated 5</title>
       <link>https://vladflore.tech/posts/2026/03/git-animated-5/</link>
