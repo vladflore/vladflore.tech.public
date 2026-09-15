@@ -6,8 +6,15 @@
     <description>Recent content in Git on vlad·flore · tech</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 13 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 15 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://vladflore.tech/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git Reflog: The Undo Button You Didn&#39;t Know You Had</title>
+      <link>https://vladflore.tech/posts/2026/09/git-reflog-the-undo-button-you-didnt-know-you-had/</link>
+      <pubDate>Tue, 15 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2026/09/git-reflog-the-undo-button-you-didnt-know-you-had/</guid>
+      <description>&lt;h2 id=&#34;meet-git-reflog&#34;&gt;Meet &lt;code&gt;git reflog&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;You run &lt;code&gt;git reset --hard&lt;/code&gt; one commit too far. Or you &lt;code&gt;git branch -D&lt;/code&gt; a branch you were sure was already merged, and it wasn&amp;rsquo;t. The commit history you just lost feels gone for good, &lt;code&gt;git log&lt;/code&gt; doesn&amp;rsquo;t show it anymore.&lt;/p&gt;&#xA;&lt;p&gt;It isn&amp;rsquo;t gone. Git records every place &lt;code&gt;HEAD&lt;/code&gt; and your branches have pointed to, commits, resets, checkouts, rebases, branch deletions, all of it, in the reflog. As long as Git hasn&amp;rsquo;t garbage-collected the underlying objects (default grace period is 90 days), you can get your commit back.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Git Worktrees: Work on Two Branches at Once</title>
       <link>https://vladflore.tech/posts/2026/09/git-worktrees-work-on-two-branches-at-once/</link>

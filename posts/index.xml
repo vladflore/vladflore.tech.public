@@ -5,8 +5,124 @@
         <description>Recent content in Posts on vlad·flore · tech</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Sun, 13 Sep 2026 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Tue, 15 Sep 2026 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://vladflore.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Git Reflog: The Undo Button You Didn&#39;t Know You Had</title>
+            <link>https://vladflore.tech/posts/2026/09/git-reflog-the-undo-button-you-didnt-know-you-had/</link>
+            <pubDate>Tue, 15 Sep 2026 00:00:00 +0000</pubDate>
+            
+            <guid>https://vladflore.tech/posts/2026/09/git-reflog-the-undo-button-you-didnt-know-you-had/</guid>
+            <description>&lt;h2 id=&#34;meet-git-reflog&#34;&gt;Meet &lt;code&gt;git reflog&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;You run &lt;code&gt;git reset --hard&lt;/code&gt; one commit too far. Or you &lt;code&gt;git branch -D&lt;/code&gt; a branch you were sure was already merged, and it wasn&amp;rsquo;t. The commit history you just lost feels gone for good, &lt;code&gt;git log&lt;/code&gt; doesn&amp;rsquo;t show it anymore.&lt;/p&gt;
+&lt;p&gt;It isn&amp;rsquo;t gone. Git records every place &lt;code&gt;HEAD&lt;/code&gt; and your branches have pointed to, commits, resets, checkouts, rebases, branch deletions, all of it, in the reflog. As long as Git hasn&amp;rsquo;t garbage-collected the underlying objects (default grace period is 90 days), you can get your commit back.&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<h2 id="meet-git-reflog">Meet <code>git reflog</code></h2>
+<p>You run <code>git reset --hard</code> one commit too far. Or you <code>git branch -D</code> a branch you were sure was already merged, and it wasn&rsquo;t. The commit history you just lost feels gone for good, <code>git log</code> doesn&rsquo;t show it anymore.</p>
+<p>It isn&rsquo;t gone. Git records every place <code>HEAD</code> and your branches have pointed to, commits, resets, checkouts, rebases, branch deletions, all of it, in the reflog. As long as Git hasn&rsquo;t garbage-collected the underlying objects (default grace period is 90 days), you can get your commit back.</p>
+<h3 id="how-it-works">How it works</h3>
+<ul>
+<li><code>git reflog</code> (short for <code>git reflog show HEAD</code>) — lists every move <code>HEAD</code> has made, newest first</li>
+<li><code>git reflog show &lt;branch&gt;</code> — same thing for a specific branch ref</li>
+<li>each line looks like <code>&lt;sha&gt; HEAD@{n}: &lt;action&gt;: &lt;description&gt;</code>, where <code>HEAD@{n}</code> is a relative reference you can use anywhere a commit is expected</li>
+<li>once you&rsquo;ve found the commit you want back: <code>git reset --hard &lt;sha&gt;</code> (or <code>HEAD@{n}</code>) to move a branch back to it, or <code>git branch &lt;name&gt; &lt;sha&gt;</code> to recreate a branch that pointed there</li>
+<li>reflog entries expire after 90 days by default (<code>gc.reflogExpire</code>), and unreachable objects get pruned by <code>git gc</code> after 30 days (<code>gc.pruneExpire</code>), so this isn&rsquo;t a forever-undo, but it comfortably covers &ldquo;I did something dumb five minutes ago&rdquo;</li>
+</ul>
+<h3 id="example-recovering-from-a-bad-reset---hard">Example: recovering from a bad <code>reset --hard</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir reflog-demo <span style="color:#f92672">&amp;&amp;</span> cd reflog-demo
+</span></span><span style="display:flex;"><span>git init -b main
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;v1&#34;</span> &gt; notes.txt
+</span></span><span style="display:flex;"><span>git add notes.txt
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Add notes&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;v2&#34;</span> &gt; notes.txt
+</span></span><span style="display:flex;"><span>git add notes.txt
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Update notes to v2&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;v3&#34;</span> &gt; notes.txt
+</span></span><span style="display:flex;"><span>git add notes.txt
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Update notes to v3&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git log --oneline
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>027eae4 Update notes to v3
+</span></span><span style="display:flex;"><span>f091e9f Update notes to v2
+</span></span><span style="display:flex;"><span>3849dbf Add notes
+</span></span></code></pre></div><p>Now the &ldquo;oops&rdquo;: you meant to undo your uncommitted changes, but typed one <code>~1</code> too many and blew away a real commit.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git reset --hard HEAD~1
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>HEAD is now at f091e9f Update notes to v2
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --oneline
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>f091e9f Update notes to v2
+</span></span><span style="display:flex;"><span>3849dbf Add notes
+</span></span></code></pre></div><p><code>Update notes to v3</code> is gone from the log. Check the reflog:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git reflog
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>f091e9f HEAD@<span style="color:#f92672">{</span>0<span style="color:#f92672">}</span>: reset: moving to HEAD~1
+</span></span><span style="display:flex;"><span>027eae4 HEAD@<span style="color:#f92672">{</span>1<span style="color:#f92672">}</span>: commit: Update notes to v3
+</span></span><span style="display:flex;"><span>f091e9f HEAD@<span style="color:#f92672">{</span>2<span style="color:#f92672">}</span>: commit: Update notes to v2
+</span></span><span style="display:flex;"><span>3849dbf HEAD@<span style="color:#f92672">{</span>3<span style="color:#f92672">}</span>: commit <span style="color:#f92672">(</span>initial<span style="color:#f92672">)</span>: Add notes
+</span></span></code></pre></div><p>There it is, <code>HEAD@{1}</code>, right before the reset. Recover it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git reset --hard HEAD@<span style="color:#f92672">{</span>1<span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>HEAD is now at 027eae4 Update notes to v3
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --oneline
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>027eae4 Update notes to v3
+</span></span><span style="display:flex;"><span>f091e9f Update notes to v2
+</span></span><span style="display:flex;"><span>3849dbf Add notes
+</span></span></code></pre></div><p>Back to normal, nothing lost.</p>
+<h3 id="example-recovering-a-deleted-branch">Example: recovering a deleted branch</h3>
+<p>This time, a feature branch gets deleted before it was merged.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git checkout -b feature/export-csv
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;export logic&#34;</span> &gt; export.py
+</span></span><span style="display:flex;"><span>git add export.py
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Add CSV export&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;more export logic&#34;</span> &gt;&gt; export.py
+</span></span><span style="display:flex;"><span>git add export.py
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Handle empty rows in CSV export&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git log --oneline
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ce52587 Handle empty rows in CSV export
+</span></span><span style="display:flex;"><span>fac30c7 Add CSV export
+</span></span><span style="display:flex;"><span>027eae4 Update notes to v3
+</span></span><span style="display:flex;"><span>f091e9f Update notes to v2
+</span></span><span style="display:flex;"><span>3849dbf Add notes
+</span></span></code></pre></div><p>Switch back to <code>main</code> and force-delete the branch, assuming it was already merged:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git checkout main
+</span></span><span style="display:flex;"><span>git branch -D feature/export-csv
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Deleted branch feature/export-csv <span style="color:#f92672">(</span>was ce52587<span style="color:#f92672">)</span>.
+</span></span></code></pre></div><blockquote>
+<p><strong>Note:</strong>
+Git actually tells you the last commit sha right there in the deletion message. If you still have that message in your terminal scrollback, you don&rsquo;t even need the reflog. But scrollback disappears, this doesn&rsquo;t.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git branch -a
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>* main
+</span></span></code></pre></div><p>The branch is gone. Its own reflog file went with it, but <code>HEAD</code>&rsquo;s reflog still remembers every commit made while that branch was checked out:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git reflog
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>027eae4 HEAD@<span style="color:#f92672">{</span>0<span style="color:#f92672">}</span>: checkout: moving from feature/export-csv to main
+</span></span><span style="display:flex;"><span>ce52587 HEAD@<span style="color:#f92672">{</span>1<span style="color:#f92672">}</span>: commit: Handle empty rows in CSV export
+</span></span><span style="display:flex;"><span>fac30c7 HEAD@<span style="color:#f92672">{</span>2<span style="color:#f92672">}</span>: commit: Add CSV export
+</span></span><span style="display:flex;"><span>027eae4 HEAD@<span style="color:#f92672">{</span>3<span style="color:#f92672">}</span>: checkout: moving from main to feature/export-csv
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p><code>ce52587</code> is the tip of the deleted branch. Recreate the branch pointing at it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git branch feature/export-csv ce52587
+</span></span><span style="display:flex;"><span>git branch -a
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>* main
+</span></span><span style="display:flex;"><span>  feature/export-csv
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --oneline feature/export-csv
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ce52587 Handle empty rows in CSV export
+</span></span><span style="display:flex;"><span>fac30c7 Add CSV export
+</span></span><span style="display:flex;"><span>027eae4 Update notes to v3
+</span></span><span style="display:flex;"><span>f091e9f Update notes to v2
+</span></span><span style="display:flex;"><span>3849dbf Add notes
+</span></span></code></pre></div><p>Fully back, both commits intact.</p>
+<h3 id="what-reflog-wont-save-you-from">What reflog won&rsquo;t save you from</h3>
+<ul>
+<li>It&rsquo;s local, the reflog lives in <code>.git/logs</code> and was never pushed anywhere, so it doesn&rsquo;t help a teammate who force-pushed over your commits on a shared branch. If the commit ever made it to your machine, though, your own reflog may still have it.</li>
+<li>It expires. Don&rsquo;t treat it as permanent history, it&rsquo;s a safety net measured in weeks, not a backup strategy.</li>
+<li>Fresh clones have no reflog history at all, it only accumulates from the moment a repository exists locally.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p><code>git reflog</code> is the tool for the five-minutes-ago disaster: a reset gone too far, a branch deleted a little too early, a rebase that ended in the wrong place. <code>git log</code> shows you where you are; <code>git reflog</code> shows you everywhere you&rsquo;ve been, and that&rsquo;s usually enough to get back.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Git Worktrees: Work on Two Branches at Once</title>
