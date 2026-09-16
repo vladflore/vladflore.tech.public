@@ -6,8 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Vlad Flore ">
-<meta name="description" content="This is the fifth and last video in the Git Animated series. If you are interested in the other ones, check the links below:
-part one part two part three part four In this video we look at cherry-pick, a powerful Git command that lets you apply the changes introduced by a specific commit from one branch onto another, without merging or rebasing the entire branch. Think of it as picking a single commit — like a cherry — and grafting it onto a different branch.
+<meta name="description" content="This is the fifth video in the Git Animated series. If you are interested in the other ones, check the links below:
+part one part two part three part four part six In this video we look at cherry-pick, a powerful Git command that lets you apply the changes introduced by a specific commit from one branch onto another, without merging or rebasing the entire branch. Think of it as picking a single commit — like a cherry — and grafting it onto a different branch.
 " />
 <meta name="keywords" content="java, python, generative ai, llm, rag, machine learning, spring boot, microservices, kubernetes, aws, software engineer, freelance developer, vlad flore, git, animated, nerdy" />
 <meta name="robots" content="noodp" />
@@ -44,8 +44,8 @@ part one part two part three part four In this video we look at cherry-pick, a p
 
 
   <meta itemprop="name" content="Git Animated 5">
-  <meta itemprop="description" content="This is the fifth and last video in the Git Animated series. If you are interested in the other ones, check the links below:
-part one part two part three part four In this video we look at cherry-pick, a powerful Git command that lets you apply the changes introduced by a specific commit from one branch onto another, without merging or rebasing the entire branch. Think of it as picking a single commit — like a cherry — and grafting it onto a different branch.">
+  <meta itemprop="description" content="This is the fifth video in the Git Animated series. If you are interested in the other ones, check the links below:
+part one part two part three part four part six In this video we look at cherry-pick, a powerful Git command that lets you apply the changes introduced by a specific commit from one branch onto another, without merging or rebasing the entire branch. Think of it as picking a single commit — like a cherry — and grafting it onto a different branch.">
   <meta itemprop="datePublished" content="2026-03-14T00:00:00+00:00">
   <meta itemprop="dateModified" content="2026-03-14T00:00:00+00:00">
   <meta itemprop="wordCount" content="308">
@@ -55,16 +55,16 @@ part one part two part three part four In this video we look at cherry-pick, a p
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
   <meta name="twitter:title" content="Git Animated 5">
-  <meta name="twitter:description" content="This is the fifth and last video in the Git Animated series. If you are interested in the other ones, check the links below:
-part one part two part three part four In this video we look at cherry-pick, a powerful Git command that lets you apply the changes introduced by a specific commit from one branch onto another, without merging or rebasing the entire branch. Think of it as picking a single commit — like a cherry — and grafting it onto a different branch.">
+  <meta name="twitter:description" content="This is the fifth video in the Git Animated series. If you are interested in the other ones, check the links below:
+part one part two part three part four part six In this video we look at cherry-pick, a powerful Git command that lets you apply the changes introduced by a specific commit from one branch onto another, without merging or rebasing the entire branch. Think of it as picking a single commit — like a cherry — and grafting it onto a different branch.">
 
 
 
     <meta property="og:url" content="https://vladflore.tech/posts/2026/03/git-animated-5/">
   <meta property="og:site_name" content="vlad·flore · tech">
   <meta property="og:title" content="Git Animated 5">
-  <meta property="og:description" content="This is the fifth and last video in the Git Animated series. If you are interested in the other ones, check the links below:
-part one part two part three part four In this video we look at cherry-pick, a powerful Git command that lets you apply the changes introduced by a specific commit from one branch onto another, without merging or rebasing the entire branch. Think of it as picking a single commit — like a cherry — and grafting it onto a different branch.">
+  <meta property="og:description" content="This is the fifth video in the Git Animated series. If you are interested in the other ones, check the links below:
+part one part two part three part four part six In this video we look at cherry-pick, a powerful Git command that lets you apply the changes introduced by a specific commit from one branch onto another, without merging or rebasing the entire branch. Think of it as picking a single commit — like a cherry — and grafting it onto a different branch.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -254,13 +254,14 @@ part one part two part three part four In this video we look at cherry-pick, a p
       
 
       <div class="post-content">
-        <p>This is the fifth and last video in the <strong>Git Animated</strong> series.
+        <p>This is the fifth video in the <strong>Git Animated</strong> series.
 If you are interested in the other ones, check the links below:</p>
 <ul>
 <li><a href="https://vladflore.tech/posts/2021/08/git-animated-1/">part one</a></li>
 <li><a href="https://vladflore.tech/posts/2021/08/git-animated-2/">part two</a></li>
 <li><a href="https://vladflore.tech/posts/2021/09/git-animated-3/">part three</a></li>
 <li><a href="https://vladflore.tech/posts/2021/12/git-animated-4/">part four</a></li>
+<li><a href="https://vladflore.tech/posts/2026/09/git-animated-6/">part six</a></li>
 </ul>
 <p>In this video we look at <strong>cherry-pick</strong>, a powerful Git command that lets you apply the changes introduced by a specific commit from one branch onto another, without merging or rebasing the entire branch. Think of it as picking a single commit — like a cherry — and grafting it onto a different branch.</p>
 <p>In the animation, we start on <code>master</code> with commits <code>M0</code> and <code>M1</code>, then create a <code>feature</code> branch and add three commits <code>F0</code>, <code>F1</code>, and <code>F2</code> to it. We then switch back to <code>master</code> and add one more commit <code>M2</code>. At this point the two branches have diverged. Instead of merging or rebasing the whole <code>feature</code> branch, we cherry-pick only commit <code>F1</code> onto <code>master</code>. Git takes the diff introduced by <code>F1</code> and replays it on top of <code>M2</code>, producing a new commit that carries the same changes but has a different hash and a different parent.</p>
