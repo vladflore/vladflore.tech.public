@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Vlad Flore ">
+<meta name="description" content="Meet git filter-repo You committed a .env file three months ago. Or hardcoded an API key that made it into a dozen commits before anyone noticed. Or a teammate&rsquo;s email is wrong across the entire log because their laptop was misconfigured on day one. git rm or a new commit doesn&rsquo;t fix any of this, the bad content is still sitting in every commit that ever touched it, reachable by anyone with the repo.
+" />
+<meta name="keywords" content="java, python, generative ai, llm, rag, machine learning, spring boot, microservices, kubernetes, aws, software engineer, freelance developer, vlad flore, git, nerdy" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://vladflore.tech/posts/2026/09/git-filter-repo-rewriting-history-the-right-way/" />
+
+
+    <title>
+        
+            Git Filter-Repo: Rewriting History the Right Way :: vlad·flore · tech 
+        
+    </title>
+
+
+
+
+
+<link rel="stylesheet" href="/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css" integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE=">
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/quiz.css">
+    
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+
+  <meta itemprop="name" content="Git Filter-Repo: Rewriting History the Right Way">
+  <meta itemprop="description" content="Meet git filter-repo You committed a .env file three months ago. Or hardcoded an API key that made it into a dozen commits before anyone noticed. Or a teammate’s email is wrong across the entire log because their laptop was misconfigured on day one. git rm or a new commit doesn’t fix any of this, the bad content is still sitting in every commit that ever touched it, reachable by anyone with the repo.">
+  <meta itemprop="datePublished" content="2026-09-17T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-09-17T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1510">
+  <meta itemprop="image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+  <meta itemprop="keywords" content="Git,Nerdy">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+  <meta name="twitter:title" content="Git Filter-Repo: Rewriting History the Right Way">
+  <meta name="twitter:description" content="Meet git filter-repo You committed a .env file three months ago. Or hardcoded an API key that made it into a dozen commits before anyone noticed. Or a teammate’s email is wrong across the entire log because their laptop was misconfigured on day one. git rm or a new commit doesn’t fix any of this, the bad content is still sitting in every commit that ever touched it, reachable by anyone with the repo.">
+
+
+
+    <meta property="og:url" content="https://vladflore.tech/posts/2026/09/git-filter-repo-rewriting-history-the-right-way/">
+  <meta property="og:site_name" content="vlad·flore · tech">
+  <meta property="og:title" content="Git Filter-Repo: Rewriting History the Right Way">
+  <meta property="og:description" content="Meet git filter-repo You committed a .env file three months ago. Or hardcoded an API key that made it into a dozen commits before anyone noticed. Or a teammate’s email is wrong across the entire log because their laptop was misconfigured on day one. git rm or a new commit doesn’t fix any of this, the bad content is still sitting in every commit that ever touched it, reachable by anyone with the repo.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-09-17T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-09-17T00:00:00+00:00">
+    <meta property="article:tag" content="Git">
+    <meta property="article:tag" content="Nerdy">
+    <meta property="og:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+
+
+
+
+
+
+    <meta property="article:published_time" content="2026-09-17 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RE8EZYX8D9"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RE8EZYX8D9');
+        }
+      </script>
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text ">
+                $ cd ~</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#a9a9b3;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner">
+        
+            
+                <li><a href="/posts/">Posts</a></li>
+            
+        
+            
+                <li><a href="/quizzes/">Quizzes</a></li>
+            
+        
+            
+                <div class="submenu">
+                    <li class="dropdown">
+                        <a href="/about/" class="dropbtn">About</a>
+                        <div class="dropdown-content">
+                            
+                                <a href="/filingcabinet/cv.html">Resume</a>
+                            
+                                <a href="/portfolio/">Portfolio</a>
+                            
+                                <a href="/certs/">Certs</a>
+                            
+                        </div>
+                    </li>
+                </div>
+            
+        
+
+        <div class="submenu business-card-menu">
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn" aria-label="Business card" title="Business card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.12,4.25h0V3.74a.86.86,0,0,0-.81-.91H19.05a.86.86,0,0,0-.8.91v.51H16.54V2.33a2.2,2.2,0,0,0-2-2.33h-5a2.2,2.2,0,0,0-2,2.33V4.25H5.75V3.74A.86.86,0,0,0,5,2.83H3.71a.86.86,0,0,0-.81.91v.51h0A3.09,3.09,0,0,0,0,7.52v13.2A3.1,3.1,0,0,0,2.88,24H21.12A3.1,3.1,0,0,0,24,20.72V7.52A3.09,3.09,0,0,0,21.12,4.25ZM19,3.74a0,0,0,0,1,0,0h1.24a0,0,0,0,1,0,0v.51H19ZM8.24,2.33A1.37,1.37,0,0,1,9.51.88h5a1.37,1.37,0,0,1,1.27,1.45V4.25h-.88V2.33a.42.42,0,0,0-.39-.44h-5a.42.42,0,0,0-.39.44V4.25H8.24ZM9.9,4.25V2.77h4.2V4.25ZM3.68,3.74a0,0,0,0,1,0,0H5a0,0,0,0,1,0,0v.51H3.68Zm19.54,17a2.26,2.26,0,0,1-2.1,2.39H2.88a2.26,2.26,0,0,1-2.1-2.39V7.52a2.26,2.26,0,0,1,2.1-2.39H21.12a2.26,2.26,0,0,1,2.1,2.39Z"/></svg>
+    </a>
+    <div class="dropdown-content business-card">
+      <img class="business-card-photo" src="https://vladflore.tech/images/me_official_no_background.png" alt="Vlad Flore" />
+      <div class="business-card-name">Vlad Flore</div>
+      <div class="business-card-title">Software Engineer<br />(Java | Python | GenAI)</div>
+      <div class="business-card-pitch">Open for freelance &amp; consulting work.</div>
+      <div class="business-card-links">
+        <a href="mailto:flore.vlad@gmail.com" title="Email"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Email</a>
+        <a href="https://www.linkedin.com/in/vladflore/" target="_blank" rel="noopener" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg> LinkedIn</a>
+        <a href="https://github.com/vladflore" target="_blank" rel="noopener" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> GitHub</a>
+        <a href="/filingcabinet/cv.html" title="Resume">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Resume
+        </a>
+      </div>
+    </div>
+  </li>
+</div>
+
+
+        
+            <div class="submenu lang-switch-menu">
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn" aria-label="English">
+                        <span class="flag fi fi-gb"></span>
+                    </a>
+                    <div class="dropdown-content">
+                        
+                            
+                                
+                            
+                                
+                                    <a title="Deutsch" href="/de/">
+                                        <span class="flag fi fi-de"></span>
+                                    </a>
+                                
+                            
+                        
+                    </div>
+                </li>
+            </div>
+        
+    </ul>
+</nav>
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        8 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://vladflore.tech/posts/2026/09/git-filter-repo-rewriting-history-the-right-way/">Git Filter-Repo: Rewriting History the Right Way</a>
+      </h1>
+
+      
+
+      
+        <hr />
+        <aside id="toc">
+          <div class="toc-title">Table of Contents</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#meet-git-filter-repo">Meet <code>git filter-repo</code></a>
+      <ul>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#setting-the-stage">Setting the stage</a></li>
+        <li><a href="#removing-a-sensitive-file-from-all-of-history">Removing a sensitive file from all of history</a></li>
+        <li><a href="#removing-exposed-secrets-keys-passwords-tokens">Removing exposed secrets (keys, passwords, tokens)</a></li>
+        <li><a href="#fixing-authorcommitter-information">Fixing author/committer information</a></li>
+        <li><a href="#removing-large-files-committed-by-accident">Removing large files committed by accident</a></li>
+        <li><a href="#removing-whole-directories-build-artifacts-generated-files-dependencies">Removing whole directories (build artifacts, generated files, dependencies)</a></li>
+        <li><a href="#rewriting-commit-messages">Rewriting commit messages</a></li>
+        <li><a href="#scripted-transformations-across-all-of-history">Scripted transformations across all of history</a></li>
+        <li><a href="#after-the-rewrite">After the rewrite</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+        </aside>
+        <hr />
+
+      
+
+      <div class="post-content">
+        <h2 id="meet-git-filter-repo">Meet <code>git filter-repo</code></h2>
+<p>You committed a <code>.env</code> file three months ago. Or hardcoded an API key that made it into a dozen commits before anyone noticed. Or a teammate&rsquo;s email is wrong across the entire log because their laptop was misconfigured on day one. <code>git rm</code> or a new commit doesn&rsquo;t fix any of this, the bad content is still sitting in every commit that ever touched it, reachable by anyone with the repo.</p>
+<p><code>git filter-repo</code> rewrites history itself: it walks every commit, applies the transformation you ask for, and produces a new history with the old content gone (or changed) everywhere it appeared. It&rsquo;s the tool the Git project itself recommends over the old <code>git filter-branch</code> (deprecated, painfully slow) and over BFG Repo-Cleaner (great for a couple of specific jobs, but far less flexible).</p>
+<p>It doesn&rsquo;t ship with Git, install it first:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>brew install git-filter-repo
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># or: pip3 install git-filter-repo</span>
+</span></span></code></pre></div><h3 id="how-it-works">How it works</h3>
+<ul>
+<li><code>git filter-repo</code> only runs against a <strong>fresh clone</strong>, it refuses to touch a repo that looks like your regular working copy, this is a safety rail so you don&rsquo;t nuke uncommitted work or the only copy you have</li>
+<li>it rewrites every commit reachable from any ref, not just the current branch, then repacks the repo and expires the reflog, so the old objects actually disappear (once nothing else references them)</li>
+<li>common flags:
+<ul>
+<li><code>--path &lt;p&gt;</code> keeps only the given path; add <code>--invert-paths</code> to remove it instead</li>
+<li><code>--replace-text &lt;file&gt;</code> replaces matching strings/regexes in every blob, ever</li>
+<li><code>--strip-blobs-bigger-than &lt;size&gt;</code> drops any blob over the given size</li>
+<li><code>--mailmap &lt;file&gt;</code> rewrites author/committer identities</li>
+<li><code>--message-callback</code> / <code>--blob-callback</code> / <code>--commit-callback</code> run arbitrary Python against commit messages, file contents, or whole commits</li>
+<li><code>--replace-refs</code> (default <code>delete-no-add</code>) and the automatic reflog expiry are why the old data is actually gone afterward, not just hidden</li>
+</ul>
+</li>
+<li>after rewriting, every commit downstream of a touched one gets a new sha. Anyone with a clone needs to re-clone or hard-reset onto the new history, and you&rsquo;ll need to force-push. This is the trade-off for actually removing something, not just hiding it going forward.</li>
+</ul>
+<h3 id="setting-the-stage">Setting the stage</h3>
+<p>One small repo, several problems piled into it on purpose:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir filter-repo-demo <span style="color:#f92672">&amp;&amp;</span> cd filter-repo-demo
+</span></span><span style="display:flex;"><span>git init -b main
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;app source&#34;</span> &gt; app.py
+</span></span><span style="display:flex;"><span>git add app.py
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Initial commit&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;DB_PASSWORD=supersecret123&#34;</span> &gt; .env
+</span></span><span style="display:flex;"><span>git add .env
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Add local env config&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;API_KEY = &#34;sk_live_NOT_REAL_EXAMPLE_KEY_0000&#34;&#39;</span> &gt; config.py
+</span></span><span style="display:flex;"><span>git add config.py
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Add API config&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;print(&#39;v2&#39;)&#34;</span> &gt;&gt; app.py
+</span></span><span style="display:flex;"><span>git add app.py
+</span></span><span style="display:flex;"><span>git commit --author<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;vlad flore &lt;vlad@wrongdomain.com&gt;&#34;</span> -m <span style="color:#e6db74">&#34;Update app logic&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>head -c <span style="color:#ae81ff">15000000</span> /dev/urandom &gt; data.bin
+</span></span><span style="display:flex;"><span>git add data.bin
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Add data file&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir build <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;compiled output&#34;</span> &gt; build/app.out
+</span></span><span style="display:flex;"><span>git add build
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Add build artifact&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git commit --allow-empty -m <span style="color:#e6db74">&#34;wip&#34;</span>
+</span></span><span style="display:flex;"><span>git commit --allow-empty -m <span style="color:#e6db74">&#34;fix typo asdasd&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --oneline
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>2fcc522 fix typo asdasd
+</span></span><span style="display:flex;"><span>345d1c1 wip
+</span></span><span style="display:flex;"><span>f1d0ae4 Add build artifact
+</span></span><span style="display:flex;"><span>76777fd Add data file
+</span></span><span style="display:flex;"><span>88d596a Update app logic
+</span></span><span style="display:flex;"><span>b7fd71f Add API config
+</span></span><span style="display:flex;"><span>9b01e83 Add local env config
+</span></span><span style="display:flex;"><span>33046d9 Initial commit
+</span></span></code></pre></div><p>A committed secret file, a hardcoded key, a wrong author email, a stray 14MB blob, a build artifact, and a couple of junk commit messages. Every example below starts from a <strong>fresh clone</strong> of this repo, because <code>filter-repo</code> insists on it.</p>
+<h3 id="removing-a-sensitive-file-from-all-of-history">Removing a sensitive file from all of history</h3>
+<p><code>.env</code> should never have been committed. Deleting it now only stops it appearing in <em>future</em> commits, it&rsquo;s still readable in commit <code>9b01e83</code> and every commit after it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd .. <span style="color:#f92672">&amp;&amp;</span> git clone filter-repo-demo demo-env <span style="color:#f92672">&amp;&amp;</span> cd demo-env
+</span></span><span style="display:flex;"><span>git filter-repo --path .env --invert-paths
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Parsed <span style="color:#ae81ff">8</span> commits
+</span></span><span style="display:flex;"><span>New history written in 0.20 seconds; now repacking/cleaning...
+</span></span><span style="display:flex;"><span>Repacking your repo and cleaning out old unneeded objects
+</span></span><span style="display:flex;"><span>Completely finished after 0.78 seconds.
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --all --pretty<span style="color:#f92672">=</span>format: --name-only --diff-filter<span style="color:#f92672">=</span>A | sort -u | grep -v <span style="color:#e6db74">&#39;^$&#39;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>app.py
+</span></span><span style="display:flex;"><span>build/app.out
+</span></span><span style="display:flex;"><span>config.py
+</span></span><span style="display:flex;"><span>data.bin
+</span></span></code></pre></div><p><code>.env</code> never shows up, in any commit, past or present. Every commit after it got a new sha, that&rsquo;s expected: the shas encode the tree, and the tree changed.</p>
+<h3 id="removing-exposed-secrets-keys-passwords-tokens">Removing exposed secrets (keys, passwords, tokens)</h3>
+<p>Sometimes the whole file has to stay, the secret inside it doesn&rsquo;t. <code>--replace-text</code> scans every blob in history and swaps matching strings, wherever they occur:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd .. <span style="color:#f92672">&amp;&amp;</span> git clone filter-repo-demo demo-secret <span style="color:#f92672">&amp;&amp;</span> cd demo-secret
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;sk_live_NOT_REAL_EXAMPLE_KEY_0000==&gt;REDACTED&#39;</span> &gt; ../replacements.txt
+</span></span><span style="display:flex;"><span>git filter-repo --replace-text ../replacements.txt
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --all -p -- config.py | grep -A1 API_KEY
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>+API_KEY <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;REDACTED&#34;</span>
+</span></span></code></pre></div><p>Note the <code>==&gt;</code> separator, that&rsquo;s <code>filter-repo</code>&rsquo;s literal-string syntax. It also accepts <code>regex:&lt;pattern&gt;==&gt;&lt;replacement&gt;</code> for anything more dynamic. Either way, the original key is gone from the commit that introduced it, not just from later ones.</p>
+<h3 id="fixing-authorcommitter-information">Fixing author/committer information</h3>
+<p>One commit has the wrong email attached, <code>vlad@wrongdomain.com</code> instead of the real one. A <code>.mailmap</code> file maps the wrong identity to the right one, <code>filter-repo</code> applies it and bakes the correction into the commits themselves:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd .. <span style="color:#f92672">&amp;&amp;</span> git clone filter-repo-demo demo-mailmap <span style="color:#f92672">&amp;&amp;</span> cd demo-mailmap
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;Vlad Flore &lt;vlad@example.com&gt; &lt;vlad@wrongdomain.com&gt;&#39;</span> &gt; ../mailmap.txt
+</span></span><span style="display:flex;"><span>git filter-repo --mailmap ../mailmap.txt
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --format<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;%an &lt;%ae&gt;&#39;</span> --all
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Vlad Flore &lt;vlad@example.com&gt;
+</span></span><span style="display:flex;"><span>Vlad Flore &lt;vlad@example.com&gt;
+</span></span><span style="display:flex;"><span>Vlad Flore &lt;vlad@example.com&gt;
+</span></span><span style="display:flex;"><span>Vlad Flore &lt;vlad@example.com&gt;
+</span></span><span style="display:flex;"><span>Vlad Flore &lt;vlad@example.com&gt;
+</span></span><span style="display:flex;"><span>Vlad Flore &lt;vlad@example.com&gt;
+</span></span><span style="display:flex;"><span>Vlad Flore &lt;vlad@example.com&gt;
+</span></span><span style="display:flex;"><span>Vlad Flore &lt;vlad@example.com&gt;
+</span></span></code></pre></div><p>All eight commits, same address now. (<code>git commit --amend --author</code> only fixes the <em>last</em> commit, this is the version of that for the whole history.)</p>
+<h3 id="removing-large-files-committed-by-accident">Removing large files committed by accident</h3>
+<p>That 15MB <code>data.bin</code> is dead weight in every clone, forever, unless someone rewrites it out. <code>--strip-blobs-bigger-than</code> removes any blob over a size threshold, wherever it sits in history:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>du -sh filter-repo-demo/.git
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>14M	filter-repo-demo/.git
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd .. <span style="color:#f92672">&amp;&amp;</span> git clone filter-repo-demo demo-large <span style="color:#f92672">&amp;&amp;</span> cd demo-large
+</span></span><span style="display:flex;"><span>git filter-repo --strip-blobs-bigger-than 1M
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Processed <span style="color:#ae81ff">6</span> blob sizes
+</span></span><span style="display:flex;"><span>Parsed <span style="color:#ae81ff">8</span> commits
+</span></span><span style="display:flex;"><span>New history written in 0.08 seconds; now repacking/cleaning...
+</span></span><span style="display:flex;"><span>Completely finished after 0.19 seconds.
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>du -sh .git
+</span></span><span style="display:flex;"><span>git log --all --oneline -- data.bin
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>140K	.git
+</span></span></code></pre></div><p><code>.git</code> drops from 14M to 140K, and <code>data.bin</code> no longer shows up anywhere in the log, <code>filter-repo</code> even leaves a <code>data.bin</code> marker file behind by default noting a blob was stripped there, useful context for anyone wondering why a file disappeared.</p>
+<h3 id="removing-whole-directories-build-artifacts-generated-files-dependencies">Removing whole directories (build artifacts, generated files, dependencies)</h3>
+<p>Same idea as the <code>.env</code> case, but for a directory. <code>build/</code> should never have been tracked:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd .. <span style="color:#f92672">&amp;&amp;</span> git clone filter-repo-demo demo-build <span style="color:#f92672">&amp;&amp;</span> cd demo-build
+</span></span><span style="display:flex;"><span>git filter-repo --path build --invert-paths
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --all --oneline
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>76777fd Add data file
+</span></span><span style="display:flex;"><span>88d596a Update app logic
+</span></span><span style="display:flex;"><span>b7fd71f Add API config
+</span></span><span style="display:flex;"><span>9b01e83 Add local env config
+</span></span><span style="display:flex;"><span>33046d9 Initial commit
+</span></span></code></pre></div><p>Worth noticing: <code>Add build artifact</code>, <code>wip</code>, and <code>fix typo asdasd</code> are all gone from the log, not just <code>build/</code>. Removing the directory left those commits with no changes at all, and <code>filter-repo</code> prunes empty commits by default (<code>--prune-empty=auto</code>). Pass <code>--prune-empty=never</code> if you&rsquo;d rather keep empty commits around.</p>
+<h3 id="rewriting-commit-messages">Rewriting commit messages</h3>
+<p>A typo in a commit message, or a message that references something it shouldn&rsquo;t, <code>--message-callback</code> runs arbitrary Python against every commit message in history:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd .. <span style="color:#f92672">&amp;&amp;</span> git clone filter-repo-demo demo-msg <span style="color:#f92672">&amp;&amp;</span> cd demo-msg
+</span></span><span style="display:flex;"><span>git filter-repo --message-callback <span style="color:#e6db74">&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">return re.sub(b&#34;typo asdasd&#34;, b&#34;typo in help text&#34;, message)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --all --format<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;%s&#39;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>fix typo in help text
+</span></span><span style="display:flex;"><span>wip
+</span></span><span style="display:flex;"><span>Add build artifact
+</span></span><span style="display:flex;"><span>Add data file
+</span></span><span style="display:flex;"><span>Update app logic
+</span></span><span style="display:flex;"><span>Add API config
+</span></span><span style="display:flex;"><span>Add local env config
+</span></span><span style="display:flex;"><span>Initial commit
+</span></span></code></pre></div><p><code>message</code> arrives as <code>bytes</code>, <code>re</code> is already imported for you inside the callback. For a single fixed replacement across every message, <code>--replace-message &lt;file&gt;</code> works the same way <code>--replace-text</code> does for file content.</p>
+<h3 id="scripted-transformations-across-all-of-history">Scripted transformations across all of history</h3>
+<p>The callbacks aren&rsquo;t limited to messages. <code>--blob-callback</code> hands you every file&rsquo;s raw content, <code>--commit-callback</code> hands you the whole commit object (author, message, file changes) for anything the built-in flags don&rsquo;t cover:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd .. <span style="color:#f92672">&amp;&amp;</span> git clone filter-repo-demo demo-blob <span style="color:#f92672">&amp;&amp;</span> cd demo-blob
+</span></span><span style="display:flex;"><span>git filter-repo --blob-callback <span style="color:#e6db74">&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">blob.data = blob.data.replace(b&#34;print(&#34;, b&#34;logging.info(&#34;)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --all -p -- app.py | grep -E <span style="color:#e6db74">&#39;^[+-][^+-]&#39;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>+logging.info<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;v2&#39;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>+app source
+</span></span></code></pre></div><p>Every <code>print(</code> call in <code>app.py</code>, across every historical revision of the file, became <code>logging.info(</code>. Same mechanism works for renaming variables project-wide, normalizing line endings, stripping trailing whitespace, whatever a script can express.</p>
+<h3 id="after-the-rewrite">After the rewrite</h3>
+<ul>
+<li><strong>Force-push</strong> is required, the rewritten history shares no shas with the old one past the first changed commit: <code>git push --force --all</code> and <code>git push --force --tags</code></li>
+<li><strong>Every clone is now stale.</strong> Collaborators can&rsquo;t <code>git pull</code>, they need a fresh clone or <code>git fetch</code> + <code>git reset --hard origin/&lt;branch&gt;</code> on top of it</li>
+<li><strong>The old blobs aren&rsquo;t gone until GC runs and nothing else references them.</strong> If the secret was ever pushed anywhere, treat it as burned regardless, rotate it. <code>filter-repo</code> cleans your repo, it can&rsquo;t reach into forks, CI caches, or a leaked commit someone already has sitting on their disk</li>
+<li><code>filter-repo</code> writes a <code>filter-repo/</code> directory with logs of everything it did, handy for double-checking a rewrite before you force-push it</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p><code>git filter-repo</code> is what to reach for when history itself is the problem, a secret, a huge blob, a wrong identity, a directory that never belonged, and a new commit on top won&rsquo;t fix it. It&rsquo;s more surgical than <code>filter-branch</code>, more flexible than BFG, and because it insists on a fresh clone and expires the reflog, when it says something is gone from history, it actually is.</p>
+
+      </div>
+
+      <div class="support-cta">
+  <p>Found this useful? Support more posts like this: <a href="https://ko-fi.com/D1D41G44WK" target="_blank" rel="noopener" class="support-cta-badge"><img src="https://storage.ko-fi.com/cdn/kofi1.png?v=6" alt="Buy Me a Coffee at ko-fi.com" height="36" /></a></p>
+</div>
+
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://vladflore.tech/tags/git/">git</a></span>
+        <span class="tag"><a href="https://vladflore.tech/tags/nerdy/">nerdy</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        1510 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2026-09-17 02:00
+        
+
+        
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+
+  
+  
+  <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2026%2f09%2fgit-filter-repo-rewriting-history-the-right-way%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+    <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+        <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="resp-sharing-button__link" href="mailto:?subject=Git%20Filter-Repo%3a%20Rewriting%20History%20the%20Right%20Way&amp;body=https%3a%2f%2fvladflore.tech%2fposts%2f2026%2f09%2fgit-filter-repo-rewriting-history-the-right-way%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+    <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fvladflore.tech%2fposts%2f2026%2f09%2fgit-filter-repo-rewriting-history-the-right-way%2f&amp;title=Git%20Filter-Repo%3a%20Rewriting%20History%20the%20Right%20Way&amp;summary=Git%20Filter-Repo%3a%20Rewriting%20History%20the%20Right%20Way&amp;source=https%3a%2f%2fvladflore.tech%2fposts%2f2026%2f09%2fgit-filter-repo-rewriting-history-the-right-way%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+    <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  <a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2026%2f09%2fgit-filter-repo-rewriting-history-the-right-way%2f&amp;resubmit=true&amp;title=Git%20Filter-Repo%3a%20Rewriting%20History%20the%20Right%20Way" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+    <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      </div>
+
+    
+    <div class="pagination">
+        
+
+        <div class="pagination__buttons">
+            
+
+            
+            <span class="button next">
+                <a href="https://vladflore.tech/posts/2026/09/git-animated-6/">
+                    <span class="button__text">Git Animated 6</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+      
+        <div id="comments">
+          <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vladflore-tech" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      
+    
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2026</span>
+            
+            
+            
+            <span>vladflore[dot]tech. All rights reserved.</span>
+        </div>
+    </div>
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.ad54ad97364f77ede35def9096b162bb1f0b3973aa50b080f5e82fa147f6882e2a7200d7535adbf9b51bebf939f1c1ca9bbe6be87530092aca720eac4a226fda.js" integrity="sha512-rVStlzZPd&#43;3jXe&#43;QlrFiux8LOXOqULCA9egvoUf2iC4qcgDXU1rb&#43;bUb6/k58cHKm75r6HUwCSrKcg6sSiJv2g=="></script>
+
+
+    
+        <script src="/js/line-highlight.js"></script>
+    
+
+    
+        <script src="/js/business-card.js"></script>
+    
+
+    
+        <script src="/js/quiz.js"></script>
+    
+
+
+
+    </body>
+</html>

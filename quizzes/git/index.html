@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Vlad Flore ">
+<meta name="description" content="Branching, merging, rebasing, cherry-picking, bisecting, reflog, worktrees, filter-repo, and what&#39;s really happening inside .git." />
+<meta name="keywords" content="java, python, generative ai, llm, rag, machine learning, spring boot, microservices, kubernetes, aws, software engineer, freelance developer, vlad flore" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://vladflore.tech/quizzes/git/" />
+
+
+    <title>
+        
+            Git :: vlad·flore · tech 
+        
+    </title>
+
+
+
+
+
+<link rel="stylesheet" href="/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css" integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE=">
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/quiz.css">
+    
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+
+  <meta itemprop="name" content="Git">
+  <meta itemprop="description" content="Branching, merging, rebasing, cherry-picking, bisecting, reflog, worktrees, filter-repo, and what&#39;s really happening inside .git.">
+  <meta itemprop="datePublished" content="2026-09-17T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-09-17T00:00:00+00:00">
+  <meta itemprop="image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+  <meta name="twitter:title" content="Git">
+  <meta name="twitter:description" content="Branching, merging, rebasing, cherry-picking, bisecting, reflog, worktrees, filter-repo, and what&#39;s really happening inside .git.">
+
+
+
+    <meta property="og:url" content="https://vladflore.tech/quizzes/git/">
+  <meta property="og:site_name" content="vlad·flore · tech">
+  <meta property="og:title" content="Git">
+  <meta property="og:description" content="Branching, merging, rebasing, cherry-picking, bisecting, reflog, worktrees, filter-repo, and what&#39;s really happening inside .git.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="quizzes">
+    <meta property="article:published_time" content="2026-09-17T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-09-17T00:00:00+00:00">
+    <meta property="og:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+
+
+
+
+
+
+    <meta property="article:published_time" content="2026-09-17 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RE8EZYX8D9"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RE8EZYX8D9');
+        }
+      </script>
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text ">
+                $ cd ~</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#a9a9b3;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner">
+        
+            
+                <li><a href="/posts/">Posts</a></li>
+            
+        
+            
+                <li><a href="/quizzes/">Quizzes</a></li>
+            
+        
+            
+                <div class="submenu">
+                    <li class="dropdown">
+                        <a href="/about/" class="dropbtn">About</a>
+                        <div class="dropdown-content">
+                            
+                                <a href="/filingcabinet/cv.html">Resume</a>
+                            
+                                <a href="/portfolio/">Portfolio</a>
+                            
+                                <a href="/certs/">Certs</a>
+                            
+                        </div>
+                    </li>
+                </div>
+            
+        
+
+        <div class="submenu business-card-menu">
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn" aria-label="Business card" title="Business card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.12,4.25h0V3.74a.86.86,0,0,0-.81-.91H19.05a.86.86,0,0,0-.8.91v.51H16.54V2.33a2.2,2.2,0,0,0-2-2.33h-5a2.2,2.2,0,0,0-2,2.33V4.25H5.75V3.74A.86.86,0,0,0,5,2.83H3.71a.86.86,0,0,0-.81.91v.51h0A3.09,3.09,0,0,0,0,7.52v13.2A3.1,3.1,0,0,0,2.88,24H21.12A3.1,3.1,0,0,0,24,20.72V7.52A3.09,3.09,0,0,0,21.12,4.25ZM19,3.74a0,0,0,0,1,0,0h1.24a0,0,0,0,1,0,0v.51H19ZM8.24,2.33A1.37,1.37,0,0,1,9.51.88h5a1.37,1.37,0,0,1,1.27,1.45V4.25h-.88V2.33a.42.42,0,0,0-.39-.44h-5a.42.42,0,0,0-.39.44V4.25H8.24ZM9.9,4.25V2.77h4.2V4.25ZM3.68,3.74a0,0,0,0,1,0,0H5a0,0,0,0,1,0,0v.51H3.68Zm19.54,17a2.26,2.26,0,0,1-2.1,2.39H2.88a2.26,2.26,0,0,1-2.1-2.39V7.52a2.26,2.26,0,0,1,2.1-2.39H21.12a2.26,2.26,0,0,1,2.1,2.39Z"/></svg>
+    </a>
+    <div class="dropdown-content business-card">
+      <img class="business-card-photo" src="https://vladflore.tech/images/me_official_no_background.png" alt="Vlad Flore" />
+      <div class="business-card-name">Vlad Flore</div>
+      <div class="business-card-title">Software Engineer<br />(Java | Python | GenAI)</div>
+      <div class="business-card-pitch">Open for freelance &amp; consulting work.</div>
+      <div class="business-card-links">
+        <a href="mailto:flore.vlad@gmail.com" title="Email"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Email</a>
+        <a href="https://www.linkedin.com/in/vladflore/" target="_blank" rel="noopener" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg> LinkedIn</a>
+        <a href="https://github.com/vladflore" target="_blank" rel="noopener" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> GitHub</a>
+        <a href="/filingcabinet/cv.html" title="Resume">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Resume
+        </a>
+      </div>
+    </div>
+  </li>
+</div>
+
+
+        
+            <div class="submenu lang-switch-menu">
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn" aria-label="English">
+                        <span class="flag fi fi-gb"></span>
+                    </a>
+                    <div class="dropdown-content">
+                        
+                            
+                                
+                            
+                                
+                                    <a title="Deutsch" href="/de/">
+                                        <span class="flag fi fi-de"></span>
+                                    </a>
+                                
+                            
+                        
+                    </div>
+                </li>
+            </div>
+        
+    </ul>
+</nav>
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post quiz">
+        <article>
+            <h1 class="post-title">Git</h1>
+
+            <div
+                id="quiz-app"
+                class="quiz-app"
+                data-quiz-title="Git"
+            ></div>
+
+            <script type="application/json" id="quiz-data">
+                [
+  {
+    "a": 1,
+    "choices": [
+      "Three-way merge",
+      "Fast-forward merge",
+      "Octopus merge",
+      "Squash merge"
+    ],
+    "explain": "No new commits happened on the target branch, so Git just slides the pointer forward to match the tip of the other branch.",
+    "q": "When the branch you're merging into hasn't moved since you branched off, what kind of merge does `git merge feature` perform?"
+  },
+  {
+    "a": 2,
+    "choices": [
+      "It's deleted",
+      "A new merge commit is created",
+      "It simply moves forward to the tip of the merged branch",
+      "It stays unchanged"
+    ],
+    "explain": "No real merging is needed, Git just moves the pointer forward.",
+    "q": "In a fast-forward merge, what actually happens to the target branch's pointer?"
+  },
+  {
+    "a": 2,
+    "choices": [
+      "A fast-forward, same as usual",
+      "An error, you must rebase first",
+      "A new commit with two parent commits (a merge commit)",
+      "Two separate unrelated commits"
+    ],
+    "explain": "Git finds the common base commit and creates a new commit combining both tips, a regular commit that just happens to have two parents.",
+    "q": "Both `master` and `feature` gained new commits since they diverged. What does `git merge feature` create?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "Recursive strategy",
+      "Octopus strategy",
+      "Ours strategy",
+      "Resolve strategy"
+    ],
+    "explain": "The recursive strategy is what Git falls back to unless you pick one explicitly with `-s`.",
+    "q": "What's Git's default merge strategy when merging or pulling one branch?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Create a merge commit combining both branches",
+      "Replay feature's commits on top of master's tip, as brand new commits",
+      "Delete feature's commits",
+      "Fast-forward master onto feature"
+    ],
+    "explain": "Rebase changes feature's base commit and replays its commits (content-identical, but new hashes) on top of the new base.",
+    "q": "While on `feature`, running `git rebase master` will..."
+  },
+  {
+    "a": 2,
+    "choices": [
+      "They stay reachable from `feature` forever",
+      "They get merged into master directly",
+      "They become unreachable and are eventually garbage-collected",
+      "Nothing changes about them"
+    ],
+    "explain": "Unless something else still points at them (like the reflog, for a while), the old commits are eventually swept away by garbage collection.",
+    "q": "After rebasing `feature` onto `master`, what happens to feature's original pre-rebase commits?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Merges the whole branch F1 belongs to",
+      "Applies only the changes introduced by commit F1 onto the current branch, as a new commit",
+      "Deletes commit F1 from history",
+      "Rebases the current branch onto F1"
+    ],
+    "explain": "Git takes the diff introduced by F1 and replays it on top of the current branch tip, producing one new commit.",
+    "q": "What does `git cherry-pick F1` do?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Rewriting the entire project history",
+      "Backporting a single bug fix to a release branch without pulling in unrelated work",
+      "Deleting a branch safely",
+      "Squashing all commits into one"
+    ],
+    "explain": "It lets you selectively integrate individual commits across branches.",
+    "q": "Cherry-pick is especially useful for..."
+  },
+  {
+    "a": 1,
+    "choices": [
+      "local repo, remote repo, stash",
+      "working directory, staging area, repository",
+      "HEAD, branch, tag",
+      "blob, tree, commit"
+    ],
+    "explain": "Working directory (what you see), staging area / index (draft of the next commit), and the repository (`.git`, the permanent history).",
+    "q": "The three places every Git command moves content between are..."
+  },
+  {
+    "a": 1,
+    "choices": [
+      "The file is staged",
+      "The file is untracked, not staged, not committed",
+      "The file was deleted",
+      "There's a merge conflict"
+    ],
+    "explain": "Git sees the file in the working directory but it's neither staged nor committed.",
+    "q": "In `git status --short` output, what does `??` next to a file mean?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Working directory vs. staging area",
+      "Staging area vs. the last commit",
+      "Working directory vs. the last commit",
+      "Two arbitrary branches"
+    ],
+    "explain": "Plain `git diff` compares working directory to the staging area; `--staged` compares the staging area to the last commit.",
+    "q": "What does `git diff --staged` compare?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "A full copy of every commit on it",
+      "A movable pointer (ref) to a specific commit, stored as a small file under `.git/refs/heads/`",
+      "A special kind of commit object",
+      "A snapshot of the working directory"
+    ],
+    "explain": "`.git/refs/heads/main` literally just contains one commit hash as text.",
+    "q": "Mechanically, what IS a Git branch?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "A commit hash, always",
+      "The name of the branch you're currently on",
+      "The staging area",
+      "The remote repository URL"
+    ],
+    "explain": "`.git/HEAD` usually contains `ref: refs/heads/\u003cbranch\u003e`. It only holds a raw commit hash directly when you're in a detached HEAD state.",
+    "q": "What does `HEAD` normally point to?"
+  },
+  {
+    "a": 2,
+    "choices": [
+      "An incrementing integer",
+      "The file's path",
+      "The SHA-1 hash of the object's own content",
+      "The commit timestamp"
+    ],
+    "explain": "Same content anywhere in history hashes to the same object and is stored only once, that's what makes Git content-addressable.",
+    "q": "Every Git object (blob, tree, commit) is named by..."
+  },
+  {
+    "a": 1,
+    "choices": [
+      "A filename and its permissions",
+      "Raw file content only, no filename attached",
+      "A directory listing",
+      "Commit metadata like author and message"
+    ],
+    "explain": "Filenames live in tree objects, not in the blob itself.",
+    "q": "What does a blob object store?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Raw file content",
+      "A directory listing mapping filenames to blobs (or nested trees)",
+      "The chain of a commit's parents",
+      "The reflog"
+    ],
+    "explain": "One line per entry: mode, object type, hash, and filename. Subdirectories are just trees pointing at other trees.",
+    "q": "What does a tree object represent?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Git silently deletes old commits",
+      "`git gc` periodically packs loose objects into compressed packfiles, storing similar objects as deltas",
+      "Objects are kept only in memory, never on disk",
+      "Each file is compressed once and never touched again"
+    ],
+    "explain": "The object model doesn't change, packfiles just store the same blobs/trees/commits far more efficiently.",
+    "q": "Why doesn't `.git` grow forever even though every commit only ever adds new objects?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Merging conflicting branches automatically",
+      "Binary-searching commit history to find the commit that introduced a bug",
+      "Deleting stale branches",
+      "Rewriting commit messages in bulk"
+    ],
+    "explain": "You mark one commit good and one bad, and Git checks out commits halfway between until it narrows down the exact offender.",
+    "q": "What does `git bisect` automate?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "`git bisect start` and `git bisect end`",
+      "A known `good` commit and a known `bad` commit",
+      "`git bisect open` and `git bisect close`",
+      "A commit message and a branch name"
+    ],
+    "explain": "`git bisect bad \u003csha\u003e` and `git bisect good \u003csha\u003e` bracket the range Git searches within.",
+    "q": "What are the two markers you need to give `git bisect` to start narrowing down a bug?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Print a commit message",
+      "Return an exit code indicating whether the checked-out commit is good or bad",
+      "Produce a diff file",
+      "Do nothing special, any script works"
+    ],
+    "explain": "A non-zero exit code marks the commit bad, zero marks it good, Git uses that to keep narrowing the search.",
+    "q": "For `git bisect run \u003cscript\u003e` to work automatically, the script must..."
+  },
+  {
+    "a": 1,
+    "choices": [
+      "`git bisect stop`",
+      "`git bisect reset`",
+      "`git bisect end`",
+      "`git checkout main`"
+    ],
+    "explain": "`git bisect reset` closes the session and checks you back out to where you started.",
+    "q": "How do you end a bisect session and return to the commit you started from?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "`git rm` is broken for this use case",
+      "The content is still fully readable in every earlier commit that touched it",
+      "It does remove it completely, no further action needed",
+      "`git rm` requires `--force` to actually delete content"
+    ],
+    "explain": "Deleting a file in a new commit only stops it appearing going forward, every prior commit still has the blob.",
+    "q": "Why doesn't `git rm`-ing a sensitive file and committing that remove it from history?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "A GitHub remote configured",
+      "A fresh clone, it refuses to touch a regular working copy",
+      "Root/administrator permissions",
+      "An empty repository"
+    ],
+    "explain": "That's a safety rail so you can't accidentally nuke uncommitted work or your only copy of the repo.",
+    "q": "What does `git filter-repo` require before it will run?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "`--strip-blobs-bigger-than`",
+      "`--path \u003cp\u003e --invert-paths`",
+      "`--replace-text`",
+      "`--mailmap`"
+    ],
+    "explain": "`--path` selects the target, `--invert-paths` flips it to \"remove this instead of keeping only this\".",
+    "q": "Which `git filter-repo` flags remove a file from every commit in history?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "`--mailmap`",
+      "`--replace-text`",
+      "`--message-callback`",
+      "`--strip-blobs-bigger-than`"
+    ],
+    "explain": "A `.mailmap` file maps a wrong identity to the right one, and filter-repo bakes the correction into every commit.",
+    "q": "Which `git filter-repo` flag rewrites author/committer identities across all of history?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Nothing, `git pull` still works fine",
+      "Re-clone, or fetch and hard-reset onto the new history, since the shas changed",
+      "Wait 90 days for the reflog to expire",
+      "Run `git gc` themselves"
+    ],
+    "explain": "Every commit downstream of a rewritten one gets a new sha, so old clones simply don't match the rewritten history anymore.",
+    "q": "After a `git filter-repo` rewrite, what must every collaborator do?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "`git rebase`",
+      "`git filter-branch`",
+      "`git cherry-pick`",
+      "`git stash`"
+    ],
+    "explain": "`filter-branch` is deprecated and painfully slow; filter-repo is also more flexible than BFG Repo-Cleaner for most jobs.",
+    "q": "`git filter-repo` is the tool the Git project recommends over which older, deprecated tool?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Every file ever committed to the repo",
+      "Every place `HEAD` (and branches) have pointed to: commits, resets, checkouts, rebases",
+      "Only merge commits",
+      "The commit history of remote branches"
+    ],
+    "explain": "As long as the underlying objects haven't been garbage-collected, you can find and recover from any of these moves.",
+    "q": "What does `git reflog` record?"
+  },
+  {
+    "a": 2,
+    "choices": [
+      "7 days",
+      "30 days",
+      "90 days",
+      "They never expire"
+    ],
+    "explain": "Controlled by `gc.reflogExpire`, default 90 days, comfortably covering \"I did something dumb five minutes ago\".",
+    "q": "What's the default grace period before reflog entries expire?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "It's impossible once a branch is deleted",
+      "Find the branch tip's sha in `git reflog`, then `git branch \u003cname\u003e \u003csha\u003e`",
+      "Run `git bisect` to search for it",
+      "Run `git filter-repo` to restore it"
+    ],
+    "explain": "The branch's own reflog is gone, but HEAD's reflog still remembers every commit made while that branch was checked out.",
+    "q": "You force-deleted a branch with `git branch -D` before it was merged. How do you get it back using the reflog?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Yes, always, reflog is stored on the remote",
+      "No, reflog is local and was never pushed, unless the commits already reached your machine some other way",
+      "Only if you run `git gc` first",
+      "Only for merge commits"
+    ],
+    "explain": "The reflog lives in `.git/logs` on your machine only. It can't help with history your teammate lost that you never had locally.",
+    "q": "Does your local reflog help recover commits after a teammate force-pushed over them on a shared branch?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "It permanently deletes old branches for you",
+      "It gives you a second working directory, checked out to a different branch, without touching your dirty working tree",
+      "It speeds up every commit",
+      "It compresses the `.git` folder"
+    ],
+    "explain": "Your unfinished feature work stays exactly as-is while you fix an unrelated bug in a separate working directory of the same repo.",
+    "q": "What problem does `git worktree` solve compared to the `git stash` / `git checkout` / `git stash pop` dance?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "`git worktree new \u003cpath\u003e \u003cbranch\u003e`",
+      "`git worktree add \u003cpath\u003e \u003cbranch\u003e`",
+      "`git branch --worktree \u003cpath\u003e`",
+      "`git checkout --worktree \u003cpath\u003e`"
+    ],
+    "explain": "`git worktree add -b \u003cnew-branch\u003e \u003cpath\u003e \u003cstart-point\u003e` is the variant that also creates the branch in one shot.",
+    "q": "Which command creates a new worktree at a path, checked out to an existing branch?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Yes, always",
+      "No, Git refuses, a branch can only be checked out in one worktree at a time",
+      "Yes, but changes in one won't be visible in the other",
+      "Only for the default branch"
+    ],
+    "explain": "Two working directories editing the same branch simultaneously would make the index and HEAD ambiguous.",
+    "q": "Can the same branch be checked out in two worktrees of the same repo at once?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Nothing, each worktree is fully independent",
+      "Stashes, branches, tags, and the reflog",
+      "Only the working tree contents",
+      "Only the staging area"
+    ],
+    "explain": "Only the working tree contents and the index are per-worktree, everything else in `.git` is shared.",
+    "q": "What's shared across all worktrees that belong to the same repository?"
+  }
+]
+            </script>
+        </article>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2026</span>
+            
+            
+            
+            <span>vladflore[dot]tech. All rights reserved.</span>
+        </div>
+    </div>
+    
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span><a href='https://ko-fi.com/D1D41G44WK' target='_blank'><img height='36' style='border:0px;height:36px;margin-top:15px;' src='https://storage.ko-fi.com/cdn/kofi1.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a></span>
+        </div>
+    </div>
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.ad54ad97364f77ede35def9096b162bb1f0b3973aa50b080f5e82fa147f6882e2a7200d7535adbf9b51bebf939f1c1ca9bbe6be87530092aca720eac4a226fda.js" integrity="sha512-rVStlzZPd&#43;3jXe&#43;QlrFiux8LOXOqULCA9egvoUf2iC4qcgDXU1rb&#43;bUb6/k58cHKm75r6HUwCSrKcg6sSiJv2g=="></script>
+
+
+    
+        <script src="/js/line-highlight.js"></script>
+    
+
+    
+        <script src="/js/business-card.js"></script>
+    
+
+    
+        <script src="/js/quiz.js"></script>
+    
+
+
+
+    </body>
+</html>

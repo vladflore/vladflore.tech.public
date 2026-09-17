@@ -6,8 +6,15 @@
     <description>Recent content in Git on vlad·flore · tech</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 16 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://vladflore.tech/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git Filter-Repo: Rewriting History the Right Way</title>
+      <link>https://vladflore.tech/posts/2026/09/git-filter-repo-rewriting-history-the-right-way/</link>
+      <pubDate>Thu, 17 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2026/09/git-filter-repo-rewriting-history-the-right-way/</guid>
+      <description>&lt;h2 id=&#34;meet-git-filter-repo&#34;&gt;Meet &lt;code&gt;git filter-repo&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;You committed a &lt;code&gt;.env&lt;/code&gt; file three months ago. Or hardcoded an API key that made it into a dozen commits before anyone noticed. Or a teammate&amp;rsquo;s email is wrong across the entire log because their laptop was misconfigured on day one. &lt;code&gt;git rm&lt;/code&gt; or a new commit doesn&amp;rsquo;t fix any of this, the bad content is still sitting in every commit that ever touched it, reachable by anyone with the repo.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Git Animated 6</title>
       <link>https://vladflore.tech/posts/2026/09/git-animated-6/</link>
