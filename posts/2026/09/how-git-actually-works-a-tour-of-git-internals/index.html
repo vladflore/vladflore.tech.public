@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Vlad Flore ">
+<meta name="description" content="Meet git, from 10,000 feet Git is not a diff tool. It doesn&rsquo;t store &ldquo;what changed between commit A and commit B&rdquo; and reconstruct history from a chain of patches. Every commit is a full snapshot of your project, and git figures out diffs on demand, for display purposes only, when you ask for them. That single idea, snapshots instead of diffs, is why almost everything else in git works the way it does: branching is cheap, history never has to &ldquo;replay&rdquo; anything to check out an old version, and, as you&rsquo;ll see below, git can implement its entire history as nothing more than a tiny key-value store plus a handful of pointers.
+" />
+<meta name="keywords" content="java, python, generative ai, llm, rag, machine learning, spring boot, microservices, kubernetes, aws, software engineer, freelance developer, vlad flore, git, nerdy" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://vladflore.tech/posts/2026/09/how-git-actually-works-a-tour-of-git-internals/" />
+
+
+    <title>
+        
+            How Git Actually Works: A Tour of Git Internals :: vlad·flore · tech 
+        
+    </title>
+
+
+
+
+
+<link rel="stylesheet" href="/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css" integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE=">
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/quiz.css">
+    
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+
+  <meta itemprop="name" content="How Git Actually Works: A Tour of Git Internals">
+  <meta itemprop="description" content="Meet git, from 10,000 feet Git is not a diff tool. It doesn’t store “what changed between commit A and commit B” and reconstruct history from a chain of patches. Every commit is a full snapshot of your project, and git figures out diffs on demand, for display purposes only, when you ask for them. That single idea, snapshots instead of diffs, is why almost everything else in git works the way it does: branching is cheap, history never has to “replay” anything to check out an old version, and, as you’ll see below, git can implement its entire history as nothing more than a tiny key-value store plus a handful of pointers.">
+  <meta itemprop="datePublished" content="2026-09-21T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-09-21T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1818">
+  <meta itemprop="image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+  <meta itemprop="keywords" content="Git,Nerdy">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+  <meta name="twitter:title" content="How Git Actually Works: A Tour of Git Internals">
+  <meta name="twitter:description" content="Meet git, from 10,000 feet Git is not a diff tool. It doesn’t store “what changed between commit A and commit B” and reconstruct history from a chain of patches. Every commit is a full snapshot of your project, and git figures out diffs on demand, for display purposes only, when you ask for them. That single idea, snapshots instead of diffs, is why almost everything else in git works the way it does: branching is cheap, history never has to “replay” anything to check out an old version, and, as you’ll see below, git can implement its entire history as nothing more than a tiny key-value store plus a handful of pointers.">
+
+
+
+    <meta property="og:url" content="https://vladflore.tech/posts/2026/09/how-git-actually-works-a-tour-of-git-internals/">
+  <meta property="og:site_name" content="vlad·flore · tech">
+  <meta property="og:title" content="How Git Actually Works: A Tour of Git Internals">
+  <meta property="og:description" content="Meet git, from 10,000 feet Git is not a diff tool. It doesn’t store “what changed between commit A and commit B” and reconstruct history from a chain of patches. Every commit is a full snapshot of your project, and git figures out diffs on demand, for display purposes only, when you ask for them. That single idea, snapshots instead of diffs, is why almost everything else in git works the way it does: branching is cheap, history never has to “replay” anything to check out an old version, and, as you’ll see below, git can implement its entire history as nothing more than a tiny key-value store plus a handful of pointers.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-09-21T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-09-21T00:00:00+00:00">
+    <meta property="article:tag" content="Git">
+    <meta property="article:tag" content="Nerdy">
+    <meta property="og:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+
+
+
+
+
+
+    <meta property="article:published_time" content="2026-09-21 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RE8EZYX8D9"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RE8EZYX8D9');
+        }
+      </script>
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text ">
+                $ cd ~</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#a9a9b3;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner">
+        
+            
+                <li><a href="/posts/">Posts</a></li>
+            
+        
+            
+                <li><a href="/quizzes/">Quizzes</a></li>
+            
+        
+            
+                <div class="submenu">
+                    <li class="dropdown">
+                        <a href="/about/" class="dropbtn">About</a>
+                        <div class="dropdown-content">
+                            
+                                <a href="/filingcabinet/cv.html">Resume</a>
+                            
+                                <a href="/portfolio/">Portfolio</a>
+                            
+                                <a href="/certs/">Certs</a>
+                            
+                        </div>
+                    </li>
+                </div>
+            
+        
+
+        <div class="submenu business-card-menu">
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn" aria-label="Business card" title="Business card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.12,4.25h0V3.74a.86.86,0,0,0-.81-.91H19.05a.86.86,0,0,0-.8.91v.51H16.54V2.33a2.2,2.2,0,0,0-2-2.33h-5a2.2,2.2,0,0,0-2,2.33V4.25H5.75V3.74A.86.86,0,0,0,5,2.83H3.71a.86.86,0,0,0-.81.91v.51h0A3.09,3.09,0,0,0,0,7.52v13.2A3.1,3.1,0,0,0,2.88,24H21.12A3.1,3.1,0,0,0,24,20.72V7.52A3.09,3.09,0,0,0,21.12,4.25ZM19,3.74a0,0,0,0,1,0,0h1.24a0,0,0,0,1,0,0v.51H19ZM8.24,2.33A1.37,1.37,0,0,1,9.51.88h5a1.37,1.37,0,0,1,1.27,1.45V4.25h-.88V2.33a.42.42,0,0,0-.39-.44h-5a.42.42,0,0,0-.39.44V4.25H8.24ZM9.9,4.25V2.77h4.2V4.25ZM3.68,3.74a0,0,0,0,1,0,0H5a0,0,0,0,1,0,0v.51H3.68Zm19.54,17a2.26,2.26,0,0,1-2.1,2.39H2.88a2.26,2.26,0,0,1-2.1-2.39V7.52a2.26,2.26,0,0,1,2.1-2.39H21.12a2.26,2.26,0,0,1,2.1,2.39Z"/></svg>
+    </a>
+    <div class="dropdown-content business-card">
+      <img class="business-card-photo" src="https://vladflore.tech/images/me_official_no_background.png" alt="Vlad Flore" />
+      <div class="business-card-name">Vlad Flore</div>
+      <div class="business-card-title">Software Engineer<br />(Java | Python | GenAI)</div>
+      <div class="business-card-pitch">Open for freelance &amp; consulting work.</div>
+      <div class="business-card-links">
+        <a href="mailto:flore.vlad@gmail.com" title="Email"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Email</a>
+        <a href="https://www.linkedin.com/in/vladflore/" target="_blank" rel="noopener" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg> LinkedIn</a>
+        <a href="https://github.com/vladflore" target="_blank" rel="noopener" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> GitHub</a>
+        <a href="/filingcabinet/cv.html" title="Resume">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Resume
+        </a>
+      </div>
+    </div>
+  </li>
+</div>
+
+
+        
+            <div class="submenu lang-switch-menu">
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn" aria-label="English">
+                        <span class="flag fi fi-gb"></span>
+                    </a>
+                    <div class="dropdown-content">
+                        
+                            
+                                
+                            
+                                
+                                    <a title="Deutsch" href="/de/">
+                                        <span class="flag fi fi-de"></span>
+                                    </a>
+                                
+                            
+                        
+                    </div>
+                </li>
+            </div>
+        
+    </ul>
+</nav>
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        9 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://vladflore.tech/posts/2026/09/how-git-actually-works-a-tour-of-git-internals/">How Git Actually Works: A Tour of Git Internals</a>
+      </h1>
+
+      
+
+      
+        <hr />
+        <aside id="toc">
+          <div class="toc-title">Table of Contents</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#meet-git-from-10000-feet">Meet git, from 10,000 feet</a></li>
+    <li><a href="#7000-ft-the-three-trees">7,000 ft: the three trees</a></li>
+    <li><a href="#5000-ft-commits-are-a-graph-branches-are-pointers">5,000 ft: commits are a graph, branches are pointers</a></li>
+    <li><a href="#1000-ft-the-object-database">1,000 ft: the object database</a>
+      <ul>
+        <li><a href="#branches-and-head-are-just-files">Branches and <code>HEAD</code> are just files</a></li>
+        <li><a href="#why-git-doesnt-grow-forever">Why <code>.git</code> doesn’t grow forever</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+        </aside>
+        <hr />
+
+      
+
+      <div class="post-content">
+        <h2 id="meet-git-from-10000-feet">Meet git, from 10,000 feet</h2>
+<p>Git is not a diff tool. It doesn&rsquo;t store &ldquo;what changed between commit A and commit B&rdquo; and reconstruct history from a chain of patches. Every commit is a full snapshot of your project, and git figures out diffs on demand, for display purposes only, when you ask for them. That single idea, snapshots instead of diffs, is why almost everything else in git works the way it does: branching is cheap, history never has to &ldquo;replay&rdquo; anything to check out an old version, and, as you&rsquo;ll see below, git can implement its entire history as nothing more than a tiny key-value store plus a handful of pointers.</p>
+<p>This post is for people who already use <code>add</code>, <code>commit</code>, <code>branch</code>, and <code>merge</code> day to day and want to see what&rsquo;s actually happening underneath. It takes that snapshot idea and walks down through four altitudes, from &ldquo;what git is for&rdquo; down to &ldquo;the literal bytes on disk&rdquo;, with a hands-on demo and a short animation at each level. The first two altitudes stay close to the commands you already know; the last one gets into git&rsquo;s plumbing.</p>
+<h2 id="7000-ft-the-three-trees">7,000 ft: the three trees</h2>
+<p>Everything you do with git moves content between three places:</p>
+<ul>
+<li><strong>Working directory</strong> — the actual files on disk, the ones your editor sees</li>
+<li><strong>Staging area</strong> (a.k.a. the index) — a draft of what your <em>next</em> commit will look like</li>
+<li><strong>Repository</strong> (<code>.git</code>) — the permanent, committed history</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir three-trees-demo <span style="color:#f92672">&amp;&amp;</span> cd three-trees-demo
+</span></span><span style="display:flex;"><span>git init -b main
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;v1&#34;</span> &gt; notes.txt
+</span></span><span style="display:flex;"><span>git status --short
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>?? notes.txt
+</span></span></code></pre></div><p><code>??</code> means: git sees the file in your working directory, it&rsquo;s not staged, and it&rsquo;s not committed. <code>git add</code> copies it into the staging area:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git add notes.txt
+</span></span><span style="display:flex;"><span>git status --short
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>A  notes.txt
+</span></span></code></pre></div><p><code>A</code> in the first column means it&rsquo;s staged (that column always describes the staging area vs. the repository). <code>git commit</code> then takes whatever is staged and seals it into the repository as a new snapshot:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Add notes&#34;</span>
+</span></span><span style="display:flex;"><span>git status --short
+</span></span></code></pre></div><p><code>git status --short</code> now prints nothing at all, the working directory matches the last commit exactly. Edit the file again without staging it, and <code>git diff</code> compares working directory against the staging area; <code>git diff --staged</code> compares the staging area against the last commit:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;v2&#34;</span> &gt;&gt; notes.txt
+</span></span><span style="display:flex;"><span>git diff --stat
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span> notes.txt | <span style="color:#ae81ff">1</span> +
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">1</span> file changed, <span style="color:#ae81ff">1</span> insertion<span style="color:#f92672">(</span>+<span style="color:#f92672">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git add notes.txt
+</span></span><span style="display:flex;"><span>git diff --stat
+</span></span></code></pre></div><p>Empty output again, nothing outside the staging area differs from what&rsquo;s staged. Now compare the staging area against the last commit instead:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git diff --staged --stat
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span> notes.txt | <span style="color:#ae81ff">1</span> +
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">1</span> file changed, <span style="color:#ae81ff">1</span> insertion<span style="color:#f92672">(</span>+<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>Every git command you use day to day is really just moving a snapshot between these three trees. Here&rsquo;s what that looks like end to end, init through a few commits and a branch:</p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/3BlX1IiKqm8?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<h2 id="5000-ft-commits-are-a-graph-branches-are-pointers">5,000 ft: commits are a graph, branches are pointers</h2>
+<p>Zoom out one level: a repository isn&rsquo;t a single line of commits, it&rsquo;s a directed graph. Each commit stores a pointer to the commit(s) before it, its &ldquo;parent(s)&rdquo;. Walk those parent pointers backward from any commit and you get its full history, no separate &ldquo;history log&rdquo; is stored anywhere, the graph <em>is</em> the log.</p>
+<p>A <strong>branch</strong> is nothing more than a movable pointer at a specific commit, and <strong><code>HEAD</code></strong> is a pointer that (usually) points at a branch, telling git &ldquo;this is the branch I&rsquo;m currently on.&rdquo; <code>git commit</code> doesn&rsquo;t just create a commit, it also drags the current branch pointer forward to the new commit. <code>git checkout &lt;branch&gt;</code> doesn&rsquo;t touch any commit at all, it just moves <code>HEAD</code> to point at a different branch.</p>
+<p>This is why merging comes in two flavors:</p>
+<ul>
+<li><strong>Fast-forward merge</strong> — if the branch you&rsquo;re merging <em>into</em> hasn&rsquo;t moved since you branched off, there&rsquo;s no real merging to do, git just slides that branch&rsquo;s pointer forward to match the tip of the other branch.</li>
+<li><strong>Three-way merge</strong> — if both branches gained commits since they diverged, git finds their common ancestor, compares both tips against it, and creates a brand new commit with <em>two</em> parents, one from each branch.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir merge-demo <span style="color:#f92672">&amp;&amp;</span> cd merge-demo
+</span></span><span style="display:flex;"><span>git init -b main
+</span></span><span style="display:flex;"><span>git commit --allow-empty -m <span style="color:#e6db74">&#34;M0&#34;</span>
+</span></span><span style="display:flex;"><span>git branch feature
+</span></span><span style="display:flex;"><span>git checkout feature
+</span></span><span style="display:flex;"><span>git commit --allow-empty -m <span style="color:#e6db74">&#34;F0&#34;</span>
+</span></span><span style="display:flex;"><span>git checkout main
+</span></span><span style="display:flex;"><span>git merge feature
+</span></span><span style="display:flex;"><span>git log --oneline --graph --decorate
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>* 5bcf3ae <span style="color:#f92672">(</span>HEAD -&gt; main, feature<span style="color:#f92672">)</span> F0
+</span></span><span style="display:flex;"><span>* f85470e M0
+</span></span></code></pre></div><p>One line, no merge commit, <code>main</code> simply caught up to <code>feature</code>. Fast-forward. Do it again but commit on <code>main</code> too before merging:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git checkout -b feature2
+</span></span><span style="display:flex;"><span>git commit --allow-empty -m <span style="color:#e6db74">&#34;F1&#34;</span>
+</span></span><span style="display:flex;"><span>git checkout main
+</span></span><span style="display:flex;"><span>git commit --allow-empty -m <span style="color:#e6db74">&#34;M1&#34;</span>
+</span></span><span style="display:flex;"><span>git merge feature2 -m <span style="color:#e6db74">&#34;Merge feature2 into main&#34;</span>
+</span></span><span style="display:flex;"><span>git log --oneline --graph --decorate
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>*   cb3e949 <span style="color:#f92672">(</span>HEAD -&gt; main<span style="color:#f92672">)</span> Merge feature2 into main
+</span></span><span style="display:flex;"><span>|<span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>| * 0018ee9 <span style="color:#f92672">(</span>feature2<span style="color:#f92672">)</span> F1
+</span></span><span style="display:flex;"><span>* | 3c45f86 M1
+</span></span><span style="display:flex;"><span>|/
+</span></span><span style="display:flex;"><span>* 5bcf3ae <span style="color:#f92672">(</span>feature<span style="color:#f92672">)</span> F0
+</span></span><span style="display:flex;"><span>* f85470e M0
+</span></span></code></pre></div><p>Now there&rsquo;s a real merge commit with two parents. Here are both cases animated, first the fast-forward:</p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/wHSZ70Pi0iE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>And the three-way merge, where both sides moved on before merging:</p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Tmfz3nN992k?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<h2 id="1000-ft-the-object-database">1,000 ft: the object database</h2>
+<p>This is where &ldquo;snapshots, not diffs&rdquo; stops being an abstract claim. Every commit, every directory listing, every version of every file you&rsquo;ve ever committed is stored as an <strong>object</strong>, and every object is named by the SHA-1 hash of its own content. Same content anywhere in history, same hash, same object, stored once. This is a content-addressable store, git is really just a key-value database with three kinds of values on top of it: <strong>blobs</strong>, <strong>trees</strong>, and <strong>commits</strong>.</p>
+<p>Let&rsquo;s build one commit and look at exactly what git wrote to disk.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir objects-demo <span style="color:#f92672">&amp;&amp;</span> cd objects-demo
+</span></span><span style="display:flex;"><span>git init -b main
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Hello, Git!&#34;</span> &gt; hello.txt
+</span></span></code></pre></div><p>Nothing git-related has happened yet, that&rsquo;s just a file. Ask git what the hash of its content <em>would</em> be, without storing anything:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git hash-object hello.txt
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>670a245535fe6316eb2316c1103b1a88bb519334
+</span></span></code></pre></div><p>Now actually store it as a <strong>blob</strong> object:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git hash-object -w hello.txt
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>670a245535fe6316eb2316c1103b1a88bb519334
+</span></span></code></pre></div><p>Same hash, because the hash is purely a function of the content, git computed it and wrote it to <code>.git/objects</code> this time. Confirm it&rsquo;s really there, and what type of object it is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git cat-file -t 670a245535fe6316eb2316c1103b1a88bb519334
+</span></span><span style="display:flex;"><span>git cat-file -p 670a245535fe6316eb2316c1103b1a88bb519334
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>blob
+</span></span><span style="display:flex;"><span>Hello, Git!
+</span></span></code></pre></div><p>That&rsquo;s it, that&rsquo;s the entire blob: the raw file content, nothing else. No filename, no permissions, no history. <code>git add</code> does exactly this <code>hash-object</code> step for you and records the result in the staging area. Commit it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git add hello.txt
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Add hello.txt&#34;</span>
+</span></span><span style="display:flex;"><span>git rev-parse HEAD
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>aba6a2103ae9d634340f848fa05c12eb8e672aab
+</span></span></code></pre></div><p>Look inside that commit object:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git cat-file -p aba6a2103ae9d634340f848fa05c12eb8e672aab
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>tree d3ec8a0f5950fb1f73ce0d1ed55cd6fa7afcdeb9
+</span></span><span style="display:flex;"><span>author Vlad Flore &lt;flore.vlad@gmail.com&gt; <span style="color:#ae81ff">1789553052</span> +0200
+</span></span><span style="display:flex;"><span>committer Vlad Flore &lt;flore.vlad@gmail.com&gt; <span style="color:#ae81ff">1789553052</span> +0200
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Add hello.txt
+</span></span></code></pre></div><p>A commit is just a small text record: which <strong>tree</strong> represents the project&rsquo;s root directory at this point, who wrote it and when, and the message. No parent line here, this is the first commit. Look inside that tree:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git cat-file -p d3ec8a0f5950fb1f73ce0d1ed55cd6fa7afcdeb9
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#ae81ff">100644</span> blob 670a245535fe6316eb2316c1103b1a88bb519334	hello.txt
+</span></span></code></pre></div><p>A <strong>tree</strong> is a directory listing: mode, object type, hash, and filename, one line per entry. For a file, that entry points at a blob. For a subdirectory, it would point at another tree, trees can nest inside trees. Three tiny object types, and together they can represent an entire filesystem at a single point in time: <strong>blob</strong> = file content, <strong>tree</strong> = directory listing, <strong>commit</strong> = a tree plus metadata plus parent(s).</p>
+<p>Now change the file and commit again:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Hello, Git! v2&#34;</span> &gt; hello.txt
+</span></span><span style="display:flex;"><span>git add hello.txt
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Update hello.txt&#34;</span>
+</span></span><span style="display:flex;"><span>git cat-file -p HEAD
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>tree a6b9f4683657af5aff36fbfecfafe61e14a169e0
+</span></span><span style="display:flex;"><span>parent aba6a2103ae9d634340f848fa05c12eb8e672aab
+</span></span><span style="display:flex;"><span>author Vlad Flore &lt;flore.vlad@gmail.com&gt; <span style="color:#ae81ff">1789553052</span> +0200
+</span></span><span style="display:flex;"><span>committer Vlad Flore &lt;flore.vlad@gmail.com&gt; <span style="color:#ae81ff">1789553052</span> +0200
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Update hello.txt
+</span></span></code></pre></div><p>A new <code>tree</code>, a new <code>parent</code> line pointing straight at the previous commit, and, underneath, a whole new blob (<code>14f5f0b...</code>) for the new file content. Nothing about the first commit changed, nothing got overwritten, git just added three new objects (blob, tree, commit) and pointed the newest one at the previous one. That&rsquo;s the parent-pointer chain that <code>git log</code> walks:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>find .git/objects -type f | sort
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>.git/objects/14/f5f0b4869f4268560680ceb02ce8df831a74dc
+</span></span><span style="display:flex;"><span>.git/objects/67/0a245535fe6316eb2316c1103b1a88bb519334
+</span></span><span style="display:flex;"><span>.git/objects/a2/d9e32136d0bca38251ad19a71f284d4acd2995
+</span></span><span style="display:flex;"><span>.git/objects/a6/b9f4683657af5aff36fbfecfafe61e14a169e0
+</span></span><span style="display:flex;"><span>.git/objects/ab/a6a2103ae9d634340f848fa05c12eb8e672aab
+</span></span><span style="display:flex;"><span>.git/objects/d3/ec8a0f5950fb1f73ce0d1ed55cd6fa7afcdeb9
+</span></span></code></pre></div><p>Six objects for two commits: 2 blobs, 2 trees, 2 commits. (The first two characters of the hash become the subdirectory name, purely so <code>.git/objects</code> doesn&rsquo;t end up with tens of thousands of files in one flat directory.)</p>
+<p>Here&rsquo;s that exact sequence animated, blob, tree, commit, and the second generation branching off the first:</p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/hpKEDTvG5YY?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<h3 id="branches-and-head-are-just-files">Branches and <code>HEAD</code> are just files</h3>
+<p>Given all that, what <em>is</em> a branch, mechanically? Look inside <code>.git</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cat .git/refs/heads/main
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>a2d9e32136d0bca38251ad19a71f284d4acd2995
+</span></span></code></pre></div><p>That&rsquo;s the whole thing. <code>main</code> is a 41-byte text file containing one commit hash. <code>git commit</code> advances the current branch by overwriting this file with the new commit&rsquo;s hash. <code>git branch other-name</code> creates a new file with the same content. <code>git branch -D other-name</code> deletes a file. There&rsquo;s no special &ldquo;branch&rdquo; object type, a branch is a ref, a named pointer to a commit, living as a plain file under <code>.git/refs/heads/</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cat .git/HEAD
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ref: refs/heads/main
+</span></span></code></pre></div><p>And <code>HEAD</code> is one level of indirection on top of that: normally it doesn&rsquo;t hold a commit hash at all, it holds the <em>name</em> of the branch you&rsquo;re on. <code>git checkout other-branch</code> rewrites this one line. When you check out a specific commit instead of a branch (a &ldquo;detached HEAD&rdquo;), <code>HEAD</code> briefly holds a raw commit hash instead of a <code>ref:</code> line, same file, same idea.</p>
+<h3 id="why-git-doesnt-grow-forever">Why <code>.git</code> doesn&rsquo;t grow forever</h3>
+<p>If every commit adds new objects and nothing ever gets deleted, doesn&rsquo;t <code>.git</code> balloon indefinitely? For a while, yes, each object above got written as its own file (a &ldquo;loose object&rdquo;). Periodically (and automatically, when there are enough loose objects lying around) git runs garbage collection, which packs many objects together into a single compressed <strong>packfile</strong>, storing similar objects as deltas against each other instead of full copies. This is why cloning a repository with years of history is usually a fraction of the size you&rsquo;d expect: <code>git gc</code> and the packfile format are doing real compression work behind the scenes, without changing anything about the object model above. It&rsquo;s still blobs, trees, and commits, just stored more efficiently.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Zoom back out: git moves your files between a working directory, a staging area, and a repository (7,000 ft). Inside that repository, commits form a graph via parent pointers, and branches are just movable labels on that graph (5,000 ft). And underneath all of that, the entire thing is a content-addressable key-value store of three object types, blobs, trees, and commits, glued together with hashes, plus a couple of tiny text files for refs and <code>HEAD</code> (1,000 ft, ground level). Every git command you&rsquo;ll ever run is doing some combination of: write an object, update a ref, or move <code>HEAD</code>. Once that clicks, git stops being a wall of memorized commands and starts being a small, well-defined mechanism you can actually reason about, and the commands that manipulate history directly, <a href="https://vladflore.tech/posts/2026/09/git-reflog-the-undo-button-you-didnt-know-you-had/"><code>git reflog</code></a>, <a href="https://vladflore.tech/posts/2026/09/git-worktrees-work-on-two-branches-at-once/"><code>git worktree</code></a>, and <a href="https://vladflore.tech/posts/2026/09/git-filter-repo-rewriting-history-the-right-way/"><code>git filter-repo</code></a>, stop looking like magic.</p>
+
+      </div>
+
+      <div class="support-cta">
+  <p>Found this useful? Support more posts like this: <a href="https://ko-fi.com/D1D41G44WK" target="_blank" rel="noopener" class="support-cta-badge"><img src="https://storage.ko-fi.com/cdn/kofi1.png?v=6" alt="Buy Me a Coffee at ko-fi.com" height="36" /></a></p>
+</div>
+
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://vladflore.tech/tags/git/">git</a></span>
+        <span class="tag"><a href="https://vladflore.tech/tags/nerdy/">nerdy</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        1818 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2026-09-21 02:00
+        
+
+        
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+
+  
+  
+  <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2026%2f09%2fhow-git-actually-works-a-tour-of-git-internals%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+    <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+        <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="resp-sharing-button__link" href="mailto:?subject=How%20Git%20Actually%20Works%3a%20A%20Tour%20of%20Git%20Internals&amp;body=https%3a%2f%2fvladflore.tech%2fposts%2f2026%2f09%2fhow-git-actually-works-a-tour-of-git-internals%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+    <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fvladflore.tech%2fposts%2f2026%2f09%2fhow-git-actually-works-a-tour-of-git-internals%2f&amp;title=How%20Git%20Actually%20Works%3a%20A%20Tour%20of%20Git%20Internals&amp;summary=How%20Git%20Actually%20Works%3a%20A%20Tour%20of%20Git%20Internals&amp;source=https%3a%2f%2fvladflore.tech%2fposts%2f2026%2f09%2fhow-git-actually-works-a-tour-of-git-internals%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+    <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  <a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2026%2f09%2fhow-git-actually-works-a-tour-of-git-internals%2f&amp;resubmit=true&amp;title=How%20Git%20Actually%20Works%3a%20A%20Tour%20of%20Git%20Internals" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+    <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+      </div>
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      </div>
+
+    
+    <div class="pagination">
+        
+
+        <div class="pagination__buttons">
+            
+
+            
+            <span class="button next">
+                <a href="https://vladflore.tech/posts/2026/09/git-filter-repo-rewriting-history-the-right-way/">
+                    <span class="button__text">Git Filter-Repo: Rewriting History the Right Way</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+      
+        <div id="comments">
+          <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vladflore-tech" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      
+    
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2026</span>
+            
+            
+            
+            <span>vladflore[dot]tech. All rights reserved.</span>
+        </div>
+    </div>
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.ad54ad97364f77ede35def9096b162bb1f0b3973aa50b080f5e82fa147f6882e2a7200d7535adbf9b51bebf939f1c1ca9bbe6be87530092aca720eac4a226fda.js" integrity="sha512-rVStlzZPd&#43;3jXe&#43;QlrFiux8LOXOqULCA9egvoUf2iC4qcgDXU1rb&#43;bUb6/k58cHKm75r6HUwCSrKcg6sSiJv2g=="></script>
+
+
+    
+        <script src="/js/line-highlight.js"></script>
+    
+
+    
+        <script src="/js/business-card.js"></script>
+    
+
+    
+        <script src="/js/quiz.js"></script>
+    
+
+
+
+    </body>
+</html>

@@ -6,8 +6,15 @@
     <description>Recent content in Nerdy on vlad·flore · tech</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 17 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 21 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://vladflore.tech/tags/nerdy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How Git Actually Works: A Tour of Git Internals</title>
+      <link>https://vladflore.tech/posts/2026/09/how-git-actually-works-a-tour-of-git-internals/</link>
+      <pubDate>Mon, 21 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/posts/2026/09/how-git-actually-works-a-tour-of-git-internals/</guid>
+      <description>&lt;h2 id=&#34;meet-git-from-10000-feet&#34;&gt;Meet git, from 10,000 feet&lt;/h2&gt;&#xA;&lt;p&gt;Git is not a diff tool. It doesn&amp;rsquo;t store &amp;ldquo;what changed between commit A and commit B&amp;rdquo; and reconstruct history from a chain of patches. Every commit is a full snapshot of your project, and git figures out diffs on demand, for display purposes only, when you ask for them. That single idea, snapshots instead of diffs, is why almost everything else in git works the way it does: branching is cheap, history never has to &amp;ldquo;replay&amp;rdquo; anything to check out an old version, and, as you&amp;rsquo;ll see below, git can implement its entire history as nothing more than a tiny key-value store plus a handful of pointers.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Git Filter-Repo: Rewriting History the Right Way</title>
       <link>https://vladflore.tech/posts/2026/09/git-filter-repo-rewriting-history-the-right-way/</link>
