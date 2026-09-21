@@ -34,6 +34,10 @@
         <link rel="stylesheet" type="text/css" href="/css/quiz.css">
     
 
+    
+        <link rel="stylesheet" type="text/css" href="/css/flashcards.css">
+    
+
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -136,7 +140,18 @@
             
         
             
-                <li><a href="/quizzes/">Quizzes</a></li>
+                <div class="submenu">
+                    <li class="dropdown">
+                        <a href="/learn/" class="dropbtn">Learn</a>
+                        <div class="dropdown-content">
+                            
+                                <a href="/flashcards/">Flashcards</a>
+                            
+                                <a href="/quizzes/">Quizzes</a>
+                            
+                        </div>
+                    </li>
+                </div>
             
         
             
@@ -227,6 +242,8 @@
     <main class="post quiz">
         <article>
             <h1 class="post-title">Git</h1>
+
+            <div class="quiz-toolbar" hidden><span class="quiz-reset-slot"></span></div>
 
             <div
                 id="quiz-app"
@@ -672,6 +689,10 @@
 
     
         <script src="/js/quiz.js"></script>
+    
+
+    
+        <script src="/js/flashcards.js"></script>
     
 
 

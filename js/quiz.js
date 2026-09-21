@@ -15,6 +15,35 @@
     return div.innerHTML;
   }
 
+  // Short hash of the content that saved state depends on, so state saved
+  // against an older version of the content is discarded rather than misapplied.
+  function fingerprint(items) {
+    const str = JSON.stringify(items.map((item) => [item.q, item.choices, item.a]));
+    let hash = 5381;
+    for (let i = 0; i < str.length; i++) {
+      hash = ((hash << 5) + hash + str.charCodeAt(i)) | 0;
+    }
+    return `${items.length}:${hash.toString(36)}`;
+  }
+
+  // "Restart" link, in the toolbar above the box, with an inline "Restart? Yes / No" confirmation.
+  function wireReset(root, onReset) {
+    const toolbar = root.parentElement.querySelector('.quiz-toolbar');
+    const slot = toolbar && toolbar.querySelector('.quiz-reset-slot');
+    if (!slot) return;
+    toolbar.hidden = false;
+    const showLink = () => {
+      slot.innerHTML = '<button type="button" class="quiz-reset-link">Restart</button>';
+      slot.querySelector('.quiz-reset-link').addEventListener('click', showConfirm);
+    };
+    const showConfirm = () => {
+      slot.innerHTML = 'Restart? <button type="button" class="quiz-reset-link quiz-reset-yes">Yes</button> <button type="button" class="quiz-reset-link quiz-reset-no">No</button>';
+      slot.querySelector('.quiz-reset-yes').addEventListener('click', onReset);
+      slot.querySelector('.quiz-reset-no').addEventListener('click', showLink);
+    };
+    showLink();
+  }
+
   function tierMessage(pct) {
     if (pct === 100) return "Perfect score. You basically live in .git/objects.";
     if (pct >= 90) return "Git wizard. Barely anything left to learn here.";
@@ -37,6 +66,7 @@
     if (!Array.isArray(questions) || questions.length === 0) return;
 
     const storageKey = `quiz-state:${location.pathname}`;
+    const contentFingerprint = fingerprint(questions);
 
     function loadState() {
       try {
@@ -44,7 +74,7 @@
         if (!raw) return null;
         const state = JSON.parse(raw);
         if (
-          !state ||
+          !state || state.fp !== contentFingerprint ||
           !Array.isArray(state.order) || state.order.length !== questions.length ||
           !Array.isArray(state.answers) || state.answers.length !== questions.length ||
           typeof state.current !== 'number'
@@ -57,7 +87,7 @@
 
     function saveState(view) {
       try {
-        sessionStorage.setItem(storageKey, JSON.stringify({ order, answers, current, view }));
+        sessionStorage.setItem(storageKey, JSON.stringify({ fp: contentFingerprint, order, answers, current, view }));
       } catch (e) {
         // ignore, e.g. private browsing with storage disabled
       }
@@ -116,6 +146,8 @@
         btn.addEventListener('click', () => handleAnswer(parseInt(btn.dataset.index, 10)));
       });
 
+      wireReset(root, resetQuiz);
+
       root.querySelector('.quiz-prev').addEventListener('click', () => {
         if (current > 0) {
           current--;
@@ -136,6 +168,13 @@
       saveState('question');
     }
 
+    function resetQuiz() {
+      order = shuffle(questions.map((_, i) => i));
+      answers = new Array(order.length).fill(null);
+      current = 0;
+      render();
+    }
+
     function handleAnswer(chosenIndex) {
       if (answers[current]) return;
       const q = questions[order[current]];
@@ -144,6 +183,8 @@
     }
 
     function renderResults() {
+      const toolbar = root.parentElement.querySelector('.quiz-toolbar');
+      if (toolbar) toolbar.hidden = true; // the results screen has its own restart buttons
       const total = order.length;
       const score = scoreSoFar();
       const pct = Math.round((score / total) * 100);
@@ -183,12 +224,7 @@
         current = 0;
         render();
       });
-      root.querySelector('.quiz-restart').addEventListener('click', () => {
-        order = shuffle(questions.map((_, i) => i));
-        answers = new Array(order.length).fill(null);
-        current = 0;
-        render();
-      });
+      root.querySelector('.quiz-restart').addEventListener('click', resetQuiz);
 
       saveState('results');
     }

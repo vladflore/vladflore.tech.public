@@ -1,0 +1,195 @@
+/* Flashcards section. Builds on the quiz styles (quiz-app, quiz-header, quiz-controls, ...). */
+
+.flashcard {
+  margin-bottom: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  perspective: 1400px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.flashcard:focus-visible {
+  outline: 2px solid #6495ed;
+  outline-offset: 2px;
+}
+
+/* Both faces share one grid cell, so the card is as tall as the taller face. */
+.flashcard-inner {
+  display: grid;
+  min-height: 240px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.flashcard.flipped .flashcard-inner {
+  transform: rotateY(180deg);
+}
+
+.flashcard-inner.enter {
+  animation: flashcard-enter 0.25s ease-out;
+}
+
+@keyframes flashcard-enter {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.flashcard-face {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 20px;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: background 0.15s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  .flashcard-face { border-color: #4e4e57; }
+}
+[data-theme=dark] .flashcard-face { border-color: #4e4e57; }
+[data-theme=light] .flashcard-face { border-color: #dcdcdc; }
+
+.flashcard-front:hover {
+  background: rgba(100, 149, 237, 0.08);
+}
+
+.flashcard-face.flashcard-back {
+  transform: rotateY(180deg);
+  border-color: #6495ed;
+  background: rgba(100, 149, 237, 0.08);
+}
+
+.flashcard-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.flashcard-topic,
+.flashcard-side {
+  opacity: 0.6;
+}
+
+.flashcard-back .flashcard-side {
+  color: #6495ed;
+  opacity: 1;
+}
+
+.flashcard-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 16px 0;
+  font-size: 1.15rem;
+  text-align: left;
+  user-select: text;
+}
+
+.flashcard-front .flashcard-body {
+  font-weight: 600;
+}
+
+.flashcard-back .flashcard-body {
+  font-size: 1rem;
+}
+
+.flashcard-body p,
+.flashcard-missed-answer p {
+  margin: 0 0 10px;
+}
+
+.flashcard-body p:last-child,
+.flashcard-missed-answer p:last-child {
+  margin-bottom: 0;
+}
+
+.flashcard-body pre,
+.flashcard-missed-answer pre {
+  margin: 0 0 10px;
+  font-size: 0.85rem;
+  overflow-x: auto;
+}
+
+.flashcard-body pre:last-child,
+.flashcard-missed-answer pre:last-child {
+  margin-bottom: 0;
+}
+
+.flashcard-hint {
+  font-size: 0.8rem;
+  text-align: center;
+  opacity: 0.45;
+}
+
+.flashcard-actions,
+.flashcard-rating {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* The theme caps .button at max-width: 40% of its parent, which squeezes buttons inside the actions wrapper. */
+.quiz-controls .flashcard-actions .button {
+  max-width: none;
+  white-space: nowrap;
+}
+
+
+.quiz-controls .flashcard-rating button {
+  padding: 10px 22px;
+}
+
+.flashcard-review.selected {
+  border-color: #c0392b;
+  background: rgba(192, 57, 43, 0.15);
+}
+
+.flashcard-known.selected {
+  outline: 2px solid #3c9a5f;
+  outline-offset: 2px;
+}
+
+.quiz-results-actions {
+  flex-wrap: wrap;
+}
+
+.flashcard-missed-answer {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flashcard-inner { transition-duration: 0.01s; }
+  .flashcard-inner.enter { animation: none; }
+}
+
+@media (max-width: 600px) {
+  .flashcard-inner { min-height: 200px; }
+  .quiz-controls { flex-wrap: wrap; }
+  .flashcard-rating { flex: 1; justify-content: flex-end; }
+}
+
+.flashcard-body ul,
+.flashcard-missed-answer ul {
+  margin: 0 0 10px;
+  padding-left: 20px;
+}
+
+.flashcard-body ul:last-child,
+.flashcard-missed-answer ul:last-child {
+  margin-bottom: 0;
+}
+
+.flashcard-body li,
+.flashcard-missed-answer li {
+  margin-bottom: 4px;
+}

@@ -9,6 +9,13 @@
     <lastBuildDate>Mon, 21 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://vladflore.tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Git</title>
+      <link>https://vladflore.tech/flashcards/git/</link>
+      <pubDate>Mon, 21 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>https://vladflore.tech/flashcards/git/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>How Git Actually Works: A Tour of Git Internals</title>
       <link>https://vladflore.tech/posts/2026/09/how-git-actually-works-a-tour-of-git-internals/</link>
       <pubDate>Mon, 21 Sep 2026 00:00:00 +0000</pubDate>

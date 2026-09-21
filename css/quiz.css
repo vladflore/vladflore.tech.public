@@ -251,3 +251,53 @@
   margin-bottom: 6px;
   opacity: 0.8;
 }
+
+/* Fixed height so swapping "Restart" for "Restart? Yes No" never shifts the content below. */
+.quiz-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 1.5rem;
+  margin-top: 24px;
+}
+
+.quiz-toolbar[hidden] {
+  display: none;
+}
+
+.quiz-toolbar + .quiz-app {
+  margin-top: 8px;
+}
+
+.quiz-toolbar[hidden] + .quiz-app {
+  margin-top: 24px;
+}
+
+.quiz-reset-slot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  line-height: 1;
+  white-space: nowrap;
+  opacity: 0.6;
+}
+
+/* Doubled up with .quiz-toolbar to beat the theme's global `button` rules (display: flex, padding, background). */
+.quiz-toolbar .quiz-reset-link {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.quiz-toolbar .quiz-reset-link:hover {
+  background: none;
+  opacity: 0.7;
+}
