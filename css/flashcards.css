@@ -130,6 +130,7 @@
   opacity: 0.45;
 }
 
+.flashcard-nav,
 .flashcard-actions,
 .flashcard-rating {
   display: flex;
@@ -137,7 +138,8 @@
   gap: 12px;
 }
 
-/* The theme caps .button at max-width: 40% of its parent, which squeezes buttons inside the actions wrapper. */
+/* The theme caps .button at max-width: 40% of its parent, which squeezes buttons inside the wrappers. */
+.quiz-controls .flashcard-nav .button,
 .quiz-controls .flashcard-actions .button {
   max-width: none;
   white-space: nowrap;
@@ -160,6 +162,11 @@
 
 .quiz-results-actions {
   flex-wrap: wrap;
+}
+
+.flashcard-unmarked {
+  margin-bottom: 8px;
+  opacity: 0.7;
 }
 
 .flashcard-missed-answer {

@@ -148,6 +148,24 @@
       return ratings.reduce((sum, r) => sum + (r ? 1 : 0), 0);
     }
 
+    let view = 'card'; // 'card' | 'results', read by the arrow-key handler
+
+    function next() {
+      if (current === order.length - 1) {
+        renderResults();
+      } else {
+        goTo(current + 1);
+        render({ enter: true });
+      }
+    }
+
+    function prev() {
+      if (current > 0) {
+        goTo(current - 1);
+        render({ enter: true });
+      }
+    }
+
     function startDeck(newOrder) {
       order = newOrder;
       ratings = new Array(order.length).fill(null);
@@ -171,7 +189,7 @@
             <div class="flashcard-face flashcard-front">
               <div class="flashcard-meta">${topicHtml}<span class="flashcard-side">Question</span></div>
               <div class="flashcard-body">${formatText(card.front)}</div>
-              <div class="flashcard-hint">Click the card or press Space to flip</div>
+              <div class="flashcard-hint">Click the card or press Space to flip, ← / → to move</div>
             </div>
             <div class="flashcard-face flashcard-back">
               <div class="flashcard-meta">${topicHtml}<span class="flashcard-side">Answer</span></div>
@@ -181,7 +199,10 @@
           </div>
         </div>
         <div class="quiz-controls">
-          <button type="button" class="button outline flashcard-prev" ${current === 0 ? 'disabled' : ''}>Previous</button>
+          <div class="flashcard-nav">
+            <button type="button" class="button outline flashcard-prev" ${current === 0 ? 'disabled' : ''}>Previous</button>
+            <button type="button" class="button outline flashcard-next">${current === order.length - 1 ? 'See results' : 'Next'}</button>
+          </div>
           <div class="flashcard-actions"></div>
         </div>
       `;
@@ -229,24 +250,16 @@
 
       wireReset(root, () => startDeck(allIndexes()));
 
-      root.querySelector('.flashcard-prev').addEventListener('click', () => {
-        if (current > 0) {
-          goTo(current - 1);
-          render({ enter: true });
-        }
-      });
+      root.querySelector('.flashcard-prev').addEventListener('click', prev);
+      root.querySelector('.flashcard-next').addEventListener('click', next);
 
+      view = 'card';
       syncFlip();
       saveState('card');
     }
     function rate(rating) {
       ratings[current] = rating;
-      if (current === order.length - 1) {
-        renderResults();
-      } else {
-        goTo(current + 1);
-        render({ enter: true });
-      }
+      next();
     }
 
     function renderResults() {
@@ -254,6 +267,7 @@
       if (toolbar) toolbar.hidden = true; // the results screen has its own restart buttons
       const total = order.length;
       const known = knownCount();
+      const unmarked = total - ratedCount();
       const pct = Math.round((known / total) * 100);
 
       const missed = order
@@ -277,6 +291,7 @@
       root.innerHTML = `
         <div class="quiz-results">
           <div class="quiz-score">${known} / ${total} known (${pct}%)</div>
+          ${unmarked ? `<div class="flashcard-unmarked">${unmarked} not marked</div>` : ''}
           <div class="quiz-tier">${tierMessage(pct)}</div>
           <div class="quiz-results-actions">
             <button type="button" class="button outline flashcard-browse">Browse cards</button>
@@ -301,10 +316,23 @@
         startDeck(shuffle(allIndexes()));
       });
 
+      view = 'results';
       saveState('results');
     }
 
-    if (saved && saved.view === 'results' && ratings.every((r) => r)) {
+    document.addEventListener('keydown', (e) => {
+      if (view !== 'card' || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+      if (e.target.closest && e.target.closest('input, textarea, select, [contenteditable]')) return;
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        next();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prev();
+      }
+    });
+
+    if (saved && saved.view === 'results') {
       renderResults();
     } else {
       render();

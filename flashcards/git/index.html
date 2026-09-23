@@ -274,8 +274,8 @@
     "topic": "Three trees"
   },
   {
-    "back": "- First column: staging area vs. the last commit (`A` = staged as new)\n- Second column: working directory vs. the staging area",
-    "front": "In `git status --short`, what do the two columns describe?",
+    "back": "- `X` (first character): staging area vs. the last commit\n- `Y` (second character): working directory vs. the staging area\n- Blank = no difference for that comparison",
+    "front": "Each line of `git status --short` starts with a two-character status code (`XY`). What does each character compare?",
     "topic": "Three trees"
   },
   {
@@ -339,7 +339,7 @@
     "topic": "Merging"
   },
   {
-    "back": "The method Git uses to find the base commit and combine the changes. `git merge` picks one automatically unless you pass `-s`.\n\nThe post covers `recursive`; newer Git versions default to `ort`, its faster replacement.",
+    "back": "The method Git uses to find the base commit and combine the changes. `git merge` picks one automatically unless you pass `-s`.\n\nThe long-time default was `recursive`; since Git 2.34 the default is `ort`, its faster replacement.",
     "front": "What is a merge strategy?",
     "topic": "Merging"
   },
@@ -354,8 +354,8 @@
     "topic": "Rebase"
   },
   {
-    "back": "Git created three new commits (`F'0`, `F'1`, `F'2`) with identical content but different hashes, placed after the new base.\n\nThe originals get garbage-collected eventually, unless \"revived\" (e.g. via the reflog).",
-    "front": "After `git rebase master` on `feature`, what happened to `F0`, `F1`, `F2`?",
+    "back": "Git created three new commits (`F'0`, `F'1`, `F'2`) with the same changes but different hashes, placed after the tip of `master`.\n\nThe originals get garbage-collected eventually, unless \"revived\" (e.g. via the reflog).",
+    "front": "`feature` branched off `master` and has three commits: `F0`, `F1`, `F2`. Meanwhile `master` got new commits. After running `git rebase master` on `feature`, what happened to `F0`, `F1`, `F2`?",
     "topic": "Rebase"
   },
   {
@@ -479,7 +479,7 @@
     "topic": "Worktrees"
   },
   {
-    "back": "```\ngit worktree add \u003cpath\u003e \u003cbranch\u003e\ngit worktree add -b \u003cnew-branch\u003e \u003cpath\u003e \u003cstart-point\u003e\n```\n\nThe first checks out an existing branch; the second creates the branch and the worktree in one shot.",
+    "back": "```\ngit worktree add \u003cpath\u003e \u003cbranch\u003e\ngit worktree add -b \u003cnew-branch\u003e \u003cpath\u003e \u003cstart-point\u003e\n```\n\n- `\u003cpath\u003e`: a new directory, usually outside the repo (e.g. `../hotfix`), where the branch's files are checked out\n- First form: checks out an existing branch there\n- Second form: creates `\u003cnew-branch\u003e` from `\u003cstart-point\u003e` (default `HEAD`) and checks it out there, in one step\n- A branch can be checked out in only one worktree at a time",
     "front": "How do you create a worktree?",
     "topic": "Worktrees"
   },
@@ -539,8 +539,8 @@
     "topic": "filter-repo"
   },
   {
-    "back": "They were left with no changes at all, and filter-repo prunes empty commits by default (`--prune-empty=auto`). Pass `--prune-empty=never` to keep them.",
-    "front": "After removing `build/`, commits like `wip` vanished from the log too. Why?",
+    "back": "Those commits only changed files inside `build/`, so after the rewrite they had no changes left. filter-repo drops commits that become empty by default (`--prune-empty=auto`). Pass `--prune-empty=never` to keep them.",
+    "front": "You ran `git filter-repo --path build/ --invert-paths` to remove the `build/` directory from history. Some commits (e.g. one named `wip`) also disappeared from the log. Why?",
     "topic": "filter-repo"
   },
   {
