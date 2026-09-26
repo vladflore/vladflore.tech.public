@@ -1,0 +1,64 @@
+{
+  "title": "Binary Search Tree",
+  "kind": "fix",
+  "track": "Algorithms",
+  "draft": false,
+  "difficulty": "easy",
+  "topics": [
+    "trees",
+    "debugging"
+  ],
+  "related": [],
+  "compare": "exact",
+  "tests": [
+    {
+      "name": "Single node",
+      "expr": "(BST(5).search(5), BST(5).in_order())",
+      "expected": [
+        true,
+        [
+          5
+        ]
+      ]
+    },
+    {
+      "name": "Insert keeps order",
+      "setup": "tree = BST(8)\nfor v in [3, 10, 1, 6, 14, 4]:\n    tree.insert(v)",
+      "expr": "tree.in_order()",
+      "expected": [
+        1,
+        3,
+        4,
+        6,
+        8,
+        10,
+        14
+      ]
+    },
+    {
+      "name": "BST property",
+      "setup": "tree = BST(8)\nfor v in [3, 10, 1, 6, 14, 4]:\n    tree.insert(v)",
+      "expr": "(tree.root.left.value, tree.root.right.value)",
+      "expected": [
+        3,
+        10
+      ]
+    },
+    {
+      "name": "Finds values",
+      "setup": "tree = BST(8)\nfor v in [3, 10, 1, 6, 14, 4]:\n    tree.insert(v)",
+      "expr": "[tree.search(v) for v in (8, 4, 14)]",
+      "expected": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "Missing value is False",
+      "setup": "tree = BST(8)\nfor v in [3, 10, 1, 6, 14, 4]:\n    tree.insert(v)",
+      "expr": "tree.search(7)",
+      "expected": false
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+<h3>Fix the bugs</h3>
+<p>This binary search tree comes straight from course notes, and it doesn't work: inserting crashes, and searching for a missing value doesn't return <code>False</code>.</p>
+<p>Fix both and explain each. Keep the recursive helpers.</p>
+<h3>Notes</h3>
+<ul>
+  <li>BST property: everything in a node's left subtree is smaller than the node, everything in its right subtree larger. An in-order walk gives the values sorted.</li>
+  <li>Search and insert take O(height). Inserting sorted data makes the tree a linked list (O(n)); self-balancing trees such as AVL trees rebalance to keep the height O(log n).</li>
+</ul>

@@ -1,0 +1,11 @@
+<h3>Task</h3>
+<p>A binary tree node has at most two children, <code>left</code> and <code>right</code>. <code>Node</code> and <code>build_tree</code> (from a level-order list) are given.</p>
+<ul>
+  <li><code>preorder(root)</code> (root, left, right), <code>inorder(root)</code> (left, root, right), <code>postorder(root)</code> (left, right, root): lists of values.</li>
+  <li><code>height(root)</code>: edges on the longest path down from the root; a single node has height 0, an empty tree -1.</li>
+  <li><code>depth(root, value)</code>: edges from the root to the node holding <code>value</code> (the root's depth is 0), or -1.</li>
+  <li><code>is_full(root)</code>: every node has 0 or 2 children.</li>
+  <li><code>is_complete(root)</code>: every level is full except maybe the last, whose nodes are as far left as possible.</li>
+</ul>
+<h3>Notes</h3>
+<p>Traversal visits every node exactly once. Recursion fits trees naturally; for completeness, a level-order walk with a queue (<code>collections.deque</code>) is easier.</p>

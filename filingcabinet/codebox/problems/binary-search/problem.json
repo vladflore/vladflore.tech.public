@@ -1,0 +1,68 @@
+{
+  "title": "Binary Search",
+  "kind": "implement",
+  "track": "Algorithms",
+  "draft": false,
+  "difficulty": "easy",
+  "topics": [
+    "binary-search",
+    "recursion"
+  ],
+  "related": [],
+  "compare": "exact",
+  "tests": [
+    {
+      "name": "Found, recursive",
+      "expr": "binary_search_recursive([1, 3, 5, 7, 9], 7, 0, 4)",
+      "expected": true
+    },
+    {
+      "name": "Missing, recursive",
+      "expr": "binary_search_recursive([1, 3, 5, 7, 9], 4, 0, 4)",
+      "expected": false
+    },
+    {
+      "name": "Empty, recursive",
+      "expr": "binary_search_recursive([], 1, 0, -1)",
+      "expected": false
+    },
+    {
+      "name": "Index, iterative",
+      "expr": "binary_search([1, 3, 5, 7, 9], 9)",
+      "expected": 4
+    },
+    {
+      "name": "First item",
+      "expr": "binary_search([1, 3, 5, 7, 9], 1)",
+      "expected": 0
+    },
+    {
+      "name": "Missing, iterative",
+      "expr": "binary_search([1, 3, 5, 7, 9], 10)",
+      "expected": -1
+    },
+    {
+      "name": "Empty, iterative",
+      "expr": "binary_search([], 1)",
+      "expected": -1
+    },
+    {
+      "name": "Logarithmic reads",
+      "setup": "class Counting(list):\n    reads = 0\n    def __getitem__(self, i):\n        Counting.reads += 1\n        return super().__getitem__(i)\nc = Counting(range(0, 2_000_000, 2))",
+      "expr": "(binary_search(c, 777_778), Counting.reads <= 25)",
+      "expected": [
+        388889,
+        true
+      ]
+    },
+    {
+      "name": "Recursive reads too",
+      "setup": "class Counting(list):\n    reads = 0\n    def __getitem__(self, i):\n        Counting.reads += 1\n        return super().__getitem__(i)\nc = Counting(range(0, 2_000_000, 2))",
+      "expr": "(binary_search_recursive(c, 3, 0, len(c) - 1), Counting.reads <= 25)",
+      "expected": [
+        false,
+        true
+      ]
+    }
+  ]
+}

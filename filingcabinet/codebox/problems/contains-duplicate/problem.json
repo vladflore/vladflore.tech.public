@@ -1,0 +1,20 @@
+{
+  "title": "Contains Duplicate",
+  "track": "Algorithms",
+  "draft": false,
+  "difficulty": "easy",
+  "topics": ["arrays", "hash-set"],
+  "related": ["two-sum"],
+  "function": "contains_duplicate",
+  "compare": "exact",
+  "tests": [
+    { "name": "Basic duplicate", "args": [[1, 2, 3, 1]], "expected": true },
+    { "name": "All distinct", "args": [[1, 2, 3, 4]], "expected": false },
+    { "name": "Many duplicates", "args": [[1, 1, 1, 3, 3, 4, 3, 2, 4, 2]], "expected": true },
+    { "name": "Empty array", "args": [[]], "expected": false },
+    { "name": "Single element", "args": [[7]], "expected": false },
+    { "name": "Negative numbers", "args": [[-1, -2, -3, -1]], "expected": true },
+    { "name": "Duplicate far apart", "args": [[5, 1, 2, 3, 4, 6, 7, 8, 9, 5]], "expected": true },
+    { "name": "Zero among distinct values", "args": [[0, -1, 1]], "expected": false }
+  ]
+}

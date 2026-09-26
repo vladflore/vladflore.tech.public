@@ -1,0 +1,13 @@
+<h3>Task</h3>
+<p>Search a list sorted in ascending order by halving the range each step.</p>
+<ul>
+  <li><code>binary_search_recursive(data, target, low, high)</code>: True if <code>target</code> is in <code>data[low..high]</code> (both inclusive), recursively.</li>
+  <li><code>binary_search(data, target)</code>: the index of <code>target</code>, or <code>-1</code>, with a loop.</li>
+</ul>
+<p>Both must look at about log₂(n) items: the tests count reads on a list of a million numbers.</p>
+<h3>Notes</h3>
+<ul>
+  <li>Binary search only works on <strong>sorted</strong> data.</li>
+  <li><code>mid = (low + high) // 2</code>; stop when <code>low &gt; high</code>.</li>
+  <li>The standard library has it too: <code>bisect.bisect_left</code>.</li>
+</ul>

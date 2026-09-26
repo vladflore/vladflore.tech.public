@@ -1,0 +1,118 @@
+{
+  "title": "Tree Traversals",
+  "kind": "implement",
+  "track": "Algorithms",
+  "draft": false,
+  "difficulty": "medium",
+  "topics": [
+    "trees",
+    "recursion"
+  ],
+  "related": [],
+  "compare": "exact",
+  "tests": [
+    {
+      "name": "Preorder",
+      "setup": "root = build_tree([1, 2, 3, 4, 5, 6, 7])",
+      "expr": "preorder(root)",
+      "expected": [
+        1,
+        2,
+        4,
+        5,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "name": "Inorder",
+      "setup": "root = build_tree([1, 2, 3, 4, 5, 6, 7])",
+      "expr": "inorder(root)",
+      "expected": [
+        4,
+        2,
+        5,
+        1,
+        6,
+        3,
+        7
+      ]
+    },
+    {
+      "name": "Postorder",
+      "setup": "root = build_tree([1, 2, 3, 4, 5, 6, 7])",
+      "expr": "postorder(root)",
+      "expected": [
+        4,
+        5,
+        2,
+        6,
+        7,
+        3,
+        1
+      ]
+    },
+    {
+      "name": "Empty tree",
+      "expr": "(preorder(None), inorder(None), postorder(None))",
+      "expected": [
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "name": "Height",
+      "setup": "root = build_tree([1, 2, 3, 4, 5, 6, 7])",
+      "expr": "(height(root), height(build_tree([1])), height(None))",
+      "expected": [
+        2,
+        0,
+        -1
+      ]
+    },
+    {
+      "name": "Height of a lopsided tree",
+      "expr": "height(build_tree([1, 2, None, 3]))",
+      "expected": 2
+    },
+    {
+      "name": "Depth",
+      "setup": "root = build_tree([1, 2, 3, 4, 5, 6, 7])",
+      "expr": "(depth(root, 1), depth(root, 5), depth(root, 42))",
+      "expected": [
+        0,
+        2,
+        -1
+      ]
+    },
+    {
+      "name": "Full tree",
+      "setup": "root = build_tree([1, 2, 3, 4, 5, 6, 7])",
+      "expr": "(is_full(root), is_full(build_tree([1, 2, 3, 4])))",
+      "expected": [
+        true,
+        false
+      ]
+    },
+    {
+      "name": "Complete tree",
+      "expr": "[is_complete(build_tree(v)) for v in ([1, 2, 3, 4], [1, 2, 3, None, 5], [1, 2, 3, 4, 5, 6, 7])]",
+      "expected": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "name": "Full is not complete",
+      "setup": "r = build_tree([1, 2, 3, None, None, 4, 5])",
+      "expr": "(is_full(r), is_complete(r))",
+      "expected": [
+        true,
+        false
+      ]
+    }
+  ]
+}

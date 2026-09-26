@@ -1,0 +1,18 @@
+{
+  "title": "Two Sum",
+  "track": "Algorithms",
+  "draft": false,
+  "difficulty": "easy",
+  "topics": ["arrays", "hash-map"],
+  "related": ["contains-duplicate"],
+  "function": "two_sum",
+  "compare": "unordered",
+  "tests": [
+    { "name": "Basic example", "args": [[2, 7, 11, 15], 9], "expected": [0, 1] },
+    { "name": "Pair not at start", "args": [[3, 2, 4], 6], "expected": [1, 2] },
+    { "name": "Duplicate numbers", "args": [[3, 3], 6], "expected": [0, 1] },
+    { "name": "Negative numbers", "args": [[-1, -2, -3, -4, -5], -8], "expected": [2, 4] },
+    { "name": "Zero target", "args": [[0, 4, 3, 0], 0], "expected": [0, 3] },
+    { "name": "Pair at end", "args": [[1, 5, 9, 13, 20, 7], 27], "expected": [4, 5] }
+  ]
+}

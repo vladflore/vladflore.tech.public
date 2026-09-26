@@ -1,0 +1,29 @@
+{
+  "title": "Valid Parentheses",
+  "track": "Algorithms",
+  "draft": false,
+  "difficulty": "easy",
+  "topics": ["strings", "stack"],
+  "related": [],
+  "function": "is_valid",
+  "compare": "exact",
+  "tests": [
+    { "name": "Single pair", "args": ["()"], "expected": true },
+    { "name": "Consecutive pairs", "args": ["()[]{}"], "expected": true },
+    { "name": "Mismatched pair", "args": ["(]"], "expected": false },
+    { "name": "Nested", "args": ["{[]}"], "expected": true },
+    { "name": "Interleaved", "args": ["([)]"], "expected": false },
+    { "name": "Empty string", "args": [""], "expected": true },
+    { "name": "Only opening", "args": ["(("], "expected": false },
+    { "name": "Only closing", "args": ["]"], "expected": false },
+    { "name": "Closing first", "args": [")("], "expected": false },
+    { "name": "Unclosed at end", "args": ["()[]{"], "expected": false },
+    { "name": "Deep nesting", "args": ["((({[{}]})))"], "expected": true },
+    { "name": "Curly pair", "args": ["{}"], "expected": true },
+    { "name": "Square pair", "args": ["[]"], "expected": true },
+    { "name": "Nested all types", "args": ["([{}])"], "expected": true },
+    { "name": "Groups side by side", "args": ["([])(([{}]))"], "expected": true },
+    { "name": "Wrong closing order", "args": ["({[})"], "expected": false },
+    { "name": "Mixed valid", "args": ["([]{})[()]"], "expected": true }
+  ]
+}

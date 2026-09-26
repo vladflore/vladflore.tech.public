@@ -1,0 +1,62 @@
+{
+  "title": "Two Sum (Sorted)",
+  "kind": "implement",
+  "track": "Algorithms",
+  "draft": false,
+  "difficulty": "easy",
+  "topics": [
+    "arrays",
+    "two-pointers"
+  ],
+  "related": [],
+  "compare": "exact",
+  "tests": [
+    {
+      "name": "Has a pair",
+      "expr": "has_pair([-2, 1, 2, 4, 7, 11], 13)",
+      "expected": true
+    },
+    {
+      "name": "No pair",
+      "expr": "has_pair([1, 2, 4], 10)",
+      "expected": false
+    },
+    {
+      "name": "Same value twice",
+      "expr": "has_pair([3, 3], 6)",
+      "expected": true
+    },
+    {
+      "name": "One number can't pair with itself",
+      "expr": "has_pair([3], 6)",
+      "expected": false
+    },
+    {
+      "name": "Empty",
+      "expr": "has_pair([], 0)",
+      "expected": false
+    },
+    {
+      "name": "Which pair",
+      "expr": "find_pair([-2, 1, 2, 4, 7, 11], 13)",
+      "expected": [
+        2,
+        11
+      ]
+    },
+    {
+      "name": "No pair found",
+      "expr": "find_pair([1, 2], 9)",
+      "expected": null
+    },
+    {
+      "name": "Linear number of reads",
+      "setup": "class Counting(list):\n    reads = 0\n    def __getitem__(self, i):\n        Counting.reads += 1\n        return super().__getitem__(i)\nc = Counting(range(1000))",
+      "expr": "(has_pair(c, -1), Counting.reads <= 2 * len(c))",
+      "expected": [
+        false,
+        true
+      ]
+    }
+  ]
+}

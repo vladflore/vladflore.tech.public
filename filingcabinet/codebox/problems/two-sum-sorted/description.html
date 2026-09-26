@@ -1,0 +1,13 @@
+<h3>Task</h3>
+<p>The input is a list of integers <strong>sorted in ascending order</strong>.</p>
+<ul>
+  <li><code>has_pair(nums, target)</code>: True if two different positions add up to <code>target</code>.</li>
+  <li><code>find_pair(nums, target)</code>: that pair of values (smaller first), or <code>None</code>.</li>
+</ul>
+<p>Use two pointers, one at each end: move the left one right if the sum is too small, the right one left if it's too big. That's O(n) time and O(1) extra space; the test counts how often you read the list.</p>
+<h3>Compare</h3>
+<ul>
+  <li>Brute force: check every pair, O(n²) time.</li>
+  <li>Hash set (see <em>Two Sum</em>): O(n) time, O(n) space, works on unsorted input.</li>
+  <li>Two pointers: O(n) time, O(1) space, but <strong>only on sorted input</strong>.</li>
+</ul>
