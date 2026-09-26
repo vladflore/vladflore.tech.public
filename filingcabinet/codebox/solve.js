@@ -410,8 +410,12 @@ function formatValue(value) {
   return JSON.stringify(value);
 }
 
-// What a test runs: a call of the problem's function, or setup + expression.
+// What a test runs: its description when given (hides test plumbing), else a call
+// of the problem's function, or setup + expression.
 function testInput(test, functionName) {
+  if (test.description) {
+    return test.description;
+  }
   if (test.expr === undefined) {
     return `${functionName}(${test.args.map(formatValue).join(", ")})`;
   }
@@ -438,7 +442,7 @@ function renderTestCase(result, test, functionName) {
     html += `<div class="test-detail">${escapeHtml(result.error)}</div>`;
   } else if (!result.passed) {
     if (test) {
-      html += detail("Input", testInput(test, functionName));
+      html += detail(test.description ? "Test" : "Input", testInput(test, functionName));
     }
     html += detail("Expected", result.raises ? `raises ${result.raises}` : formatValue(result.expected));
     if (result.expected_output != null) {

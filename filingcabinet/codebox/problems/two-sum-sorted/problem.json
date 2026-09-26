@@ -51,6 +51,7 @@
     },
     {
       "name": "Linear number of reads",
+      "description": "has_pair(c, -1) on a sorted list c of 1000 numbers (no pair sums to -1). Checks the result, and that c is read at most 2 * len(c) times (two pointers, not nested loops).",
       "setup": "class Counting(list):\n    reads = 0\n    def __getitem__(self, i):\n        Counting.reads += 1\n        return super().__getitem__(i)\nc = Counting(range(1000))",
       "expr": "(has_pair(c, -1), Counting.reads <= 2 * len(c))",
       "expected": [

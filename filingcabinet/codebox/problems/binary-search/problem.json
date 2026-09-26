@@ -48,6 +48,7 @@
     },
     {
       "name": "Logarithmic reads",
+      "description": "binary_search(c, 777_778) on a sorted list c of 1,000,000 even numbers. Checks the index, and that c is read at most 25 times.",
       "setup": "class Counting(list):\n    reads = 0\n    def __getitem__(self, i):\n        Counting.reads += 1\n        return super().__getitem__(i)\nc = Counting(range(0, 2_000_000, 2))",
       "expr": "(binary_search(c, 777_778), Counting.reads <= 25)",
       "expected": [
@@ -57,6 +58,7 @@
     },
     {
       "name": "Recursive reads too",
+      "description": "binary_search_recursive(c, 3, 0, len(c) - 1) on a sorted list c of 1,000,000 even numbers (3 is missing). Checks the result, and that c is read at most 25 times.",
       "setup": "class Counting(list):\n    reads = 0\n    def __getitem__(self, i):\n        Counting.reads += 1\n        return super().__getitem__(i)\nc = Counting(range(0, 2_000_000, 2))",
       "expr": "(binary_search_recursive(c, 3, 0, len(c) - 1), Counting.reads <= 25)",
       "expected": [

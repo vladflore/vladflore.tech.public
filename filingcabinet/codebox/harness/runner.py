@@ -11,7 +11,8 @@ Two kinds of test:
       copy of the user's module namespace. Lets tests exercise classes, decorators,
       generators, context managers: "list(Countdown(3))", "Account(-5)".
       "raises": "ValueError" passes if that exception (or a subclass) is raised.
-Either kind may add "output": the exact text the test must print.
+Either kind may add "output": the exact text the test must print, and
+"description": plain text the Solve page shows on failure instead of the test code.
 
 Output protocol (one line each, flushed immediately so partial results
 survive if the run is killed):
