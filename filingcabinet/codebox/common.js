@@ -261,9 +261,14 @@ const INFO_HTML = `
     <dt>Ctrl/⌘+I</dt><dd>This help</dd>
   </dl>`;
 
+// Stamped into the page by tools/build.py; "0.0.0-dev" when served unbuilt.
+const APP_VERSION = document.querySelector('meta[name="codebox-version"]')?.content ?? "";
+
 document.addEventListener("DOMContentLoaded", () => {
   const popup = document.getElementById("info-popup");
-  if (popup) popup.innerHTML = INFO_HTML;
+  if (popup) {
+    popup.innerHTML = INFO_HTML + `<p class="info-version">CodeBox v${escapeHtml(APP_VERSION)}</p>`;
+  }
 });
 
 function toggleInfoPopup() {

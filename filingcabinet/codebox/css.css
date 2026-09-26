@@ -360,6 +360,11 @@ body {
 #info-popup p {
   margin: 8px 0;
 }
+#info-popup p.info-version {
+  margin: 12px 0 0;
+  color: #888;
+  font-size: 12px;
+}
 #info-popup .close-btn {
   position: absolute;
   top: 8px;
@@ -697,6 +702,11 @@ body.home-page {
 }
 .home-card-soon .soon-badge {
   margin: 0 4px 0 0;
+}
+.home-version {
+  margin: 32px 0 0;
+  color: #777;
+  font-size: 13px;
 }
 .home-card-cta {
   margin-top: auto; /* CTAs line up at the bottom of both cards */
