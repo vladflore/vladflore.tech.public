@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Vlad Flore ">
+<meta name="description" content="Part 3/4 — function calling, structured outputs, agent state as a state machine, short- and long-term memory, external APIs, web search, databases, agentic RAG, and agent evaluation." />
+<meta name="keywords" content="java, python, generative ai, llm, rag, machine learning, spring boot, microservices, kubernetes, aws, software engineer, freelance developer, vlad flore" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://vladflore.tech/flashcards/agentic-ai-tools-memory-rag/" />
+
+
+    <title>
+        
+            Agentic AI: Tools, Memory &amp; RAG :: vlad·flore · tech 
+        
+    </title>
+
+
+
+
+
+<link rel="stylesheet" href="/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css" integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE=">
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/quiz.css">
+    
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/flashcards.css">
+    
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+
+  <meta itemprop="name" content="Agentic AI: Tools, Memory & RAG">
+  <meta itemprop="description" content="Part 3/4 — function calling, structured outputs, agent state as a state machine, short- and long-term memory, external APIs, web search, databases, agentic RAG, and agent evaluation.">
+  <meta itemprop="datePublished" content="2026-09-24T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-09-24T00:00:00+00:00">
+  <meta itemprop="image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+  <meta name="twitter:title" content="Agentic AI: Tools, Memory & RAG">
+  <meta name="twitter:description" content="Part 3/4 — function calling, structured outputs, agent state as a state machine, short- and long-term memory, external APIs, web search, databases, agentic RAG, and agent evaluation.">
+
+
+
+    <meta property="og:url" content="https://vladflore.tech/flashcards/agentic-ai-tools-memory-rag/">
+  <meta property="og:site_name" content="vlad·flore · tech">
+  <meta property="og:title" content="Agentic AI: Tools, Memory & RAG">
+  <meta property="og:description" content="Part 3/4 — function calling, structured outputs, agent state as a state machine, short- and long-term memory, external APIs, web search, databases, agentic RAG, and agent evaluation.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="flashcards">
+    <meta property="article:published_time" content="2026-09-24T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-09-24T00:00:00+00:00">
+    <meta property="og:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+
+
+
+
+
+
+    <meta property="article:published_time" content="2026-09-24 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RE8EZYX8D9"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RE8EZYX8D9');
+        }
+      </script>
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text ">
+                $ cd ~</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#a9a9b3;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner">
+        
+            
+                <li><a href="/posts/">Posts</a></li>
+            
+        
+            
+                <div class="submenu">
+                    <li class="dropdown">
+                        <a href="/learn/" class="dropbtn">Learn</a>
+                        <div class="dropdown-content">
+                            
+                                <a href="/flashcards/">Flashcards</a>
+                            
+                                <a href="/quizzes/">Quizzes</a>
+                            
+                        </div>
+                    </li>
+                </div>
+            
+        
+            
+                <div class="submenu">
+                    <li class="dropdown">
+                        <a href="/about/" class="dropbtn">About</a>
+                        <div class="dropdown-content">
+                            
+                                <a href="/filingcabinet/cv.html">Resume</a>
+                            
+                                <a href="/portfolio/">Portfolio</a>
+                            
+                                <a href="/certs/">Certs</a>
+                            
+                        </div>
+                    </li>
+                </div>
+            
+        
+
+        <div class="submenu business-card-menu">
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn" aria-label="Business card" title="Business card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.12,4.25h0V3.74a.86.86,0,0,0-.81-.91H19.05a.86.86,0,0,0-.8.91v.51H16.54V2.33a2.2,2.2,0,0,0-2-2.33h-5a2.2,2.2,0,0,0-2,2.33V4.25H5.75V3.74A.86.86,0,0,0,5,2.83H3.71a.86.86,0,0,0-.81.91v.51h0A3.09,3.09,0,0,0,0,7.52v13.2A3.1,3.1,0,0,0,2.88,24H21.12A3.1,3.1,0,0,0,24,20.72V7.52A3.09,3.09,0,0,0,21.12,4.25ZM19,3.74a0,0,0,0,1,0,0h1.24a0,0,0,0,1,0,0v.51H19ZM8.24,2.33A1.37,1.37,0,0,1,9.51.88h5a1.37,1.37,0,0,1,1.27,1.45V4.25h-.88V2.33a.42.42,0,0,0-.39-.44h-5a.42.42,0,0,0-.39.44V4.25H8.24ZM9.9,4.25V2.77h4.2V4.25ZM3.68,3.74a0,0,0,0,1,0,0H5a0,0,0,0,1,0,0v.51H3.68Zm19.54,17a2.26,2.26,0,0,1-2.1,2.39H2.88a2.26,2.26,0,0,1-2.1-2.39V7.52a2.26,2.26,0,0,1,2.1-2.39H21.12a2.26,2.26,0,0,1,2.1,2.39Z"/></svg>
+    </a>
+    <div class="dropdown-content business-card">
+      <img class="business-card-photo" src="https://vladflore.tech/images/me_official_no_background.png" alt="Vlad Flore" />
+      <div class="business-card-name">Vlad Flore</div>
+      <div class="business-card-title">Backend Software Engineer<br />Python | Java | GenAI</div>
+      <div class="business-card-pitch">Open for freelance &amp; consulting work.</div>
+      <div class="business-card-links">
+        <a href="mailto:flore.vlad@gmail.com" title="Email"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Email</a>
+        <a href="https://www.linkedin.com/in/vladflore/" target="_blank" rel="noopener" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg> LinkedIn</a>
+        <a href="https://github.com/vladflore" target="_blank" rel="noopener" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> GitHub</a>
+        <a href="/filingcabinet/cv.html" title="Resume">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Resume
+        </a>
+      </div>
+    </div>
+  </li>
+</div>
+
+
+        
+            <div class="submenu lang-switch-menu">
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn" aria-label="English">
+                        <span class="flag fi fi-gb"></span>
+                    </a>
+                    <div class="dropdown-content">
+                        
+                            
+                                
+                            
+                                
+                                    <a title="Deutsch" href="/de/">
+                                        <span class="flag fi fi-de"></span>
+                                    </a>
+                                
+                            
+                        
+                    </div>
+                </li>
+            </div>
+        
+    </ul>
+</nav>
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post quiz">
+        <article>
+            <h1 class="post-title">Agentic AI: Tools, Memory &amp; RAG</h1>
+
+            <div class="quiz-toolbar" hidden><span class="quiz-reset-slot"></span></div>
+
+            <div
+                id="flashcards-app"
+                class="quiz-app flashcards-app"
+                data-deck-title="Agentic AI: Tools, Memory &amp; RAG"
+            ></div>
+
+            <script type="application/json" id="flashcards-data">
+                [
+  {
+    "back": "An LLM can reason but can't **act**. Without tools, a question about today's weather or your sales data makes it guess, or hallucinate.\n\nTools let it *do* things: web search, precise math, APIs and webhooks, SQL/NoSQL databases, code execution.",
+    "front": "Why do agents need tools?",
+    "topic": "Tools"
+  },
+  {
+    "back": "The prompt told the model to emit a string like \"call calculator with x and y\", and the backend regex-parsed it.\n\nFragile: the model drifts from the format or produces malformed output, and the parser breaks.",
+    "front": "Before function calling, how were tools wired up, and why was that fragile?",
+    "topic": "Tools"
+  },
+  {
+    "back": "You declare tools as **functions with schemas**. The model decides when one is needed and emits a **structured tool-call object** (function name plus JSON arguments) instead of plain text.\n\nYour code runs the function, sends the result back, and the model continues.",
+    "front": "What is function calling?",
+    "topic": "Tools"
+  },
+  {
+    "back": "- **A model trained for it**: it knows when to call a tool, how to fill the arguments, how to format the call\n- **API support**: the response contains a tool-call object your backend must detect, parse and execute\n\nRecent proprietary models support it natively; for open models, check the training and serve them with a server that supports it (e.g. vLLM).",
+    "front": "What two things must be in place for function calling to work?",
+    "topic": "Tools"
+  },
+  {
+    "back": "Wraps a plain Python function into something the agent can call as a tool, deriving the name, description and argument schema from the function.",
+    "front": "In agent frameworks, what does a `@tool` decorator typically do?",
+    "topic": "Tools"
+  },
+  {
+    "back": "1. Call the LLM with the tools bound\n2. The response contains `tool_calls`: read each call's name, arguments and ID\n3. Run the matching Python function\n4. Wrap the result as a **tool message** (with that call ID) and append it to the history\n5. Call the LLM again so it can answer using the result",
+    "front": "Walk through one round of manual tool calling.",
+    "topic": "Tools"
+  },
+  {
+    "back": "```\nresponse = llm.invoke(messages)\nwhile response.tool_calls:\n    for call in response.tool_calls:\n        messages.append(run_tool(call))\n    response = llm.invoke(messages)\nreturn response.content\n```\n\nIt keeps executing tools while the model asks for them, and stops at the first response with **no** tool calls.",
+    "front": "When does an agent's tool loop stop?",
+    "topic": "Tools"
+  },
+  {
+    "back": "- **MCP** (Model Context Protocol): standardized access to tools and data\n- **A2A** (Agent2Agent): communication between agents across systems\n- Computer-using agents that drive a GUI directly\n\nTool use is still fragmented; these protocols push toward a standard.",
+    "front": "Which emerging standards aim to make tool use and agent collaboration interoperable?",
+    "topic": "Tools"
+  },
+  {
+    "back": "Free text is fine for humans, but downstream code, APIs, dashboards and other agents need **machine-parseable** fields, e.g. a ticket's issue type, urgency and customer email.",
+    "front": "Why do agents need structured output instead of free text?",
+    "topic": "Structured outputs"
+  },
+  {
+    "back": "Models are good at text, not rules. They sometimes return malformed JSON or nonsense values (`\"urgency\": \"very\"`, `\"email\": \"none found\"`), which then breaks your code.",
+    "front": "Why is \"return JSON with these fields\" in the prompt not enough?",
+    "topic": "Structured outputs"
+  },
+  {
+    "back": "- **Schema-constrained output**: the provider enforces a schema you pass in\n- **Function calling as a structuring device**: define the schema as a \"tool\"; the call's arguments must fit it, like handing the model a form to fill in",
+    "front": "What are the stronger ways to get structured output from an LLM?",
+    "topic": "Structured outputs"
+  },
+  {
+    "back": "It defines **typed** fields (strings, datetimes, enums, nested objects, lists) as Python classes, and it **validates** the data, not just structures it.\n\n```\nclass ActionItem(BaseModel):\n    title: str\n    owner: str\n    due: datetime\n    status: Literal[\"open\", \"closed\"]\n```",
+    "front": "Why use Pydantic to define an agent's output schema?",
+    "topic": "Structured outputs"
+  },
+  {
+    "back": "You get back a parsed object and read fields as **attributes** (`event.participants`), instead of digging through a raw dict or JSON string.\n\nThe alternative trick, forcing a \"fake\" tool call just to get structured arguments, leaves the message content empty and the data buried in the tool call.",
+    "front": "What's the advantage of passing a Pydantic model as the `response_format`?",
+    "topic": "Structured outputs"
+  },
+  {
+    "back": "Design for resilience, not perfection:\n\n- retry with a clarifying prompt\n- fall back to a simpler tool\n- log the error for debugging",
+    "front": "Structured output still fails validation. What should the agent do?",
+    "topic": "Structured outputs"
+  },
+  {
+    "back": "- **Stateless**: every call stands alone, a blank slate. That's an LLM by default.\n- **Stateful**: tracks what has happened during a task, like a checkout that remembers your cart.\n\nAgents need state to chain decisions together.",
+    "front": "Stateless vs. stateful: what's the difference, and which is an LLM?",
+    "topic": "State"
+  },
+  {
+    "back": "Everything it tracks while working through the current task:\n\n- the user query\n- the instructions\n- the message history\n- pending tool calls\n- intermediate results",
+    "front": "What does an agent's state contain?",
+    "topic": "State"
+  },
+  {
+    "back": "It exists only **during execution**. When the task ends it disappears, unless you deliberately persist it (and persisted state is memory).",
+    "front": "Why is agent state called \"ephemeral\"?",
+    "topic": "State"
+  },
+  {
+    "back": "Discrete **steps** (prepare messages, call LLM, run tools, decide next), each taking a state object in and returning an updated one.\n\n**Transitions** between steps can be conditional on what's in the state. The state itself is usually a typed schema (e.g. a `TypedDict`) that every step accepts and returns.",
+    "front": "How does a state machine model an agent's execution?",
+    "topic": "State"
+  },
+  {
+    "back": "```\nprepare messages -\u003e call LLM -\u003e tool calls pending?\n    yes -\u003e execute tools -\u003e call LLM (loop)\n    no  -\u003e terminate\n```\n\nThe transition checks whether the last LLM response contains **pending tool calls**.",
+    "front": "Draw the standard tool-using agent loop as a state machine.",
+    "topic": "State"
+  },
+  {
+    "back": "A **snapshot** of the state after every step, so you can trace the exact path the agent took and inspect what it knew at each point.\n\nExplicit steps and transitions are also more predictable and testable.",
+    "front": "What does a state machine give you over a plain `while` loop?",
+    "topic": "State"
+  },
+  {
+    "back": "The model recalls nothing by itself. \"Memory\" is **simulated** by feeding earlier interactions back into the prompt on every call.",
+    "front": "Why is memory in LLMs called an illusion?",
+    "topic": "Short-term memory"
+  },
+  {
+    "back": "- **Ephemeral**: lives only inside the current session and vanishes when it ends\n- **Durable**: persisted in a database, file or vector store, so the agent can use it days later",
+    "front": "Ephemeral vs. durable memory: what's the difference?",
+    "topic": "Short-term memory"
+  },
+  {
+    "back": "- **Full history**: most detail, most tokens\n- **Sliding window** (last N messages): cheaper, but may drop important context\n- **Summarization**: compact running summary, only as good as the summary",
+    "front": "What are the three strategies for short-term memory, and their trade-offs?",
+    "topic": "Short-term memory"
+  },
+  {
+    "back": "- the context window has a hard limit\n- more tokens mean higher cost and slower responses\n- huge prompts can **confuse** the model instead of helping\n\nMemory design is a balance: enough context to be useful, not so much it backfires.",
+    "front": "Why not just put the whole conversation in every prompt?",
+    "topic": "Short-term memory"
+  },
+  {
+    "back": "- **State**: the internal scratchpad for the *current task*, gone when the task ends\n- **Session memory**: history across **multiple turns** of one session, grouped under a session (thread) ID. It can store the states of several runs.",
+    "front": "What's the difference between state and session memory?",
+    "topic": "Short-term memory"
+  },
+  {
+    "back": "The context switches. Each session ID keeps its own isolated message history.\n\nA follow-up in the **same** session reuses earlier context (it can even skip tool calls it already made); a new session starts from scratch.",
+    "front": "Session-scoped memory: what happens when you switch to a different session ID mid-conversation?",
+    "topic": "Short-term memory"
+  },
+  {
+    "back": "It's **non-deterministic over time**: the same query can return a different answer later (the weather at 9 am vs. 3 pm).\n\nThat's what makes agents \"live\", but it also makes tests, logs and outputs less predictable.",
+    "front": "How does an API response differ from knowledge in the model's training data?",
+    "topic": "External APIs"
+  },
+  {
+    "back": "- **API key**: a string included in the request; the simplest option\n- **OAuth**: log in via redirect, get an access token, store it safely. Needed for sensitive, user-specific data such as someone's email or calendar.",
+    "front": "How do agents authenticate to external APIs?",
+    "topic": "External APIs"
+  },
+  {
+    "back": "Timeouts, rate limits and malformed responses. The agent needs **retry and fallback** logic, and should surface uncertainty (or ask the user) instead of assuming success.",
+    "front": "Real-world APIs fail. What must a tool-using agent handle?",
+    "topic": "External APIs"
+  },
+  {
+    "back": "Anything that writes data, deletes records or moves money needs:\n\n- **logging and traceability** of every action\n- **constrained permissions**: only what the agent truly needs\n- **observability tooling** in production",
+    "front": "What safeguards do agents need once they can change real systems?",
+    "topic": "External APIs"
+  },
+  {
+    "back": "- **Search**: send a query to a search API and get structured results back (title, snippet, URL). Fast and reliable.\n- **Browsing**: navigate a live page, clicking buttons and reading tables. Far more complex.",
+    "front": "Web search vs. web browsing for an agent: what's the difference?",
+    "topic": "Web search"
+  },
+  {
+    "back": "Tying the model's answer to **retrievable, citable evidence**, e.g. \"according to [source], ...\", instead of letting it invent an answer from stale training data.\n\nOne of the most effective ways to reduce hallucination and build trust.",
+    "front": "What is grounding?",
+    "topic": "Web search"
+  },
+  {
+    "back": "Not just relay them. **Read, filter and summarize**, discard irrelevant hits, merge perspectives, and **cite** sources.\n\nPrompts can steer this: answer only when confident, prefer recent sources, include URLs.",
+    "front": "What should an agent do with raw search results?",
+    "topic": "Web search"
+  },
+  {
+    "back": "**Noise**: clickbait, misleading headlines, outdated pages.\n\nDecide which sources to trust, how many results to consider, and when to fall back to a cautious static answer.",
+    "front": "What risk does web search add, and how do you manage it?",
+    "topic": "Web search"
+  },
+  {
+    "back": "- **Relational** (PostgreSQL, MySQL): strict tables and types; customer records, transactions, inventory\n- **NoSQL / document or graph** (MongoDB, Neo4j): flexible structures, knowledge graphs\n- **Vector** (Chroma, Pinecone, Weaviate): embeddings, retrieved by semantic similarity; the basis of most RAG",
+    "front": "Which kinds of databases do agents work with, and what is each good for?",
+    "topic": "Databases"
+  },
+  {
+    "back": "Translating a natural-language request into SQL. It must:\n\n- understand the **schema** (table and column names)\n- handle filters and date ranges correctly\n- avoid **dangerous or ambiguous** queries",
+    "front": "What is Text2SQL, and what must it get right?",
+    "topic": "Databases"
+  },
+  {
+    "back": "Running a destructive query by mistake, e.g. **deleting** an inactive customer's records instead of flagging them for follow-up.\n\nProduction systems wrap such agents in constraints, validation and **approval flows**.",
+    "front": "What's the key danger with Text2SQL agents that can write to a database?",
+    "topic": "Databases"
+  },
+  {
+    "back": "Give it introspection tools and let it chain them:\n\n1. `list_tables`\n2. `get_table_schema`\n3. `execute_sql` with the query it writes",
+    "front": "How can a database agent answer a question without being told the schema?",
+    "topic": "Databases"
+  },
+  {
+    "back": "It's not an exact match. It finds the **nearest neighbors** by embedding similarity (e.g. cosine distance), so it can find a relevant document even when it shares no words with the query.",
+    "front": "How does vector search differ from a SQL query?",
+    "topic": "Databases"
+  },
+  {
+    "back": "No. RAG is a **pattern**: retrieve context, then generate. The context can come from vector search, SQL or keyword search.\n\nHybrids are common, e.g. filter by SQL (date, category), then vector-search within the filtered set.",
+    "front": "Does RAG require a vector database?",
+    "topic": "RAG"
+  },
+  {
+    "back": "1. **Retrieve**: query the store for the top-k relevant chunks\n2. **Augment**: build a prompt with those chunks as context (\"answer only from the context; say you don't know otherwise\")\n3. **Generate**: call the LLM",
+    "front": "What are the three steps of a RAG pipeline?",
+    "topic": "RAG"
+  },
+  {
+    "back": "The agent's retrieval tool needs an **existing, queryable** collection to call. Embed the documents into the vector store first.",
+    "front": "Why build and populate the knowledge base before building the agent that queries it?",
+    "topic": "RAG"
+  },
+  {
+    "back": "**Delete and recreate** the collection with the new embedding function, then re-add the documents.\n\nVectors from different embedding models aren't compatible, so you can't mix them in one collection.",
+    "front": "In ChromaDB, how do you switch an existing collection to a different embedding function?",
+    "topic": "RAG"
+  },
+  {
+    "back": "- **Basic RAG** is passive: retrieve, then summarize, with no check that the chunks actually answer the question.\n- **Agentic RAG** adds a reasoning loop: retrieve, **assess** \"do I have what I need?\", reflect, **reformulate** and retrieve again if the answer is shallow, then synthesize.",
+    "front": "Basic RAG vs. agentic RAG: what's the difference?",
+    "topic": "RAG"
+  },
+  {
+    "back": "- **Deciding when to retrieve**: sometimes the input already has enough context\n- **Inspecting results**: are passages relevant, contradictory, outdated?\n- **Reformulating**: extract keywords, simplify, ask itself sub-questions\n- **Pivoting**: web search, another database, or a different tool when retrieval comes up empty",
+    "front": "Besides retrying, what makes a RAG agent \"agentic\"?",
+    "topic": "RAG"
+  },
+  {
+    "back": "Heuristics:\n\n- do the passages contain the question's entities and keywords?\n- do they answer the actual *what* or *why*?\n- can every claim be backed by a source?\n\nImplement via an LLM scoring each passage (e.g. 1–5), or by having the model summarize what it knows and what's still unclear. Frameworks also offer metrics like faithfulness and relevancy.",
+    "front": "How can a RAG agent judge whether its retrieved passages are good enough?",
+    "topic": "RAG"
+  },
+  {
+    "back": "Call **no** RAG tool, and answer directly with appropriate uncertainty.\n\nChoosing which retrieval tool to use, or none, is the agentic layer on top of retrieval.",
+    "front": "An agent has two domain RAG tools (finance docs, product docs). Someone asks about something else. What should it do?",
+    "topic": "RAG"
+  },
+  {
+    "back": "It persists **across sessions**: the difference between chatting with a stranger and building a relationship.\n\nThe agent can personalize answers, avoid asking the same questions again, and remember which solution worked last time.",
+    "front": "What does long-term memory add over short-term memory?",
+    "topic": "Long-term memory"
+  },
+  {
+    "back": "- **Semantic**: facts learned about the user or context (\"your team uses Trello\")\n- **Episodic**: past events, often reused as few-shot examples (\"I've helped you with this before\")\n- **Procedural**: **how to behave**, e.g. adapting tone after repeated requests for formal emails",
+    "front": "What are the three types of long-term memory?",
+    "topic": "Long-term memory"
+  },
+  {
+    "back": "Which identity or context a memory is visible to:\n\n- **User-scoped**: private to one user\n- **Team-scoped**: shared within a workspace\n- **Global**: patterns learned across all users\n\nThe current context (user ID, team, route) decides which memory collections get queried.",
+    "front": "What does \"scoping\" mean for long-term memory?",
+    "topic": "Long-term memory"
+  },
+  {
+    "back": "Into the **system prompt**, as background context in the conversation, or as **tool parameters**.",
+    "front": "Once relevant memories are retrieved, where can the agent put them?",
+    "topic": "Long-term memory"
+  },
+  {
+    "back": "- Don't store everything: keep what's useful\n- Set **TTLs** so stale memories expire\n- Use **namespaces** to prevent leaks between users or teams\n- Decide deliberately what's global and what stays private\n\nAsk: what should be remembered, for how long, and who can access it?",
+    "front": "What are good design rules for long-term memory?",
+    "topic": "Long-term memory"
+  },
+  {
+    "back": "- **RAG** retrieves from static documents written by others.\n- **Long-term memory** is built from the agent's **own interactions**, and it evolves over time.",
+    "front": "Semantic long-term memory and RAG can look alike. What's the difference?",
+    "topic": "Long-term memory"
+  },
+  {
+    "back": "State a preference in one session (\"I prefer dark mode\"), then ask about it in a **completely different session**. If it's recalled correctly, it persisted.",
+    "front": "How do you prove a memory is truly long-term, not just session memory?",
+    "topic": "Long-term memory"
+  },
+  {
+    "back": "As two tools, e.g. **register memory** and **search memory**, backed by a vector store.\n\nEach memory fragment carries content, owner, namespace and timestamp, so searches can filter by user, scope and age.",
+    "front": "How can long-term memory be exposed to an agent?",
+    "topic": "Long-term memory"
+  },
+  {
+    "back": "Agents degrade **silently**: wrong tool calls, runaway token use, or a destructive action nobody noticed.\n\nEvaluation gives visibility, and turns \"seems fine\" into consistent, measurable, improvable performance.",
+    "front": "Why evaluate an agent that already seems to work?",
+    "topic": "Evaluation"
+  },
+  {
+    "back": "- **Task completion**: did it succeed? How many steps? Did it need human help?\n- **Quality control**: correct format, instructions followed, context actually used\n- **Tool interaction**: right tool, valid arguments, useful output\n- **System metrics**: latency, token cost, silent failures (e.g. context overflow)",
+    "front": "What four areas does a thorough agent evaluation cover?",
+    "topic": "Evaluation"
+  },
+  {
+    "back": "- **Final response** (black box): compare the end result to a reference. Tells you *what*, not *why*.\n- **Single step**: check one decision, e.g. the right tool with valid input. Fast to debug, but doesn't prove the whole task works.\n- **Trajectory**: trace the full path (tool calls, order, arguments, results), like a flight recorder. The most thorough.",
+    "front": "What are the three granularities of agent evaluation?",
+    "topic": "Evaluation"
+  },
+  {
+    "back": "- **Inputs**: prompt, available tools, context\n- **Outputs**: final response and/or tool calls\n- **Reference data**: ground truth or the expected tool sequence\n- **An evaluator**: LLM-as-judge, rules or heuristics",
+    "front": "What does every agent evaluation setup need?",
+    "topic": "Evaluation"
+  },
+  {
+    "back": "- outputs vary from run to run\n- many tasks are subjective\n- evaluation itself costs money\n- there's a risk of **overfitting** to your metrics\n\nNo metric is perfect. Aim for a compass, not a silver bullet.",
+    "front": "Why is evaluating agents hard?",
+    "topic": "Evaluation"
+  },
+  {
+    "back": "- **Wrong tool choices**: improve tool descriptions and prompts\n- **High token use**: shorten memory context, trim results\n- **Too many steps**: improve planning or routing",
+    "front": "How do evaluation findings map to fixes?",
+    "topic": "Evaluation"
+  }
+]
+            </script>
+        </article>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2026</span>
+            
+            
+            
+            <span>vladflore[dot]tech. All rights reserved.</span>
+        </div>
+    </div>
+    
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span><a href='https://ko-fi.com/D1D41G44WK' target='_blank'><img height='36' style='border:0px;height:36px;margin-top:15px;' src='https://storage.ko-fi.com/cdn/kofi1.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a></span>
+        </div>
+    </div>
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.ad54ad97364f77ede35def9096b162bb1f0b3973aa50b080f5e82fa147f6882e2a7200d7535adbf9b51bebf939f1c1ca9bbe6be87530092aca720eac4a226fda.js" integrity="sha512-rVStlzZPd&#43;3jXe&#43;QlrFiux8LOXOqULCA9egvoUf2iC4qcgDXU1rb&#43;bUb6/k58cHKm75r6HUwCSrKcg6sSiJv2g=="></script>
+
+
+    
+        <script src="/js/line-highlight.js"></script>
+    
+
+    
+        <script src="/js/business-card.js"></script>
+    
+
+    
+        <script src="/js/quiz.js"></script>
+    
+
+    
+        <script src="/js/flashcards.js"></script>
+    
+
+
+
+    </body>
+</html>

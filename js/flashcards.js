@@ -15,17 +15,15 @@
     return div.innerHTML;
   }
 
-  // Inline markup: `code`, **bold**, *italic*. Code spans are left untouched by the other rules.
+  // Inline markup: `code`, **bold**, *italic*. Code spans are swapped for placeholders so their
+  // contents are untouched by the other rules, while bold/italic can still wrap them.
   function formatInline(text) {
+    const codes = [];
     return escapeHtml(text)
-      .split(/(`[^`]+`)/)
-      .map((part, i) => {
-        if (i % 2 === 1) return `<code>${part.slice(1, -1)}</code>`;
-        return part
-          .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-          .replace(/\*([^*]+)\*/g, '<em>$1</em>');
-      })
-      .join('');
+      .replace(/`([^`]+)`/g, (_, code) => `\u0000${codes.push(code) - 1}\u0000`)
+      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+      .replace(/\u0000(\d+)\u0000/g, (_, i) => `<code>${codes[i]}</code>`);
   }
 
   // Card text supports inline markup, ``` fenced blocks ```, "- " bullet lists,

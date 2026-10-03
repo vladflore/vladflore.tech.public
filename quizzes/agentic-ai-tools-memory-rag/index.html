@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Vlad Flore ">
+<meta name="description" content="Part 3/4 — function calling, structured outputs, state machines, short- and long-term memory, external APIs, databases, agentic RAG, and agent evaluation." />
+<meta name="keywords" content="java, python, generative ai, llm, rag, machine learning, spring boot, microservices, kubernetes, aws, software engineer, freelance developer, vlad flore" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://vladflore.tech/quizzes/agentic-ai-tools-memory-rag/" />
+
+
+    <title>
+        
+            Agentic AI: Tools, Memory &amp; RAG :: vlad·flore · tech 
+        
+    </title>
+
+
+
+
+
+<link rel="stylesheet" href="/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css" integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE=">
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/quiz.css">
+    
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/flashcards.css">
+    
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+
+  <meta itemprop="name" content="Agentic AI: Tools, Memory & RAG">
+  <meta itemprop="description" content="Part 3/4 — function calling, structured outputs, state machines, short- and long-term memory, external APIs, databases, agentic RAG, and agent evaluation.">
+  <meta itemprop="datePublished" content="2026-09-18T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-09-18T00:00:00+00:00">
+  <meta itemprop="image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+  <meta name="twitter:title" content="Agentic AI: Tools, Memory & RAG">
+  <meta name="twitter:description" content="Part 3/4 — function calling, structured outputs, state machines, short- and long-term memory, external APIs, databases, agentic RAG, and agent evaluation.">
+
+
+
+    <meta property="og:url" content="https://vladflore.tech/quizzes/agentic-ai-tools-memory-rag/">
+  <meta property="og:site_name" content="vlad·flore · tech">
+  <meta property="og:title" content="Agentic AI: Tools, Memory & RAG">
+  <meta property="og:description" content="Part 3/4 — function calling, structured outputs, state machines, short- and long-term memory, external APIs, databases, agentic RAG, and agent evaluation.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="quizzes">
+    <meta property="article:published_time" content="2026-09-18T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-09-18T00:00:00+00:00">
+    <meta property="og:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+
+
+
+
+
+
+    <meta property="article:published_time" content="2026-09-18 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RE8EZYX8D9"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RE8EZYX8D9');
+        }
+      </script>
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text ">
+                $ cd ~</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#a9a9b3;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner">
+        
+            
+                <li><a href="/posts/">Posts</a></li>
+            
+        
+            
+                <div class="submenu">
+                    <li class="dropdown">
+                        <a href="/learn/" class="dropbtn">Learn</a>
+                        <div class="dropdown-content">
+                            
+                                <a href="/flashcards/">Flashcards</a>
+                            
+                                <a href="/quizzes/">Quizzes</a>
+                            
+                        </div>
+                    </li>
+                </div>
+            
+        
+            
+                <div class="submenu">
+                    <li class="dropdown">
+                        <a href="/about/" class="dropbtn">About</a>
+                        <div class="dropdown-content">
+                            
+                                <a href="/filingcabinet/cv.html">Resume</a>
+                            
+                                <a href="/portfolio/">Portfolio</a>
+                            
+                                <a href="/certs/">Certs</a>
+                            
+                        </div>
+                    </li>
+                </div>
+            
+        
+
+        <div class="submenu business-card-menu">
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn" aria-label="Business card" title="Business card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.12,4.25h0V3.74a.86.86,0,0,0-.81-.91H19.05a.86.86,0,0,0-.8.91v.51H16.54V2.33a2.2,2.2,0,0,0-2-2.33h-5a2.2,2.2,0,0,0-2,2.33V4.25H5.75V3.74A.86.86,0,0,0,5,2.83H3.71a.86.86,0,0,0-.81.91v.51h0A3.09,3.09,0,0,0,0,7.52v13.2A3.1,3.1,0,0,0,2.88,24H21.12A3.1,3.1,0,0,0,24,20.72V7.52A3.09,3.09,0,0,0,21.12,4.25ZM19,3.74a0,0,0,0,1,0,0h1.24a0,0,0,0,1,0,0v.51H19ZM8.24,2.33A1.37,1.37,0,0,1,9.51.88h5a1.37,1.37,0,0,1,1.27,1.45V4.25h-.88V2.33a.42.42,0,0,0-.39-.44h-5a.42.42,0,0,0-.39.44V4.25H8.24ZM9.9,4.25V2.77h4.2V4.25ZM3.68,3.74a0,0,0,0,1,0,0H5a0,0,0,0,1,0,0v.51H3.68Zm19.54,17a2.26,2.26,0,0,1-2.1,2.39H2.88a2.26,2.26,0,0,1-2.1-2.39V7.52a2.26,2.26,0,0,1,2.1-2.39H21.12a2.26,2.26,0,0,1,2.1,2.39Z"/></svg>
+    </a>
+    <div class="dropdown-content business-card">
+      <img class="business-card-photo" src="https://vladflore.tech/images/me_official_no_background.png" alt="Vlad Flore" />
+      <div class="business-card-name">Vlad Flore</div>
+      <div class="business-card-title">Backend Software Engineer<br />Python | Java | GenAI</div>
+      <div class="business-card-pitch">Open for freelance &amp; consulting work.</div>
+      <div class="business-card-links">
+        <a href="mailto:flore.vlad@gmail.com" title="Email"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Email</a>
+        <a href="https://www.linkedin.com/in/vladflore/" target="_blank" rel="noopener" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg> LinkedIn</a>
+        <a href="https://github.com/vladflore" target="_blank" rel="noopener" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> GitHub</a>
+        <a href="/filingcabinet/cv.html" title="Resume">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Resume
+        </a>
+      </div>
+    </div>
+  </li>
+</div>
+
+
+        
+            <div class="submenu lang-switch-menu">
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn" aria-label="English">
+                        <span class="flag fi fi-gb"></span>
+                    </a>
+                    <div class="dropdown-content">
+                        
+                            
+                                
+                            
+                                
+                                    <a title="Deutsch" href="/de/">
+                                        <span class="flag fi fi-de"></span>
+                                    </a>
+                                
+                            
+                        
+                    </div>
+                </li>
+            </div>
+        
+    </ul>
+</nav>
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post quiz">
+        <article>
+            <h1 class="post-title">Agentic AI: Tools, Memory &amp; RAG</h1>
+
+            <div class="quiz-toolbar" hidden><span class="quiz-reset-slot"></span></div>
+
+            <div
+                id="quiz-app"
+                class="quiz-app"
+                data-quiz-title="Agentic AI: Tools, Memory &amp; RAG"
+            ></div>
+
+            <script type="application/json" id="quiz-data">
+                [
+  {
+    "a": 0,
+    "choices": [
+      "Function calling — declared schemas, the model emits a structured tool-call object",
+      "Increasing the context window",
+      "Lowering the temperature to 0",
+      "Fine-tuning on the tool's documentation"
+    ],
+    "explain": "Function calling requires both a model trained for it and API support for it — most current major models support it natively.",
+    "q": "What mechanism replaced the fragile \"emit a string and regex-parse it\" approach to tool use?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "Wraps a plain Python function into something the agent can call as a tool",
+      "Registers a new LLM provider",
+      "Validates JSON schema output only",
+      "Creates a new vector database collection"
+    ],
+    "explain": "This is a common convention across agent frameworks for turning a typed, documented function into something the model can invoke as a tool.",
+    "q": "In agent frameworks that expose a `@tool`-style decorator (LangChain, smolagents, and similar), what does it typically do?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Nothing — the loop just ends",
+      "The result, wrapped as a `ToolMessage` appended to message history, then the LLM is invoked again",
+      "A raw Python exception object",
+      "A brand-new system prompt"
+    ],
+    "explain": "The LLM needs the tool's result back in the conversation to produce a final answer grounded in it.",
+    "q": "When you handle tool calls manually, what goes back to the LLM after a tool function runs?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "A fixed count of exactly 3 calls, always",
+      "While the AI response contains tool calls, execute them and append results, until it responds with no further tool calls",
+      "Until the user manually stops it",
+      "Until 60 seconds elapse"
+    ],
+    "explain": "This is the canonical agent loop: keep looping through tool execution until the model itself decides it's done.",
+    "q": "In a typical tool-using agent loop, what condition decides whether to keep calling tools?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "Models can return malformed or nonsensical values despite the instruction",
+      "JSON isn't supported by any LLM API",
+      "It's actually perfectly reliable and needs no backup",
+      "JSON output requires a paid API tier"
+    ],
+    "explain": "This is exactly why schema-constrained output and function-calling-as-structuring exist as stronger mechanisms.",
+    "q": "Why is pure prompting (\"return JSON with these fields\") considered unreliable for structured output?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "It lets you access fields as attributes (e.g. `event.participants`) instead of parsing raw dict/JSON",
+      "It's the only way to get any JSON at all",
+      "It removes the need for validation entirely",
+      "It only works with open-source models"
+    ],
+    "explain": "The fake-tool approach still gives you structured data, but a direct Pydantic `response_format` is more ergonomic to consume.",
+    "q": "What's the benefit of passing a Pydantic model directly as `response_format`, versus a \"fake\" tool call to force structure?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "It exists only during execution and disappears afterward unless deliberately persisted",
+      "It's encrypted and unreadable by design",
+      "It only ever stores the system prompt",
+      "It's shared globally across all agents automatically"
+    ],
+    "explain": "Persisting it deliberately across executions is what turns it into memory.",
+    "q": "Why is agent state described as \"ephemeral\"?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "It runs measurably faster",
+      "The state after each step can be captured as a snapshot, making the exact path the agent took traceable and inspectable",
+      "It removes the need for any tool execution",
+      "It guarantees the LLM never makes a mistake"
+    ],
+    "explain": "Explicit steps and transitions turn an opaque loop into something you can trace step by step after the fact.",
+    "q": "When an agent's execution loop is modeled explicitly as a state machine (steps + transitions), what's the main debugging benefit over a plain imperative `while` loop?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "Whether the last LLM response included any pending tool calls that still need executing",
+      "A fixed number of steps, always exactly 5",
+      "It always terminates after exactly one LLM call, no matter what",
+      "A human must approve every single transition"
+    ],
+    "explain": "This is the same tool-calling loop from a manual implementation, now expressed as an explicit conditional transition: tool calls pending → execute and loop back; none pending → terminate.",
+    "q": "In a state-machine-based agent loop, what condition typically decides whether to route back to the LLM step or terminate?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "There's no persistent recall — it's simulated by re-feeding prior interaction history back into the prompt each time",
+      "LLMs literally cannot process more than one message ever",
+      "Memory only works with fine-tuned models",
+      "It's purely a marketing term with no technical basis"
+    ],
+    "explain": "Every call is a blank slate; what looks like memory is just re-injecting history into the next prompt.",
+    "q": "Why is \"memory\" in LLMs called an illusion?"
+  },
+  {
+    "a": 3,
+    "choices": [
+      "Full history",
+      "Sliding window",
+      "Summarization",
+      "Vector embedding compression"
+    ],
+    "explain": "Full history, sliding window, and summarization are the three; each is a token/context tradeoff.",
+    "q": "Which of these is NOT one of the three common short-term memory strategies?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "State is the agent's internal scratchpad for the current task and disappears when it ends; session memory spans multiple turns within the same session, tracked by a session ID",
+      "They're exactly the same thing under different names",
+      "State persists across sessions, memory does not",
+      "Memory is always vector-database-backed, state never is"
+    ],
+    "explain": "State ≠ session memory — one is scoped to a single execution, the other spans a whole session/thread.",
+    "q": "What's the key distinction between \"state\" and \"session memory\"?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Nothing changes, all sessions share one history",
+      "The context switches, since each session ID keeps its own isolated message history",
+      "All sessions silently merge into one",
+      "The agent forgets everything permanently, across all sessions"
+    ],
+    "explain": "Session-scoped memory is isolated by session ID — that's what lets the same agent hold separate, unrelated conversations in parallel.",
+    "q": "In session-scoped short-term memory, what happens if you switch to a different session ID mid-conversation?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "The same query can return a different answer later in time",
+      "They're always faster than looking things up in training data",
+      "They never fail",
+      "They require no authentication, ever"
+    ],
+    "explain": "This breaks strict determinism/testability, but it's exactly what makes agents \"live\" instead of frozen at a training cutoff.",
+    "q": "What's the key non-deterministic property of external API responses, versus training-data knowledge?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "OAuth (redirect/login/access-token flow)",
+      "No authentication needed at all",
+      "IP whitelisting only",
+      "A shared team password"
+    ],
+    "explain": "A plain API key covers simpler cases; user-specific data typically needs a proper OAuth flow.",
+    "q": "What authentication approach is typically needed for more sensitive, user-specific API data, beyond a simple API key?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "Web search queries a search API for structured results (title/snippet/URL); web browsing means navigating and clicking around live pages, which is far more complex",
+      "They're identical, just different names for the same thing",
+      "Web browsing is cheaper to run",
+      "Web search requires no API at all"
+    ],
+    "explain": "Search returns compact, structured results an agent can reliably read, filter and cite; browsing needs full page navigation and is a much harder problem.",
+    "q": "What's the distinction between \"web search\" and full \"web browsing\" for an agent?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "Tying model output to retrievable, citable evidence instead of letting it invent an answer",
+      "Reducing API latency",
+      "Making responses shorter",
+      "Avoiding the need for a system prompt"
+    ],
+    "explain": "Grounding is the core reason search tools exist for agents — reducing hallucination on stale or absent knowledge.",
+    "q": "What's the purpose of \"grounding\" via a web-search tool?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "They translate natural language too slowly",
+      "An agent could execute a dangerous or ambiguous query — e.g. deleting a customer's records by mistake — so production systems need constraints, validation, and approval flows",
+      "They only work with NoSQL databases",
+      "They require GPU acceleration to run at all"
+    ],
+    "explain": "Correctly understanding the schema isn't enough — safety around what the generated SQL is allowed to do matters just as much.",
+    "q": "What's the key danger to watch for with Text2SQL agents?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Yes, always",
+      "No — RAG is a pattern (retrieve context, then generate); context can come from SQL, keyword search, or vector search, and hybrid approaches are common",
+      "Only in production systems",
+      "Only when using OpenAI's own embeddings"
+    ],
+    "explain": "A common myth worth busting — RAG is defined by the retrieve-then-generate pattern, not by any specific storage technology.",
+    "q": "Does RAG require a vector database?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "Agentic RAG adds a reasoning loop: retrieve → assess whether the answer is actually sufficient → reflect → reformulate the query and retrieve again if shallow → synthesize",
+      "Basic RAG always retrieves more documents than agentic RAG",
+      "Agentic RAG never uses a vector database",
+      "There's no meaningful difference between them"
+    ],
+    "explain": "Naive RAG treats the first retrieval as final; agentic RAG treats it as a hypothesis to check, reformulating the query when the first pass looks shallow or incomplete.",
+    "q": "What's the key difference between basic RAG and agentic RAG?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Nothing — it updates automatically",
+      "You must delete and recreate the collection with the new embedding function",
+      "ChromaDB automatically migrates old vectors to the new function",
+      "It's not possible to change embedding functions at all"
+    ],
+    "explain": "Embeddings from different functions aren't compatible within the same collection, so the fix is to delete and recreate it with the new function.",
+    "q": "In ChromaDB, what's required to swap a collection's default embedding function for a different one (e.g. OpenAI embeddings) after it's already been created?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Plan, Act, Reflect",
+      "Retrieve, Augment, Generate",
+      "Extract, Transform, Load",
+      "Classify, Route, Respond"
+    ],
+    "explain": "Retrieve queries the vector collection, augment builds the context-grounded prompt, generate calls the LLM.",
+    "q": "What are the three steps of the RAG pipeline, implemented as a state machine?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "Call no RAG tool and answer directly, with appropriate uncertainty rather than guessing",
+      "Crash, since it has no matching tool",
+      "Always call one of the two tools anyway, arbitrarily",
+      "Refuse to respond to anything outside those two domains"
+    ],
+    "explain": "Tool-routing IS the agentic layer here — deciding when NOT to retrieve is as important as deciding when to.",
+    "q": "If an agent has two domain-specific RAG tools available (e.g. one for finance docs, one for product docs), what should it do when asked a question outside both domains?"
+  },
+  {
+    "a": 2,
+    "choices": [
+      "Semantic",
+      "Episodic",
+      "Procedural",
+      "Structural"
+    ],
+    "explain": "Semantic = facts, episodic = past events (used as few-shot examples), procedural = behavior patterns.",
+    "q": "Which of the three long-term memory types (borrowed from cognitive science) covers \"how to behave,\" like adapting tone over time?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "How fast memories are retrieved from storage",
+      "Which identity/context a memory is visible to — private to one user, shared within a team, or patterns learned across all users",
+      "The physical storage location on disk",
+      "The maximum vector dimension allowed"
+    ],
+    "explain": "The current context (user ID, team, route) determines which memory collections get queried.",
+    "q": "What does \"scoping\" mean for long-term memory?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "They're identical concepts with different names",
+      "RAG retrieves from static documents authored by others; long-term memory is built from the agent's own interaction history and evolves over time",
+      "Long-term memory never uses a vector database",
+      "RAG cannot use embeddings"
+    ],
+    "explain": "Semantic memory can look like RAG structurally, but its content is constructed from the agent's own conversations, not external documents.",
+    "q": "How does long-term (semantic) memory differ from RAG, even though both can look similar?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "A stated preference from one session was correctly recalled under a completely different session",
+      "The agent remembered the exact timestamp of the conversation",
+      "It only worked within the same session",
+      "It required restarting the whole program to work"
+    ],
+    "explain": "Telling the agent a preference in one session, then asking about it in an unrelated session, is the litmus test for true persistence.",
+    "q": "What's the litmus test proving that a memory is truly long-term (persistent), rather than just short-term session memory?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "Final response (black-box), single-step, trajectory",
+      "Accuracy, precision, recall",
+      "Latency, cost, throughput",
+      "Unit test, integration test, end-to-end test"
+    ],
+    "explain": "Black-box checks the end result, single-step zooms into one decision, trajectory traces the full path like a flight recorder.",
+    "q": "What are the three evaluation granularities for agents?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "Tool interaction (right tool, valid arguments, useful output) and system metrics (latency, token cost, silent failures)",
+      "Marketing reach and brand sentiment",
+      "Source code style and test coverage percentage",
+      "UI responsiveness and color contrast"
+    ],
+    "explain": "An agent can complete the task correctly and still be a problem in production if it burns excess tokens, picks brittle tools, or fails silently on context overflow.",
+    "q": "Besides task completion and quality control, what other two categories does a thorough agent evaluation typically cover?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "The agent's retrieval tool needs an existing, queryable collection to call against",
+      "It's purely a stylistic convention with no functional reason",
+      "Vector databases can only be created after an agent already exists",
+      "It avoids the need for any embedding model at all"
+    ],
+    "explain": "There's nothing to retrieve from until the corpus is chunked, embedded, and stored — the knowledge base is a dependency of the retrieval tool, not the other way around.",
+    "q": "When building a RAG system, why is it standard practice to build and populate the knowledge base (embedding documents into a vector store) before building the agent that queries it?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "A vector database and an embedding model",
+      "A model trained for function calling, and an API that returns and supports tool-call objects",
+      "OAuth and a rate limiter",
+      "A GPU and a fine-tuned model"
+    ],
+    "explain": "The model must know when and how to call a tool; the API must deliver a tool-call object your backend can parse and execute. Open models need checking and a serving stack that supports it.",
+    "q": "What two things must be in place for function calling to work?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "An online checkout that remembers your cart",
+      "A plain LLM API call",
+      "A workflow that tracks pending tool calls",
+      "A session-scoped chatbot"
+    ],
+    "explain": "Every call to a plain LLM is a blank slate; agents add state on top to chain decisions together.",
+    "q": "Which of these is a stateless system?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "Durable memory is persisted (database, file, vector store) and available later; ephemeral memory vanishes when the session ends",
+      "Durable memory is faster",
+      "Ephemeral memory is encrypted",
+      "There's no difference"
+    ],
+    "explain": "Short-term session memory is usually ephemeral; long-term memory has to be durable.",
+    "q": "What distinguishes durable memory from ephemeral memory?"
+  },
+  {
+    "a": 2,
+    "choices": [
+      "The model gets faster",
+      "Tool calls stop working",
+      "Huge prompts can confuse the model instead of helping it",
+      "The API refuses JSON output"
+    ],
+    "explain": "Memory design is a balance: enough context to be useful, not so much that it backfires, and never past the context window limit.",
+    "q": "Besides cost and latency, what's another downside of putting a very long history into every prompt?"
+  },
+  {
+    "a": 2,
+    "choices": [
+      "Crash so the error is visible",
+      "Assume the call succeeded",
+      "Retry or fall back, and surface uncertainty (or ask the user) instead of assuming success",
+      "Switch to a different LLM"
+    ],
+    "explain": "Real APIs fail; retry and fallback logic is what turns a fragile script into a resilient agent.",
+    "q": "An external API times out or hits a rate limit. What should a well-built agent do?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Nothing extra, the LLM will be careful",
+      "Logging and traceability, constrained permissions, and observability in production",
+      "A higher temperature for more creative actions",
+      "Only a longer system prompt"
+    ],
+    "explain": "Once an agent changes real systems, every action should be traceable, and the agent should only have the permissions it truly needs.",
+    "q": "An agent can now write records and trigger payments. What should be in place?"
+  },
+  {
+    "a": 2,
+    "choices": [
+      "Relay them to the user unchanged",
+      "Always pick the first result",
+      "Read, filter and summarize them, discard irrelevant hits, and cite its sources",
+      "Ignore snippets and only use the URLs"
+    ],
+    "explain": "Prompts can also steer it to answer only when confident and to prefer recent sources.",
+    "q": "What should a web-search agent do with the raw results it gets back?"
+  },
+  {
+    "a": 3,
+    "choices": [
+      "Relational (PostgreSQL, MySQL)",
+      "Document (MongoDB)",
+      "Graph (Neo4j)",
+      "Vector (Chroma, Pinecone, Weaviate)"
+    ],
+    "explain": "Vector databases store embeddings and retrieve by semantic similarity. RAG doesn't strictly require one, but most implementations use one.",
+    "q": "Which database type is the basis of most RAG applications?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "It can't; the schema must be in the prompt",
+      "Chain introspection tools: list the tables, get the relevant table's schema, then execute its own SQL",
+      "Guess the column names",
+      "Use vector search on the question"
+    ],
+    "explain": "Introspection tools let the agent discover the schema itself before writing the query.",
+    "q": "A database agent isn't told the schema up front. How can it still answer \"how many laptops of model X were sold?\""
+  },
+  {
+    "a": 3,
+    "choices": [
+      "Deciding when retrieval is even needed",
+      "Pivoting to web search or another source when retrieval comes up empty",
+      "Reformulating a vague query",
+      "Always retrieving exactly three chunks, whatever the question"
+    ],
+    "explain": "Agentic RAG adapts: it decides when to retrieve, inspects the results, reformulates and pivots instead of running one fixed pipeline.",
+    "q": "Which of these is NOT a trait of agentic RAG?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "Episodic",
+      "Semantic",
+      "Procedural",
+      "Ephemeral"
+    ],
+    "explain": "Semantic holds facts, episodic holds past events, procedural holds how to behave.",
+    "q": "Which type of long-term memory stores past interactions so they can be reused as few-shot examples (\"I've helped you with this before\")?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Store every line of every conversation forever",
+      "Set TTLs so stale memories expire, and use namespaces to prevent leaks between users and teams",
+      "Make every memory global so all users benefit",
+      "Never let memories expire"
+    ],
+    "explain": "Prioritize what's useful, and decide deliberately what's global and what stays private.",
+    "q": "Which is a good design rule for long-term memory?"
+  },
+  {
+    "a": 2,
+    "choices": [
+      "Add more tools",
+      "Raise the temperature",
+      "Improve the tool descriptions and the prompt",
+      "Switch to trajectory evaluation only"
+    ],
+    "explain": "Evaluation findings map to fixes: poor tool selection means unclear tool descriptions; high token use means trimming context; too many steps means better planning.",
+    "q": "Your agent evaluation shows it keeps choosing the wrong tool. What's the most likely fix?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Agents never produce output",
+      "Outputs vary between runs, many tasks are subjective, evaluation costs money, and metrics can be overfit",
+      "Ground truth is always available",
+      "LLM-as-judge is perfectly reliable"
+    ],
+    "explain": "No metric is perfect; the goal is a compass that points consistently toward better agents, not a silver bullet.",
+    "q": "Why is evaluating agents harder than evaluating a classic classifier?"
+  }
+]
+            </script>
+        </article>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2026</span>
+            
+            
+            
+            <span>vladflore[dot]tech. All rights reserved.</span>
+        </div>
+    </div>
+    
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span><a href='https://ko-fi.com/D1D41G44WK' target='_blank'><img height='36' style='border:0px;height:36px;margin-top:15px;' src='https://storage.ko-fi.com/cdn/kofi1.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a></span>
+        </div>
+    </div>
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.ad54ad97364f77ede35def9096b162bb1f0b3973aa50b080f5e82fa147f6882e2a7200d7535adbf9b51bebf939f1c1ca9bbe6be87530092aca720eac4a226fda.js" integrity="sha512-rVStlzZPd&#43;3jXe&#43;QlrFiux8LOXOqULCA9egvoUf2iC4qcgDXU1rb&#43;bUb6/k58cHKm75r6HUwCSrKcg6sSiJv2g=="></script>
+
+
+    
+        <script src="/js/line-highlight.js"></script>
+    
+
+    
+        <script src="/js/business-card.js"></script>
+    
+
+    
+        <script src="/js/quiz.js"></script>
+    
+
+    
+        <script src="/js/flashcards.js"></script>
+    
+
+
+
+    </body>
+</html>

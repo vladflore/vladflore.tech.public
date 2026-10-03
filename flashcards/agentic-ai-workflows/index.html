@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Vlad Flore ">
+<meta name="description" content="Part 2/4 — agents vs. deterministic automation, workflow modeling, agent archetypes, and the five core patterns: prompt chaining, routing, parallelization, evaluator-optimizer, orchestrator-workers." />
+<meta name="keywords" content="java, python, generative ai, llm, rag, machine learning, spring boot, microservices, kubernetes, aws, software engineer, freelance developer, vlad flore" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://vladflore.tech/flashcards/agentic-ai-workflows/" />
+
+
+    <title>
+        
+            Agentic AI: Workflows :: vlad·flore · tech 
+        
+    </title>
+
+
+
+
+
+<link rel="stylesheet" href="/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css" integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE=">
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/quiz.css">
+    
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/flashcards.css">
+    
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+
+  <meta itemprop="name" content="Agentic AI: Workflows">
+  <meta itemprop="description" content="Part 2/4 — agents vs. deterministic automation, workflow modeling, agent archetypes, and the five core patterns: prompt chaining, routing, parallelization, evaluator-optimizer, orchestrator-workers.">
+  <meta itemprop="datePublished" content="2026-09-24T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-09-24T00:00:00+00:00">
+  <meta itemprop="image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+  <meta name="twitter:title" content="Agentic AI: Workflows">
+  <meta name="twitter:description" content="Part 2/4 — agents vs. deterministic automation, workflow modeling, agent archetypes, and the five core patterns: prompt chaining, routing, parallelization, evaluator-optimizer, orchestrator-workers.">
+
+
+
+    <meta property="og:url" content="https://vladflore.tech/flashcards/agentic-ai-workflows/">
+  <meta property="og:site_name" content="vlad·flore · tech">
+  <meta property="og:title" content="Agentic AI: Workflows">
+  <meta property="og:description" content="Part 2/4 — agents vs. deterministic automation, workflow modeling, agent archetypes, and the five core patterns: prompt chaining, routing, parallelization, evaluator-optimizer, orchestrator-workers.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="flashcards">
+    <meta property="article:published_time" content="2026-09-24T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-09-24T00:00:00+00:00">
+    <meta property="og:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+
+
+
+
+
+
+    <meta property="article:published_time" content="2026-09-24 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RE8EZYX8D9"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RE8EZYX8D9');
+        }
+      </script>
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text ">
+                $ cd ~</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#a9a9b3;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner">
+        
+            
+                <li><a href="/posts/">Posts</a></li>
+            
+        
+            
+                <div class="submenu">
+                    <li class="dropdown">
+                        <a href="/learn/" class="dropbtn">Learn</a>
+                        <div class="dropdown-content">
+                            
+                                <a href="/flashcards/">Flashcards</a>
+                            
+                                <a href="/quizzes/">Quizzes</a>
+                            
+                        </div>
+                    </li>
+                </div>
+            
+        
+            
+                <div class="submenu">
+                    <li class="dropdown">
+                        <a href="/about/" class="dropbtn">About</a>
+                        <div class="dropdown-content">
+                            
+                                <a href="/filingcabinet/cv.html">Resume</a>
+                            
+                                <a href="/portfolio/">Portfolio</a>
+                            
+                                <a href="/certs/">Certs</a>
+                            
+                        </div>
+                    </li>
+                </div>
+            
+        
+
+        <div class="submenu business-card-menu">
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn" aria-label="Business card" title="Business card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.12,4.25h0V3.74a.86.86,0,0,0-.81-.91H19.05a.86.86,0,0,0-.8.91v.51H16.54V2.33a2.2,2.2,0,0,0-2-2.33h-5a2.2,2.2,0,0,0-2,2.33V4.25H5.75V3.74A.86.86,0,0,0,5,2.83H3.71a.86.86,0,0,0-.81.91v.51h0A3.09,3.09,0,0,0,0,7.52v13.2A3.1,3.1,0,0,0,2.88,24H21.12A3.1,3.1,0,0,0,24,20.72V7.52A3.09,3.09,0,0,0,21.12,4.25ZM19,3.74a0,0,0,0,1,0,0h1.24a0,0,0,0,1,0,0v.51H19ZM8.24,2.33A1.37,1.37,0,0,1,9.51.88h5a1.37,1.37,0,0,1,1.27,1.45V4.25h-.88V2.33a.42.42,0,0,0-.39-.44h-5a.42.42,0,0,0-.39.44V4.25H8.24ZM9.9,4.25V2.77h4.2V4.25ZM3.68,3.74a0,0,0,0,1,0,0H5a0,0,0,0,1,0,0v.51H3.68Zm19.54,17a2.26,2.26,0,0,1-2.1,2.39H2.88a2.26,2.26,0,0,1-2.1-2.39V7.52a2.26,2.26,0,0,1,2.1-2.39H21.12a2.26,2.26,0,0,1,2.1,2.39Z"/></svg>
+    </a>
+    <div class="dropdown-content business-card">
+      <img class="business-card-photo" src="https://vladflore.tech/images/me_official_no_background.png" alt="Vlad Flore" />
+      <div class="business-card-name">Vlad Flore</div>
+      <div class="business-card-title">Backend Software Engineer<br />Python | Java | GenAI</div>
+      <div class="business-card-pitch">Open for freelance &amp; consulting work.</div>
+      <div class="business-card-links">
+        <a href="mailto:flore.vlad@gmail.com" title="Email"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Email</a>
+        <a href="https://www.linkedin.com/in/vladflore/" target="_blank" rel="noopener" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg> LinkedIn</a>
+        <a href="https://github.com/vladflore" target="_blank" rel="noopener" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> GitHub</a>
+        <a href="/filingcabinet/cv.html" title="Resume">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Resume
+        </a>
+      </div>
+    </div>
+  </li>
+</div>
+
+
+        
+            <div class="submenu lang-switch-menu">
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn" aria-label="English">
+                        <span class="flag fi fi-gb"></span>
+                    </a>
+                    <div class="dropdown-content">
+                        
+                            
+                                
+                            
+                                
+                                    <a title="Deutsch" href="/de/">
+                                        <span class="flag fi fi-de"></span>
+                                    </a>
+                                
+                            
+                        
+                    </div>
+                </li>
+            </div>
+        
+    </ul>
+</nav>
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post quiz">
+        <article>
+            <h1 class="post-title">Agentic AI: Workflows</h1>
+
+            <div class="quiz-toolbar" hidden><span class="quiz-reset-slot"></span></div>
+
+            <div
+                id="flashcards-app"
+                class="quiz-app flashcards-app"
+                data-deck-title="Agentic AI: Workflows"
+            ></div>
+
+            <script type="application/json" id="flashcards-data">
+                [
+  {
+    "back": "- **Hardcoded**: fails on anything it wasn't explicitly coded for (\"I cannot respond to that query\").\n- **LLM-backed**: adapts to input nobody programmed for.\n\nThat adaptability to the unforeseen is the seed of what becomes an agent.",
+    "front": "A hardcoded function with `if` branches and a function that calls an LLM get the same unexpected input. What happens?",
+    "topic": "Agents vs. automation"
+  },
+  {
+    "back": "Both run a **fixed, predefined script**: e.g. subscribe, send the welcome email, wait 3 days, send a follow-up.\n\nEfficient for that one job, but rigid: no reasoning, no adapting, no deciding which step comes next.",
+    "front": "Why is robotic process automation (RPA), or an email drip campaign, not an agentic workflow?",
+    "topic": "Agents vs. automation"
+  },
+  {
+    "back": "- **Persona**: who it is (identity, tone, boundaries, output format), set via the system prompt\n- **Knowledge**: what it knows\n- **Prompting strategy**: how it talks to its LLM\n- **Execution / tools**: what it can do\n- **Interaction**: how it receives input, delivers output, and talks to other agents\n\n(Another common split is LLM, tools, instructions, memory, orchestration layer.)",
+    "front": "In one common framing, what are the five components of an agent?",
+    "topic": "Agents vs. automation"
+  },
+  {
+    "back": "More than the base model's training:\n\n- pre-training (what the LLM already knows)\n- fine-tuning on specialized data\n- external information fetched through tools (databases, APIs, web search)\n- memory of the current and past interactions",
+    "front": "What counts as an agent's \"knowledge\"?",
+    "topic": "Agents vs. automation"
+  },
+  {
+    "back": "- the **system prompt** (persona, constraints, output format), usually invisible to the user\n- **context incorporation**: weaving in memory, tool results and history\n- **techniques**: zero-shot, few-shot, Chain-of-Thought, ReAct\n- **structured instructions**: objectives, steps, constraints, response format",
+    "front": "What does an agent's \"prompting strategy\" include?",
+    "topic": "Agents vs. automation"
+  },
+  {
+    "back": "- **Receiving input**: user text, API calls, sensor data\n- **Delivering output**: text, structured data like JSON, or triggering an action\n- **Inter-agent communication**: the protocols agents use to talk to each other (e.g. MCP, the Model Context Protocol)",
+    "front": "What does an agent's \"interaction\" component cover?",
+    "topic": "Agents vs. automation"
+  },
+  {
+    "back": "1. **Direct prompting**: the LLM is a simple responder\n2. **Prompt augmentation**: pre-processing adds context (retrieved documents, examples)\n3. **Dynamic context augmentation**: memory and tools update the context live, during the interaction\n4. **Autonomous agents**: the LLM plans and executes multi-step work with minimal human input",
+    "front": "What is the spectrum of LLM interaction models, from simplest to most autonomous?",
+    "topic": "Agents vs. automation"
+  },
+  {
+    "back": "No. There are three tiers:\n\n- **Deterministic workflow**: fixed step order\n- **Agent without AI**: deterministic decision logic inside an agent class, so the step order can vary (e.g. by priority or complexity)\n- **Agent with an LLM**: the LLM decides the strategy at each step\n\nAgents with LLMs are what unlock flexible agentic workflows.",
+    "front": "Does an \"agent\" have to use AI?",
+    "topic": "Agents vs. automation"
+  },
+  {
+    "back": "- **Workflow**: a defined start and end. It completes a task, and the agents stop the execution.\n- **Chatbot**: open-ended conversation that the **user** ends once satisfied.",
+    "front": "What structurally separates a workflow from a chatbot?",
+    "topic": "Workflow modeling"
+  },
+  {
+    "back": "- **Iteration**: agents can reflect on and refine their own output before moving on\n- **Path choice**: agents can take different routes through the workflow\n\nUsing AI inside individual steps isn't enough on its own: if the steps and branches are all fixed in advance, the workflow is still deterministic.",
+    "front": "If agentic workflows have a start and an end, what makes them more powerful than fixed automation?",
+    "topic": "Workflow modeling"
+  },
+  {
+    "back": "1. Pick a well-documented process and **automate it** as-is (a deterministic workflow).\n2. **Generalize**: map similar processes onto it, and add a planning agent that interprets varied inputs, or tools plus the judgment to choose between them.\n\nIf all you need is to run one known-efficient process, stop at step 1: plain automation is the right tool.",
+    "front": "What's the practical path from a manual process to an agentic workflow?",
+    "topic": "Workflow modeling"
+  },
+  {
+    "back": "1. List all activities\n2. Map sequence and dependencies\n3. Document inputs and outputs\n4. Define decision points (if/then rules)\n5. Implement the execution functions\n6. Visualize (flowchart)\n7. Validate with stakeholders, and iterate",
+    "front": "What are the steps for modeling a deterministic workflow?",
+    "topic": "Workflow modeling"
+  },
+  {
+    "back": "It's **agent-centric**, not process-centric:\n\n1. Define agent capabilities\n2. Establish goal structures and success metrics\n3. Build decision-making frameworks\n4. Configure adaptation rules\n5. Map environment constraints\n6. Implement feedback loops",
+    "front": "How does modeling an agentic workflow differ from modeling a deterministic one?",
+    "topic": "Workflow modeling"
+  },
+  {
+    "back": "- **Standard symbols**: rectangles for tasks, diamonds for decisions\n- **Descriptive labels**: \"fetch user preferences\", not \"get data\"\n- **Explicit inputs and outputs** for every node\n- **Granularity** chosen for the audience: high-level for an overview, detailed subtasks for implementation",
+    "front": "What makes a workflow diagram clear?",
+    "topic": "Workflow modeling"
+  },
+  {
+    "back": "- **Sequential steps**\n- **Decision points**, where the flow diverges\n- **Wait states**, where the happy path broke and someone has to decide what happens next\n\nTypical result: a central decision-making agent, with independent checks running as parallel agents instead of one after another.",
+    "front": "You're refactoring a rigid, sequential workflow into an agentic one. Which parts are good candidates for agents?",
+    "topic": "Workflow modeling"
+  },
+  {
+    "back": "- Direct prompt agent\n- Augmented prompt agent\n- Knowledge-augmented prompt agent\n- RAG knowledge prompt agent\n- Evaluation agent\n- Routing agent\n- Action planning agent",
+    "front": "What are the seven common agent archetypes used as workflow building blocks?",
+    "topic": "Agent archetypes"
+  },
+  {
+    "back": "- **Direct**: sends the user prompt straight to the LLM, with no system prompt, memory or tools. A pure zero-shot reply.\n- **Augmented**: adds a **system prompt with a persona**, so the reply comes from the same model knowledge but in a defined role.",
+    "front": "Direct prompt agent vs. augmented prompt agent: what's the difference?",
+    "topic": "Agent archetypes"
+  },
+  {
+    "back": "- **Knowledge-augmented**: persona plus a **fixed, curated knowledge block** the LLM must stick to, ignoring its general knowledge (even deliberately wrong facts, for testing).\n- **RAG**: **retrieves** the most relevant chunks from a corpus at query time (embeddings plus cosine similarity), so it isn't limited to a static block.",
+    "front": "Knowledge-augmented prompt agent vs. RAG knowledge prompt agent: what's the difference?",
+    "topic": "Agent archetypes"
+  },
+  {
+    "back": "- **Evaluation**: critiques another agent's output against criteria and asks for revisions (a feedback loop)\n- **Routing**: sends a request to the best-suited specialist agent\n- **Action planning**: turns an open-ended goal into an ordered list of executable steps",
+    "front": "What do the evaluation, routing and action planning agents each do?",
+    "topic": "Agent archetypes"
+  },
+  {
+    "back": "- **Action planning**: **what** needs to be done\n- **Routing**: **who** should do it",
+    "front": "Routing agent vs. action planning agent: what does each decide?",
+    "topic": "Agent archetypes"
+  },
+  {
+    "back": "- **An agent framework**: fast and production-ready, but it hides the mechanics\n- **From scratch** (Python plus direct LLM calls): slower, but teaches how things actually work",
+    "front": "What are the two ways to implement agentic workflows?",
+    "topic": "Implementation"
+  },
+  {
+    "back": "Three separate layers:\n\n1. **Agent definitions**: classes\n2. **Instantiation**: create and configure the agent objects\n3. **Workflow**: sequence the tasks and pass data between agents\n\nKeeping them separate is what lets the code scale to more complex patterns.",
+    "front": "How should code for an agentic workflow built from scratch be structured?",
+    "topic": "Implementation"
+  },
+  {
+    "back": "- Prompt chaining\n- Routing\n- Parallelization\n- Evaluator-optimizer\n- Orchestrator-workers",
+    "front": "Name the five core agentic workflow patterns.",
+    "topic": "Implementation"
+  },
+  {
+    "back": "Like an assembly line: each call gets one narrow subtask, so its instructions are simpler and more direct.\n\nThat improves each step's accuracy, helps with reasoning across steps, and reduces hallucination by keeping the model focused.",
+    "front": "Why does prompt chaining improve results over one big prompt?",
+    "topic": "Prompt chaining"
+  },
+  {
+    "back": "**Error propagation.** Each step consumes the previous output, so a flaw early on corrupts, and can compound through, every downstream step.\n\nThe fix is intermediate validation: quality gates between steps.",
+    "front": "What is prompt chaining's main risk?",
+    "topic": "Prompt chaining"
+  },
+  {
+    "back": "- **Programmatic checks**: valid JSON, length limits, numeric ranges\n- **LLM-based validation**: a second LLM judges nuance such as tone or factual accuracy\n- **Rule-based validation**: explicit declared rules (e.g. an email must have a greeting and a sign-off)\n- **Confidence scoring**: reject outputs below a confidence threshold",
+    "front": "What are the four ways to validate an intermediate output in a chain?",
+    "topic": "Prompt chaining"
+  },
+  {
+    "back": "- **Retry**: simply rerun it (good for transient issues)\n- **Re-prompt with feedback**: include the specific failure reason\n- **Self-critique and refine**: the LLM critiques its own output against criteria, then revises it\n- **Fallback**: stop and log, or route to a simpler path or a safe default output\n\nAnd log every input, output and validation result along the way.",
+    "front": "A quality gate rejects an output. What are your options?",
+    "topic": "Prompt chaining"
+  },
+  {
+    "back": "Only the relevant slice (**selective context passing**). Excess context costs tokens, adds latency, confuses the model and can overflow the context window.\n\nIf an earlier detail matters later, **restate it** in each new prompt (contextual reiteration) so the model doesn't lose it.",
+    "front": "How much of a previous step's output should you pass to the next prompt?",
+    "topic": "Prompt chaining"
+  },
+  {
+    "back": "Deliberately, **per agent's job**, not one value for the whole chain.\n\nThe writer gets a low temperature for a controlled, structured report; the research step can run higher for more varied phrasing.",
+    "front": "In a research agent → writer agent chain, how should temperature be set?",
+    "topic": "Prompt chaining"
+  },
+  {
+    "back": "No. A step can consume **several** earlier outputs. For example, a production-planning step that takes both a process plan and a market analysis as input.",
+    "front": "Does a prompt chain have to be strictly linear?",
+    "topic": "Prompt chaining"
+  },
+  {
+    "back": "Deterministic **post-processing** in code. Real LLM output needs cleanup, and stripping small artifacts reliably is cheaper in code than trying to prompt them away.",
+    "front": "Your prompts are well refined, but the final output still has stray debug text or duplicate headings. What's the fix?",
+    "topic": "Prompt chaining"
+  },
+  {
+    "back": "Directing each input to the most suitable specialist agent or path.\n\n1. **Classification**: what kind of input is this (type, intent, complexity)?\n2. **Task dispatch**: branch to the agent built for that category",
+    "front": "What is the routing pattern, and what are its two stages?",
+    "topic": "Routing"
+  },
+  {
+    "back": "- **Specialization**: agents tuned for one kind of task do it better\n- **Resource optimization**: cheap, fast models for simple tasks; powerful models for hard ones\n- **Flexibility**: handles diverse requests\n- **Scalability**: add a new specialist without redesigning the system",
+    "front": "What are the benefits of routing?",
+    "topic": "Routing"
+  },
+  {
+    "back": "- **Rule-based**: keyword matching, conditionals\n- **LLM-based**: the model classifies from contextual understanding\n\nAccuracy matters most here: a misclassified input goes to the wrong agent.",
+    "front": "How can the classification step in routing be implemented?",
+    "topic": "Routing"
+  },
+  {
+    "back": "Each worker agent has a **name** and a **description** of its capabilities. The router's system prompt lists them, and the router answers with just the chosen agent's name, which the code then looks up.\n\n(Alternative: the router queries each worker for its capabilities at runtime instead of hardcoding them.)",
+    "front": "How does an LLM router know which agent to pick?",
+    "topic": "Routing"
+  },
+  {
+    "back": "Keep it small: roughly **6–7**, with about **10** as a hard ceiling. More options degrade routing accuracy.\n\nFor more agents, **cascade routers**: one of a router's options is itself another router.",
+    "front": "How many agents can one router choose between reliably?",
+    "topic": "Routing"
+  },
+  {
+    "back": "Several agents work on parts of a task **at the same time**, then their results are combined: the **scatter-gather** pattern.\n\nBeyond speed, it can produce diverse perspectives and more robust results.",
+    "front": "What is the parallelization pattern?",
+    "topic": "Parallelization"
+  },
+  {
+    "back": "Subtasks must be **largely independent**: no agent waits on another's output.\n\nIf one subtask's output feeds another, use prompt chaining for that dependent part.",
+    "front": "What is the golden rule for parallelization?",
+    "topic": "Parallelization"
+  },
+  {
+    "back": "- **Sectioning / sharding**: split a large input into chunks (e.g. summarize each chapter separately)\n- **Aspect-based**: different agents analyze different facets of the same subject (specs, sentiment, pricing)\n- **Identical tasks**: run the same task several times (varied prompts or models) for diversity or voting",
+    "front": "What are the three ways to split a task for parallel agents?",
+    "topic": "Parallelization"
+  },
+  {
+    "back": "- **Concatenation**: just join them\n- **Comparison and selection**: pick the best by criteria\n- **Voting / majority rule**: the most frequent answer wins\n- **Synthesizer LLM**: an LLM weaves the outputs into one coherent answer",
+    "front": "What are the four ways to aggregate parallel outputs?",
+    "topic": "Parallelization"
+  },
+  {
+    "back": "Run each agent on its own thread (e.g. with `threading`), collect the outputs in a shared dict keyed by agent name, then hand them to a summary agent that synthesizes one report.",
+    "front": "How can a from-scratch Python workflow run agents in parallel?",
+    "topic": "Parallelization"
+  },
+  {
+    "back": "- **Optimizer / generator**: produces the output, then revises it\n- **Evaluator / critic**: grades it against criteria and returns actionable feedback\n\nThey loop until the output passes or a stopping condition triggers.",
+    "front": "What are the two roles in the evaluator-optimizer pattern?",
+    "topic": "Evaluator-optimizer"
+  },
+  {
+    "back": "- **Clear criteria**: specific, measurable, unambiguous\n- **Actionable feedback**: exactly what to change, never \"do better\"\n- **Stopping conditions**: criteria met, max iterations reached, or diminishing returns",
+    "front": "What are the three design essentials of an evaluator-optimizer loop?",
+    "topic": "Evaluator-optimizer"
+  },
+  {
+    "back": "Match temperature to the role:\n\n- **Generator**: some creativity helps\n- **Evaluator**: grading must be deterministic and consistent",
+    "front": "Why give the generator a moderate temperature but the evaluator temperature 0?",
+    "topic": "Evaluator-optimizer"
+  },
+  {
+    "back": "```\nfeedback = None\nfor attempt in range(max_retries):\n    draft = worker.run(task, feedback)\n    approved, feedback = evaluator.run(draft)\n    if approved:\n        break\nelse:\n    report_failure()\n```\n\nThe worker's prompt includes the previous feedback on retries.",
+    "front": "How is an evaluator-optimizer loop typically coded?",
+    "topic": "Evaluator-optimizer"
+  },
+  {
+    "back": "1. Analyzes a complex goal\n2. **Decomposes it into subtasks at runtime**\n3. Delegates each subtask to the best-suited worker agent\n4. **Synthesizes** the workers' results into one coherent final output",
+    "front": "What does the orchestrator do in the orchestrator-workers pattern?",
+    "topic": "Orchestrator-workers"
+  },
+  {
+    "back": "- **Parallelization**: a fixed, predefined set of independent subtasks, like an assembly line\n- **Orchestrator-workers**: subtasks and assignments are decided **dynamically per request**, which suits novel problems where the path isn't known upfront",
+    "front": "How does orchestrator-workers differ from simple parallelization?",
+    "topic": "Orchestrator-workers"
+  },
+  {
+    "back": "So the orchestrator can **reliably parse** the task list and extract fields in code, instead of guessing at free text.",
+    "front": "Why might an orchestrator and its workers exchange task lists as tagged XML (or JSON) instead of prose?",
+    "topic": "Orchestrator-workers"
+  },
+  {
+    "back": "The orchestrator decides subtasks at runtime, so it **can't anticipate every task type**. The generic worker handles whatever the specialists don't cover.",
+    "front": "Why include a generic, catch-all worker alongside the specialized ones?",
+    "topic": "Orchestrator-workers"
+  },
+  {
+    "back": "A shared **base class** with an abstract method (e.g. `run(task)`) that every worker implements, so the orchestrator can call any worker the same way.",
+    "front": "What's a clean way to structure worker agents in code?",
+    "topic": "Orchestrator-workers"
+  },
+  {
+    "back": "- **Action planning** breaks the goal into steps (what)\n- **Routing** sends each step to the right worker (who)\n- **Parallelization** runs independent steps at once (how fast)\n- **Evaluation** checks the results, then retries, changes approach or reroutes on failure",
+    "front": "How do the workflow patterns typically combine in a real system?",
+    "topic": "Combining patterns"
+  },
+  {
+    "back": "1. Map the existing manual process in detail\n2. Start simple: prompt chaining that mirrors the process steps\n3. Generalize gradually with planning, routing, parallelization and evaluation where they add value\n\nDon't jump straight to a fully dynamic system.",
+    "front": "What's the recommended way to build a real agentic system?",
+    "topic": "Combining patterns"
+  },
+  {
+    "back": "Build around what today's model can do. As models improve, **replace or simplify** individual agents and steps rather than re-architecting.\n\nIn the extreme, one capable model could absorb most specialist agents (a \"super agent\"), but the practical path is incremental.",
+    "front": "How should an agentic workflow cope with LLMs improving over time?",
+    "topic": "Combining patterns"
+  }
+]
+            </script>
+        </article>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2026</span>
+            
+            
+            
+            <span>vladflore[dot]tech. All rights reserved.</span>
+        </div>
+    </div>
+    
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span><a href='https://ko-fi.com/D1D41G44WK' target='_blank'><img height='36' style='border:0px;height:36px;margin-top:15px;' src='https://storage.ko-fi.com/cdn/kofi1.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a></span>
+        </div>
+    </div>
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.ad54ad97364f77ede35def9096b162bb1f0b3973aa50b080f5e82fa147f6882e2a7200d7535adbf9b51bebf939f1c1ca9bbe6be87530092aca720eac4a226fda.js" integrity="sha512-rVStlzZPd&#43;3jXe&#43;QlrFiux8LOXOqULCA9egvoUf2iC4qcgDXU1rb&#43;bUb6/k58cHKm75r6HUwCSrKcg6sSiJv2g=="></script>
+
+
+    
+        <script src="/js/line-highlight.js"></script>
+    
+
+    
+        <script src="/js/business-card.js"></script>
+    
+
+    
+        <script src="/js/quiz.js"></script>
+    
+
+    
+        <script src="/js/flashcards.js"></script>
+    
+
+
+
+    </body>
+</html>

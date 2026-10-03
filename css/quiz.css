@@ -43,6 +43,60 @@
   opacity: 0.6;
 }
 
+/* A group of related quizzes, collapsed into one card that expands to list them. */
+.quizzes-list .quiz-group summary {
+  display: block;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.quizzes-list .quiz-group summary * {
+  cursor: pointer;
+}
+
+.quizzes-list .quiz-group summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Chevron before the group title: points right when collapsed, down when expanded. */
+.quizzes-list .quiz-group summary .quiz-card-title::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 12px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-2px) rotate(-45deg);
+  transition: transform 0.2s;
+}
+
+.quizzes-list .quiz-group details[open] > summary .quiz-card-title::before {
+  transform: translateY(-4px) rotate(45deg);
+}
+
+.quizzes-list .quiz-group summary .quiz-card-meta {
+  padding-left: 21px;
+}
+
+/* Expanded quizzes sit indented under the group, with a guide line on the left. */
+.quizzes-list .quiz-group-items {
+  margin: 12px 0 0 20px;
+  padding: 0 0 0 16px;
+  border-left: 2px solid #dcdcdc;
+}
+
+@media (prefers-color-scheme: dark) {
+  .quizzes-list .quiz-group-items { border-left-color: #4e4e57; }
+}
+[data-theme=dark] .quizzes-list .quiz-group-items { border-left-color: #4e4e57; }
+[data-theme=light] .quizzes-list .quiz-group-items { border-left-color: #dcdcdc; }
+
+@media (prefers-reduced-motion: reduce) {
+  .quizzes-list .quiz-group summary .quiz-card-title::before { transition: none; }
+}
+
 .quiz-app {
   margin-top: 24px;
   padding: 20px;

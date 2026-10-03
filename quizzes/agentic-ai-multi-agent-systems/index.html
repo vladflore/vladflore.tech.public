@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Vlad Flore ">
+<meta name="description" content="Part 4/4 — orchestrator vs. peer-to-peer architecture, agent orchestration and routing patterns, state coordination under concurrency, and multi-agent RAG." />
+<meta name="keywords" content="java, python, generative ai, llm, rag, machine learning, spring boot, microservices, kubernetes, aws, software engineer, freelance developer, vlad flore" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://vladflore.tech/quizzes/agentic-ai-multi-agent-systems/" />
+
+
+    <title>
+        
+            Agentic AI: Multi-Agent Systems :: vlad·flore · tech 
+        
+    </title>
+
+
+
+
+
+<link rel="stylesheet" href="/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css" integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE=">
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/quiz.css">
+    
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/flashcards.css">
+    
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+
+  <meta itemprop="name" content="Agentic AI: Multi-Agent Systems">
+  <meta itemprop="description" content="Part 4/4 — orchestrator vs. peer-to-peer architecture, agent orchestration and routing patterns, state coordination under concurrency, and multi-agent RAG.">
+  <meta itemprop="datePublished" content="2026-09-18T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-09-18T00:00:00+00:00">
+  <meta itemprop="image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+  <meta name="twitter:title" content="Agentic AI: Multi-Agent Systems">
+  <meta name="twitter:description" content="Part 4/4 — orchestrator vs. peer-to-peer architecture, agent orchestration and routing patterns, state coordination under concurrency, and multi-agent RAG.">
+
+
+
+    <meta property="og:url" content="https://vladflore.tech/quizzes/agentic-ai-multi-agent-systems/">
+  <meta property="og:site_name" content="vlad·flore · tech">
+  <meta property="og:title" content="Agentic AI: Multi-Agent Systems">
+  <meta property="og:description" content="Part 4/4 — orchestrator vs. peer-to-peer architecture, agent orchestration and routing patterns, state coordination under concurrency, and multi-agent RAG.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="quizzes">
+    <meta property="article:published_time" content="2026-09-18T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-09-18T00:00:00+00:00">
+    <meta property="og:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+
+
+
+
+
+
+    <meta property="article:published_time" content="2026-09-18 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RE8EZYX8D9"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RE8EZYX8D9');
+        }
+      </script>
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text ">
+                $ cd ~</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#a9a9b3;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner">
+        
+            
+                <li><a href="/posts/">Posts</a></li>
+            
+        
+            
+                <div class="submenu">
+                    <li class="dropdown">
+                        <a href="/learn/" class="dropbtn">Learn</a>
+                        <div class="dropdown-content">
+                            
+                                <a href="/flashcards/">Flashcards</a>
+                            
+                                <a href="/quizzes/">Quizzes</a>
+                            
+                        </div>
+                    </li>
+                </div>
+            
+        
+            
+                <div class="submenu">
+                    <li class="dropdown">
+                        <a href="/about/" class="dropbtn">About</a>
+                        <div class="dropdown-content">
+                            
+                                <a href="/filingcabinet/cv.html">Resume</a>
+                            
+                                <a href="/portfolio/">Portfolio</a>
+                            
+                                <a href="/certs/">Certs</a>
+                            
+                        </div>
+                    </li>
+                </div>
+            
+        
+
+        <div class="submenu business-card-menu">
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn" aria-label="Business card" title="Business card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.12,4.25h0V3.74a.86.86,0,0,0-.81-.91H19.05a.86.86,0,0,0-.8.91v.51H16.54V2.33a2.2,2.2,0,0,0-2-2.33h-5a2.2,2.2,0,0,0-2,2.33V4.25H5.75V3.74A.86.86,0,0,0,5,2.83H3.71a.86.86,0,0,0-.81.91v.51h0A3.09,3.09,0,0,0,0,7.52v13.2A3.1,3.1,0,0,0,2.88,24H21.12A3.1,3.1,0,0,0,24,20.72V7.52A3.09,3.09,0,0,0,21.12,4.25ZM19,3.74a0,0,0,0,1,0,0h1.24a0,0,0,0,1,0,0v.51H19ZM8.24,2.33A1.37,1.37,0,0,1,9.51.88h5a1.37,1.37,0,0,1,1.27,1.45V4.25h-.88V2.33a.42.42,0,0,0-.39-.44h-5a.42.42,0,0,0-.39.44V4.25H8.24ZM9.9,4.25V2.77h4.2V4.25ZM3.68,3.74a0,0,0,0,1,0,0H5a0,0,0,0,1,0,0v.51H3.68Zm19.54,17a2.26,2.26,0,0,1-2.1,2.39H2.88a2.26,2.26,0,0,1-2.1-2.39V7.52a2.26,2.26,0,0,1,2.1-2.39H21.12a2.26,2.26,0,0,1,2.1,2.39Z"/></svg>
+    </a>
+    <div class="dropdown-content business-card">
+      <img class="business-card-photo" src="https://vladflore.tech/images/me_official_no_background.png" alt="Vlad Flore" />
+      <div class="business-card-name">Vlad Flore</div>
+      <div class="business-card-title">Backend Software Engineer<br />Python | Java | GenAI</div>
+      <div class="business-card-pitch">Open for freelance &amp; consulting work.</div>
+      <div class="business-card-links">
+        <a href="mailto:flore.vlad@gmail.com" title="Email"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Email</a>
+        <a href="https://www.linkedin.com/in/vladflore/" target="_blank" rel="noopener" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg> LinkedIn</a>
+        <a href="https://github.com/vladflore" target="_blank" rel="noopener" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> GitHub</a>
+        <a href="/filingcabinet/cv.html" title="Resume">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Resume
+        </a>
+      </div>
+    </div>
+  </li>
+</div>
+
+
+        
+            <div class="submenu lang-switch-menu">
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn" aria-label="English">
+                        <span class="flag fi fi-gb"></span>
+                    </a>
+                    <div class="dropdown-content">
+                        
+                            
+                                
+                            
+                                
+                                    <a title="Deutsch" href="/de/">
+                                        <span class="flag fi fi-de"></span>
+                                    </a>
+                                
+                            
+                        
+                    </div>
+                </li>
+            </div>
+        
+    </ul>
+</nav>
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post quiz">
+        <article>
+            <h1 class="post-title">Agentic AI: Multi-Agent Systems</h1>
+
+            <div class="quiz-toolbar" hidden><span class="quiz-reset-slot"></span></div>
+
+            <div
+                id="quiz-app"
+                class="quiz-app"
+                data-quiz-title="Agentic AI: Multi-Agent Systems"
+            ></div>
+
+            <script type="application/json" id="quiz-data">
+                [
+  {
+    "a": 0,
+    "choices": [
+      "Orchestrator = central coordinator delegates to workers (hub-and-spoke); peer-to-peer = agents communicate directly with each other, no mandatory central hub",
+      "They're the same pattern under different names",
+      "Peer-to-peer always requires more agents than orchestrator",
+      "The orchestrator pattern cannot run tasks in parallel"
+    ],
+    "explain": "E.g. an e-commerce returns flow run by an orchestrator, vs. network-diagnostics agents that query each other directly as findings come in.",
+    "q": "What's the core difference between the orchestrator pattern and peer-to-peer/direct routing?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Peer-to-peer, because it avoids bottlenecks",
+      "Orchestrator, because centralization makes design and debugging easier",
+      "Neither pattern matters for predictability",
+      "Round-robin routing, because it's the simplest option"
+    ],
+    "explain": "Order fulfillment, ticket routing, and report generation are given as the kinds of workflows suited to the orchestrator pattern.",
+    "q": "Which architecture pattern fits structured, predictable multi-step workflows best, and why?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "It's always faster with more agents",
+      "Coordination, state tracking, and conflict resolution get harder",
+      "It requires a central orchestrator by definition",
+      "There is no tradeoff at scale"
+    ],
+    "explain": "More flexible for unpredictable sequences, but scaling agent count makes coordination genuinely harder.",
+    "q": "What's the main tradeoff of peer-to-peer/direct routing as the number of agents grows?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "It should explicitly state who the agent is, what it does, what it does NOT do, and which tools it has — ambiguity here is 'the enemy of reliable multi-agent systems'",
+      "It can never be edited once written to a file",
+      "It's compiled into machine code",
+      "It's identical across every agent in the system"
+    ],
+    "explain": "Explicitly scoping what an agent does NOT do is just as important as what it does.",
+    "q": "Why is the system prompt called the agent's \"immutable job description\"?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "The LLM decides when/how to call a tool almost entirely from its name, description, and argument docs — garbage in, garbage out applies",
+      "They're only used for internal documentation, never read by the model",
+      "They determine the agent's temperature setting",
+      "They're optional and rarely matter in practice"
+    ],
+    "explain": "This is exactly why the `smolagents` `@tool` decorator requires a well-formed docstring — imprecise docs directly hurt tool selection.",
+    "q": "Why are tool descriptions called \"critical metadata\"?"
+  },
+  {
+    "a": 2,
+    "choices": [
+      "Let the exception propagate and crash the agent",
+      "Return `None` silently",
+      "Wrap it in try/except, log the real exception, but return a clear, LLM-readable error string",
+      "Retry indefinitely with no limit"
+    ],
+    "explain": "The model needs a readable signal it can reason about, not a crash or a silent `None`.",
+    "q": "How should a defensively written tool handle a failed network call or DB query?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "`ToolCallingAgent` (calls tools via structured JSON-style calls) and `CodeAgent` (writes and executes Python code to take actions)",
+      "`ChatAgent` and `VoiceAgent`, for text vs. speech interfaces",
+      "`TrainAgent` and `InferAgent`, for training vs. inference",
+      "`SyncAgent` and `AsyncAgent`, for blocking vs. non-blocking calls"
+    ],
+    "explain": "`CodeAgent`'s distinguishing idea is having the LLM express its actions as executable code rather than JSON tool-call arguments.",
+    "q": "In HuggingFace's `smolagents` library, what are its two main agent classes generally used for?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "Give each requester its own tool to acquire some of the resource directly, and update its prompt to say when to use the tool vs. ask the allocator",
+      "Remove the central allocator entirely and let requests go unfulfilled",
+      "Force every requester to use the exact same fixed request every time",
+      "Disable all requesting agents' reasoning and hardcode a schedule"
+    ],
+    "explain": "Giving requesters their own tool to gather some of what they need is a common pattern for reducing the bottleneck on a single central agent, while the allocator still handles the rest. The requester's prompt must list both options explicitly so it knows when to use each.",
+    "q": "In a multi-agent system, several agents depend on one allocator agent to hand out a shared resource (e.g. a supply pool), creating a bottleneck. What's a reasonable way to reduce that dependence?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Plain text is always faster to parse",
+      "So complex data isn't lost between agents; within one process this can work directly, but across processes it must be serialized (commonly to JSON)",
+      "Because LLMs cannot output plain text at all",
+      "It's a strict requirement of every LLM API"
+    ],
+    "explain": "A standardized message protocol (typically JSON) is what keeps complex structured data intact as it moves between agents.",
+    "q": "Why do agents typically exchange structured Python objects (dicts, Pydantic models) rather than plain text?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "Sequential, parallel, conditional",
+      "Push, pull, broadcast",
+      "Retry, fallback, escalate",
+      "Map, reduce, filter"
+    ],
+    "explain": "Real workflows usually combine all three: sequential steps, then parallel branches, then conditional logic on a result.",
+    "q": "What are the three base orchestration execution patterns?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Verification agent → solution agent → diagnostic agent",
+      "Diagnostic agent → solution agent → verification agent",
+      "Solution agent → diagnostic agent → verification agent",
+      "All three run in parallel"
+    ],
+    "explain": "Each step genuinely depends on the previous result: diagnose first, then generate instructions, then confirm the fix worked.",
+    "q": "A sequential orchestration troubleshoots a customer's Wi-Fi problem with a diagnostic, a solution and a verification agent. In what order do they run?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "Direct delegation follows a fixed, predetermined plan; dynamic routing is needed when inputs are unpredictable, arrive from multiple sources, or need load-balancing",
+      "Direct delegation always uses more agents",
+      "Dynamic routing cannot use an LLM at any stage",
+      "They're exactly the same mechanism"
+    ],
+    "explain": "Simple and effective when the sequence is known in advance is the case for direct delegation; dynamic routing handles the unpredictable case.",
+    "q": "What distinguishes \"direct delegation\" from \"dynamic routing\" at the orchestration level?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Content-based routing",
+      "Round-robin distribution",
+      "Priority-based routing",
+      "Peer-to-peer routing"
+    ],
+    "explain": "Useful for scaling out, e.g. distributing an image batch across a pool of identical image-analysis agents.",
+    "q": "Which routing pattern spreads load evenly across identical agent instances?"
+  },
+  {
+    "a": 2,
+    "choices": [
+      "Round-robin distribution",
+      "Content-based routing",
+      "Priority-based routing",
+      "Sequential orchestration"
+    ],
+    "explain": "Messages are tagged with priority so urgent items get handled first, even under load.",
+    "q": "Which routing pattern makes a critical patient-monitoring alert jump ahead of a routine hourly status log?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "Enhancement, filtering, and reformatting of the payload so the receiving agent gets usable data, avoiding impedance mismatches",
+      "Encrypting all inter-agent messages",
+      "Compressing messages purely to save tokens",
+      "Renaming variables for readability"
+    ],
+    "explain": "The payload itself often needs transformation between agents, not just routing to the right destination.",
+    "q": "What does \"data flow management\" between agents specifically involve?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "Conversation-level = what's happening right now; system-level = what must be remembered for the future",
+      "They're interchangeable terms for the same thing",
+      "System-level state is always discarded after each session",
+      "Conversation-level state is always stored in a database, system-level never is"
+    ],
+    "explain": "Both distinctions matter: current-interaction data vs. long-term persisted data, and discardable vs. critical data.",
+    "q": "What's the difference between conversation-level state and system-level state?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "The orchestrator should pass only the relevant slice of state to each worker, not the entire state",
+      "Customer ID is always sensitive and must never be shared with any agent",
+      "Inventory agents technically cannot process more than two fields",
+      "It's a hard framework limitation"
+    ],
+    "explain": "Different downstream workers (inventory, quoting, fulfillment) each get a different relevant slice of the same shared context.",
+    "q": "Why does an inventory-check agent only need product ID and quantity, not customer ID or due date?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "A retry with exponential backoff",
+      "An explicit undo step triggered when a later stage fails after an earlier stage already made a persistent external change (e.g. a charge was made but service provisioning failed)",
+      "Escalating to a human immediately on any error",
+      "Logging the error and doing nothing further"
+    ],
+    "explain": "Without a compensating action, you'd be left with an inconsistent state — charged without delivering.",
+    "q": "What's a \"compensating action\" in orchestration-level error handling?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "For every single tool call, always",
+      "When an error is too complex, ambiguous, or critical for automated handling",
+      "Never — the system should always self-heal",
+      "Only for UI-related errors"
+    ],
+    "explain": "E.g. a financial analysis that fails its sanity checks gets paused and escalated with a support ticket carrying the inputs, intermediate results and error logs.",
+    "q": "In orchestration-level error handling, when should an error be escalated to a human?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Lock every record before any read",
+      "Assume conflicts are rare; an update only succeeds if the record's version still matches what was read, otherwise it fails and must be retried",
+      "Always let the last write win with no checks at all",
+      "Broadcast every state change to every agent before allowing any write"
+    ],
+    "explain": "Works well when reads are frequent but concurrent writes to the same record are rare.",
+    "q": "What's the core idea behind optimistic concurrency control (OCC) for shared state?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Agents poll the database on a fixed timer",
+      "A tool that changes critical state publishes an event; interested agents subscribe and react proactively instead of polling",
+      "All agents share one global mutable variable",
+      "Agents vote before any state change is allowed"
+    ],
+    "explain": "E.g. inventory dropping below a reorder point publishes an event other agents can react to, instead of constantly polling for it.",
+    "q": "What is \"state broadcasting/eventing\" as a coordination mechanism?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Negotiation/consensus",
+      "Rollback-and-retry",
+      "Human escalation",
+      "Predefined rules/policies"
+    ],
+    "explain": "A stale write fails under OCC, and the natural response is to reread and retry — that's rollback-and-retry.",
+    "q": "Which conflict-resolution strategy pairs naturally with optimistic concurrency: reread the latest state and retry the whole operation?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "It retrieves from the vector database directly",
+      "It combines heterogeneous results (DB rows, text snippets, article summaries) from multiple specialized retrieval agents into one coherent answer",
+      "It classifies the incoming user request",
+      "It handles authentication for all agents"
+    ],
+    "explain": "The scientific-research-assistant example has literature, trials, news, and regulatory agents feed a dedicated synthesis agent.",
+    "q": "What role does the \"synthesis agent\" play in multi-agent RAG?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "Each agent can be purpose-built for its data source (better SQL, better vector tuning, better API handling), and this cleanly combines structured with unstructured data",
+      "Specialized agents are always cheaper to run",
+      "A single generic pipeline is technically impossible to build",
+      "It reduces the total number of tools the system needs"
+    ],
+    "explain": "Mixing structured DB records with unstructured text/news is exactly what one generic RAG pipeline typically struggles with.",
+    "q": "Why does multi-agent RAG use multiple specialized retrieval agents instead of one generic RAG pipeline?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "All agents see identical data regardless of role",
+      "Retrieval tools enforce different data visibility depending on which agent/role is calling them (e.g. customer-service vs. medical-review access)",
+      "Only the orchestrator can retrieve any data",
+      "Access levels are set once at startup and never checked again"
+    ],
+    "explain": "This preserves patient privacy while still letting each agent do its job with the data it's actually entitled to see.",
+    "q": "In a multi-agent RAG system handling sensitive records (e.g. insurance claims or medical data), what does \"access-level-aware retrieval\" mean?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "A direct implementation of the orchestrator-workers pattern — the listed agents become workers the orchestrator can delegate sub-tasks to",
+      "A list of agents to shut down on startup",
+      "A round-robin load balancer across identical agent copies",
+      "A peer-to-peer broadcast group with no central coordination"
+    ],
+    "explain": "It's the library-level mechanism for hub-and-spoke delegation: the orchestrator agent can call into its managed agents like tools.",
+    "q": "In `smolagents`, what does passing `managed_agents=[...]` to an orchestrator `CodeAgent` set up?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "Because real-world systems keep growing new capabilities, and a brittle design turns every addition into a costly rewrite",
+      "It's a legal requirement for production AI systems",
+      "Because LLMs can only be trained once and never updated",
+      "It has no practical benefit, it's just good style"
+    ],
+    "explain": "The orchestrator's job is to delegate and synthesize — a well-designed one shouldn't need to change shape just because the roster of workers grows.",
+    "q": "Why should a multi-agent orchestration layer be designed so that adding a new specialized agent doesn't require redesigning the whole system?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "Gap-analysis logic detects what's missing and triggers a targeted follow-up query to fill it",
+      "Return the incomplete answer as final, since a first attempt was made",
+      "Discard the whole request and ask the user to rephrase from scratch",
+      "Always fall back to a non-RAG, general-knowledge answer"
+    ],
+    "explain": "This mirrors agentic RAG's reformulate-and-retry idea, extended to a multi-agent setting where a coordinator can detect gaps across several specialists' results.",
+    "q": "When a multi-agent RAG system's first retrieval round leaves an information gap, what's a reasonable next step?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "It always has more than ten agents",
+      "There's no strictly predetermined sequence of checks: agents with distinct roles collaborate on each request",
+      "It runs without an LLM",
+      "Every agent uses the same prompt"
+    ],
+    "explain": "Like staff in a restaurant, each agent has a clear role, and they coordinate based on the request rather than a fixed script.",
+    "q": "What makes a multi-agent system \"agentic\" rather than a scripted pipeline?"
+  },
+  {
+    "a": 2,
+    "choices": [
+      "Pick the largest available model",
+      "Write all the tools first",
+      "Sketch the architecture: roles, who talks to whom, what each agent needs, and how state and data flow",
+      "Deploy a single agent and add others later without a plan"
+    ],
+    "explain": "Even simple boxes and arrows force the key questions, and it's easy to lose the plan once you're deep in code.",
+    "q": "What should you do before writing any multi-agent code?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "Typed inputs and outputs, and a well-formed docstring",
+      "A class that inherits from `CodeAgent`",
+      "A JSON config file",
+      "A return value of `None`"
+    ],
+    "explain": "The docstring isn't just documentation: the LLM reads it to decide when and how to use the tool.",
+    "q": "What does a `smolagents` `@tool` function need in order to work correctly?"
+  },
+  {
+    "a": 2,
+    "choices": [
+      "By running every agent on every request",
+      "By asking the user to choose the agent",
+      "By giving the orchestrator tools that themselves call other agents",
+      "By merging all agents into one prompt"
+    ],
+    "explain": "Delegation then goes through the same tool-calling mechanism as any other tool, and each called agent picks its own tools.",
+    "q": "How can an orchestrator delegate to other agents without hardcoding which agent handles which scenario?"
+  },
+  {
+    "a": 3,
+    "choices": [
+      "Round-robin distribution",
+      "Priority-based routing",
+      "Direct delegation",
+      "Content-based routing"
+    ],
+    "explain": "Content-based routing sorts diverse requests to the right specialist before any workflow starts.",
+    "q": "A central intake point inspects each message's keywords, sentiment, data type and metadata to decide where it goes. Which routing pattern is that?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Always sends work to the first agent",
+      "Assigns work by current load, e.g. to the least busy or longest-idle instance",
+      "Routes by message priority",
+      "Picks an agent at random"
+    ],
+    "explain": "Basic round-robin just cycles 1, 2, 3; load-based assignment balances uneven workloads better.",
+    "q": "What does a smarter variant of round-robin distribution do?"
+  },
+  {
+    "a": 3,
+    "choices": [
+      "Ignore urgency; service type is enough",
+      "Use only the signal that arrived first",
+      "Average them into one number",
+      "Combine both to decide where the request goes and how fast"
+    ],
+    "explain": "Two independent classifiers can drive a single routing decision.",
+    "q": "A request is classified both by service type and by urgency. How should the orchestrator use the two signals?"
+  },
+  {
+    "a": 3,
+    "choices": [
+      "As direct function arguments",
+      "Bundled in a message object",
+      "Via a shared state object managed by the framework",
+      "By retraining the worker on the context"
+    ],
+    "explain": "Context can also go straight into a tool call; retraining has nothing to do with passing per-request state.",
+    "q": "Which of these is NOT a common way for an orchestrator to pass context to a worker?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Retry immediately in a tight loop until it works",
+      "Retry with exponential backoff, e.g. wait 1 s, then 2 s, then 4 s",
+      "Never retry, escalate immediately",
+      "Retry only after a human approves"
+    ],
+    "explain": "Increasing delays give a rate limit or a network blip time to clear without hammering the service.",
+    "q": "An API call fails transiently. How should the orchestrator's retry behave?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Retrying forever",
+      "Terminating cleanly and reporting the failure, with context, to whoever made the request",
+      "Returning a made-up answer",
+      "Silently exiting"
+    ],
+    "explain": "Crashing silently leaves users and systems guessing; a clean stop with context lets them act.",
+    "q": "A workflow truly cannot continue. What does graceful failure reporting mean?"
+  },
+  {
+    "a": 2,
+    "choices": [
+      "Each agent's own in-memory copy",
+      "The LLM's context window",
+      "The database as source of truth, with its locks and transactions",
+      "A shared text file"
+    ],
+    "explain": "Agent tools should use the database's native consistency features rather than reinventing them.",
+    "q": "When application state lives in a proper database, what should concurrent agents lean on first?"
+  },
+  {
+    "a": 0,
+    "choices": [
+      "Predefined rules or policies",
+      "Negotiation and consensus",
+      "Rollback and retry",
+      "Optimistic concurrency control"
+    ],
+    "explain": "Other examples: \"latest timestamp wins\" or \"support's update always wins\".",
+    "q": "Two autonomous vehicles want the same intersection space. Emergency vehicles go first, then main-road traffic. Which conflict-resolution strategy is that?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "None; sequential flows can't have conflicts",
+      "Re-verify the stock level before acting, since an external system may have changed it",
+      "Run the steps in parallel",
+      "Cache the value forever"
+    ],
+    "explain": "External systems can change state between steps, so acting on data read earlier risks acting on stale state.",
+    "q": "A purely sequential workflow reads a stock level in step 1 and places an order in step 4. What safeguard does it still need?"
+  },
+  {
+    "a": 1,
+    "choices": [
+      "Raising the temperature",
+      "Pattern matching against similar historical claims, much like legal precedent",
+      "Using a single generic RAG pipeline",
+      "Letting each agent invent policy details"
+    ],
+    "explain": "Grounding decisions in precedent and in retrieved policy documents reduces hallucination in high-stakes domains.",
+    "q": "A multi-agent RAG system handles insurance claims. Which technique helps it resolve new claims consistently with past decisions?"
+  }
+]
+            </script>
+        </article>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2026</span>
+            
+            
+            
+            <span>vladflore[dot]tech. All rights reserved.</span>
+        </div>
+    </div>
+    
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span><a href='https://ko-fi.com/D1D41G44WK' target='_blank'><img height='36' style='border:0px;height:36px;margin-top:15px;' src='https://storage.ko-fi.com/cdn/kofi1.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a></span>
+        </div>
+    </div>
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.ad54ad97364f77ede35def9096b162bb1f0b3973aa50b080f5e82fa147f6882e2a7200d7535adbf9b51bebf939f1c1ca9bbe6be87530092aca720eac4a226fda.js" integrity="sha512-rVStlzZPd&#43;3jXe&#43;QlrFiux8LOXOqULCA9egvoUf2iC4qcgDXU1rb&#43;bUb6/k58cHKm75r6HUwCSrKcg6sSiJv2g=="></script>
+
+
+    
+        <script src="/js/line-highlight.js"></script>
+    
+
+    
+        <script src="/js/business-card.js"></script>
+    
+
+    
+        <script src="/js/quiz.js"></script>
+    
+
+    
+        <script src="/js/flashcards.js"></script>
+    
+
+
+
+    </body>
+</html>

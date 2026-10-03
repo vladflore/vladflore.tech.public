@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Vlad Flore ">
+<meta name="description" content="Part 1/4 — what an agent is, role-based prompting, Chain-of-Thought and ReAct, refining prompt instructions, prompt chaining with gate checks, and LLM feedback loops." />
+<meta name="keywords" content="java, python, generative ai, llm, rag, machine learning, spring boot, microservices, kubernetes, aws, software engineer, freelance developer, vlad flore" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://vladflore.tech/flashcards/agentic-ai-prompting/" />
+
+
+    <title>
+        
+            Agentic AI: Prompting :: vlad·flore · tech 
+        
+    </title>
+
+
+
+
+
+<link rel="stylesheet" href="/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css" integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE=">
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/quiz.css">
+    
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/flashcards.css">
+    
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+
+  <meta itemprop="name" content="Agentic AI: Prompting">
+  <meta itemprop="description" content="Part 1/4 — what an agent is, role-based prompting, Chain-of-Thought and ReAct, refining prompt instructions, prompt chaining with gate checks, and LLM feedback loops.">
+  <meta itemprop="datePublished" content="2026-09-24T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-09-24T00:00:00+00:00">
+  <meta itemprop="image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+  <meta name="twitter:title" content="Agentic AI: Prompting">
+  <meta name="twitter:description" content="Part 1/4 — what an agent is, role-based prompting, Chain-of-Thought and ReAct, refining prompt instructions, prompt chaining with gate checks, and LLM feedback loops.">
+
+
+
+    <meta property="og:url" content="https://vladflore.tech/flashcards/agentic-ai-prompting/">
+  <meta property="og:site_name" content="vlad·flore · tech">
+  <meta property="og:title" content="Agentic AI: Prompting">
+  <meta property="og:description" content="Part 1/4 — what an agent is, role-based prompting, Chain-of-Thought and ReAct, refining prompt instructions, prompt chaining with gate checks, and LLM feedback loops.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="flashcards">
+    <meta property="article:published_time" content="2026-09-24T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-09-24T00:00:00+00:00">
+    <meta property="og:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+
+
+
+
+
+
+    <meta property="article:published_time" content="2026-09-24 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RE8EZYX8D9"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RE8EZYX8D9');
+        }
+      </script>
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text ">
+                $ cd ~</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#a9a9b3;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner">
+        
+            
+                <li><a href="/posts/">Posts</a></li>
+            
+        
+            
+                <div class="submenu">
+                    <li class="dropdown">
+                        <a href="/learn/" class="dropbtn">Learn</a>
+                        <div class="dropdown-content">
+                            
+                                <a href="/flashcards/">Flashcards</a>
+                            
+                                <a href="/quizzes/">Quizzes</a>
+                            
+                        </div>
+                    </li>
+                </div>
+            
+        
+            
+                <div class="submenu">
+                    <li class="dropdown">
+                        <a href="/about/" class="dropbtn">About</a>
+                        <div class="dropdown-content">
+                            
+                                <a href="/filingcabinet/cv.html">Resume</a>
+                            
+                                <a href="/portfolio/">Portfolio</a>
+                            
+                                <a href="/certs/">Certs</a>
+                            
+                        </div>
+                    </li>
+                </div>
+            
+        
+
+        <div class="submenu business-card-menu">
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn" aria-label="Business card" title="Business card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.12,4.25h0V3.74a.86.86,0,0,0-.81-.91H19.05a.86.86,0,0,0-.8.91v.51H16.54V2.33a2.2,2.2,0,0,0-2-2.33h-5a2.2,2.2,0,0,0-2,2.33V4.25H5.75V3.74A.86.86,0,0,0,5,2.83H3.71a.86.86,0,0,0-.81.91v.51h0A3.09,3.09,0,0,0,0,7.52v13.2A3.1,3.1,0,0,0,2.88,24H21.12A3.1,3.1,0,0,0,24,20.72V7.52A3.09,3.09,0,0,0,21.12,4.25ZM19,3.74a0,0,0,0,1,0,0h1.24a0,0,0,0,1,0,0v.51H19ZM8.24,2.33A1.37,1.37,0,0,1,9.51.88h5a1.37,1.37,0,0,1,1.27,1.45V4.25h-.88V2.33a.42.42,0,0,0-.39-.44h-5a.42.42,0,0,0-.39.44V4.25H8.24ZM9.9,4.25V2.77h4.2V4.25ZM3.68,3.74a0,0,0,0,1,0,0H5a0,0,0,0,1,0,0v.51H3.68Zm19.54,17a2.26,2.26,0,0,1-2.1,2.39H2.88a2.26,2.26,0,0,1-2.1-2.39V7.52a2.26,2.26,0,0,1,2.1-2.39H21.12a2.26,2.26,0,0,1,2.1,2.39Z"/></svg>
+    </a>
+    <div class="dropdown-content business-card">
+      <img class="business-card-photo" src="https://vladflore.tech/images/me_official_no_background.png" alt="Vlad Flore" />
+      <div class="business-card-name">Vlad Flore</div>
+      <div class="business-card-title">Backend Software Engineer<br />Python | Java | GenAI</div>
+      <div class="business-card-pitch">Open for freelance &amp; consulting work.</div>
+      <div class="business-card-links">
+        <a href="mailto:flore.vlad@gmail.com" title="Email"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Email</a>
+        <a href="https://www.linkedin.com/in/vladflore/" target="_blank" rel="noopener" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg> LinkedIn</a>
+        <a href="https://github.com/vladflore" target="_blank" rel="noopener" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> GitHub</a>
+        <a href="/filingcabinet/cv.html" title="Resume">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Resume
+        </a>
+      </div>
+    </div>
+  </li>
+</div>
+
+
+        
+            <div class="submenu lang-switch-menu">
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn" aria-label="English">
+                        <span class="flag fi fi-gb"></span>
+                    </a>
+                    <div class="dropdown-content">
+                        
+                            
+                                
+                            
+                                
+                                    <a title="Deutsch" href="/de/">
+                                        <span class="flag fi fi-de"></span>
+                                    </a>
+                                
+                            
+                        
+                    </div>
+                </li>
+            </div>
+        
+    </ul>
+</nav>
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post quiz">
+        <article>
+            <h1 class="post-title">Agentic AI: Prompting</h1>
+
+            <div class="quiz-toolbar" hidden><span class="quiz-reset-slot"></span></div>
+
+            <div
+                id="flashcards-app"
+                class="quiz-app flashcards-app"
+                data-deck-title="Agentic AI: Prompting"
+            ></div>
+
+            <script type="application/json" id="flashcards-data">
+                [
+  {
+    "back": "A plain LLM is passive: it waits for a prompt and returns text.\n\nAn agent takes a **goal**, then perceives its environment, decides, and **acts** (usually through tools), observing the results to choose its next step.",
+    "front": "What separates an AI agent from a plain LLM?",
+    "topic": "Agents"
+  },
+  {
+    "back": "- **LLM**: the brain, which understands, reasons and plans\n- **Tools**: external functions and APIs (search, databases, calculators, ...)\n- **Instructions**: the system prompt that defines how the agent behaves\n- **Memory**: short-term (the current conversation) and long-term (past interactions)\n- **Orchestration layer**: the runtime that drives the loop",
+    "front": "What are five common components of an agent system?",
+    "topic": "Agents"
+  },
+  {
+    "back": "The **orchestration layer**, the code around the LLM. The LLM decides which tool to call and with which arguments, but it doesn't execute anything itself.\n\nThe orchestrator parses the LLM's request, executes the tool, and feeds the result back to the LLM.",
+    "front": "An LLM decides to call a tool. Who actually runs it?",
+    "topic": "Agents"
+  },
+  {
+    "back": "Standalone LLMs fall short on tasks that need:\n\n- multiple steps, planning and reasoning\n- information outside their training data (real-time or private)\n- actions in the world\n\nGiving the LLM tools plus the ability to plan and reflect closes that gap.",
+    "front": "Why build agents instead of relying on a standalone LLM?",
+    "topic": "Agents"
+  },
+  {
+    "back": "Prompting is how you **program** the LLM brain. For an agent, the \"program\" is the system prompt plus the tool descriptions.\n\nThe LLM provides raw reasoning power; the prompt decides what it's used for.",
+    "front": "What role does prompting play in an agent?",
+    "topic": "Agents"
+  },
+  {
+    "back": "Breaking the complex request into smaller, sequential sub-tasks. For a refund:\n\n- verify the purchase history\n- check the product against the refund policy\n- assess the reason for the request\n- decide on the next step",
+    "front": "What does \"planning\" mean for an agent handling a request like a refund?",
+    "topic": "Agents"
+  },
+  {
+    "back": "Giving the LLM an identity to inhabit, like casting an actor: character background, motivation and direction, not just the lines.\n\nIt shapes **tone, style and expertise**. Without a role, the model picks a style from subtle cues in the prompt, so the output may come out formal, casual or humorous at random.",
+    "front": "What is role-based (persona) prompting?",
+    "topic": "Role-based prompting"
+  },
+  {
+    "back": "- **Role**\n- **Task** / instruction\n- **Output format**\n- **Examples** (input/output pairs)\n- **Additional context**\n\nNot every prompt needs all five, and there is no fixed order.",
+    "front": "Which five building blocks can a role-based prompt contain?",
+    "topic": "Role-based prompting"
+  },
+  {
+    "back": "Information the model needs but that isn't (or can't be) in its training data, e.g. today's date, the data to process, or facts about your product.\n\nIf it isn't in the context, the model can't know it: at best it declines, at worst it invents an answer.",
+    "front": "What belongs in a prompt's \"additional context\"?",
+    "topic": "Role-based prompting"
+  },
+  {
+    "back": "- **API**: the role and general instructions go in the **system** (or developer) **prompt**; the actual question goes in the user prompt.\n- **Chat app**: both parts go into the single text box, which is a handy way to prototype a prompt before moving it into code.",
+    "front": "Where does the role go when you call an LLM through an API, compared with a chat app?",
+    "topic": "Role-based prompting"
+  },
+  {
+    "back": "**Explicit constraints** (time, budget, space, word count, ...).\n\nA persona on its own mostly shapes tone, voice and emphasis, and can leave the substance almost unchanged. Specific, checkable constraints reshape the content itself.",
+    "front": "To change what an LLM actually produces, which is the stronger lever: a persona, or explicit constraints?",
+    "topic": "Role-based prompting"
+  },
+  {
+    "back": "Layer in specific attributes:\n\n- personality and communication style\n- vocabulary and verbal habits\n- areas of expertise\n- knowledge boundaries (e.g. \"you only know what someone would have known in 1950\")\n\nEach layer visibly changes tone and style, not just content.",
+    "front": "How do you make a persona convincing, beyond just naming the role?",
+    "topic": "Role-based prompting"
+  },
+  {
+    "back": "A curated set of test inputs paired with their **ideal outputs**.\n\nWhen correct answers can be defined, it's one of the most reliable ways to score a prompt or agent objectively: run the inputs, compare the outputs against the ideal ones, and track the score as you change things.",
+    "front": "What is a ground-truth set, and why build one?",
+    "topic": "Evaluating prompts"
+  },
+  {
+    "back": "- **Structured output**: programmatic checks such as schema validity, required fields and field-level accuracy, plus task-specific metrics (e.g. precision and recall for extraction or classification).\n- **Free-form text**: **LLM-as-judge**. Another LLM gets the output, the ground truth and your criteria, and scores the response.",
+    "front": "How do you evaluate structured output (like JSON) compared with free-form text?",
+    "topic": "Evaluating prompts"
+  },
+  {
+    "back": "The judge itself. Validate its scores against **human** review before trusting it.",
+    "front": "If you use an LLM as a judge, what else do you have to evaluate?",
+    "topic": "Evaluating prompts"
+  },
+  {
+    "back": "The **raw traces**: the actual inputs and outputs, and for agents also the tool calls, tool results and errors.\n\nThey show what's really happening and catch bugs and errors that an evaluation pipeline can miss.",
+    "front": "Beyond evaluation scores, what should you always look at?",
+    "topic": "Evaluating prompts"
+  },
+  {
+    "back": "- **Persona adherence**: does it stay in role when asked off-topic questions? (e.g. feed it a mock conversation and let an LLM grade it)\n- **Robustness**: how does it handle unexpected or adversarial input?\n- **Simple ops metrics**: e.g. median response length, for usability and cost\n\nKeep tracking these in production too, because real-world input keeps changing.",
+    "front": "Besides accuracy against ground truth, which other qualities of a persona agent should you test?",
+    "topic": "Evaluating prompts"
+  },
+  {
+    "back": "There's no ground truth for how the person **would have answered a new question**.\n\nTheir writings and speeches can be used to check vocabulary, style and worldview (e.g. by comparing sentence length and word frequency), but they don't determine the answer to an unseen situation. Beyond that, \"authentic\" stays subjective.",
+    "front": "Why is it hard to score how \"authentic\" an LLM's impersonation of a real historical figure is?",
+    "topic": "Evaluating prompts"
+  },
+  {
+    "back": "Prompting the model to produce **intermediate reasoning steps** before its final answer, instead of jumping straight to the answer.",
+    "front": "What is Chain-of-Thought (CoT) prompting?",
+    "topic": "Chain-of-Thought"
+  },
+  {
+    "back": "- **Zero-shot**: add an instruction like \"Let's think step by step.\"\n- **Few-shot**: include worked examples that show the problem, the step-by-step reasoning, and the answer.",
+    "front": "What is the difference between zero-shot and few-shot Chain-of-Thought?",
+    "topic": "Chain-of-Thought"
+  },
+  {
+    "back": "- **Accuracy**: fewer errors and hallucinations on multi-step tasks (arithmetic, logic, symbolic reasoning)\n- **Debuggability**: you can inspect the reasoning, not just the answer, which makes errors easier to diagnose. Caveat: the generated reasoning isn't guaranteed to reflect how the model actually reached its answer",
+    "front": "What two benefits does Chain-of-Thought bring?",
+    "topic": "Chain-of-Thought"
+  },
+  {
+    "back": "Tell it to **work out its own solution first**, then compare it with the student's. Explicitly asking for that intermediate step usually gives a more accurate verdict than asking \"is this correct?\" directly.",
+    "front": "You want an LLM to check whether a student's math solution is correct. How can Chain-of-Thought help?",
+    "topic": "Chain-of-Thought"
+  },
+  {
+    "back": "**Rea**son + **Act**.\n\nCoT only reasons over what the model already knows. ReAct interleaves reasoning with **tool use**, so the model can fetch new information or act in the outside world.",
+    "front": "What does ReAct stand for, and what problem does it solve that Chain-of-Thought can't?",
+    "topic": "ReAct"
+  },
+  {
+    "back": "1. **Thought**: the model reasons about what to do next\n2. **Action**: the model names a tool and its arguments\n3. **Observation**: the tool's result comes back to the model as text\n\nRepeat until the model calls a special \"final answer\" action.",
+    "front": "What are the three steps of the ReAct loop?",
+    "topic": "ReAct"
+  },
+  {
+    "back": "- calls the LLM\n- parses the requested action out of the response\n- runs the tool itself\n- formats the result as a string and sends it back as the Observation\n- stores everything in the message history, so each new Thought builds on all previous ones",
+    "front": "In a ReAct loop, what does the orchestrator do at each step?",
+    "topic": "ReAct"
+  },
+  {
+    "back": "Prompt engineering: clear instructions plus examples in the system prompt.\n\nAsk for explicitly labelled, parseable output, e.g. `THOUGHT:` and `ACTION:` lines with the action in JSON, and tell the model to expect an `OBSERVATION:` message back.",
+    "front": "How do you get an LLM to follow the ReAct format reliably?",
+    "topic": "ReAct"
+  },
+  {
+    "back": "Normally, the model calls a terminal tool like `final_answer`, and the orchestrator stops the loop.\n\nAs a safety net, a **step counter** caps the number of iterations, which keeps cost bounded and prevents infinite loops.",
+    "front": "How does a ReAct loop end?",
+    "topic": "ReAct"
+  },
+  {
+    "back": "Return an \"invalid tool call\" **Observation** instead of crashing or silently skipping.\n\nThe model sees the error in the next turn and gets a chance to correct itself.",
+    "front": "The model's Action line can't be parsed or names an unknown tool. What should the orchestrator do?",
+    "topic": "ReAct"
+  },
+  {
+    "back": "The expression comes from model output, which is untrusted. `eval` would let it execute **arbitrary code**.\n\nA restricted evaluator parses the expression and allows only numbers and `+ - * /`, which limits what the model can trigger. Filtering characters alone isn't enough.",
+    "front": "Why would a calculator tool use a restricted evaluator instead of Python's `eval`?",
+    "topic": "ReAct"
+  },
+  {
+    "back": "Each reasoning step gets **grounded in real results** from a tool (e.g. a search or encyclopedia API), instead of the model asserting facts from memory. That only helps if the tools and their data are reliable.",
+    "front": "How can ReAct reduce hallucinations in fact-checking?",
+    "topic": "ReAct"
+  },
+  {
+    "back": "Interactive environments such as web navigation or text-based games: the agent reasons about its goal, takes actions (click, move), observes the result, and adapts its plan.",
+    "front": "Besides fact verification, where does ReAct shine?",
+    "topic": "ReAct"
+  },
+  {
+    "back": "- **Role**: tone, style, perspective\n- **Task**: what the model actually does\n- **Output format**: mainly structure and presentation, though it can also affect content (e.g. \"exactly three bullets\" forces the model to select)\n- **Examples**: style, structure and level of detail (a strong lever)\n- **Context**: the factual grounding",
+    "front": "What effect does changing each of the five prompt components usually have?",
+    "topic": "Prompt refinement"
+  },
+  {
+    "back": "Change **one component at a time**, then compare the outputs.\n\nChanging several things at once hides which change caused which effect.",
+    "front": "What's a controlled way to refine a prompt?",
+    "topic": "Prompt refinement"
+  },
+  {
+    "back": "No. The task, the examples and the output format can **all** influence formatting, for example.\n\nThat overlap is one more reason to change one thing at a time.",
+    "front": "Are the five prompt components fully independent of each other?",
+    "topic": "Prompt refinement"
+  },
+  {
+    "back": "Examples strongly guide style, but they don't reliably enforce a **strict, literal rule**. You never said \"use capitals\", so the model wasn't breaking any instruction.\n\nFix: state the rule explicitly in the instructions.",
+    "front": "Your few-shot examples are all in capital letters, but the output isn't. Why, and what's the fix?",
+    "topic": "Prompt refinement"
+  },
+  {
+    "back": "Label them explicitly, e.g. `Output format:`, `Examples:`, `Context:`, so each part is clearly delimited.",
+    "front": "How can you make the sections of a long prompt easier for the model to follow?",
+    "topic": "Prompt refinement"
+  },
+  {
+    "back": "- Write clear, detailed instructions: the model can't read your mind\n- Use a role or persona when it adds useful framing\n- Break complex tasks into steps (or chain prompts)\n- Spell out the output format and constraints\n- Include few-shot examples\n- Provide relevant context\n- For agents, invest in clear **tool descriptions**",
+    "front": "What are the best practices for writing prompt instructions?",
+    "topic": "Prompt refinement"
+  },
+  {
+    "back": "- Ambiguity (the most common)\n- Insufficient context\n- Too much or conflicting context\n- Poor tool descriptions\n- Expecting the model to \"just know\" your intent\n- Trusting output without checking bias and factuality\n- Ignoring adversarial risks: prompt injection, leaking, jailbreaks",
+    "front": "What are the common prompting pitfalls?",
+    "topic": "Prompt refinement"
+  },
+  {
+    "back": "- **Poor tool descriptions**: the model won't know when or how to use a tool\n- **Adversarial prompting**: prompt injection and jailbreaks become more dangerous once the model can take actions",
+    "front": "Which prompting pitfalls apply specifically to agents that use tools?",
+    "topic": "Prompt refinement"
+  },
+  {
+    "back": "Not necessarily. Different providers, and even different models from the same provider, can respond differently to the same instructions. Re-test when you switch.",
+    "front": "Does a prompt tuned for one model work the same on another?",
+    "topic": "Prompt refinement"
+  },
+  {
+    "back": "Without explicit rules, the model guesses case by case, and inconsistently.\n\nNamed cases with a stated resolution turn guessing into a **consistent, auditable** decision rule.",
+    "front": "In a classification prompt, why spell out how to handle ambiguous cases (e.g. \"unspecified oil counts as plant-based\")?",
+    "topic": "Prompt refinement"
+  },
+  {
+    "back": "Refinement improves reliability but doesn't **guarantee** correctness.\n\nYou still need evaluation against ground truth to catch what the prompt misses.",
+    "front": "A carefully refined classification prompt still gets an edge case wrong. What's the lesson?",
+    "topic": "Prompt refinement"
+  },
+  {
+    "back": "- **Role**: none, then a domain expert\n- **Context**: minimal, then explicit definitions and decision rules\n- **Task**: just classify, then classify and justify\n- **Output format**: flat JSON, then structured JSON with subfields\n- **Examples**: none, then a worked example\n- **Ambiguity**: inconsistent, then explicit rules",
+    "front": "What typically improves when you refine a classification prompt from a bare version to a careful one?",
+    "topic": "Prompt refinement"
+  },
+  {
+    "back": "Splitting a complex task into a sequence of prompts, each with one narrow job, where each prompt's output feeds the next.\n\nNarrow steps are easier to get right and easier to check than one giant prompt.",
+    "front": "What is prompt chaining, and why use it?",
+    "topic": "Prompt chaining"
+  },
+  {
+    "back": "A **programmatic** validation step between two prompts in a chain. It checks format, content or logic, and then:\n\n- passes the output on\n- fails the run\n- or triggers a refinement step",
+    "front": "What is a gate check?",
+    "topic": "Prompt chaining"
+  },
+  {
+    "back": "1. Generate an outline. **Gate:** is it a list, and does it mention the key steps?\n2. Generate code from the outline. **Gate:** is the syntax valid?\n3. On failure, send the code plus the error back to the LLM to fix, then re-check.\n\nLoop step 3 up to a maximum number of attempts (e.g. 3).",
+    "front": "Sketch a prompt chain that generates a Python script, with gate checks.",
+    "topic": "Prompt chaining"
+  },
+  {
+    "back": "Parse it with Python's `ast` module, or run a linter such as flake8 or pylint. Both catch syntax errors programmatically; no second LLM guess needed. But valid syntax doesn't mean correct code: to check behaviour, run tests in a sandbox.",
+    "front": "How can a gate check verify generated Python code without running it?",
+    "topic": "Prompt chaining"
+  },
+  {
+    "back": "The specific error or traceback shows the model **precisely what went wrong**, so it can target the fix.\n\nA vague retry tends to reproduce the same mistake.",
+    "front": "When a gate check fails, why send the exact error back to the LLM instead of just \"try again\"?",
+    "topic": "Prompt chaining"
+  },
+  {
+    "back": "Define a Pydantic model for each stage's output, then parse and validate the LLM's JSON against it.\n\nBeyond types, add **cross-field checks**. Example: a severity stage returns both a severity level and an estimated cost; the gate verifies the cost actually falls inside that severity's range. That catches outputs that are valid JSON but inconsistent.",
+    "front": "In a chain whose steps return JSON, how can Pydantic act as the gate check?",
+    "topic": "Prompt chaining"
+  },
+  {
+    "back": "Serialize it back to JSON and include it as context in the next stage's prompt:\n\n```\ncontext = claim.model_dump_json()\n```",
+    "front": "In a Pydantic-based chain, how does one stage's validated output reach the next prompt?",
+    "topic": "Prompt chaining"
+  },
+  {
+    "back": "Generate, evaluate, feed the feedback back, regenerate. Repeat until the output meets the criteria or an iteration cap is hit.\n\nIt lets the system correct itself **without retraining** the model.",
+    "front": "What is an LLM feedback loop?",
+    "topic": "Feedback loops"
+  },
+  {
+    "back": "- **Self-critique**: the same or another LLM reviews the output against criteria\n- **External tools**: e.g. running the code, unit test results\n- **Programmatic validation**: e.g. JSON schema or required-field checks\n- **User input**: e.g. a blocking tool call that waits for a human reply",
+    "front": "What are four common sources of feedback in an LLM feedback loop?",
+    "topic": "Feedback loops"
+  },
+  {
+    "back": "As iterative **prompt chaining**: the previous output plus its feedback go into the message history, or into a new prompt, for the next iteration.",
+    "front": "Mechanically, how is a feedback loop built?",
+    "topic": "Feedback loops"
+  },
+  {
+    "back": "- the input that failed\n- the expected output\n- the actual output\n- the traceback, if an error was raised\n\nThe prompt for the next attempt contains: task, previous code, and this feedback.",
+    "front": "In an iterative code-generation loop, what should the feedback from a failed test include?",
+    "topic": "Feedback loops"
+  },
+  {
+    "back": "**Why:** to know whether outputs are converging, to debug loops that get stuck or get worse, and to find the point where more iterations stop helping.\n\n**Track:**\n\n- output quality per iteration (LLM judge for subjective quality; error rate or test pass rate for objective tasks)\n- goal adherence: are all requirements met yet?\n- a full trace of every prompt, response and piece of feedback",
+    "front": "Why monitor a feedback loop, and what should you track?",
+    "topic": "Feedback loops"
+  }
+]
+            </script>
+        </article>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2026</span>
+            
+            
+            
+            <span>vladflore[dot]tech. All rights reserved.</span>
+        </div>
+    </div>
+    
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span><a href='https://ko-fi.com/D1D41G44WK' target='_blank'><img height='36' style='border:0px;height:36px;margin-top:15px;' src='https://storage.ko-fi.com/cdn/kofi1.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a></span>
+        </div>
+    </div>
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.ad54ad97364f77ede35def9096b162bb1f0b3973aa50b080f5e82fa147f6882e2a7200d7535adbf9b51bebf939f1c1ca9bbe6be87530092aca720eac4a226fda.js" integrity="sha512-rVStlzZPd&#43;3jXe&#43;QlrFiux8LOXOqULCA9egvoUf2iC4qcgDXU1rb&#43;bUb6/k58cHKm75r6HUwCSrKcg6sSiJv2g=="></script>
+
+
+    
+        <script src="/js/line-highlight.js"></script>
+    
+
+    
+        <script src="/js/business-card.js"></script>
+    
+
+    
+        <script src="/js/quiz.js"></script>
+    
+
+    
+        <script src="/js/flashcards.js"></script>
+    
+
+
+
+    </body>
+</html>
