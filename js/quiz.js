@@ -45,11 +45,11 @@
   }
 
   function tierMessage(pct) {
-    if (pct === 100) return "Perfect score. You basically live in .git/objects.";
-    if (pct >= 90) return "Git wizard. Barely anything left to learn here.";
-    if (pct >= 70) return "Solid. You know your way around a rebase.";
-    if (pct >= 50) return "Git padawan. The force is strong, keep at it.";
-    return "Time to re-read those posts, everyone's been there.";
+    if (pct === 100) return "Perfect score. You know this inside out.";
+    if (pct >= 90) return "Excellent. Barely anything left to learn here.";
+    if (pct >= 70) return "Solid. You've got a good grip on this.";
+    if (pct >= 50) return "Getting there. Keep at it.";
+    return "Time to go back to the flashcards, everyone's been there.";
   }
 
   function init() {
