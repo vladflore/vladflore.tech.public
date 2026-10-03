@@ -301,50 +301,43 @@
   }
 }
 
-/* Support CTA shown after post content */
-.support-cta {
-  margin-top: 2rem;
-  padding: 1rem 1.25rem;
-  border: 1px solid #dcdcdc;
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.015);
-}
-
-[data-theme=dark] .support-cta {
-  border-color: #4e4e57;
-  background: rgba(255, 255, 255, 0.03);
-}
-
-[data-theme=light] .support-cta {
-  border-color: #dcdcdc;
-  background: rgba(0, 0, 0, 0.015);
-}
-
-@media (prefers-color-scheme: dark) {
-  .support-cta {
-    border-color: #4e4e57;
-    background: rgba(255, 255, 255, 0.03);
-  }
-}
-
-.support-cta p {
-  margin: 0;
-  font-size: 0.95rem;
+/* Ko-fi badge in the header, next to the theme toggle; collapses to an icon on phones */
+.header-kofi {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 0.6rem;
-}
-
-.support-cta-badge {
-  display: inline-flex;
+  margin-left: 14px;
+  color: inherit;
   line-height: 0;
 }
 
-.support-cta-badge img {
+.header-kofi:hover {
+  opacity: 0.85;
+}
+
+.header-kofi__badge {
   display: block;
   height: 28px;
   width: auto;
   border-radius: 6px;
-  vertical-align: middle;
+}
+
+.header-kofi__icon {
+  display: none;
+}
+
+@media (max-width: 684px) {
+  .header-kofi {
+    margin-left: 0;
+    margin-right: 14px;
+  }
+
+  .header-kofi__badge {
+    display: none;
+  }
+
+  .header-kofi__icon {
+    display: block;
+    height: 24px;
+    width: auto;
+  }
 }
