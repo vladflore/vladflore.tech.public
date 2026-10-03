@@ -51,38 +51,38 @@ The motivation behind I wanted a SonarQube Server running in the cloud so that m
 
 
 
-  <meta itemprop="name" content="SonarQube on AWS EC2">
-  <meta itemprop="description" content="In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you’ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.
+	<meta itemprop="name" content="SonarQube on AWS EC2">
+	<meta itemprop="description" content="In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you’ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.
 The motivation behind I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is. I also didn’t want to set up my own cloud, so I just sticked with AWS EC2 solution, despite the fact that it is not always for free.">
-  <meta itemprop="datePublished" content="2020-06-04T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2020-06-04T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1022">
-  <meta itemprop="image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
-  <meta itemprop="keywords" content="Sonarqube,Aws,Ec2,Nerdy">
+	<meta itemprop="datePublished" content="2020-06-04T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2020-06-04T00:00:00+00:00">
+	<meta itemprop="wordCount" content="1022">
+	<meta itemprop="image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+	<meta itemprop="keywords" content="Sonarqube,Aws,Ec2,Nerdy">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
-  <meta name="twitter:title" content="SonarQube on AWS EC2">
-  <meta name="twitter:description" content="In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you’ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+	<meta name="twitter:title" content="SonarQube on AWS EC2">
+	<meta name="twitter:description" content="In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you’ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.
 The motivation behind I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is. I also didn’t want to set up my own cloud, so I just sticked with AWS EC2 solution, despite the fact that it is not always for free.">
 
 
 
     <meta property="og:url" content="https://vladflore.tech/posts/2020/06/sonarqube-on-aws-ec2/">
-  <meta property="og:site_name" content="vlad·flore · tech">
-  <meta property="og:title" content="SonarQube on AWS EC2">
-  <meta property="og:description" content="In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you’ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.
+	<meta property="og:site_name" content="vlad·flore · tech">
+	<meta property="og:title" content="SonarQube on AWS EC2">
+	<meta property="og:description" content="In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you’ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.
 The motivation behind I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is. I also didn’t want to set up my own cloud, so I just sticked with AWS EC2 solution, despite the fact that it is not always for free.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2020-06-04T00:00:00+00:00">
-    <meta property="article:modified_time" content="2020-06-04T00:00:00+00:00">
-    <meta property="article:tag" content="Sonarqube">
-    <meta property="article:tag" content="Aws">
-    <meta property="article:tag" content="Ec2">
-    <meta property="article:tag" content="Nerdy">
-    <meta property="og:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2020-06-04T00:00:00+00:00">
+		<meta property="article:modified_time" content="2020-06-04T00:00:00+00:00">
+		<meta property="article:tag" content="Sonarqube">
+		<meta property="article:tag" content="Aws">
+		<meta property="article:tag" content="Ec2">
+		<meta property="article:tag" content="Nerdy">
+		<meta property="og:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
 
 
 
@@ -344,24 +344,24 @@ The motivation behind I wanted a SonarQube Server running in the cloud so that m
 <p><strong><em>NOTE:</em></strong> most of the commands require sudo access, so&hellip;you have been warned!</p>
 </blockquote>
 <h3 id="update-the-system">Update the system</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt update
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt update
 </span></span><span style="display:flex;"><span>sudo apt upgrade
 </span></span></code></pre></div><h3 id="install-unzip-tool">Install unzip tool</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt install unzip
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt install unzip
 </span></span></code></pre></div><h3 id="install-java-11">Install Java 11</h3>
 <p>SonarQube 8.3 requires Java - Oracle JRE 11 or OpenJDK 11 - installed on the machine, I&rsquo;ll go with OpenJDK.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt install openjdk-11-jdk
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt install openjdk-11-jdk
 </span></span></code></pre></div><h3 id="install-postgresql-12">Install PostgreSQL 12</h3>
 <p>Bbefore running the command <em>add the PostgreSQL apt repository</em> as documented <a href="https://www.postgresql.org/download/linux/ubuntu/" target="_blank">here</a>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt install postgresql-12
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt install postgresql-12
 </span></span></code></pre></div><h3 id="prepare-postgresql-for-sonarqube">Prepare PostgreSQL for SonarQube</h3>
 <p>This basically means creating the user and the database.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># change current user to postgres</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># change current user to postgres</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># (this was created for you as part of the PostgreSQL installation)</span>
 </span></span><span style="display:flex;"><span>sudo su - postgres
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># go into PostgreSQL</span>
 </span></span><span style="display:flex;"><span>psql
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">--- create the user
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">--- create the user
 </span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">USER</span> sonarqube <span style="color:#66d9ef">WITH</span> PASSWORD <span style="color:#e6db74">&#39;yourPassword&#39;</span>;
 </span></span><span style="display:flex;"><span><span style="color:#75715e">--- create the database
 </span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> sonarqube <span style="color:#66d9ef">OWNER</span> sonarqube;
@@ -373,32 +373,32 @@ The motivation behind I wanted a SonarQube Server running in the cloud so that m
 <p>In order to allow requests to be made to SonarQube you have to add an inbound rule for the security group the EC2 instance belongs to. Find the security group your instance has (on the <code>Instances</code> page, check for the <code>Security Groups</code> column in the table which displays your instances, go to that SG and edit the <code>Inbound Rules</code> by adding a new one for <code>TCP</code> and port <code>9000</code>).</p>
 <h2 id="step-3">Step 3</h2>
 <h3 id="download-the-sonarqube-server">Download the SonarQube Server.</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.3.0.34182.zip
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.3.0.34182.zip
 </span></span><span style="display:flex;"><span>unzip sonarqube-8.3.0.34182.zip
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># move the unzipped folder under /opt</span>
 </span></span><span style="display:flex;"><span>sudo mv sonarqube-8.3.0.34182 /opt/sonarqube
 </span></span></code></pre></div><h2 id="step-4">Step 4</h2>
 <h3 id="create-user-for-sonarqube">Create user for SonarQube.</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo adduser --system --no-create-home --group --disabled-login sonarqube
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo adduser --system --no-create-home --group --disabled-login sonarqube
 </span></span><span style="display:flex;"><span>sudo chown -R sonarqube:sonarqube /opt/sonarqube
 </span></span></code></pre></div><h2 id="step-5">Step 5</h2>
 <h3 id="configure-sonarqube-properties-and-launch-scripts">Configure SonarQube properties and launch scripts.</h3>
 <p>Edit <code>sonar.properties</code> and add the following properties:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>vi /opt/sonarqube/conf/sonar.properties
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>vi /opt/sonarqube/conf/sonar.properties
 </span></span></code></pre></div><pre tabindex="0"><code>sonar.jdbc.username=sonarqube
 sonar.jdbc.password=yourPassword
 sonar.jdbc.url=jdbc:postgresql://localhost/sonarqube
 sonar.web.javaAdditionalOpts=-server
 sonar.web.host=0.0.0.0
 </code></pre><p>Edit <code>sysctl.conf</code> and set the property <code>vm.max_map_count</code> to <code>262144</code>. SonarQube will most likely not start without it!</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>vi /etc/sysctl.conf
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>vi /etc/sysctl.conf
 </span></span></code></pre></div><pre tabindex="0"><code>vm.max_map_count=262144
 </code></pre><p>Edit <code>sonar.sh</code> and set the variable <code>RUN_AS_USER</code> to <code>sonarqube</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>vi /opt/sonarqube/bin/linux-x86-64/sonar.sh
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>vi /opt/sonarqube/bin/linux-x86-64/sonar.sh
 </span></span></code></pre></div><pre tabindex="0"><code>RUN_AS_USER=sonarqube
 </code></pre><p>At this point you should have everything in place to be able to start the SonarQube and access it in the browser.</p>
 <h3 id="start-sonarqube">Start SonarQube</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># navigate to the Sonar installation location</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># navigate to the Sonar installation location</span>
 </span></span><span style="display:flex;"><span>cd /opt/sonarqube/bin/linux-x86-64
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># start Sonar</span>
 </span></span><span style="display:flex;"><span>./sonar.sh start
@@ -421,7 +421,7 @@ Restart the server.</p>
 <p>Check the <a href="https://github.com/vladflore/gildedrose-refactoring-kata/blob/master/pom.xml" target="_blank">GitHub repo</a> to see how the pom.xml looks like.</p>
 <p>After your project is all set up, the following command should suffice to perform a code analysis of your code. Note that the value for <code>sonar.host.url</code> should be changed
 accordingly to contain the IP of your EC2 instance hosting the SonarQube Server.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mvn clean verify org.pitest:pitest-maven:mutationCoverage sonar:sonar -Dsonar.host.url<span style="color:#f92672">=</span>http://&lt;IPv4 Public IP&gt;:9000
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mvn clean verify org.pitest:pitest-maven:mutationCoverage sonar:sonar -Dsonar.host.url<span style="color:#f92672">=</span>http://&lt;IPv4 Public IP&gt;:9000
 </span></span></code></pre></div><p>And voilà the analysis of my project at that point in time (including the mutation analysis):</p>
 <p><img src="/images/sonar-analysis.png" alt="sonar-mt-plugin"></p>
 <p>Now go write those unit tests, kill those mutants and reach a 90%+ code coverage. I dare you! ;)</p>
@@ -578,8 +578,9 @@ accordingly to contain the IP of your EC2 instance hosting the SonarQube Server.
         (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
         </div>
       
     

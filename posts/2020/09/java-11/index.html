@@ -52,40 +52,40 @@ Java 11 is the current (see note of caution above) LTS version, and will stay li
 
 
 
-  <meta itemprop="name" content="Java 11">
-  <meta itemprop="description" content="But Java is already at version 15, why talk about 11 ?! Well,…but before that, a note of caution: considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this is bigger than 15, it was 15 when I wrote this post!
+	<meta itemprop="name" content="Java 11">
+	<meta itemprop="description" content="But Java is already at version 15, why talk about 11 ?! Well,…but before that, a note of caution: considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this is bigger than 15, it was 15 when I wrote this post!
 Now, let’s continue…
 Java 11 is the current (see note of caution above) LTS version, and will stay like that until Java 17 appears, which should be somewhere around the end of 2021, which is then the new LTS version (all of this hold true iff Oracle doesn’t change something in the whole release plan).">
-  <meta itemprop="datePublished" content="2020-09-22T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2020-09-22T00:00:00+00:00">
-  <meta itemprop="wordCount" content="813">
-  <meta itemprop="image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
-  <meta itemprop="keywords" content="Java,Shell,Nerdy">
+	<meta itemprop="datePublished" content="2020-09-22T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2020-09-22T00:00:00+00:00">
+	<meta itemprop="wordCount" content="813">
+	<meta itemprop="image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+	<meta itemprop="keywords" content="Java,Shell,Nerdy">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
-  <meta name="twitter:title" content="Java 11">
-  <meta name="twitter:description" content="But Java is already at version 15, why talk about 11 ?! Well,…but before that, a note of caution: considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this is bigger than 15, it was 15 when I wrote this post!
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+	<meta name="twitter:title" content="Java 11">
+	<meta name="twitter:description" content="But Java is already at version 15, why talk about 11 ?! Well,…but before that, a note of caution: considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this is bigger than 15, it was 15 when I wrote this post!
 Now, let’s continue…
 Java 11 is the current (see note of caution above) LTS version, and will stay like that until Java 17 appears, which should be somewhere around the end of 2021, which is then the new LTS version (all of this hold true iff Oracle doesn’t change something in the whole release plan).">
 
 
 
     <meta property="og:url" content="https://vladflore.tech/posts/2020/09/java-11/">
-  <meta property="og:site_name" content="vlad·flore · tech">
-  <meta property="og:title" content="Java 11">
-  <meta property="og:description" content="But Java is already at version 15, why talk about 11 ?! Well,…but before that, a note of caution: considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this is bigger than 15, it was 15 when I wrote this post!
+	<meta property="og:site_name" content="vlad·flore · tech">
+	<meta property="og:title" content="Java 11">
+	<meta property="og:description" content="But Java is already at version 15, why talk about 11 ?! Well,…but before that, a note of caution: considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this is bigger than 15, it was 15 when I wrote this post!
 Now, let’s continue…
 Java 11 is the current (see note of caution above) LTS version, and will stay like that until Java 17 appears, which should be somewhere around the end of 2021, which is then the new LTS version (all of this hold true iff Oracle doesn’t change something in the whole release plan).">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2020-09-22T00:00:00+00:00">
-    <meta property="article:modified_time" content="2020-09-22T00:00:00+00:00">
-    <meta property="article:tag" content="Java">
-    <meta property="article:tag" content="Shell">
-    <meta property="article:tag" content="Nerdy">
-    <meta property="og:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2020-09-22T00:00:00+00:00">
+		<meta property="article:modified_time" content="2020-09-22T00:00:00+00:00">
+		<meta property="article:tag" content="Java">
+		<meta property="article:tag" content="Shell">
+		<meta property="article:tag" content="Nerdy">
+		<meta property="og:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
 
 
 
@@ -295,12 +295,12 @@ is bigger than 15, it was 15 when I wrote this post!</p>
 <p>In this post I&rsquo;ll be giving a short intro with examples about <a href="https://openjdk.java.net/jeps/330" target="_blank">JEP 330</a> and <em>shebang</em> files.</p>
 <h4 id="environment-configuration">Environment configuration</h4>
 <pre tabindex="0"><code>OS: Ubuntu 20.04.1 LTS
-</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ java --version
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ java --version
 </span></span><span style="display:flex;"><span>openjdk 11.0.8 2020-07-14
 </span></span><span style="display:flex;"><span>OpenJDK Runtime Environment AdoptOpenJDK <span style="color:#f92672">(</span>build 11.0.8+10<span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span>OpenJDK 64-Bit Server VM AdoptOpenJDK <span style="color:#f92672">(</span>build 11.0.8+10, mixed mode<span style="color:#f92672">)</span>
 </span></span></code></pre></div><p>I use <a href="https://sdkman.io/" target="_blank">sdkman</a> to manage the versions of Java I use on my system and as such I have this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ whereis java
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ whereis java
 </span></span><span style="display:flex;"><span>java: /etc/java /usr/share/java /home/vlad/.sdkman/candidates/java/11.0.8.hs-adpt/bin/java
 </span></span><span style="display:flex;"><span>$ which java
 </span></span><span style="display:flex;"><span>/home/vlad/.sdkman/candidates/java/current/bin/java
@@ -316,21 +316,21 @@ is bigger than 15, it was 15 when I wrote this post!</p>
 <h3 id="launch-single-file-source-code-programs">Launch single-file source-code programs</h3>
 <p>As per <a href="https://openjdk.java.net/jeps/330" target="_blank">JEP 330</a> we now have the possibility to launch single-file source-code programs.</p>
 <p>Let&rsquo;s code the simplest, politest Java program:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Greeter</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Greeter</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args){
 </span></span><span style="display:flex;"><span>    System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Hello &#34;</span> <span style="color:#f92672">+</span> args<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;!&#34;</span>);
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Normally we would need to compile it with <code>javac</code> and get that <code>.class</code> file and then run it with <code>java</code> to see the greeting,
 but now we can just do:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ java Greeter.java Vlad
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ java Greeter.java Vlad
 </span></span><span style="display:flex;"><span>Hello Vlad!
 </span></span></code></pre></div><p>Now let&rsquo;s turn this into a <em>shebang file</em> and use it like a script, a Java Script&hellip;mind the gap ;)</p>
 <p>The main idea is to add a line (contains the path to the java binary) similar to this <code>#!/home/vlad/.sdkman/candidates/java/11.0.8.hs-adpt/bin/java --source 11</code>
 at the beginning of a file and then the Java code after it, make the new file executable and execute it like any other sh file.
 By the way, we can choose any name we want for the script file.</p>
 <p>Content of <code>greet</code> file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#f92672">!/</span>home<span style="color:#f92672">/</span>vlad<span style="color:#f92672">/</span>.<span style="color:#a6e22e">sdkman</span><span style="color:#f92672">/</span>candidates<span style="color:#f92672">/</span>java<span style="color:#f92672">/</span>11.<span style="color:#a6e22e">0</span>.<span style="color:#a6e22e">8</span>.<span style="color:#a6e22e">hs</span><span style="color:#f92672">-</span>adpt<span style="color:#f92672">/</span>bin<span style="color:#f92672">/</span>java <span style="color:#f92672">--</span>source 11
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#f92672">!/</span>home<span style="color:#f92672">/</span>vlad<span style="color:#f92672">/</span>.<span style="color:#a6e22e">sdkman</span><span style="color:#f92672">/</span>candidates<span style="color:#f92672">/</span>java<span style="color:#f92672">/</span>11.<span style="color:#a6e22e">0</span>.<span style="color:#a6e22e">8</span>.<span style="color:#a6e22e">hs</span><span style="color:#f92672">-</span>adpt<span style="color:#f92672">/</span>bin<span style="color:#f92672">/</span>java <span style="color:#f92672">--</span>source 11
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Greeter</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args){
@@ -338,14 +338,14 @@ By the way, we can choose any name we want for the script file.</p>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>make it executable:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ chmod u+x greet
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ chmod u+x greet
 </span></span></code></pre></div><p>and execute it:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ./greet Vlad
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ./greet Vlad
 </span></span><span style="display:flex;"><span>Hello Vlad!
 </span></span></code></pre></div><p>Let&rsquo;s spice things up a bit and implement another more complex example: this time we want to take some text, line by line,
 and display only the lines that match a given regular expression (basically a simplified version of <code>grep</code> command).</p>
 <p>Content of <code>grep</code> file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#f92672">!/</span>home<span style="color:#f92672">/</span>vlad<span style="color:#f92672">/</span>.<span style="color:#a6e22e">sdkman</span><span style="color:#f92672">/</span>candidates<span style="color:#f92672">/</span>java<span style="color:#f92672">/</span>11.<span style="color:#a6e22e">0</span>.<span style="color:#a6e22e">8</span>.<span style="color:#a6e22e">hs</span><span style="color:#f92672">-</span>adpt<span style="color:#f92672">/</span>bin<span style="color:#f92672">/</span>java <span style="color:#f92672">--</span>source 11
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#f92672">!/</span>home<span style="color:#f92672">/</span>vlad<span style="color:#f92672">/</span>.<span style="color:#a6e22e">sdkman</span><span style="color:#f92672">/</span>candidates<span style="color:#f92672">/</span>java<span style="color:#f92672">/</span>11.<span style="color:#a6e22e">0</span>.<span style="color:#a6e22e">8</span>.<span style="color:#a6e22e">hs</span><span style="color:#f92672">-</span>adpt<span style="color:#f92672">/</span>bin<span style="color:#f92672">/</span>java <span style="color:#f92672">--</span>source 11
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.BufferedReader;
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.IOException;
@@ -408,7 +408,7 @@ and display only the lines that match a given regular expression (basically a si
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Make the file executable and then you can execute it like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ echo -e <span style="color:#e6db74">&#34;aaa\nbbb\nccc&#34;</span> | ./grep -i CCC
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ echo -e <span style="color:#e6db74">&#34;aaa\nbbb\nccc&#34;</span> | ./grep -i CCC
 </span></span><span style="display:flex;"><span>ccc
 </span></span><span style="display:flex;"><span>$ echo -e <span style="color:#e6db74">&#34;aaa\nbbb\nccc&#34;</span> | ./grep -i C<span style="color:#f92672">{</span>3<span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>ccc
@@ -569,8 +569,9 @@ and display only the lines that match a given regular expression (basically a si
         (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
         </div>
       
     

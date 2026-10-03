@@ -52,41 +52,41 @@ Machine Learning Zoomcamp Module 1 - points received: 9 (7/7 for questions &#43;
 
 
 
-  <meta itemprop="name" content="Machine Learning Zoomcamp: Module 4 Recap">
-  <meta itemprop="description" content="Intro This post is a recap of the Machine Learning Zoomcamp Module 4.
+	<meta itemprop="name" content="Machine Learning Zoomcamp: Module 4 Recap">
+	<meta itemprop="description" content="Intro This post is a recap of the Machine Learning Zoomcamp Module 4.
 Below are the posts for the previous modules:
 Machine Learning Zoomcamp Module 1 - points received: 9 (7/7 for questions &#43; 2 bonus for learning in public) Machine Learning Zoomcamp Module 2 - points received: 5 (5/6 for questions &#43; 0 bonus for learning in public) Machine Learning Zoomcamp Module 3 - points received: 7 (6/6 for questions &#43; 1 bonus for learning in public) The gist of the module This module focuses on the evaluation of classification models. It covers various metrics used for this purpose, including accuracy, precision, recall, F1 score, and ROC-AUC. The lessons build upon the dataset and model from the previous module, which involves predicting customer churn. The objective is to determine whether a customer is likely to leave or remain, using a logistic regression model.">
-  <meta itemprop="datePublished" content="2024-12-11T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2024-12-11T00:00:00+00:00">
-  <meta itemprop="wordCount" content="883">
-  <meta itemprop="image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
-  <meta itemprop="keywords" content="Ml,Learning,Mlzoomcamp,Nerdy">
+	<meta itemprop="datePublished" content="2024-12-11T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2024-12-11T00:00:00+00:00">
+	<meta itemprop="wordCount" content="883">
+	<meta itemprop="image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+	<meta itemprop="keywords" content="Ml,Learning,Mlzoomcamp,Nerdy">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
-  <meta name="twitter:title" content="Machine Learning Zoomcamp: Module 4 Recap">
-  <meta name="twitter:description" content="Intro This post is a recap of the Machine Learning Zoomcamp Module 4.
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+	<meta name="twitter:title" content="Machine Learning Zoomcamp: Module 4 Recap">
+	<meta name="twitter:description" content="Intro This post is a recap of the Machine Learning Zoomcamp Module 4.
 Below are the posts for the previous modules:
 Machine Learning Zoomcamp Module 1 - points received: 9 (7/7 for questions &#43; 2 bonus for learning in public) Machine Learning Zoomcamp Module 2 - points received: 5 (5/6 for questions &#43; 0 bonus for learning in public) Machine Learning Zoomcamp Module 3 - points received: 7 (6/6 for questions &#43; 1 bonus for learning in public) The gist of the module This module focuses on the evaluation of classification models. It covers various metrics used for this purpose, including accuracy, precision, recall, F1 score, and ROC-AUC. The lessons build upon the dataset and model from the previous module, which involves predicting customer churn. The objective is to determine whether a customer is likely to leave or remain, using a logistic regression model.">
 
 
 
     <meta property="og:url" content="https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-4-recap/">
-  <meta property="og:site_name" content="vlad·flore · tech">
-  <meta property="og:title" content="Machine Learning Zoomcamp: Module 4 Recap">
-  <meta property="og:description" content="Intro This post is a recap of the Machine Learning Zoomcamp Module 4.
+	<meta property="og:site_name" content="vlad·flore · tech">
+	<meta property="og:title" content="Machine Learning Zoomcamp: Module 4 Recap">
+	<meta property="og:description" content="Intro This post is a recap of the Machine Learning Zoomcamp Module 4.
 Below are the posts for the previous modules:
 Machine Learning Zoomcamp Module 1 - points received: 9 (7/7 for questions &#43; 2 bonus for learning in public) Machine Learning Zoomcamp Module 2 - points received: 5 (5/6 for questions &#43; 0 bonus for learning in public) Machine Learning Zoomcamp Module 3 - points received: 7 (6/6 for questions &#43; 1 bonus for learning in public) The gist of the module This module focuses on the evaluation of classification models. It covers various metrics used for this purpose, including accuracy, precision, recall, F1 score, and ROC-AUC. The lessons build upon the dataset and model from the previous module, which involves predicting customer churn. The objective is to determine whether a customer is likely to leave or remain, using a logistic regression model.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-12-11T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-12-11T00:00:00+00:00">
-    <meta property="article:tag" content="Ml">
-    <meta property="article:tag" content="Learning">
-    <meta property="article:tag" content="Mlzoomcamp">
-    <meta property="article:tag" content="Nerdy">
-    <meta property="og:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2024-12-11T00:00:00+00:00">
+		<meta property="article:modified_time" content="2024-12-11T00:00:00+00:00">
+		<meta property="article:tag" content="Ml">
+		<meta property="article:tag" content="Learning">
+		<meta property="article:tag" content="Mlzoomcamp">
+		<meta property="article:tag" content="Nerdy">
+		<meta property="og:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
 
 
 
@@ -325,25 +325,25 @@ False positives (FP) are the cases where the model incorrectly predicts the posi
 False negatives (FN) are the cases where the model incorrectly predicts the negative class.</p>
 <p>Visually, the confusion matrix looks like this:</p>
 <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>Predicted Positive</th>
-          <th>Predicted Negative</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Actual Positive</td>
-          <td>True Positive (TP)</td>
-          <td>False Negative (FN)</td>
-      </tr>
-      <tr>
-          <td>Actual Negative</td>
-          <td>False Positive (FP)</td>
-          <td>True Negative (TN)</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th>Predicted Positive</th>
+					<th>Predicted Negative</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Actual Positive</td>
+					<td>True Positive (TP)</td>
+					<td>False Negative (FN)</td>
+			</tr>
+			<tr>
+					<td>Actual Negative</td>
+					<td>False Positive (FP)</td>
+					<td>True Negative (TN)</td>
+			</tr>
+	</tbody>
 </table>
 <p>Using these components, the accuracy is nothing else than the sum of the true positives and true negatives divided by the total number of observations.</p>
 <pre tabindex="0"><code>Accuracy = (TP + TN) / (TP + TN + FP + FN)

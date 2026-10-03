@@ -1,11 +1,13 @@
+# Given: do not change.
 class Node:
-    def __init__(self, value):
+    def __init__(self, value: int) -> None:
         self.value = value
         self.left = None
         self.right = None
 
 
-def build_tree(values):
+# Given: do not change.
+def build_tree(values: list[int | None]) -> Node | None:
     """Level-order list to a tree; None marks a missing node: [1, 2, 3, None, 5]."""
     if not values or values[0] is None:
         return None
@@ -19,29 +21,29 @@ def build_tree(values):
     return nodes[0]
 
 
-def preorder(root):
+def preorder(root: Node | None) -> list[int]:
     pass
 
 
-def inorder(root):
+def inorder(root: Node | None) -> list[int]:
     pass
 
 
-def postorder(root):
+def postorder(root: Node | None) -> list[int]:
     pass
 
 
-def height(root):
+def height(root: Node | None) -> int:
     pass
 
 
-def depth(root, value):
+def depth(root: Node | None, value: int) -> int:
     pass
 
 
-def is_full(root):
+def is_full(root: Node | None) -> bool:
     pass
 
 
-def is_complete(root):
+def is_complete(root: Node | None) -> bool:
     pass

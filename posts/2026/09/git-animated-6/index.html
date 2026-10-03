@@ -51,37 +51,37 @@ part one part two part three part four part five Every previous video in this se
 
 
 
-  <meta itemprop="name" content="Git Animated 6">
-  <meta itemprop="description" content="This is the sixth video in the Git Animated series. If you are interested in the other ones, check the links below:
+	<meta itemprop="name" content="Git Animated 6">
+	<meta itemprop="description" content="This is the sixth video in the Git Animated series. If you are interested in the other ones, check the links below:
 part one part two part three part four part five Every previous video in this series stayed at the porcelain level: branches, merges, rebase, cherry-pick, all the commands you use day to day. This one goes one level deeper and shows what a commit actually is once you strip away the branch names and the pretty log graph.">
-  <meta itemprop="datePublished" content="2026-09-16T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2026-09-16T00:00:00+00:00">
-  <meta itemprop="wordCount" content="396">
-  <meta itemprop="image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
-  <meta itemprop="keywords" content="Git,Animated,Nerdy">
+	<meta itemprop="datePublished" content="2026-09-16T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2026-09-16T00:00:00+00:00">
+	<meta itemprop="wordCount" content="396">
+	<meta itemprop="image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+	<meta itemprop="keywords" content="Git,Animated,Nerdy">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
-  <meta name="twitter:title" content="Git Animated 6">
-  <meta name="twitter:description" content="This is the sixth video in the Git Animated series. If you are interested in the other ones, check the links below:
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+	<meta name="twitter:title" content="Git Animated 6">
+	<meta name="twitter:description" content="This is the sixth video in the Git Animated series. If you are interested in the other ones, check the links below:
 part one part two part three part four part five Every previous video in this series stayed at the porcelain level: branches, merges, rebase, cherry-pick, all the commands you use day to day. This one goes one level deeper and shows what a commit actually is once you strip away the branch names and the pretty log graph.">
 
 
 
     <meta property="og:url" content="https://vladflore.tech/posts/2026/09/git-animated-6/">
-  <meta property="og:site_name" content="vlad·flore · tech">
-  <meta property="og:title" content="Git Animated 6">
-  <meta property="og:description" content="This is the sixth video in the Git Animated series. If you are interested in the other ones, check the links below:
+	<meta property="og:site_name" content="vlad·flore · tech">
+	<meta property="og:title" content="Git Animated 6">
+	<meta property="og:description" content="This is the sixth video in the Git Animated series. If you are interested in the other ones, check the links below:
 part one part two part three part four part five Every previous video in this series stayed at the porcelain level: branches, merges, rebase, cherry-pick, all the commands you use day to day. This one goes one level deeper and shows what a commit actually is once you strip away the branch names and the pretty log graph.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2026-09-16T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-09-16T00:00:00+00:00">
-    <meta property="article:tag" content="Git">
-    <meta property="article:tag" content="Animated">
-    <meta property="article:tag" content="Nerdy">
-    <meta property="og:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2026-09-16T00:00:00+00:00">
+		<meta property="article:modified_time" content="2026-09-16T00:00:00+00:00">
+		<meta property="article:tag" content="Git">
+		<meta property="article:tag" content="Animated">
+		<meta property="article:tag" content="Nerdy">
+		<meta property="og:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
 
 
 
@@ -294,7 +294,7 @@ If you are interested in the other ones, check the links below:</p>
 <p>The video builds one file, <code>hello.txt</code>, all the way from a plain file on disk into a full commit: <code>git hash-object -w</code> turns its content into a blob, <code>git add</code> and <code>git commit</code> wrap that blob in a tree and a commit, and <code>main</code>/<code>HEAD</code> fade in pointing at the result. Then the file changes and gets committed again, and a second, entirely new blob/tree/commit chain appears, with the new commit&rsquo;s <code>parent</code> pointing straight back at the first one. Nothing about the first commit is touched or rewritten, git only ever adds new objects; <code>main</code> and <code>HEAD</code> simply slide over to point at the newest one. That&rsquo;s the mechanism every command in the earlier five videos, branching, merging, rebasing, cherry-picking, is built on top of.</p>
 <p>A small legend in the corner keeps track of which color is which object type throughout.</p>
 <p>For your convenience, here are the commands which appear in the video:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;Hello, Git!&#39;</span> &gt; hello.txt
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;Hello, Git!&#39;</span> &gt; hello.txt
 </span></span><span style="display:flex;"><span>git hash-object -w hello.txt
 </span></span><span style="display:flex;"><span>git add hello.txt
 </span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#39;Add hello.txt&#39;</span>
@@ -303,8 +303,8 @@ If you are interested in the other ones, check the links below:</p>
 </span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#39;Update hello.txt&#39;</span>
 </span></span></code></pre></div><p>Here is the video(there is no audio):</p>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/hpKEDTvG5YY?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
+			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/hpKEDTvG5YY?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+		</div>
 
 <!-- raw HTML omitted -->
 <p>Feel free to drop me a comment or e-mail with your constructive criticism. It will be much appreciated!</p>
@@ -460,8 +460,9 @@ If you are interested in the other ones, check the links below:</p>
         (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
         </div>
       
     

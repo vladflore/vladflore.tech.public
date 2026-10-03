@@ -33,13 +33,13 @@
     <lastmod>2026-09-24T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
-                hreflang="de"
-                href="https://vladflore.tech/de/"
+                hreflang="en-us"
+                href="https://vladflore.tech/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://vladflore.tech/"
+                hreflang="de"
+                href="https://vladflore.tech/de/"
                 />
   </url><url>
     <loc>https://vladflore.tech/flashcards/git/</loc>
@@ -61,13 +61,13 @@
     <lastmod>2026-09-21T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
-                hreflang="de"
-                href="https://vladflore.tech/de/tags/"
+                hreflang="en-us"
+                href="https://vladflore.tech/tags/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://vladflore.tech/tags/"
+                hreflang="de"
+                href="https://vladflore.tech/de/tags/"
                 />
   </url><url>
     <loc>https://vladflore.tech/quizzes/</loc>
@@ -98,13 +98,13 @@
     <lastmod>2026-02-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
-                hreflang="de"
-                href="https://vladflore.tech/de/certs/"
+                hreflang="en-us"
+                href="https://vladflore.tech/certs/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://vladflore.tech/certs/"
+                hreflang="de"
+                href="https://vladflore.tech/de/certs/"
                 />
   </url><url>
     <loc>https://vladflore.tech/tags/algorithms/</loc>
@@ -171,13 +171,13 @@
     <lastmod>2024-09-07T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
-                hreflang="de"
-                href="https://vladflore.tech/de/portfolio/"
+                hreflang="en-us"
+                href="https://vladflore.tech/portfolio/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://vladflore.tech/portfolio/"
+                hreflang="de"
+                href="https://vladflore.tech/de/portfolio/"
                 />
   </url><url>
     <loc>https://vladflore.tech/posts/2024/09/life-update/</loc>
@@ -186,7 +186,7 @@
     <loc>https://vladflore.tech/tags/not-so-nerdy/</loc>
     <lastmod>2024-09-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/posts/2023/06/learning-python-as-a-java-developer-2/</loc>
+    <loc>https://vladflore.tech/posts/2023/06/learning-python-as-a-java-developer-2-/</loc>
     <lastmod>2023-06-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://vladflore.tech/tags/python/</loc>
@@ -195,20 +195,20 @@
     <loc>https://vladflore.tech/posts/2022/07/java-17/</loc>
     <lastmod>2022-07-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/</loc>
+    <loc>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1-/</loc>
     <lastmod>2022-07-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://vladflore.tech/about/</loc>
     <lastmod>2022-03-03T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
-                hreflang="de"
-                href="https://vladflore.tech/de/about/"
+                hreflang="en-us"
+                href="https://vladflore.tech/about/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://vladflore.tech/about/"
+                hreflang="de"
+                href="https://vladflore.tech/de/about/"
                 />
   </url><url>
     <loc>https://vladflore.tech/posts/2021/12/git-animated-4/</loc>
@@ -274,13 +274,13 @@
     <loc>https://vladflore.tech/categories/</loc>
     <xhtml:link
                 rel="alternate"
-                hreflang="de"
-                href="https://vladflore.tech/de/categories/"
+                hreflang="en-us"
+                href="https://vladflore.tech/categories/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://vladflore.tech/categories/"
+                hreflang="de"
+                href="https://vladflore.tech/de/categories/"
                 />
   </url><url>
     <loc>https://vladflore.tech/learn/</loc>
@@ -288,13 +288,13 @@
     <loc>https://vladflore.tech/series/</loc>
     <xhtml:link
                 rel="alternate"
-                hreflang="de"
-                href="https://vladflore.tech/de/series/"
+                hreflang="en-us"
+                href="https://vladflore.tech/series/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://vladflore.tech/series/"
+                hreflang="de"
+                href="https://vladflore.tech/de/series/"
                 />
   </url>
 </urlset>

@@ -621,7 +621,8 @@ body {
 }
 
 body.practice-page #output {
-  height: 35vh;
+  height: 20vh;
+  min-height: 120px;
 }
 #file-info pre {
   white-space: pre-wrap;

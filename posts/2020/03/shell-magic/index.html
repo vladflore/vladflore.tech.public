@@ -51,36 +51,36 @@ NOTE 2: Please be advised that some commands listed here could have unwanted eff
 
 
 
-  <meta itemprop="name" content="Shell Magic">
-  <meta itemprop="description" content="NOTE 1: This page contains some shell magic which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.
+	<meta itemprop="name" content="Shell Magic">
+	<meta itemprop="description" content="NOTE 1: This page contains some shell magic which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.
 NOTE 2: Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it. Some of them might also require sudo access, so I am just going to assume that you know what you are doing. You have been warned!">
-  <meta itemprop="datePublished" content="2020-03-25T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2020-03-25T00:00:00+00:00">
-  <meta itemprop="wordCount" content="902">
-  <meta itemprop="image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
-  <meta itemprop="keywords" content="Shell,Nerdy">
+	<meta itemprop="datePublished" content="2020-03-25T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2020-03-25T00:00:00+00:00">
+	<meta itemprop="wordCount" content="902">
+	<meta itemprop="image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+	<meta itemprop="keywords" content="Shell,Nerdy">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
-  <meta name="twitter:title" content="Shell Magic">
-  <meta name="twitter:description" content="NOTE 1: This page contains some shell magic which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+	<meta name="twitter:title" content="Shell Magic">
+	<meta name="twitter:description" content="NOTE 1: This page contains some shell magic which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.
 NOTE 2: Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it. Some of them might also require sudo access, so I am just going to assume that you know what you are doing. You have been warned!">
 
 
 
     <meta property="og:url" content="https://vladflore.tech/posts/2020/03/shell-magic/">
-  <meta property="og:site_name" content="vlad·flore · tech">
-  <meta property="og:title" content="Shell Magic">
-  <meta property="og:description" content="NOTE 1: This page contains some shell magic which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.
+	<meta property="og:site_name" content="vlad·flore · tech">
+	<meta property="og:title" content="Shell Magic">
+	<meta property="og:description" content="NOTE 1: This page contains some shell magic which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.
 NOTE 2: Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it. Some of them might also require sudo access, so I am just going to assume that you know what you are doing. You have been warned!">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2020-03-25T00:00:00+00:00">
-    <meta property="article:modified_time" content="2020-03-25T00:00:00+00:00">
-    <meta property="article:tag" content="Shell">
-    <meta property="article:tag" content="Nerdy">
-    <meta property="og:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2020-03-25T00:00:00+00:00">
+		<meta property="article:modified_time" content="2020-03-25T00:00:00+00:00">
+		<meta property="article:tag" content="Shell">
+		<meta property="article:tag" content="Nerdy">
+		<meta property="og:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
 
 
 
@@ -307,27 +307,27 @@ NOTE 2: Please be advised that some commands listed here could have unwanted eff
 Some of them might also require sudo access, so I am just going to assume that you know what you are doing. You have been warned!</p>
 </blockquote>
 <h2 id="11-from-uppercase-to-lowercase-and-from-space-to-underscore">11. From uppercase to lowercase and from space to underscore</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;Building REST services with Spring&#39;</span> | tr <span style="color:#e6db74">&#39;[:upper:]&#39;</span> <span style="color:#e6db74">&#39;[:lower:]&#39;</span> | tr <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#e6db74">&#39;_&#39;</span> | xclip -sel c
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;Building REST services with Spring&#39;</span> | tr <span style="color:#e6db74">&#39;[:upper:]&#39;</span> <span style="color:#e6db74">&#39;[:lower:]&#39;</span> | tr <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#e6db74">&#39;_&#39;</span> | xclip -sel c
 </span></span></code></pre></div><p>Transform <code>tr</code> uppercase letters <code>[:upper:]</code> to lowercase <code>[:lower:]</code>, then replace the space <code> </code> with an underscore <code>_</code> and finally copy <code>xclip</code> the result to clipboard <code>-sel c</code>. After this you can paste the text wherever you need it. To prove the usefulness of this, instead of copying the result into the clipboard, pipe it into <code>xargs</code> to, for instance, create a folder, like: <code>...| xargs mkdir -p</code>.</p>
 <hr>
 <h2 id="10-execute-a-program-periodically">10. Execute a program periodically</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>watch du -sh &lt;folder&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>watch du -sh &lt;folder&gt;
 </span></span></code></pre></div><p>Execute the <code>du</code> command periodically, every 2 seconds, until interrupted. The command displays only the total size <code>-s</code> of the <code>&lt;folder&gt;</code>, in a human readable format <code>-h</code>.</p>
 <hr>
 <h2 id="9-display-file-space-usage-in-human-readable-format">9. Display file space usage in human readable format</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>du -hc . | sort -rh | head -5
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>du -hc . | sort -rh | head -5
 </span></span></code></pre></div><p>Display size in human readable format <code>-h</code>, producing a grand total <code>-c</code>, then sort the output in reversed order <code>-r</code> by comparing human readable sizes <code>-h</code>, and finally taking only the first five lines of the output.</p>
 <hr>
 <h2 id="8-search-for-a-pattern-inside-files">8. Search for a pattern inside files</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>grep -rnw . -e <span style="color:#e6db74">&#39;pattern&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>grep -rnw . -e <span style="color:#e6db74">&#39;pattern&#39;</span>
 </span></span></code></pre></div><p>Search in the current <code>.</code> directory, recursively <code>-r</code>, matching <code>-e</code> the pattern <code>pattern</code>, considering only whole words <code>-w</code>, displaying the line number <code>-n</code> of the match.</p>
 <hr>
 <h2 id="7-forcibly-removing-all-directories-and-their-content-recursively">7. Forcibly removing all directories and their content recursively</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ls -l | grep <span style="color:#e6db74">&#39;^d&#39;</span> | awk <span style="color:#e6db74">&#39;{print $9}&#39;</span> | xargs rm -rf
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ls -l | grep <span style="color:#e6db74">&#39;^d&#39;</span> | awk <span style="color:#e6db74">&#39;{print $9}&#39;</span> | xargs rm -rf
 </span></span></code></pre></div><p>In plain English, list the content of the current directory <code>ls</code> using the long listing format <code>-l</code>, filter out everything else that is not a directory <code>grep '^d'</code>, extract the 9^th^ column (the last containing the name of the directory) <code>awk '{print $9}'</code>, pass each name of the directory as an argument <code>xargs</code> to the command <code>rm</code>, which removes recursively <code>-r</code> and forcibly <code>-f</code> the respective directory.</p>
 <hr>
 <h2 id="6-switching-between-github-remote-urls-https-vs-ssh">6. Switching between GitHub remote URLs (HTTPS vs. SSH)</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git remote -v
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git remote -v
 </span></span><span style="display:flex;"><span>git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
 </span></span><span style="display:flex;"><span>git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
 </span></span></code></pre></div><p>First we check what kind of remote URLs we have, using option <code>-v</code> of command <code>git remote</code>,
@@ -336,7 +336,7 @@ afterwards we change the remote URL to either HTTPS or SSH using one of the last
 to replace the <code>USERNAME</code> and <code>REPOSITORY</code> with the real values.</p>
 <hr>
 <h2 id="5-searching-for-files-and-creating-an-archive-out-of-them">5. Searching for files and creating an archive out of them</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>find . -type f <span style="color:#ae81ff">\(</span> -name file1 -o -name file2 <span style="color:#ae81ff">\)</span> | zip -@ -j files
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>find . -type f <span style="color:#ae81ff">\(</span> -name file1 -o -name file2 <span style="color:#ae81ff">\)</span> | zip -@ -j files
 </span></span><span style="display:flex;"><span>mv files.zip ~/tmp
 </span></span><span style="display:flex;"><span>cd $_
 </span></span><span style="display:flex;"><span>xdg-open .
@@ -346,7 +346,7 @@ storing the directories where they reside. After moving <code>mv</code> the arch
 last argument of the previous command, and open <code>xdg-open</code> the current directory <code>.</code> with the appropriate program - in my case this is <em>Files</em>.</p>
 <hr>
 <h2 id="4-manage-processes-from-the-terminal">4. Manage processes from the Terminal</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># display Linux processes</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># display Linux processes</span>
 </span></span><span style="display:flex;"><span>top
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># top improved, you might need to install it</span>
@@ -373,22 +373,22 @@ last argument of the previous command, and open <code>xdg-open</code> the curren
 </span></span><span style="display:flex;"><span>xkill
 </span></span></code></pre></div><hr>
 <h2 id="3-print-content-of-path-line-by-line">3. Print content of $PATH line-by-line</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>echo $PATH | tr <span style="color:#e6db74">&#39;:&#39;</span> <span style="color:#e6db74">&#39;\n&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>echo $PATH | tr <span style="color:#e6db74">&#39;:&#39;</span> <span style="color:#e6db74">&#39;\n&#39;</span>
 </span></span></code></pre></div><p>Pipes the content, obtained via <code>echo</code>, of the <code>PATH</code> variable into the translate <code>tr</code> command which
 replaces each occurrence of <code>:</code> with a new line <code>\n</code>.</p>
 <p>Another example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>echo line1:line2 | tr <span style="color:#e6db74">&#39;:&#39;</span> <span style="color:#e6db74">&#39;\n&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>echo line1:line2 | tr <span style="color:#e6db74">&#39;:&#39;</span> <span style="color:#e6db74">&#39;\n&#39;</span>
 </span></span><span style="display:flex;"><span>line1
 </span></span><span style="display:flex;"><span>line2
 </span></span></code></pre></div><hr>
 <h2 id="2-show-all-users">2. Show all users</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cat /etc/passwd | awk -F: <span style="color:#e6db74">&#39;{print$1}&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cat /etc/passwd | awk -F: <span style="color:#e6db74">&#39;{print$1}&#39;</span>
 </span></span></code></pre></div><p>The content of the file <code>passwd</code> is pipped into the <code>awk</code>, which takes each line
 and splits it into columns by the defined <code>-F</code> separator <code>:</code>
 printing out the first value (the user name).</p>
 <hr>
 <h2 id="1-show-all-hidden-files">1. Show all hidden files</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ls -lap | grep -v / | awk <span style="color:#e6db74">&#39;{print $9}&#39;</span> | grep <span style="color:#e6db74">&#39;^\.&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ls -lap | grep -v / | awk <span style="color:#e6db74">&#39;{print $9}&#39;</span> | grep <span style="color:#e6db74">&#39;^\.&#39;</span>
 </span></span></code></pre></div><p>List <code>ls</code> all <code>-a</code> content of the current directory using the long listing format <code>-l</code> appending <code>-p</code> a forward slash <code>/</code> if the entry is a directory, then print only those lines which do not end with a forward slash (<code>grep</code> performs a pattern matching, while <code>-v</code> inverts the match). <code>awk</code> prints out the nineth column of the line - the name, and the last <code>grep</code> shows only those which begin with a <code>.</code>.</p>
 
       </div>
@@ -540,8 +540,9 @@ printing out the first value (the user name).</p>
         (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
         </div>
       
     

@@ -50,33 +50,33 @@
 
 
 
-  <meta itemprop="name" content="Git Filter-Repo: Rewriting History the Right Way">
-  <meta itemprop="description" content="Meet git filter-repo You committed a .env file three months ago. Or hardcoded an API key that made it into a dozen commits before anyone noticed. Or a teammate’s email is wrong across the entire log because their laptop was misconfigured on day one. git rm or a new commit doesn’t fix any of this, the bad content is still sitting in every commit that ever touched it, reachable by anyone with the repo.">
-  <meta itemprop="datePublished" content="2026-09-17T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2026-09-17T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1510">
-  <meta itemprop="image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
-  <meta itemprop="keywords" content="Git,Nerdy">
+	<meta itemprop="name" content="Git Filter-Repo: Rewriting History the Right Way">
+	<meta itemprop="description" content="Meet git filter-repo You committed a .env file three months ago. Or hardcoded an API key that made it into a dozen commits before anyone noticed. Or a teammate’s email is wrong across the entire log because their laptop was misconfigured on day one. git rm or a new commit doesn’t fix any of this, the bad content is still sitting in every commit that ever touched it, reachable by anyone with the repo.">
+	<meta itemprop="datePublished" content="2026-09-17T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2026-09-17T00:00:00+00:00">
+	<meta itemprop="wordCount" content="1510">
+	<meta itemprop="image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+	<meta itemprop="keywords" content="Git,Nerdy">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
-  <meta name="twitter:title" content="Git Filter-Repo: Rewriting History the Right Way">
-  <meta name="twitter:description" content="Meet git filter-repo You committed a .env file three months ago. Or hardcoded an API key that made it into a dozen commits before anyone noticed. Or a teammate’s email is wrong across the entire log because their laptop was misconfigured on day one. git rm or a new commit doesn’t fix any of this, the bad content is still sitting in every commit that ever touched it, reachable by anyone with the repo.">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+	<meta name="twitter:title" content="Git Filter-Repo: Rewriting History the Right Way">
+	<meta name="twitter:description" content="Meet git filter-repo You committed a .env file three months ago. Or hardcoded an API key that made it into a dozen commits before anyone noticed. Or a teammate’s email is wrong across the entire log because their laptop was misconfigured on day one. git rm or a new commit doesn’t fix any of this, the bad content is still sitting in every commit that ever touched it, reachable by anyone with the repo.">
 
 
 
     <meta property="og:url" content="https://vladflore.tech/posts/2026/09/git-filter-repo-rewriting-history-the-right-way/">
-  <meta property="og:site_name" content="vlad·flore · tech">
-  <meta property="og:title" content="Git Filter-Repo: Rewriting History the Right Way">
-  <meta property="og:description" content="Meet git filter-repo You committed a .env file three months ago. Or hardcoded an API key that made it into a dozen commits before anyone noticed. Or a teammate’s email is wrong across the entire log because their laptop was misconfigured on day one. git rm or a new commit doesn’t fix any of this, the bad content is still sitting in every commit that ever touched it, reachable by anyone with the repo.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2026-09-17T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-09-17T00:00:00+00:00">
-    <meta property="article:tag" content="Git">
-    <meta property="article:tag" content="Nerdy">
-    <meta property="og:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+	<meta property="og:site_name" content="vlad·flore · tech">
+	<meta property="og:title" content="Git Filter-Repo: Rewriting History the Right Way">
+	<meta property="og:description" content="Meet git filter-repo You committed a .env file three months ago. Or hardcoded an API key that made it into a dozen commits before anyone noticed. Or a teammate’s email is wrong across the entire log because their laptop was misconfigured on day one. git rm or a new commit doesn’t fix any of this, the bad content is still sitting in every commit that ever touched it, reachable by anyone with the repo.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2026-09-17T00:00:00+00:00">
+		<meta property="article:modified_time" content="2026-09-17T00:00:00+00:00">
+		<meta property="article:tag" content="Git">
+		<meta property="article:tag" content="Nerdy">
+		<meta property="og:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
 
 
 
@@ -303,7 +303,7 @@
 <p>You committed a <code>.env</code> file three months ago. Or hardcoded an API key that made it into a dozen commits before anyone noticed. Or a teammate&rsquo;s email is wrong across the entire log because their laptop was misconfigured on day one. <code>git rm</code> or a new commit doesn&rsquo;t fix any of this, the bad content is still sitting in every commit that ever touched it, reachable by anyone with the repo.</p>
 <p><code>git filter-repo</code> rewrites history itself: it walks every commit, applies the transformation you ask for, and produces a new history with the old content gone (or changed) everywhere it appeared. It&rsquo;s the tool the Git project itself recommends over the old <code>git filter-branch</code> (deprecated, painfully slow) and over BFG Repo-Cleaner (great for a couple of specific jobs, but far less flexible).</p>
 <p>It doesn&rsquo;t ship with Git, install it first:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>brew install git-filter-repo
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>brew install git-filter-repo
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># or: pip3 install git-filter-repo</span>
 </span></span></code></pre></div><h3 id="how-it-works">How it works</h3>
 <ul>
@@ -323,30 +323,30 @@
 </ul>
 <h3 id="setting-the-stage">Setting the stage</h3>
 <p>One small repo, several problems piled into it on purpose:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir filter-repo-demo <span style="color:#f92672">&amp;&amp;</span> cd filter-repo-demo
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir filter-repo-demo <span style="color:#f92672">&amp;&amp;</span> cd filter-repo-demo
 </span></span><span style="display:flex;"><span>git init -b main
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;app source&#34;</span> &gt; app.py
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;app source&#34;</span> &gt; app.py
 </span></span><span style="display:flex;"><span>git add app.py
 </span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Initial commit&#34;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;DB_PASSWORD=supersecret123&#34;</span> &gt; .env
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;DB_PASSWORD=supersecret123&#34;</span> &gt; .env
 </span></span><span style="display:flex;"><span>git add .env
 </span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Add local env config&#34;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;API_KEY = &#34;sk_live_NOT_REAL_EXAMPLE_KEY_0000&#34;&#39;</span> &gt; config.py
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;API_KEY = &#34;sk_live_NOT_REAL_EXAMPLE_KEY_0000&#34;&#39;</span> &gt; config.py
 </span></span><span style="display:flex;"><span>git add config.py
 </span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Add API config&#34;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;print(&#39;v2&#39;)&#34;</span> &gt;&gt; app.py
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;print(&#39;v2&#39;)&#34;</span> &gt;&gt; app.py
 </span></span><span style="display:flex;"><span>git add app.py
 </span></span><span style="display:flex;"><span>git commit --author<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;vlad flore &lt;vlad@wrongdomain.com&gt;&#34;</span> -m <span style="color:#e6db74">&#34;Update app logic&#34;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>head -c <span style="color:#ae81ff">15000000</span> /dev/urandom &gt; data.bin
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>head -c <span style="color:#ae81ff">15000000</span> /dev/urandom &gt; data.bin
 </span></span><span style="display:flex;"><span>git add data.bin
 </span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Add data file&#34;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir build <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;compiled output&#34;</span> &gt; build/app.out
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir build <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;compiled output&#34;</span> &gt; build/app.out
 </span></span><span style="display:flex;"><span>git add build
 </span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Add build artifact&#34;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git commit --allow-empty -m <span style="color:#e6db74">&#34;wip&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git commit --allow-empty -m <span style="color:#e6db74">&#34;wip&#34;</span>
 </span></span><span style="display:flex;"><span>git commit --allow-empty -m <span style="color:#e6db74">&#34;fix typo asdasd&#34;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --oneline
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>2fcc522 fix typo asdasd
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --oneline
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>2fcc522 fix typo asdasd
 </span></span><span style="display:flex;"><span>345d1c1 wip
 </span></span><span style="display:flex;"><span>f1d0ae4 Add build artifact
 </span></span><span style="display:flex;"><span>76777fd Add data file
@@ -357,33 +357,33 @@
 </span></span></code></pre></div><p>A committed secret file, a hardcoded key, a wrong author email, a stray 14MB blob, a build artifact, and a couple of junk commit messages. Every example below starts from a <strong>fresh clone</strong> of this repo, because <code>filter-repo</code> insists on it.</p>
 <h3 id="removing-a-sensitive-file-from-all-of-history">Removing a sensitive file from all of history</h3>
 <p><code>.env</code> should never have been committed. Deleting it now only stops it appearing in <em>future</em> commits, it&rsquo;s still readable in commit <code>9b01e83</code> and every commit after it.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd .. <span style="color:#f92672">&amp;&amp;</span> git clone filter-repo-demo demo-env <span style="color:#f92672">&amp;&amp;</span> cd demo-env
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd .. <span style="color:#f92672">&amp;&amp;</span> git clone filter-repo-demo demo-env <span style="color:#f92672">&amp;&amp;</span> cd demo-env
 </span></span><span style="display:flex;"><span>git filter-repo --path .env --invert-paths
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Parsed <span style="color:#ae81ff">8</span> commits
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Parsed <span style="color:#ae81ff">8</span> commits
 </span></span><span style="display:flex;"><span>New history written in 0.20 seconds; now repacking/cleaning...
 </span></span><span style="display:flex;"><span>Repacking your repo and cleaning out old unneeded objects
 </span></span><span style="display:flex;"><span>Completely finished after 0.78 seconds.
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --all --pretty<span style="color:#f92672">=</span>format: --name-only --diff-filter<span style="color:#f92672">=</span>A | sort -u | grep -v <span style="color:#e6db74">&#39;^$&#39;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>app.py
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --all --pretty<span style="color:#f92672">=</span>format: --name-only --diff-filter<span style="color:#f92672">=</span>A | sort -u | grep -v <span style="color:#e6db74">&#39;^$&#39;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>app.py
 </span></span><span style="display:flex;"><span>build/app.out
 </span></span><span style="display:flex;"><span>config.py
 </span></span><span style="display:flex;"><span>data.bin
 </span></span></code></pre></div><p><code>.env</code> never shows up, in any commit, past or present. Every commit after it got a new sha, that&rsquo;s expected: the shas encode the tree, and the tree changed.</p>
 <h3 id="removing-exposed-secrets-keys-passwords-tokens">Removing exposed secrets (keys, passwords, tokens)</h3>
 <p>Sometimes the whole file has to stay, the secret inside it doesn&rsquo;t. <code>--replace-text</code> scans every blob in history and swaps matching strings, wherever they occur:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd .. <span style="color:#f92672">&amp;&amp;</span> git clone filter-repo-demo demo-secret <span style="color:#f92672">&amp;&amp;</span> cd demo-secret
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd .. <span style="color:#f92672">&amp;&amp;</span> git clone filter-repo-demo demo-secret <span style="color:#f92672">&amp;&amp;</span> cd demo-secret
 </span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;sk_live_NOT_REAL_EXAMPLE_KEY_0000==&gt;REDACTED&#39;</span> &gt; ../replacements.txt
 </span></span><span style="display:flex;"><span>git filter-repo --replace-text ../replacements.txt
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --all -p -- config.py | grep -A1 API_KEY
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>+API_KEY <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;REDACTED&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --all -p -- config.py | grep -A1 API_KEY
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>+API_KEY <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;REDACTED&#34;</span>
 </span></span></code></pre></div><p>Note the <code>==&gt;</code> separator, that&rsquo;s <code>filter-repo</code>&rsquo;s literal-string syntax. It also accepts <code>regex:&lt;pattern&gt;==&gt;&lt;replacement&gt;</code> for anything more dynamic. Either way, the original key is gone from the commit that introduced it, not just from later ones.</p>
 <h3 id="fixing-authorcommitter-information">Fixing author/committer information</h3>
 <p>One commit has the wrong email attached, <code>vlad@wrongdomain.com</code> instead of the real one. A <code>.mailmap</code> file maps the wrong identity to the right one, <code>filter-repo</code> applies it and bakes the correction into the commits themselves:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd .. <span style="color:#f92672">&amp;&amp;</span> git clone filter-repo-demo demo-mailmap <span style="color:#f92672">&amp;&amp;</span> cd demo-mailmap
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd .. <span style="color:#f92672">&amp;&amp;</span> git clone filter-repo-demo demo-mailmap <span style="color:#f92672">&amp;&amp;</span> cd demo-mailmap
 </span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;Vlad Flore &lt;vlad@example.com&gt; &lt;vlad@wrongdomain.com&gt;&#39;</span> &gt; ../mailmap.txt
 </span></span><span style="display:flex;"><span>git filter-repo --mailmap ../mailmap.txt
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --format<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;%an &lt;%ae&gt;&#39;</span> --all
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Vlad Flore &lt;vlad@example.com&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --format<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;%an &lt;%ae&gt;&#39;</span> --all
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Vlad Flore &lt;vlad@example.com&gt;
 </span></span><span style="display:flex;"><span>Vlad Flore &lt;vlad@example.com&gt;
 </span></span><span style="display:flex;"><span>Vlad Flore &lt;vlad@example.com&gt;
 </span></span><span style="display:flex;"><span>Vlad Flore &lt;vlad@example.com&gt;
@@ -394,24 +394,24 @@
 </span></span></code></pre></div><p>All eight commits, same address now. (<code>git commit --amend --author</code> only fixes the <em>last</em> commit, this is the version of that for the whole history.)</p>
 <h3 id="removing-large-files-committed-by-accident">Removing large files committed by accident</h3>
 <p>That 15MB <code>data.bin</code> is dead weight in every clone, forever, unless someone rewrites it out. <code>--strip-blobs-bigger-than</code> removes any blob over a size threshold, wherever it sits in history:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>du -sh filter-repo-demo/.git
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>14M	filter-repo-demo/.git
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd .. <span style="color:#f92672">&amp;&amp;</span> git clone filter-repo-demo demo-large <span style="color:#f92672">&amp;&amp;</span> cd demo-large
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>du -sh filter-repo-demo/.git
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>14M	filter-repo-demo/.git
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd .. <span style="color:#f92672">&amp;&amp;</span> git clone filter-repo-demo demo-large <span style="color:#f92672">&amp;&amp;</span> cd demo-large
 </span></span><span style="display:flex;"><span>git filter-repo --strip-blobs-bigger-than 1M
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Processed <span style="color:#ae81ff">6</span> blob sizes
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Processed <span style="color:#ae81ff">6</span> blob sizes
 </span></span><span style="display:flex;"><span>Parsed <span style="color:#ae81ff">8</span> commits
 </span></span><span style="display:flex;"><span>New history written in 0.08 seconds; now repacking/cleaning...
 </span></span><span style="display:flex;"><span>Completely finished after 0.19 seconds.
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>du -sh .git
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>du -sh .git
 </span></span><span style="display:flex;"><span>git log --all --oneline -- data.bin
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>140K	.git
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>140K	.git
 </span></span></code></pre></div><p><code>.git</code> drops from 14M to 140K, and <code>data.bin</code> no longer shows up anywhere in the log, <code>filter-repo</code> even leaves a <code>data.bin</code> marker file behind by default noting a blob was stripped there, useful context for anyone wondering why a file disappeared.</p>
 <h3 id="removing-whole-directories-build-artifacts-generated-files-dependencies">Removing whole directories (build artifacts, generated files, dependencies)</h3>
 <p>Same idea as the <code>.env</code> case, but for a directory. <code>build/</code> should never have been tracked:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd .. <span style="color:#f92672">&amp;&amp;</span> git clone filter-repo-demo demo-build <span style="color:#f92672">&amp;&amp;</span> cd demo-build
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd .. <span style="color:#f92672">&amp;&amp;</span> git clone filter-repo-demo demo-build <span style="color:#f92672">&amp;&amp;</span> cd demo-build
 </span></span><span style="display:flex;"><span>git filter-repo --path build --invert-paths
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --all --oneline
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>76777fd Add data file
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --all --oneline
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>76777fd Add data file
 </span></span><span style="display:flex;"><span>88d596a Update app logic
 </span></span><span style="display:flex;"><span>b7fd71f Add API config
 </span></span><span style="display:flex;"><span>9b01e83 Add local env config
@@ -419,12 +419,12 @@
 </span></span></code></pre></div><p>Worth noticing: <code>Add build artifact</code>, <code>wip</code>, and <code>fix typo asdasd</code> are all gone from the log, not just <code>build/</code>. Removing the directory left those commits with no changes at all, and <code>filter-repo</code> prunes empty commits by default (<code>--prune-empty=auto</code>). Pass <code>--prune-empty=never</code> if you&rsquo;d rather keep empty commits around.</p>
 <h3 id="rewriting-commit-messages">Rewriting commit messages</h3>
 <p>A typo in a commit message, or a message that references something it shouldn&rsquo;t, <code>--message-callback</code> runs arbitrary Python against every commit message in history:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd .. <span style="color:#f92672">&amp;&amp;</span> git clone filter-repo-demo demo-msg <span style="color:#f92672">&amp;&amp;</span> cd demo-msg
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd .. <span style="color:#f92672">&amp;&amp;</span> git clone filter-repo-demo demo-msg <span style="color:#f92672">&amp;&amp;</span> cd demo-msg
 </span></span><span style="display:flex;"><span>git filter-repo --message-callback <span style="color:#e6db74">&#39;
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">return re.sub(b&#34;typo asdasd&#34;, b&#34;typo in help text&#34;, message)
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --all --format<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;%s&#39;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>fix typo in help text
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --all --format<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;%s&#39;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>fix typo in help text
 </span></span><span style="display:flex;"><span>wip
 </span></span><span style="display:flex;"><span>Add build artifact
 </span></span><span style="display:flex;"><span>Add data file
@@ -435,12 +435,12 @@
 </span></span></code></pre></div><p><code>message</code> arrives as <code>bytes</code>, <code>re</code> is already imported for you inside the callback. For a single fixed replacement across every message, <code>--replace-message &lt;file&gt;</code> works the same way <code>--replace-text</code> does for file content.</p>
 <h3 id="scripted-transformations-across-all-of-history">Scripted transformations across all of history</h3>
 <p>The callbacks aren&rsquo;t limited to messages. <code>--blob-callback</code> hands you every file&rsquo;s raw content, <code>--commit-callback</code> hands you the whole commit object (author, message, file changes) for anything the built-in flags don&rsquo;t cover:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd .. <span style="color:#f92672">&amp;&amp;</span> git clone filter-repo-demo demo-blob <span style="color:#f92672">&amp;&amp;</span> cd demo-blob
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd .. <span style="color:#f92672">&amp;&amp;</span> git clone filter-repo-demo demo-blob <span style="color:#f92672">&amp;&amp;</span> cd demo-blob
 </span></span><span style="display:flex;"><span>git filter-repo --blob-callback <span style="color:#e6db74">&#39;
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">blob.data = blob.data.replace(b&#34;print(&#34;, b&#34;logging.info(&#34;)
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --all -p -- app.py | grep -E <span style="color:#e6db74">&#39;^[+-][^+-]&#39;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>+logging.info<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;v2&#39;</span><span style="color:#f92672">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git log --all -p -- app.py | grep -E <span style="color:#e6db74">&#39;^[+-][^+-]&#39;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>+logging.info<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;v2&#39;</span><span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span>+app source
 </span></span></code></pre></div><p>Every <code>print(</code> call in <code>app.py</code>, across every historical revision of the file, became <code>logging.info(</code>. Same mechanism works for renaming variables project-wide, normalizing line endings, stripping trailing whitespace, whatever a script can express.</p>
 <h3 id="after-the-rewrite">After the rewrite</h3>
@@ -602,8 +602,9 @@
         (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
         </div>
       
     

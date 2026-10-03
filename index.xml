@@ -1,355 +1,360 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>vlad·flore · tech</title>
-    <link>https://vladflore.tech/</link>
-    <description>Recent content on vlad·flore · tech</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Thu, 24 Sep 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://vladflore.tech/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Agentic AI: Prompting</title>
-      <link>https://vladflore.tech/flashcards/agentic-ai-prompting/</link>
-      <pubDate>Thu, 24 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/flashcards/agentic-ai-prompting/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Agentic AI: Prompting</title>
-      <link>https://vladflore.tech/quizzes/agentic-ai-prompting/</link>
-      <pubDate>Fri, 18 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/quizzes/agentic-ai-prompting/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Agentic AI: Workflows</title>
-      <link>https://vladflore.tech/flashcards/agentic-ai-workflows/</link>
-      <pubDate>Thu, 24 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/flashcards/agentic-ai-workflows/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Agentic AI: Workflows</title>
-      <link>https://vladflore.tech/quizzes/agentic-ai-workflows/</link>
-      <pubDate>Fri, 18 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/quizzes/agentic-ai-workflows/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Agentic AI: Tools, Memory &amp; RAG</title>
-      <link>https://vladflore.tech/flashcards/agentic-ai-tools-memory-rag/</link>
-      <pubDate>Thu, 24 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/flashcards/agentic-ai-tools-memory-rag/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Agentic AI: Tools, Memory &amp; RAG</title>
-      <link>https://vladflore.tech/quizzes/agentic-ai-tools-memory-rag/</link>
-      <pubDate>Fri, 18 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/quizzes/agentic-ai-tools-memory-rag/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Agentic AI: Multi-Agent Systems</title>
-      <link>https://vladflore.tech/flashcards/agentic-ai-multi-agent-systems/</link>
-      <pubDate>Thu, 24 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/flashcards/agentic-ai-multi-agent-systems/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Agentic AI: Multi-Agent Systems</title>
-      <link>https://vladflore.tech/quizzes/agentic-ai-multi-agent-systems/</link>
-      <pubDate>Fri, 18 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/quizzes/agentic-ai-multi-agent-systems/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Git</title>
-      <link>https://vladflore.tech/flashcards/git/</link>
-      <pubDate>Mon, 21 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/flashcards/git/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>How Git Actually Works: A Tour of Git Internals</title>
-      <link>https://vladflore.tech/posts/2026/09/how-git-actually-works-a-tour-of-git-internals/</link>
-      <pubDate>Mon, 21 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2026/09/how-git-actually-works-a-tour-of-git-internals/</guid>
-      <description>&lt;h2 id=&#34;meet-git-from-10000-feet&#34;&gt;Meet git, from 10,000 feet&lt;/h2&gt;&#xA;&lt;p&gt;Git is not a diff tool. It doesn&amp;rsquo;t store &amp;ldquo;what changed between commit A and commit B&amp;rdquo; and reconstruct history from a chain of patches. Every commit is a full snapshot of your project, and git figures out diffs on demand, for display purposes only, when you ask for them. That single idea, snapshots instead of diffs, is why almost everything else in git works the way it does: branching is cheap, history never has to &amp;ldquo;replay&amp;rdquo; anything to check out an old version, and, as you&amp;rsquo;ll see below, git can implement its entire history as nothing more than a tiny key-value store plus a handful of pointers.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git</title>
-      <link>https://vladflore.tech/quizzes/git/</link>
-      <pubDate>Thu, 17 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/quizzes/git/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Git Filter-Repo: Rewriting History the Right Way</title>
-      <link>https://vladflore.tech/posts/2026/09/git-filter-repo-rewriting-history-the-right-way/</link>
-      <pubDate>Thu, 17 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2026/09/git-filter-repo-rewriting-history-the-right-way/</guid>
-      <description>&lt;h2 id=&#34;meet-git-filter-repo&#34;&gt;Meet &lt;code&gt;git filter-repo&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;You committed a &lt;code&gt;.env&lt;/code&gt; file three months ago. Or hardcoded an API key that made it into a dozen commits before anyone noticed. Or a teammate&amp;rsquo;s email is wrong across the entire log because their laptop was misconfigured on day one. &lt;code&gt;git rm&lt;/code&gt; or a new commit doesn&amp;rsquo;t fix any of this, the bad content is still sitting in every commit that ever touched it, reachable by anyone with the repo.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git Animated 6</title>
-      <link>https://vladflore.tech/posts/2026/09/git-animated-6/</link>
-      <pubDate>Wed, 16 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2026/09/git-animated-6/</guid>
-      <description>&lt;p&gt;This is the sixth video in the &lt;strong&gt;Git Animated&lt;/strong&gt; series.&#xA;If you are interested in the other ones, check the links below:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-1/&#34;&gt;part one&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-2/&#34;&gt;part two&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/09/git-animated-3/&#34;&gt;part three&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/12/git-animated-4/&#34;&gt;part four&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2026/03/git-animated-5/&#34;&gt;part five&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Every previous video in this series stayed at the porcelain level: branches, merges, rebase, cherry-pick, all the commands you use day to day. This one goes one level deeper and shows what a commit actually &lt;em&gt;is&lt;/em&gt; once you strip away the branch names and the pretty log graph.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git Reflog: The Undo Button You Didn&#39;t Know You Had</title>
-      <link>https://vladflore.tech/posts/2026/09/git-reflog-the-undo-button-you-didnt-know-you-had/</link>
-      <pubDate>Tue, 15 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2026/09/git-reflog-the-undo-button-you-didnt-know-you-had/</guid>
-      <description>&lt;h2 id=&#34;meet-git-reflog&#34;&gt;Meet &lt;code&gt;git reflog&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;You run &lt;code&gt;git reset --hard&lt;/code&gt; one commit too far. Or you &lt;code&gt;git branch -D&lt;/code&gt; a branch you were sure was already merged, and it wasn&amp;rsquo;t. The commit history you just lost feels gone for good, &lt;code&gt;git log&lt;/code&gt; doesn&amp;rsquo;t show it anymore.&lt;/p&gt;&#xA;&lt;p&gt;It isn&amp;rsquo;t gone. Git records every place &lt;code&gt;HEAD&lt;/code&gt; and your branches have pointed to, commits, resets, checkouts, rebases, branch deletions, all of it, in the reflog. As long as Git hasn&amp;rsquo;t garbage-collected the underlying objects (default grace period is 90 days), you can get your commit back.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git Worktrees: Work on Two Branches at Once</title>
-      <link>https://vladflore.tech/posts/2026/09/git-worktrees-work-on-two-branches-at-once/</link>
-      <pubDate>Sun, 13 Sep 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2026/09/git-worktrees-work-on-two-branches-at-once/</guid>
-      <description>&lt;h2 id=&#34;meet-git-worktree&#34;&gt;Meet &lt;code&gt;git worktree&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;You&amp;rsquo;re mid-feature, working tree is dirty, half-finished file sitting there uncommitted. Then a bug report lands against &lt;code&gt;main&lt;/code&gt;. The usual way to deal with this:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git stash&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git checkout main&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# fix the bug&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git checkout feature/whatever&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git stash pop&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It works, but it&amp;rsquo;s a dance, and it gets worse the more files you&amp;rsquo;ve touched. &lt;code&gt;git worktree&lt;/code&gt; skips the dance entirely: instead of switching branches inside one working directory, you get a &lt;em&gt;second&lt;/em&gt; working directory, backed by the same repository, checked out to a different branch. Your dirty feature branch stays exactly as you left it while you fix the bug somewhere else.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git Animated 5</title>
-      <link>https://vladflore.tech/posts/2026/03/git-animated-5/</link>
-      <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2026/03/git-animated-5/</guid>
-      <description>&lt;p&gt;This is the fifth video in the &lt;strong&gt;Git Animated&lt;/strong&gt; series.&#xA;If you are interested in the other ones, check the links below:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-1/&#34;&gt;part one&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-2/&#34;&gt;part two&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/09/git-animated-3/&#34;&gt;part three&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/12/git-animated-4/&#34;&gt;part four&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2026/09/git-animated-6/&#34;&gt;part six&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;In this video we look at &lt;strong&gt;cherry-pick&lt;/strong&gt;, a powerful Git command that lets you apply the changes introduced by a specific commit from one branch onto another, without merging or rebasing the entire branch. Think of it as picking a single commit — like a cherry — and grafting it onto a different branch.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Certifications</title>
-      <link>https://vladflore.tech/certs/</link>
-      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/certs/</guid>
-      <description>&lt;p&gt;This page lists my certifications with direct links to each credential.&lt;/p&gt;&#xA;&lt;div class=&#34;cert-grid&#34;&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://www.udacity.com/certificate/e/b68faf6a-6a47-11f1-85f4-cf5b2b7bffa8&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/udacity-agentic-ai.png&#34; alt=&#34;Agentic AI Nanodegree&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://www.udacity.com/certificate/e/b68faf6a-6a47-11f1-85f4-cf5b2b7bffa8&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Agentic AI Nanodegree&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;September 2026&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/article&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://learn.deeplearning.ai/certificates/c645404b-a8fc-49ee-ad77-26d9bfe8244b?usp=sharing&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/certificate.png&#34; alt=&#34;Machine Learning Specialization&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://learn.deeplearning.ai/certificates/c645404b-a8fc-49ee-ad77-26d9bfe8244b?usp=sharing&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Machine Learning Specialization&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;April 2026&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/article&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://besa.techcreator.io/certification/florevlad19411/agentic-ai-on-aws-besa-398323&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/certificate-besa.png&#34; alt=&#34;Agentic AI on AWS&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://besa.techcreator.io/certification/florevlad19411/agentic-ai-on-aws-besa-398323&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Agentic AI on AWS&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;March 2026&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/article&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://www.credly.com/badges/f9baa4ff-a649-43e3-830b-529137d4ba75/public_url&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/aws-knowledge-cloud-essentials-training-badge.png&#34; alt=&#34;AWS Knowledge: Cloud Essentials - Training Badge&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://www.credly.com/badges/f9baa4ff-a649-43e3-830b-529137d4ba75/public_url&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;AWS Knowledge: Cloud Essentials - Training Badge&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;March 2026&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/article&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://learn.deeplearning.ai/certificates/53f345a0-e911-40a3-bc21-d9289b30ce98&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/mls-c2-cert.png&#34; alt=&#34;Machine Learning Specialization: Advanced Learning Algorithms&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://learn.deeplearning.ai/certificates/53f345a0-e911-40a3-bc21-d9289b30ce98&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Machine Learning Specialization: Advanced Learning Algorithms&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;March 2026&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Algorithms Narrated</title>
-      <link>https://vladflore.tech/posts/2026/02/algorithms-narrated/</link>
-      <pubDate>Fri, 06 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2026/02/algorithms-narrated/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Building on the &lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-1/&#34;&gt;Git Animated&lt;/a&gt; series, I&amp;rsquo;ve started a new project called &amp;ldquo;Algorithms Narrated&amp;rdquo;. This series presents solutions to various algorithmic problems—think &lt;em&gt;LeetCode&lt;/em&gt;—by narrating the thought process and steps involved in solving them.&lt;/p&gt;&#xA;&lt;h2 id=&#34;about-the-series&#34;&gt;About The Series&lt;/h2&gt;&#xA;&#xA;    &lt;img src=&#34;https://vladflore.tech/images/algorithms-narrated.jpeg&#34;  alt=&#34;Algorithms Narrated&#34;  class=&#34;left&#34;  style=&#34;border-radius: 16px;&#34;  /&gt;&#xA;&#xA;&#xA;&lt;p&gt;Each video shows the Java code and problem statement together with examples and the time complexity of the solution.&lt;/p&gt;&#xA;&lt;p&gt;All videos are added to the &lt;a href=&#34;https://www.youtube.com/playlist?list=PLgrzxhDrZj_KN3Tu_o9RaMqu9XOfmicps&#34; target=&#34;_blank&#34;&gt;Algorithms Narrated playlist&lt;/a&gt; on my &lt;a href=&#34;https://www.youtube.com/@vladflore&#34; target=&#34;_blank&#34;&gt;YouTube channel&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Subscribe to stay updated, and if you find them helpful, please like and share the series.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Compiling and Running a Maven Project with Different Java Versions</title>
-      <link>https://vladflore.tech/posts/2026/01/compiling-and-running-a-maven-project-with-different-java-versions/</link>
-      <pubDate>Tue, 13 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2026/01/compiling-and-running-a-maven-project-with-different-java-versions/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s explore how to use multiple versions of Java in a Maven project By this, I mean seemingly &lt;em&gt;compiling&lt;/em&gt; and &lt;em&gt;running&lt;/em&gt; a project with different Java versions.&lt;/p&gt;&#xA;&lt;p&gt;I will be using Java 17, 21 and 25 for this demo. Make sure you have them installed on your machine. You can use &lt;a href=&#34;https://sdkman.io/&#34; target=&#34;_blank&#34;&gt;SDKMAN!&lt;/a&gt; to manage multiple Java versions easily. Additionally, ensure &lt;a href=&#34;https://maven.apache.org/&#34; target=&#34;_blank&#34;&gt;Maven&lt;/a&gt; is installed.&lt;/p&gt;&#xA;&lt;p&gt;As always, there are multiple ways to achieve this. Here, I will demonstrate one approach using &lt;a href=&#34;https://maven.apache.org/guides/mini/guide-using-toolchains.html&#34; target=&#34;_blank&#34;&gt;Maven Toolchains&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git bisect</title>
-      <link>https://vladflore.tech/posts/2026/01/git-bisect/</link>
-      <pubDate>Thu, 08 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2026/01/git-bisect/</guid>
-      <description>&lt;h2 id=&#34;meet-git-bisect&#34;&gt;Meet &lt;code&gt;git bisect&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;When you have a large codebase and a bug has been introduced somewhere in the history, finding the exact commit that introduced the bug can be challenging. This is where &lt;code&gt;git bisect&lt;/code&gt; comes in handy. It automates the process of binary searching through your commit history to find the offending commit.&lt;/p&gt;&#xA;&lt;h3 id=&#34;how-it-works&#34;&gt;How it works&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;start the bisect process by running &lt;code&gt;git bisect start&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;find a known bad commit (the one with the bug) and mark it as bad using &lt;code&gt;git bisect bad &amp;lt;bad-commit-hash&amp;gt;&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;find a known good commit (the one without the bug) and mark it as good using &lt;code&gt;git bisect good &amp;lt;good-commit-hash&amp;gt;&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Git will now checkout a commit halfway between the good and bad commits. You need to test this commit to see if the bug is present&lt;/li&gt;&#xA;&lt;li&gt;if the bug is present, mark the commit as bad using &lt;code&gt;git bisect bad&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;if the bug is not present, mark the commit as good using &lt;code&gt;git bisect good&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;repeat the testing and marking process until Git narrows down to the exact commit that introduced the bug&lt;/li&gt;&#xA;&lt;li&gt;once the bad commit is found, you can end the bisect process by running &lt;code&gt;git bisect reset&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This might sound a bit tedious, but it can save you a lot of time compared to manually checking each commit. Additionally, you can automate the testing and marking process using &lt;code&gt;git bisect run &amp;lt;script&amp;gt;&lt;/code&gt;, where &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; is a script that tests the code and returns an exit code indicating whether the commit is good or bad.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Java 25</title>
-      <link>https://vladflore.tech/posts/2026/01/java-25/</link>
-      <pubDate>Wed, 07 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2026/01/java-25/</guid>
-      <description>&lt;h2 id=&#34;meet-java-25&#34;&gt;Meet Java 25&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://openjdk.org/projects/jdk/25/&#34; target=&#34;_blank&#34;&gt;JDK 25&lt;/a&gt; reached General Availability on 16 September 2025.&lt;/p&gt;&#xA;&lt;p&gt;Java 25 continues the trend toward safer concurrency, reduced boilerplate, and better ergonomics—especially for modern, cloud-native and virtual-thread-heavy applications.&lt;/p&gt;&#xA;&lt;p&gt;Some of the most notable features include:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Scoped Values&lt;/li&gt;&#xA;&lt;li&gt;Module Import Declarations&lt;/li&gt;&#xA;&lt;li&gt;Compact Source Files and Instance Main Methods&lt;/li&gt;&#xA;&lt;li&gt;Flexible Constructor Bodies&lt;/li&gt;&#xA;&lt;li&gt;Compact Object Headers&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;There are many more features and improvements in this release, but in this post, I will highlight just a few, for a comprehensive list, check out the &lt;a href=&#34;https://openjdk.org/projects/jdk/25/&#34; target=&#34;_blank&#34;&gt;official JDK 25 release notes&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Let&#39;s make some calls</title>
-      <link>https://vladflore.tech/posts/2025/05/lets-make-some-calls/</link>
-      <pubDate>Sat, 03 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2025/05/lets-make-some-calls/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;One of the most important things in programming is making HTTP calls to talk with some API. Java has very good support for this, and in this post, we will see how to call some HTTP endpoints using Java&amp;rsquo;s &lt;code&gt;HttpClient&lt;/code&gt; class. This class is part of the &lt;em&gt;Java 11&lt;/em&gt; standard library, so you don&amp;rsquo;t need any external dependencies to use it.&lt;/p&gt;&#xA;&lt;h2 id=&#34;a-closer-look-at-the-http-client&#34;&gt;A closer look at the HTTP client&lt;/h2&gt;&#xA;&lt;p&gt;Besides the &lt;code&gt;HttpClient&lt;/code&gt; class, there are a few other classes that we will use in this post:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Java &gt; 17 &amp;&amp; &lt;= 24</title>
-      <link>https://vladflore.tech/posts/2025/04/java-17-24/</link>
-      <pubDate>Tue, 29 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2025/04/java-17-24/</guid>
-      <description>&lt;h2 id=&#34;meet-java-24&#34;&gt;Meet Java 24&lt;/h2&gt;&#xA;&lt;p&gt;Java 24 is &lt;em&gt;not&lt;/em&gt; a &lt;em&gt;LTS version&lt;/em&gt;. The last LTS version was Java 21, released in September 2023.&lt;/p&gt;&#xA;&lt;p&gt;In this post, I will tackle some of the new features and improvements that Java 24 brings to the table. Note that some of them might have been introduced in previous versions, but for the sake of completeness, I will include them here.&lt;/p&gt;&#xA;&lt;p&gt;In my &lt;a href=&#34;https://vladflore.tech/posts/2022/07/java-17/&#34;&gt;post about Java 17&lt;/a&gt;, I mentioned some of the noteworthy features introduced in that version, in this post I will focus on the new features introduced since then.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Machine Learning Zoomcamp: The Rest</title>
-      <link>https://vladflore.tech/posts/2025/04/machine-learning-zoomcamp-the-rest/</link>
-      <pubDate>Fri, 18 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2025/04/machine-learning-zoomcamp-the-rest/</guid>
-      <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;This post covers the rest of the modules of the Machine Learning Zoomcamp, including the midterm and the two capstone projects.&lt;/p&gt;&#xA;&lt;p&gt;Below are the posts for the previous modules:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/&#34;&gt;Machine Learning Zoomcamp Module 1&lt;/a&gt; - points received: &lt;em&gt;9&lt;/em&gt; (&lt;em&gt;7&lt;/em&gt;/7 for questions + &lt;em&gt;2&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/&#34;&gt;Machine Learning Zoomcamp Module 2&lt;/a&gt; - points received: &lt;em&gt;5&lt;/em&gt; (&lt;em&gt;5&lt;/em&gt;/6 for questions + &lt;em&gt;0&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/&#34;&gt;Machine Learning Zoomcamp Module 3&lt;/a&gt; - points received: &lt;em&gt;7&lt;/em&gt; (&lt;em&gt;6&lt;/em&gt;/6 for questions + &lt;em&gt;1&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-4-recap/&#34;&gt;Machine Learning Zoomcamp Module 4&lt;/a&gt; - points received: &lt;em&gt;6&lt;/em&gt; (&lt;em&gt;6&lt;/em&gt;/6 for questions + &lt;em&gt;0&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2025/01/machine-learning-zoomcamp-module-5-recap/&#34;&gt;Machine Learning Zoomcamp Module 5&lt;/a&gt; - points received: &lt;em&gt;6&lt;/em&gt; (&lt;em&gt;6&lt;/em&gt;/6 for questions + &lt;em&gt;0&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;module-6---decision-trees-and-ensemble-learning&#34;&gt;Module 6 - Decision Trees and Ensemble Learning&lt;/h2&gt;&#xA;&lt;p&gt;Points received: &lt;em&gt;6&lt;/em&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Machine Learning Zoomcamp: Module 5 Recap</title>
-      <link>https://vladflore.tech/posts/2025/01/machine-learning-zoomcamp-module-5-recap/</link>
-      <pubDate>Sun, 26 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2025/01/machine-learning-zoomcamp-module-5-recap/</guid>
-      <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;This post is a recap of the Machine Learning Zoomcamp Module 5.&lt;/p&gt;&#xA;&lt;p&gt;Below are the posts for the previous modules:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/&#34;&gt;Machine Learning Zoomcamp Module 1&lt;/a&gt; - points received: &lt;em&gt;9&lt;/em&gt; (&lt;em&gt;7&lt;/em&gt;/7 for questions + &lt;em&gt;2&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/&#34;&gt;Machine Learning Zoomcamp Module 2&lt;/a&gt; - points received: &lt;em&gt;5&lt;/em&gt; (&lt;em&gt;5&lt;/em&gt;/6 for questions + &lt;em&gt;0&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/&#34;&gt;Machine Learning Zoomcamp Module 3&lt;/a&gt; - points received: &lt;em&gt;7&lt;/em&gt; (&lt;em&gt;6&lt;/em&gt;/6 for questions + &lt;em&gt;1&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-4-recap/&#34;&gt;Machine Learning Zoomcamp Module 4&lt;/a&gt; - points received: &lt;em&gt;6&lt;/em&gt; (&lt;em&gt;6&lt;/em&gt;/6 for questions + &lt;em&gt;0&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;the-gist-of-the-module&#34;&gt;The gist of the module&lt;/h2&gt;&#xA;&lt;p&gt;This module is all about deploying the machine learning model we built in the previous modules. Specifically, we&amp;rsquo;ll save the model to a file and then load it and expose it as a web service that can be consumed by others.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Machine Learning Zoomcamp: Module 4 Recap</title>
-      <link>https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-4-recap/</link>
-      <pubDate>Wed, 11 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-4-recap/</guid>
-      <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;This post is a recap of the Machine Learning Zoomcamp Module 4.&lt;/p&gt;&#xA;&lt;p&gt;Below are the posts for the previous modules:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/&#34;&gt;Machine Learning Zoomcamp Module 1&lt;/a&gt; - points received: &lt;em&gt;9&lt;/em&gt; (&lt;em&gt;7&lt;/em&gt;/7 for questions + &lt;em&gt;2&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/&#34;&gt;Machine Learning Zoomcamp Module 2&lt;/a&gt; - points received: &lt;em&gt;5&lt;/em&gt; (&lt;em&gt;5&lt;/em&gt;/6 for questions + &lt;em&gt;0&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/&#34;&gt;Machine Learning Zoomcamp Module 3&lt;/a&gt; - points received: &lt;em&gt;7&lt;/em&gt; (&lt;em&gt;6&lt;/em&gt;/6 for questions + &lt;em&gt;1&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;the-gist-of-the-module&#34;&gt;The gist of the module&lt;/h2&gt;&#xA;&lt;p&gt;This module focuses on the evaluation of classification models. It covers various metrics used for this purpose, including &lt;em&gt;accuracy&lt;/em&gt;, &lt;em&gt;precision&lt;/em&gt;, &lt;em&gt;recall&lt;/em&gt;, &lt;em&gt;F1 score&lt;/em&gt;, and &lt;em&gt;ROC-AUC&lt;/em&gt;. The lessons build upon the dataset and model from the previous module, which involves predicting customer churn. The objective is to determine whether a customer is likely to leave or remain, using a logistic regression model.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Machine Learning Zoomcamp: Module 3 Recap</title>
-      <link>https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/</link>
-      <pubDate>Fri, 06 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/</guid>
-      <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;This post is a recap of the Machine Learning Zoomcamp Module 3.&lt;/p&gt;&#xA;&lt;p&gt;Below are the posts for the previous modules:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/&#34;&gt;Machine Learning Zoomcamp Module 1&lt;/a&gt; - points received: &lt;em&gt;9&lt;/em&gt; (&lt;em&gt;7&lt;/em&gt;/7 for questions + &lt;em&gt;2&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/&#34;&gt;Machine Learning Zoomcamp Module 2&lt;/a&gt; - points received: &lt;em&gt;5&lt;/em&gt; (&lt;em&gt;5&lt;/em&gt;/6 for questions + &lt;em&gt;0&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;For module 2 I managed to score 5 points out of 6 for the questions. While the code and the result I got were correct, I interpreted the result incorrectly, choosing the wrong answer. Oh well, it happens&amp;hellip;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Machine Learning Zoomcamp: Module 2 Recap</title>
-      <link>https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/</link>
-      <pubDate>Mon, 14 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/</guid>
-      <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;In this post I will make a recap of the Machine Learning Zoomcamp Module 2.&lt;/p&gt;&#xA;&lt;p&gt;The posts for the previous modules, together with the points I received for each module&amp;rsquo;s homework, are listed below:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/&#34;&gt;Machine Learning Zoomcamp Module 1&lt;/a&gt; - points received: &lt;em&gt;9&lt;/em&gt; (&lt;em&gt;7&lt;/em&gt;/7 for questions + &lt;em&gt;2&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;the-gist-of-the-module&#34;&gt;The gist of the module&lt;/h2&gt;&#xA;&lt;p&gt;The problem tackled in this module was the prediction of car prices based on a dataset containing car features.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Machine Learning Zoomcamp: Module 1 Recap</title>
-      <link>https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/</link>
-      <pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/</guid>
-      <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://vladflore.tech/posts/2024/09/learning...-machine-learning/&#34;&gt;one of my previous posts&lt;/a&gt;, I mentioned that I was taking the &lt;a href=&#34;https://datatalks.club/blog/guide-to-free-online-courses-at-datatalks-club.html#machine-learning-zoomcamp&#34; target=&#34;_blank&#34;&gt;Machine Learning Zoomcamp&lt;/a&gt; course. I have completed the first module of the course, and I wanted to share a recap of what I learned. In addition to that, I&amp;rsquo;d go one step further and add some extra bits of information here and there.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-machine-learning&#34;&gt;What is Machine Learning?&lt;/h2&gt;&#xA;&lt;p&gt;To answer this, we need to understand what &lt;em&gt;learning&lt;/em&gt; is. Learning is the process of acquiring knowledge or skills through experience, study, or being taught. A simple Google search would give you this definition. &lt;a href=&#34;https://en.wikipedia.org/wiki/Learning&#34; target=&#34;_blank&#34;&gt;Wikipedia&lt;/a&gt; defines &lt;em&gt;learning&lt;/em&gt; similarly, adding that &amp;ldquo;[&amp;hellip;]the ability to learn is possessed by humans, non-human animals, and &lt;em&gt;some machines&lt;/em&gt;[&amp;hellip;]&amp;rdquo;. When learning is done by machines, we refer to it as &lt;em&gt;Machine Learning&lt;/em&gt; (ML). In simple terms, ML is the process of teaching a computer to learn from &lt;em&gt;data&lt;/em&gt;. The computer uses the data to identify patterns and make decisions without being explicitly programmed to do so.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Pandas</title>
-      <link>https://vladflore.tech/posts/2024/09/pandas/</link>
-      <pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2024/09/pandas/</guid>
-      <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://pandas.pydata.org/&#34; target=&#34;_blank&#34;&gt;Pandas&lt;/a&gt; is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language. It was created by Wes McKinney in 2008.&lt;/p&gt;&#xA;&lt;p&gt;The name has nothing to do with the cute animal, it&amp;rsquo;s derived from the term &amp;ldquo;panel data&amp;rdquo;, an econometrics term for data sets that include observations over multiple time periods for the same individuals. It is also a play on the phrase &amp;ldquo;Python data analysis&amp;rdquo;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Learning... Machine Learning</title>
-      <link>https://vladflore.tech/posts/2024/09/learning...-machine-learning/</link>
-      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2024/09/learning...-machine-learning/</guid>
-      <description>&lt;h2 id=&#34;the-whys&#34;&gt;The Whys&lt;/h2&gt;&#xA;&lt;p&gt;The time has come. I will learn Machine Learning, or at least, I&amp;rsquo;ll be trying my best to do so. You might now ask yourself, &lt;em&gt;why machine learning?&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Nowadays, Machine Learning(ML), is on a lot of people&amp;rsquo;s minds, especially after the rise of the LLMs (Large Language Models).&lt;/p&gt;&#xA;&lt;p&gt;To not know about ML is to be left behind. I want to be part of the future, and I want to be able to understand the technology that will shape it.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Portfolio</title>
-      <link>https://vladflore.tech/portfolio/</link>
-      <pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/portfolio/</guid>
-      <description>&lt;h2 id=&#34;about-this-portfolio&#34;&gt;About This Portfolio&lt;/h2&gt;&#xA;&lt;p&gt;Creating a portfolio is a great way to showcase your work and interests. It can also be a strong motivator to keep learning and building once you get started. Not only does it help you highlight your skills and experience to potential employers or clients, but it also helps you stand out from the crowd.&lt;/p&gt;&#xA;&lt;p&gt;That said, building a portfolio can feel daunting — especially when you&amp;rsquo;re just starting out.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Life update</title>
-      <link>https://vladflore.tech/posts/2024/09/life-update/</link>
-      <pubDate>Fri, 06 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2024/09/life-update/</guid>
-      <description>&lt;p&gt;It&amp;rsquo;s been 20 months since I moved to another country, and life has been quite interesting since then.&lt;/p&gt;&#xA;&lt;p&gt;To give some context, I left Germany at the beginning of January 2023 and moved to Barcelona, Spain. In other words, I swapped &lt;em&gt;Bratwurst&lt;/em&gt;, &lt;em&gt;Bretzel&lt;/em&gt;, and cold weather for &lt;em&gt;jamón&lt;/em&gt;, &lt;em&gt;crema catalana&lt;/em&gt;, and warm weather. This is, of course, an oversimplification, but it&amp;rsquo;s still accurate.&lt;/p&gt;&#xA;&lt;p&gt;As you may know, moving to a new country is not easy, even with help. Because of this, the first few weeks and even months were a bit hectic and different from what I expected.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Learning Python as a Java developer - 2/</title>
-      <link>https://vladflore.tech/posts/2023/06/learning-python-as-a-java-developer-2/</link>
-      <pubDate>Mon, 12 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2023/06/learning-python-as-a-java-developer-2/</guid>
-      <description>&lt;p&gt;This is the second part of the series &amp;ldquo;Learning Python as a Java developer&amp;rdquo;. If you are interested in the other ones, check the links below:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/&#34;&gt;part one&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;learning-resources&#34;&gt;Learning resources&lt;/h2&gt;&#xA;&lt;p&gt;Before going into the details of the second part, I want to enumerate some of the resources I used and I am still using to learn/brush up on Python, beside the ones I mentioned in the first part:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://cs50.harvard.edu/python/2022/&#34; target=&#34;_blank&#34;&gt;CS50’s Introduction to Programming with Python, 2022&lt;/a&gt; - free/payed&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dabeaz-course.github.io/practical-python/&#34; target=&#34;_blank&#34;&gt;Practical Python Programming, a course by David Beazley&lt;/a&gt; - free. Note: search for content made by David Beazley, he is a great!&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://edube.org/&#34; target=&#34;_blank&#34;&gt;OpenEDG Python courses&lt;/a&gt; - free&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://hyperskill.org&#34; target=&#34;_blank&#34;&gt;Hyperskill Python tracks&lt;/a&gt; - payed&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.educative.io/&#34; target=&#34;_blank&#34;&gt;Educative.io Python courses&lt;/a&gt; - payed&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://docs.python.org/3/tutorial/index.html&#34; target=&#34;_blank&#34;&gt;The Python Tutorial&lt;/a&gt; - free&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://realpython.com/&#34; target=&#34;_blank&#34;&gt;Real Python&lt;/a&gt; - free/payed&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://learnxinyminutes.com/docs/python/&#34; target=&#34;_blank&#34;&gt;Learn X in Y minutes&lt;/a&gt; - free&lt;/li&gt;&#xA;&lt;li&gt;Working on Python projects&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;There are a lot of other resources out there, each one with its own pros and cons. I suggest you to try some of them and find the one that fits you the best. Google is your friend!&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Java 17</title>
-      <link>https://vladflore.tech/posts/2022/07/java-17/</link>
-      <pubDate>Fri, 22 Jul 2022 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2022/07/java-17/</guid>
-      <description>&lt;h2 id=&#34;meet-java-17&#34;&gt;Meet Java 17&lt;/h2&gt;&#xA;&lt;p&gt;Java&amp;hellip; &lt;em&gt;what version is it?&lt;/em&gt; &amp;hellip;&lt;a href=&#34;https://openjdk.org/projects/jdk/17/&#34; target=&#34;_blank&#34;&gt;17&lt;/a&gt; reached GA on 14.09.2021 and brought a bunch&#xA;of new features, of which two are of more interest than the rest, at least for me. These are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;sealed classes&lt;/li&gt;&#xA;&lt;li&gt;pattern matching for switch (first preview)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Java 17 is a &lt;em&gt;LTS version&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;h3 id=&#34;sealed-classes&#34;&gt;Sealed classes&lt;/h3&gt;&#xA;&lt;p&gt;Sealed classes came in Java 17 via &lt;a href=&#34;https://openjdk.org/jeps/409&#34; target=&#34;_blank&#34;&gt;JEP 409&lt;/a&gt; and although the name says &amp;ldquo;sealed &lt;em&gt;classes&lt;/em&gt;&amp;rdquo;&#xA;, interfaces are also subject to being sealed. With this new feature, three new special keywords have been added to the&#xA;language: &lt;code&gt;sealed&lt;/code&gt;, &lt;code&gt;non-sealed&lt;/code&gt; and &lt;code&gt;permits&lt;/code&gt;. The basic idea is that sealed classes and interfaces restrict which&#xA;other classes or interfaces may extend or implement them. Let&amp;rsquo;s look at an example:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Learning Python as a Java developer - 1/</title>
-      <link>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/</link>
-      <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/</guid>
-      <description>&lt;h2 id=&#34;becoming-a-pythonista&#34;&gt;Becoming a Pythonista&lt;/h2&gt;&#xA;&lt;p&gt;If the term &amp;ldquo;pythonista&amp;rdquo; seems unusual or off-putting to you, rest assured that you are not the only one. Personally, I find the word somewhat amusing, and I had to &lt;a href=&#34;https://en.wiktionary.org/wiki/Pythonista&#34; target=&#34;_blank&#34;&gt;look it up&lt;/a&gt; initially. After all, &amp;ldquo;Python programmer&amp;rdquo; or &amp;ldquo;Python software engineer&amp;rdquo; would suffice, right? Regardless, this post is not about what we call individuals who work with Python; rather, it&amp;rsquo;s about sharing my experience of learning Python as a Java software engineer.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>About</title>
-      <link>https://vladflore.tech/about/</link>
-      <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/about/</guid>
-      <description>&lt;img src=&#34;https://vladflore.tech/images/me_official_no_background.png&#34;  alt=&#34;A picture of myself&#34;  class=&#34;center&#34;  style=&#34;border-radius: 8px; float: right; width: 200px; height: auto;&#34;  /&gt;&#xA;&#xA;&#xA;&lt;p&gt;Hi Internet,&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m Vlad — welcome to my little corner of the web where I share thoughts on &lt;strong&gt;Software Engineering&lt;/strong&gt;, &lt;strong&gt;Computer Science&lt;/strong&gt;, and life in general.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m not big on writing about myself, so let’s keep it short and sweet.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Q: Who are you, Vlad?&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; I&amp;rsquo;m a curious human currently living in Spain and working as a Software Engineer.&lt;br&gt;&#xA;I enjoy learning, solving problems, and diving into all things tech. I also have a passion for travel, discovering new places, and fitness.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git Animated 4</title>
-      <link>https://vladflore.tech/posts/2021/12/git-animated-4/</link>
-      <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2021/12/git-animated-4/</guid>
-      <description>&lt;p&gt;This is the forth video in the &lt;strong&gt;Git Animated&lt;/strong&gt; series.&#xA;If you are interested in the other ones, check the links below:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-1/&#34;&gt;part one&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-2/&#34;&gt;part two&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/09/git-animated-3/&#34;&gt;part three&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2026/03/git-animated-5/&#34;&gt;part five&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2026/09/git-animated-6/&#34;&gt;part six&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Another way of integrating changes of a branch into another one is by performing a &lt;strong&gt;rebase&lt;/strong&gt;. Instead of creating a new merge commit, as it happens when we &lt;strong&gt;merge&lt;/strong&gt; two histories, a rebase will change the base of a branch from one commit to another. Changing the base of a branch means changing the commit that branch was created from to be some other commit.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git Animated 3</title>
-      <link>https://vladflore.tech/posts/2021/09/git-animated-3/</link>
-      <pubDate>Sun, 05 Sep 2021 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2021/09/git-animated-3/</guid>
-      <description>&lt;p&gt;This is the third video in the &lt;strong&gt;Git Animated&lt;/strong&gt; series.&#xA;If you are interested in the other ones, check the links below:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-1/&#34;&gt;part one&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-2/&#34;&gt;part two&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/12/git-animated-4/&#34;&gt;part four&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2026/03/git-animated-5/&#34;&gt;part five&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2026/09/git-animated-6/&#34;&gt;part six&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;In this video we will merge two histories, &lt;code&gt;master&lt;/code&gt; and &lt;code&gt;feature&lt;/code&gt;, which have diverged at commit &lt;code&gt;M2&lt;/code&gt;.&#xA;As each of the branches got new commits from that divergent point, the feature branch cannot be integrated&#xA;into the master branch using a fast-forward approach.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git Animated 2</title>
-      <link>https://vladflore.tech/posts/2021/08/git-animated-2/</link>
-      <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2021/08/git-animated-2/</guid>
-      <description>&lt;p&gt;This is the second video in the &lt;strong&gt;Git Animated&lt;/strong&gt; series.&#xA;If you are interested in the other ones, check the links below:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-1/&#34;&gt;part one&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/09/git-animated-3/&#34;&gt;part three&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/12/git-animated-4/&#34;&gt;part four&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2026/03/git-animated-5/&#34;&gt;part five&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2026/09/git-animated-6/&#34;&gt;part six&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;In this video you will see what happens when we merge two histories, specifically merging &lt;code&gt;feature&lt;/code&gt; into &lt;code&gt;master&lt;/code&gt;. The thing to note here is that the merge is a fast-forward one, this is possible when there are no further commits on the branch we branched off of, after the point of creating the new branch (in our case on the branch &lt;code&gt;master&lt;/code&gt; after commit &lt;code&gt;M2&lt;/code&gt;).&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Git Animated 1</title>
-      <link>https://vladflore.tech/posts/2021/08/git-animated-1/</link>
-      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2021/08/git-animated-1/</guid>
-      <description>&lt;p&gt;Welcome to the first post and first video of the video series &lt;strong&gt;Git Animated&lt;/strong&gt;.&#xA;With this series I am trying to visually depict how different Git commands and actions look like, basically what happens behind them when you execute them.&lt;/p&gt;&#xA;&lt;p&gt;If you are interested in the other videos, please check the links below:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-2/&#34;&gt;part two&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/09/git-animated-3/&#34;&gt;part three&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/12/git-animated-4/&#34;&gt;part four&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2026/03/git-animated-5/&#34;&gt;part five&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2026/09/git-animated-6/&#34;&gt;part six&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Note: if you are a software engineer and have never heard of Git, then this post, and the future ones, are not for you&amp;hellip;and I am also sorry for you!&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>My first OSS PR</title>
-      <link>https://vladflore.tech/posts/2021/07/my-first-oss-pr/</link>
-      <pubDate>Thu, 15 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2021/07/my-first-oss-pr/</guid>
-      <description>&lt;p&gt;Software developers write code&amp;hellip;or at least they should, provided they can escape the long boring meetings which finish with no conclusions or, God forbid, with the next appointment&amp;hellip;to discuss more.&lt;/p&gt;&#xA;&lt;p&gt;When we monetize this action of writing code, we usually do it as part of a job, which comes with its pros and cons, and such we have to stay in the legal framework of that working contract. This legal framework might very well prevent us from contributing to Open Source Software(OSS), so make sure to read the fine print!&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Nine Months Later</title>
-      <link>https://vladflore.tech/posts/2021/05/nine-months-later/</link>
-      <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2021/05/nine-months-later/</guid>
-      <description>&lt;p&gt;&amp;hellip;if you were thinking about screaming little humans, I am afraid I will disappoint you and it might be that this post is not for you.&lt;/p&gt;&#xA;&lt;p&gt;If you are still reading, then you might be one of those people, who thought of something else what could have happened in a period of nine months. I salute you and encourage you to read on!&lt;/p&gt;&#xA;&lt;p&gt;2020 was a special year, for the world and for me as well, on one side we had that &lt;em&gt;end of the world kind of global infestation&lt;/em&gt; thing, on the other side I managed to make some changes, which hopefully will pay-off in the near future, dare saying some of them have already payed-off.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Java 11</title>
-      <link>https://vladflore.tech/posts/2020/09/java-11/</link>
-      <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2020/09/java-11/</guid>
-      <description>&lt;p&gt;But &lt;a href=&#34;https://www.oracle.com/java/technologies/javase-downloads.html&#34; target=&#34;_blank&#34;&gt;Java&lt;/a&gt; is already at version 15, why talk about 11 ?! Well,&amp;hellip;but before that, a note of caution:&#xA;considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this&#xA;is bigger than 15, it was 15 when I wrote this post!&lt;/p&gt;&#xA;&lt;p&gt;Now, let&amp;rsquo;s continue&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;Java 11 is the current (see note of caution above) LTS version, and will stay like that until Java 17 appears, which should be somewhere around the end of 2021, which is then the new LTS version (all of this hold true iff Oracle doesn&amp;rsquo;t change something in the whole release plan).&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Code Kata</title>
-      <link>https://vladflore.tech/posts/2020/06/code-kata/</link>
-      <pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2020/06/code-kata/</guid>
-      <description>&lt;p&gt;Lately I&amp;rsquo;ve been taking a keen interest in the idea of &lt;em&gt;writing code and getting better at it&lt;/em&gt;, and what I mean by this is not just&#xA;the fact of &lt;em&gt;writing code&lt;/em&gt; itself and &lt;em&gt;making it work&lt;/em&gt;, but also improving your &lt;em&gt;coding skills&lt;/em&gt;, and &lt;em&gt;the way you code&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;When we write code we tend to concentrate on the code itself, on solving the problem, not necessarily on the way we produce that code,&#xA;let alone how we navigate it&amp;hellip;one can always use the mouse right? If you are working professionally in a project you don&amp;rsquo;t always have the time to &lt;em&gt;think&lt;/em&gt; about&#xA;the way you write code. Writing it, making it work and getting it accepted (only &lt;strong&gt;clean code&lt;/strong&gt; should have the privilege of reaching the main development line) is enough of a challenge.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>SonarQube on AWS EC2</title>
-      <link>https://vladflore.tech/posts/2020/06/sonarqube-on-aws-ec2/</link>
-      <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2020/06/sonarqube-on-aws-ec2/</guid>
-      <description>&lt;p&gt;In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you&amp;rsquo;ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-motivation-behind&#34;&gt;The motivation behind&lt;/h2&gt;&#xA;&lt;p&gt;I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is. I also didn&amp;rsquo;t want to set up my own cloud, so I just sticked with AWS EC2 solution, despite the fact that it is not always for free.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Shell Magic</title>
-      <link>https://vladflore.tech/posts/2020/03/shell-magic/</link>
-      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2020/03/shell-magic/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE 1:&lt;/em&gt;&lt;/strong&gt; This page contains some shell &lt;em&gt;magic&lt;/em&gt; which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE 2:&lt;/em&gt;&lt;/strong&gt; Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.&#xA;Some of them might also require sudo access, so I am just going to assume that you know what you are doing. You have been warned!&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Hello World</title>
-      <link>https://vladflore.tech/posts/2020/02/hello-world/</link>
-      <pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2020/02/hello-world/</guid>
-      <description>&lt;p&gt;Hello Internet,&lt;/p&gt;&#xA;&lt;p&gt;so this is my first blog post, which I hope will be one of many more to come. This is more of a &lt;em&gt;hello world&lt;/em&gt; kind of post,&#xA;a way to cut my teeth into blogging and see if it&amp;rsquo;s something I would like doing.&lt;/p&gt;&#xA;&lt;p&gt;Should you wonder by now why &lt;em&gt;hello world&lt;/em&gt;,&#xA;well just ask someone who works in IT and has learned at least one programming language.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Software Craftsmanship</title>
-      <link>https://vladflore.tech/posts/2020/02/software-craftsmanship/</link>
-      <pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2020/02/software-craftsmanship/</guid>
-      <description>&lt;p&gt;Last year I had the opportunity to put together and hold a presentation at a conference organized&#xA;by the &lt;a href=&#34;https://www.virtual7.de/&#34; target=&#34;_blank&#34;&gt;company&lt;/a&gt; I am currently working for. As you might have guessed from the post&amp;rsquo;s title&#xA;it was a presentation about the &lt;strong&gt;craftsmanship&lt;/strong&gt; behind &lt;strong&gt;creating software&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Creating software is no easy task, creating software &lt;strong&gt;responsibly&lt;/strong&gt; is even harder, but this should not discourage one to do so.&lt;/p&gt;&#xA;&lt;p&gt;By adhering to some healthy coding habits one can and will write code that will not make others cringe when looking at it.&#xA;Remember, &lt;strong&gt;we write code for people not for computers&lt;/strong&gt;.&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>vlad·flore · tech</title>
+		<link>https://vladflore.tech/</link>
+		<description>Recent content on vlad·flore · tech</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Thu, 24 Sep 2026 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://vladflore.tech/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Agentic AI: Prompting</title>
+				<link>https://vladflore.tech/flashcards/agentic-ai-prompting/</link>
+				<pubDate>Thu, 24 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/flashcards/agentic-ai-prompting/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Agentic AI: Prompting</title>
+				<link>https://vladflore.tech/quizzes/agentic-ai-prompting/</link>
+				<pubDate>Fri, 18 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/quizzes/agentic-ai-prompting/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Agentic AI: Workflows</title>
+				<link>https://vladflore.tech/flashcards/agentic-ai-workflows/</link>
+				<pubDate>Thu, 24 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/flashcards/agentic-ai-workflows/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Agentic AI: Workflows</title>
+				<link>https://vladflore.tech/quizzes/agentic-ai-workflows/</link>
+				<pubDate>Fri, 18 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/quizzes/agentic-ai-workflows/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Agentic AI: Tools, Memory &amp; RAG</title>
+				<link>https://vladflore.tech/flashcards/agentic-ai-tools-memory-rag/</link>
+				<pubDate>Thu, 24 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/flashcards/agentic-ai-tools-memory-rag/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Agentic AI: Tools, Memory &amp; RAG</title>
+				<link>https://vladflore.tech/quizzes/agentic-ai-tools-memory-rag/</link>
+				<pubDate>Fri, 18 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/quizzes/agentic-ai-tools-memory-rag/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Agentic AI: Multi-Agent Systems</title>
+				<link>https://vladflore.tech/flashcards/agentic-ai-multi-agent-systems/</link>
+				<pubDate>Thu, 24 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/flashcards/agentic-ai-multi-agent-systems/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Agentic AI: Multi-Agent Systems</title>
+				<link>https://vladflore.tech/quizzes/agentic-ai-multi-agent-systems/</link>
+				<pubDate>Fri, 18 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/quizzes/agentic-ai-multi-agent-systems/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Git</title>
+				<link>https://vladflore.tech/flashcards/git/</link>
+				<pubDate>Mon, 21 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/flashcards/git/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>How Git Actually Works: A Tour of Git Internals</title>
+				<link>https://vladflore.tech/posts/2026/09/how-git-actually-works-a-tour-of-git-internals/</link>
+				<pubDate>Mon, 21 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2026/09/how-git-actually-works-a-tour-of-git-internals/</guid>
+				<description>&lt;h2 id=&#34;meet-git-from-10000-feet&#34;&gt;Meet git, from 10,000 feet&lt;/h2&gt;&#xA;&lt;p&gt;Git is not a diff tool. It doesn&amp;rsquo;t store &amp;ldquo;what changed between commit A and commit B&amp;rdquo; and reconstruct history from a chain of patches. Every commit is a full snapshot of your project, and git figures out diffs on demand, for display purposes only, when you ask for them. That single idea, snapshots instead of diffs, is why almost everything else in git works the way it does: branching is cheap, history never has to &amp;ldquo;replay&amp;rdquo; anything to check out an old version, and, as you&amp;rsquo;ll see below, git can implement its entire history as nothing more than a tiny key-value store plus a handful of pointers.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Git</title>
+				<link>https://vladflore.tech/quizzes/git/</link>
+				<pubDate>Thu, 17 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/quizzes/git/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Git Filter-Repo: Rewriting History the Right Way</title>
+				<link>https://vladflore.tech/posts/2026/09/git-filter-repo-rewriting-history-the-right-way/</link>
+				<pubDate>Thu, 17 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2026/09/git-filter-repo-rewriting-history-the-right-way/</guid>
+				<description>&lt;h2 id=&#34;meet-git-filter-repo&#34;&gt;Meet &lt;code&gt;git filter-repo&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;You committed a &lt;code&gt;.env&lt;/code&gt; file three months ago. Or hardcoded an API key that made it into a dozen commits before anyone noticed. Or a teammate&amp;rsquo;s email is wrong across the entire log because their laptop was misconfigured on day one. &lt;code&gt;git rm&lt;/code&gt; or a new commit doesn&amp;rsquo;t fix any of this, the bad content is still sitting in every commit that ever touched it, reachable by anyone with the repo.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Git Animated 6</title>
+				<link>https://vladflore.tech/posts/2026/09/git-animated-6/</link>
+				<pubDate>Wed, 16 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2026/09/git-animated-6/</guid>
+				<description>&lt;p&gt;This is the sixth video in the &lt;strong&gt;Git Animated&lt;/strong&gt; series.&#xA;If you are interested in the other ones, check the links below:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-1/&#34;&gt;part one&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-2/&#34;&gt;part two&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/09/git-animated-3/&#34;&gt;part three&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/12/git-animated-4/&#34;&gt;part four&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2026/03/git-animated-5/&#34;&gt;part five&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Every previous video in this series stayed at the porcelain level: branches, merges, rebase, cherry-pick, all the commands you use day to day. This one goes one level deeper and shows what a commit actually &lt;em&gt;is&lt;/em&gt; once you strip away the branch names and the pretty log graph.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Git Reflog: The Undo Button You Didn&#39;t Know You Had</title>
+				<link>https://vladflore.tech/posts/2026/09/git-reflog-the-undo-button-you-didnt-know-you-had/</link>
+				<pubDate>Tue, 15 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2026/09/git-reflog-the-undo-button-you-didnt-know-you-had/</guid>
+				<description>&lt;h2 id=&#34;meet-git-reflog&#34;&gt;Meet &lt;code&gt;git reflog&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;You run &lt;code&gt;git reset --hard&lt;/code&gt; one commit too far. Or you &lt;code&gt;git branch -D&lt;/code&gt; a branch you were sure was already merged, and it wasn&amp;rsquo;t. The commit history you just lost feels gone for good, &lt;code&gt;git log&lt;/code&gt; doesn&amp;rsquo;t show it anymore.&lt;/p&gt;&#xA;&lt;p&gt;It isn&amp;rsquo;t gone. Git records every place &lt;code&gt;HEAD&lt;/code&gt; and your branches have pointed to, commits, resets, checkouts, rebases, branch deletions, all of it, in the reflog. As long as Git hasn&amp;rsquo;t garbage-collected the underlying objects (default grace period is 90 days), you can get your commit back.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Git Worktrees: Work on Two Branches at Once</title>
+				<link>https://vladflore.tech/posts/2026/09/git-worktrees-work-on-two-branches-at-once/</link>
+				<pubDate>Sun, 13 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2026/09/git-worktrees-work-on-two-branches-at-once/</guid>
+				<description>&lt;h2 id=&#34;meet-git-worktree&#34;&gt;Meet &lt;code&gt;git worktree&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;You&amp;rsquo;re mid-feature, working tree is dirty, half-finished file sitting there uncommitted. Then a bug report lands against &lt;code&gt;main&lt;/code&gt;. The usual way to deal with this:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git stash&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git checkout main&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# fix the bug&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git checkout feature/whatever&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git stash pop&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It works, but it&amp;rsquo;s a dance, and it gets worse the more files you&amp;rsquo;ve touched. &lt;code&gt;git worktree&lt;/code&gt; skips the dance entirely: instead of switching branches inside one working directory, you get a &lt;em&gt;second&lt;/em&gt; working directory, backed by the same repository, checked out to a different branch. Your dirty feature branch stays exactly as you left it while you fix the bug somewhere else.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Git Animated 5</title>
+				<link>https://vladflore.tech/posts/2026/03/git-animated-5/</link>
+				<pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2026/03/git-animated-5/</guid>
+				<description>&lt;p&gt;This is the fifth video in the &lt;strong&gt;Git Animated&lt;/strong&gt; series.&#xA;If you are interested in the other ones, check the links below:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-1/&#34;&gt;part one&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-2/&#34;&gt;part two&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/09/git-animated-3/&#34;&gt;part three&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/12/git-animated-4/&#34;&gt;part four&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2026/09/git-animated-6/&#34;&gt;part six&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;In this video we look at &lt;strong&gt;cherry-pick&lt;/strong&gt;, a powerful Git command that lets you apply the changes introduced by a specific commit from one branch onto another, without merging or rebasing the entire branch. Think of it as picking a single commit — like a cherry — and grafting it onto a different branch.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Certifications</title>
+				<link>https://vladflore.tech/certs/</link>
+				<pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/certs/</guid>
+				<description>&lt;p&gt;This page lists my certifications with direct links to each credential.&lt;/p&gt;&#xA;&lt;div class=&#34;cert-grid&#34;&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://www.udacity.com/certificate/e/b68faf6a-6a47-11f1-85f4-cf5b2b7bffa8&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/udacity-agentic-ai.png&#34; alt=&#34;Agentic AI Nanodegree&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://www.udacity.com/certificate/e/b68faf6a-6a47-11f1-85f4-cf5b2b7bffa8&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Agentic AI Nanodegree&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;September 2026&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/article&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://learn.deeplearning.ai/certificates/c645404b-a8fc-49ee-ad77-26d9bfe8244b?usp=sharing&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/certificate.png&#34; alt=&#34;Machine Learning Specialization&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://learn.deeplearning.ai/certificates/c645404b-a8fc-49ee-ad77-26d9bfe8244b?usp=sharing&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Machine Learning Specialization&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;April 2026&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/article&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://besa.techcreator.io/certification/florevlad19411/agentic-ai-on-aws-besa-398323&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/certificate-besa.png&#34; alt=&#34;Agentic AI on AWS&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://besa.techcreator.io/certification/florevlad19411/agentic-ai-on-aws-besa-398323&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Agentic AI on AWS&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;March 2026&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/article&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://www.credly.com/badges/f9baa4ff-a649-43e3-830b-529137d4ba75/public_url&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/aws-knowledge-cloud-essentials-training-badge.png&#34; alt=&#34;AWS Knowledge: Cloud Essentials - Training Badge&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://www.credly.com/badges/f9baa4ff-a649-43e3-830b-529137d4ba75/public_url&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;AWS Knowledge: Cloud Essentials - Training Badge&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;March 2026&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/article&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://learn.deeplearning.ai/certificates/53f345a0-e911-40a3-bc21-d9289b30ce98&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/mls-c2-cert.png&#34; alt=&#34;Machine Learning Specialization: Advanced Learning Algorithms&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://learn.deeplearning.ai/certificates/53f345a0-e911-40a3-bc21-d9289b30ce98&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Machine Learning Specialization: Advanced Learning Algorithms&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;March 2026&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/article&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://www.testdome.com/certificates/309790b8aa824333983f30be3257e1a4&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/testdome-java.png&#34; alt=&#34;Java TestDome Certificate&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://www.testdome.com/certificates/309790b8aa824333983f30be3257e1a4&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Java TestDome Certificate&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;February 2026&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/article&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://learn.deeplearning.ai/accomplishments/8e4a49b9-8383-468f-89a5-27079ebe51a6&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/dlai-congrats.png&#34; alt=&#34;Document AI: From OCR to Agentic Doc Extraction&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://learn.deeplearning.ai/accomplishments/8e4a49b9-8383-468f-89a5-27079ebe51a6&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Document AI: From OCR to Agentic Doc Extraction&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;February 2026&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/article&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://static.frontendmasters.com/ud/c/3c8f9e289e/wUbVJunCnV/spring-boot.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/enterprise-java-with-spring-boot.png&#34; alt=&#34;Enterprise Java with Spring Boot&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://static.frontendmasters.com/ud/c/3c8f9e289e/wUbVJunCnV/spring-boot.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Enterprise Java with Spring Boot&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;November 2025&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/article&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://learn.deeplearning.ai/certificates/5fa48a42-9945-4818-a246-9a47938d3b7e&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/mls-c1-cert.png&#34; alt=&#34;Machine Learning Specialization: Supervised Machine Learning - Regression and Classification&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://learn.deeplearning.ai/certificates/5fa48a42-9945-4818-a246-9a47938d3b7e&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Machine Learning Specialization: Supervised Machine Learning - Regression and Classification&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;November 2025&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/article&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://learn.deeplearning.ai/certificates/dd80005b-d208-4cb4-a8a4-f855461146f9&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/genai-apps.png&#34; alt=&#34;Fast Prototyping of GenAI Apps with Streamlit&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://learn.deeplearning.ai/certificates/dd80005b-d208-4cb4-a8a4-f855461146f9&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Fast Prototyping of GenAI Apps with Streamlit&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;October 2025&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/article&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://learn.deeplearning.ai/certificates/d5177448-f3ed-4a0d-9204-614c305a704a&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/agentic-ai.png&#34; alt=&#34;Agentic AI&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://learn.deeplearning.ai/certificates/d5177448-f3ed-4a0d-9204-614c305a704a&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Agentic AI&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;October 2025&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/article&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://www.coursera.org/account/accomplishments/certificate/AXUFLLHCAEFD&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/rag.png&#34; alt=&#34;Retrieval Augmented Generation (RAG)&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://www.coursera.org/account/accomplishments/certificate/AXUFLLHCAEFD&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Retrieval Augmented Generation (RAG)&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;October 2025&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/article&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://www.credly.com/badges/cec3187b-fc58-476b-a2cc-f3d7f9f33077&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/spring-cert.png&#34; alt=&#34;Spring Certified Professional 2024 [v2]&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://www.credly.com/badges/cec3187b-fc58-476b-a2cc-f3d7f9f33077&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Spring Certified Professional 2024 [v2]&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;September 2025&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/article&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://www.coursera.org/account/accomplishments/verify/G9K37KXGMUCK&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/genai-llm.png&#34; alt=&#34;Generative AI with Large Language Models&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://www.coursera.org/account/accomplishments/verify/G9K37KXGMUCK&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Generative AI with Large Language Models&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;July 2025&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/article&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://certificate.datatalks.club/ml-zoomcamp/2024/8a544aac437ae33c0a6ff12c8547ac2f9d1bb859.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/mlzoomcamp.png&#34; alt=&#34;Machine Learning Zoomcamp&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://certificate.datatalks.club/ml-zoomcamp/2024/8a544aac437ae33c0a6ff12c8547ac2f9d1bb859.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Machine Learning Zoomcamp&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;February 2025&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/article&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://www.credly.com/badges/4ca2a2bc-89da-4609-874b-a8157eed61bb&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/py.png&#34; alt=&#34;Certified Entry-Level Python Programmer&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://www.credly.com/badges/4ca2a2bc-89da-4609-874b-a8157eed61bb&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Certified Entry-Level Python Programmer&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;March 2023&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/article&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://www.linkedin.com/in/vladflore/overlay/Certifications/2106108973/treasury/?profileId=ACoAAAiB5nQBoWmmCJeHwKPYfZ7CaSXFj7-_uKw&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/b1-de.jpeg&#34; alt=&#34;Zertifikat telc Deutsch B1&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://www.linkedin.com/in/vladflore/overlay/Certifications/2106108973/treasury/?profileId=ACoAAAiB5nQBoWmmCJeHwKPYfZ7CaSXFj7-_uKw&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Zertifikat telc Deutsch B1&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;November 2022&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/article&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://www.udacity.com/certificate/e/42a2b900-2c34-11eb-a25f-5f3a821fbcd5&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/udacity-cloud-developer.png&#34; alt=&#34;Cloud Developer Nanodegree&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://www.udacity.com/certificate/e/42a2b900-2c34-11eb-a25f-5f3a821fbcd5&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Cloud Developer Nanodegree&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;November 2021&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/article&gt;&lt;article class=&#34;cert-card&#34;&gt;&#xA;    &lt;a class=&#34;cert-thumb-link&#34; href=&#34;https://www.credly.com/badges/23a81167-a908-437d-aec4-87f739fdc9c3&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;&#xA;      &lt;img class=&#34;cert-thumb&#34; src=&#34;https://vladflore.tech/images/ocp8.png&#34; alt=&#34;Oracle Certified Professional, Java SE 8 Programmer&#34; loading=&#34;lazy&#34; /&gt;&#xA;    &lt;/a&gt;&#xA;    &lt;div class=&#34;cert-meta&#34;&gt;&#xA;      &lt;a class=&#34;cert-title&#34; href=&#34;https://www.credly.com/badges/23a81167-a908-437d-aec4-87f739fdc9c3&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Oracle Certified Professional, Java SE 8 Programmer&lt;/a&gt;&#xA;      &lt;p class=&#34;cert-issued&#34;&gt;June 2020&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/article&gt;&lt;/div&gt;</description>
+			</item>
+			<item>
+				<title>Algorithms Narrated</title>
+				<link>https://vladflore.tech/posts/2026/02/algorithms-narrated/</link>
+				<pubDate>Fri, 06 Feb 2026 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2026/02/algorithms-narrated/</guid>
+				<description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Building on the &lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-1/&#34;&gt;Git Animated&lt;/a&gt; series, I&amp;rsquo;ve started a new project called &amp;ldquo;Algorithms Narrated&amp;rdquo;. This series presents solutions to various algorithmic problems—think &lt;em&gt;LeetCode&lt;/em&gt;—by narrating the thought process and steps involved in solving them.&lt;/p&gt;&#xA;&lt;h2 id=&#34;about-the-series&#34;&gt;About The Series&lt;/h2&gt;&#xA;&#xA;    &lt;img src=&#34;https://vladflore.tech/images/algorithms-narrated.jpeg&#34;  alt=&#34;Algorithms Narrated&#34;  class=&#34;left&#34;  style=&#34;border-radius: 16px;&#34;  /&gt;&#xA;&#xA;&#xA;&lt;p&gt;Each video shows the Java code and problem statement together with examples and the time complexity of the solution.&lt;/p&gt;&#xA;&lt;p&gt;All videos are added to the &lt;a href=&#34;https://www.youtube.com/playlist?list=PLgrzxhDrZj_KN3Tu_o9RaMqu9XOfmicps&#34; target=&#34;_blank&#34;&gt;Algorithms Narrated playlist&lt;/a&gt; on my &lt;a href=&#34;https://www.youtube.com/@vladflore&#34; target=&#34;_blank&#34;&gt;YouTube channel&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Subscribe to stay updated, and if you find them helpful, please like and share the series.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Compiling and Running a Maven Project with Different Java Versions</title>
+				<link>https://vladflore.tech/posts/2026/01/compiling-and-running-a-maven-project-with-different-java-versions/</link>
+				<pubDate>Tue, 13 Jan 2026 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2026/01/compiling-and-running-a-maven-project-with-different-java-versions/</guid>
+				<description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s explore how to use multiple versions of Java in a Maven project By this, I mean seemingly &lt;em&gt;compiling&lt;/em&gt; and &lt;em&gt;running&lt;/em&gt; a project with different Java versions.&lt;/p&gt;&#xA;&lt;p&gt;I will be using Java 17, 21 and 25 for this demo. Make sure you have them installed on your machine. You can use &lt;a href=&#34;https://sdkman.io/&#34; target=&#34;_blank&#34;&gt;SDKMAN!&lt;/a&gt; to manage multiple Java versions easily. Additionally, ensure &lt;a href=&#34;https://maven.apache.org/&#34; target=&#34;_blank&#34;&gt;Maven&lt;/a&gt; is installed.&lt;/p&gt;&#xA;&lt;p&gt;As always, there are multiple ways to achieve this. Here, I will demonstrate one approach using &lt;a href=&#34;https://maven.apache.org/guides/mini/guide-using-toolchains.html&#34; target=&#34;_blank&#34;&gt;Maven Toolchains&lt;/a&gt;.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Git bisect</title>
+				<link>https://vladflore.tech/posts/2026/01/git-bisect/</link>
+				<pubDate>Thu, 08 Jan 2026 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2026/01/git-bisect/</guid>
+				<description>&lt;h2 id=&#34;meet-git-bisect&#34;&gt;Meet &lt;code&gt;git bisect&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;When you have a large codebase and a bug has been introduced somewhere in the history, finding the exact commit that introduced the bug can be challenging. This is where &lt;code&gt;git bisect&lt;/code&gt; comes in handy. It automates the process of binary searching through your commit history to find the offending commit.&lt;/p&gt;&#xA;&lt;h3 id=&#34;how-it-works&#34;&gt;How it works&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;start the bisect process by running &lt;code&gt;git bisect start&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;find a known bad commit (the one with the bug) and mark it as bad using &lt;code&gt;git bisect bad &amp;lt;bad-commit-hash&amp;gt;&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;find a known good commit (the one without the bug) and mark it as good using &lt;code&gt;git bisect good &amp;lt;good-commit-hash&amp;gt;&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Git will now checkout a commit halfway between the good and bad commits. You need to test this commit to see if the bug is present&lt;/li&gt;&#xA;&lt;li&gt;if the bug is present, mark the commit as bad using &lt;code&gt;git bisect bad&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;if the bug is not present, mark the commit as good using &lt;code&gt;git bisect good&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;repeat the testing and marking process until Git narrows down to the exact commit that introduced the bug&lt;/li&gt;&#xA;&lt;li&gt;once the bad commit is found, you can end the bisect process by running &lt;code&gt;git bisect reset&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This might sound a bit tedious, but it can save you a lot of time compared to manually checking each commit. Additionally, you can automate the testing and marking process using &lt;code&gt;git bisect run &amp;lt;script&amp;gt;&lt;/code&gt;, where &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; is a script that tests the code and returns an exit code indicating whether the commit is good or bad.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Java 25</title>
+				<link>https://vladflore.tech/posts/2026/01/java-25/</link>
+				<pubDate>Wed, 07 Jan 2026 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2026/01/java-25/</guid>
+				<description>&lt;h2 id=&#34;meet-java-25&#34;&gt;Meet Java 25&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://openjdk.org/projects/jdk/25/&#34; target=&#34;_blank&#34;&gt;JDK 25&lt;/a&gt; reached General Availability on 16 September 2025.&lt;/p&gt;&#xA;&lt;p&gt;Java 25 continues the trend toward safer concurrency, reduced boilerplate, and better ergonomics—especially for modern, cloud-native and virtual-thread-heavy applications.&lt;/p&gt;&#xA;&lt;p&gt;Some of the most notable features include:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Scoped Values&lt;/li&gt;&#xA;&lt;li&gt;Module Import Declarations&lt;/li&gt;&#xA;&lt;li&gt;Compact Source Files and Instance Main Methods&lt;/li&gt;&#xA;&lt;li&gt;Flexible Constructor Bodies&lt;/li&gt;&#xA;&lt;li&gt;Compact Object Headers&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;There are many more features and improvements in this release, but in this post, I will highlight just a few, for a comprehensive list, check out the &lt;a href=&#34;https://openjdk.org/projects/jdk/25/&#34; target=&#34;_blank&#34;&gt;official JDK 25 release notes&lt;/a&gt;.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Let&#39;s make some calls</title>
+				<link>https://vladflore.tech/posts/2025/05/lets-make-some-calls/</link>
+				<pubDate>Sat, 03 May 2025 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2025/05/lets-make-some-calls/</guid>
+				<description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;One of the most important things in programming is making HTTP calls to talk with some API. Java has very good support for this, and in this post, we will see how to call some HTTP endpoints using Java&amp;rsquo;s &lt;code&gt;HttpClient&lt;/code&gt; class. This class is part of the &lt;em&gt;Java 11&lt;/em&gt; standard library, so you don&amp;rsquo;t need any external dependencies to use it.&lt;/p&gt;&#xA;&lt;h2 id=&#34;a-closer-look-at-the-http-client&#34;&gt;A closer look at the HTTP client&lt;/h2&gt;&#xA;&lt;p&gt;Besides the &lt;code&gt;HttpClient&lt;/code&gt; class, there are a few other classes that we will use in this post:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Java &gt; 17 &amp;&amp; &lt;= 24</title>
+				<link>https://vladflore.tech/posts/2025/04/java-17-24/</link>
+				<pubDate>Tue, 29 Apr 2025 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2025/04/java-17-24/</guid>
+				<description>&lt;h2 id=&#34;meet-java-24&#34;&gt;Meet Java 24&lt;/h2&gt;&#xA;&lt;p&gt;Java 24 is &lt;em&gt;not&lt;/em&gt; a &lt;em&gt;LTS version&lt;/em&gt;. The last LTS version was Java 21, released in September 2023.&lt;/p&gt;&#xA;&lt;p&gt;In this post, I will tackle some of the new features and improvements that Java 24 brings to the table. Note that some of them might have been introduced in previous versions, but for the sake of completeness, I will include them here.&lt;/p&gt;&#xA;&lt;p&gt;In my &lt;a href=&#34;https://vladflore.tech/posts/2022/07/java-17/&#34;&gt;post about Java 17&lt;/a&gt;, I mentioned some of the noteworthy features introduced in that version, in this post I will focus on the new features introduced since then.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Machine Learning Zoomcamp: The Rest</title>
+				<link>https://vladflore.tech/posts/2025/04/machine-learning-zoomcamp-the-rest/</link>
+				<pubDate>Fri, 18 Apr 2025 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2025/04/machine-learning-zoomcamp-the-rest/</guid>
+				<description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;This post covers the rest of the modules of the Machine Learning Zoomcamp, including the midterm and the two capstone projects.&lt;/p&gt;&#xA;&lt;p&gt;Below are the posts for the previous modules:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/&#34;&gt;Machine Learning Zoomcamp Module 1&lt;/a&gt; - points received: &lt;em&gt;9&lt;/em&gt; (&lt;em&gt;7&lt;/em&gt;/7 for questions + &lt;em&gt;2&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/&#34;&gt;Machine Learning Zoomcamp Module 2&lt;/a&gt; - points received: &lt;em&gt;5&lt;/em&gt; (&lt;em&gt;5&lt;/em&gt;/6 for questions + &lt;em&gt;0&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/&#34;&gt;Machine Learning Zoomcamp Module 3&lt;/a&gt; - points received: &lt;em&gt;7&lt;/em&gt; (&lt;em&gt;6&lt;/em&gt;/6 for questions + &lt;em&gt;1&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-4-recap/&#34;&gt;Machine Learning Zoomcamp Module 4&lt;/a&gt; - points received: &lt;em&gt;6&lt;/em&gt; (&lt;em&gt;6&lt;/em&gt;/6 for questions + &lt;em&gt;0&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2025/01/machine-learning-zoomcamp-module-5-recap/&#34;&gt;Machine Learning Zoomcamp Module 5&lt;/a&gt; - points received: &lt;em&gt;6&lt;/em&gt; (&lt;em&gt;6&lt;/em&gt;/6 for questions + &lt;em&gt;0&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;module-6---decision-trees-and-ensemble-learning&#34;&gt;Module 6 - Decision Trees and Ensemble Learning&lt;/h2&gt;&#xA;&lt;p&gt;Points received: &lt;em&gt;6&lt;/em&gt;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Machine Learning Zoomcamp: Module 5 Recap</title>
+				<link>https://vladflore.tech/posts/2025/01/machine-learning-zoomcamp-module-5-recap/</link>
+				<pubDate>Sun, 26 Jan 2025 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2025/01/machine-learning-zoomcamp-module-5-recap/</guid>
+				<description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;This post is a recap of the Machine Learning Zoomcamp Module 5.&lt;/p&gt;&#xA;&lt;p&gt;Below are the posts for the previous modules:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/&#34;&gt;Machine Learning Zoomcamp Module 1&lt;/a&gt; - points received: &lt;em&gt;9&lt;/em&gt; (&lt;em&gt;7&lt;/em&gt;/7 for questions + &lt;em&gt;2&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/&#34;&gt;Machine Learning Zoomcamp Module 2&lt;/a&gt; - points received: &lt;em&gt;5&lt;/em&gt; (&lt;em&gt;5&lt;/em&gt;/6 for questions + &lt;em&gt;0&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/&#34;&gt;Machine Learning Zoomcamp Module 3&lt;/a&gt; - points received: &lt;em&gt;7&lt;/em&gt; (&lt;em&gt;6&lt;/em&gt;/6 for questions + &lt;em&gt;1&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-4-recap/&#34;&gt;Machine Learning Zoomcamp Module 4&lt;/a&gt; - points received: &lt;em&gt;6&lt;/em&gt; (&lt;em&gt;6&lt;/em&gt;/6 for questions + &lt;em&gt;0&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;the-gist-of-the-module&#34;&gt;The gist of the module&lt;/h2&gt;&#xA;&lt;p&gt;This module is all about deploying the machine learning model we built in the previous modules. Specifically, we&amp;rsquo;ll save the model to a file and then load it and expose it as a web service that can be consumed by others.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Machine Learning Zoomcamp: Module 4 Recap</title>
+				<link>https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-4-recap/</link>
+				<pubDate>Wed, 11 Dec 2024 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-4-recap/</guid>
+				<description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;This post is a recap of the Machine Learning Zoomcamp Module 4.&lt;/p&gt;&#xA;&lt;p&gt;Below are the posts for the previous modules:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/&#34;&gt;Machine Learning Zoomcamp Module 1&lt;/a&gt; - points received: &lt;em&gt;9&lt;/em&gt; (&lt;em&gt;7&lt;/em&gt;/7 for questions + &lt;em&gt;2&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/&#34;&gt;Machine Learning Zoomcamp Module 2&lt;/a&gt; - points received: &lt;em&gt;5&lt;/em&gt; (&lt;em&gt;5&lt;/em&gt;/6 for questions + &lt;em&gt;0&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/&#34;&gt;Machine Learning Zoomcamp Module 3&lt;/a&gt; - points received: &lt;em&gt;7&lt;/em&gt; (&lt;em&gt;6&lt;/em&gt;/6 for questions + &lt;em&gt;1&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;the-gist-of-the-module&#34;&gt;The gist of the module&lt;/h2&gt;&#xA;&lt;p&gt;This module focuses on the evaluation of classification models. It covers various metrics used for this purpose, including &lt;em&gt;accuracy&lt;/em&gt;, &lt;em&gt;precision&lt;/em&gt;, &lt;em&gt;recall&lt;/em&gt;, &lt;em&gt;F1 score&lt;/em&gt;, and &lt;em&gt;ROC-AUC&lt;/em&gt;. The lessons build upon the dataset and model from the previous module, which involves predicting customer churn. The objective is to determine whether a customer is likely to leave or remain, using a logistic regression model.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Machine Learning Zoomcamp: Module 3 Recap</title>
+				<link>https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/</link>
+				<pubDate>Fri, 06 Dec 2024 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2024/12/machine-learning-zoomcamp-module-3-recap/</guid>
+				<description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;This post is a recap of the Machine Learning Zoomcamp Module 3.&lt;/p&gt;&#xA;&lt;p&gt;Below are the posts for the previous modules:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/&#34;&gt;Machine Learning Zoomcamp Module 1&lt;/a&gt; - points received: &lt;em&gt;9&lt;/em&gt; (&lt;em&gt;7&lt;/em&gt;/7 for questions + &lt;em&gt;2&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/&#34;&gt;Machine Learning Zoomcamp Module 2&lt;/a&gt; - points received: &lt;em&gt;5&lt;/em&gt; (&lt;em&gt;5&lt;/em&gt;/6 for questions + &lt;em&gt;0&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;For module 2 I managed to score 5 points out of 6 for the questions. While the code and the result I got were correct, I interpreted the result incorrectly, choosing the wrong answer. Oh well, it happens&amp;hellip;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Machine Learning Zoomcamp: Module 2 Recap</title>
+				<link>https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/</link>
+				<pubDate>Mon, 14 Oct 2024 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2024/10/machine-learning-zoomcamp-module-2-recap/</guid>
+				<description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;In this post I will make a recap of the Machine Learning Zoomcamp Module 2.&lt;/p&gt;&#xA;&lt;p&gt;The posts for the previous modules, together with the points I received for each module&amp;rsquo;s homework, are listed below:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/&#34;&gt;Machine Learning Zoomcamp Module 1&lt;/a&gt; - points received: &lt;em&gt;9&lt;/em&gt; (&lt;em&gt;7&lt;/em&gt;/7 for questions + &lt;em&gt;2&lt;/em&gt; bonus for learning in public)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;the-gist-of-the-module&#34;&gt;The gist of the module&lt;/h2&gt;&#xA;&lt;p&gt;The problem tackled in this module was the prediction of car prices based on a dataset containing car features.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Machine Learning Zoomcamp: Module 1 Recap</title>
+				<link>https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/</link>
+				<pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2024/09/machine-learning-zoomcamp-module-1-recap/</guid>
+				<description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://vladflore.tech/posts/2024/09/learning...-machine-learning/&#34;&gt;one of my previous posts&lt;/a&gt;, I mentioned that I was taking the &lt;a href=&#34;https://datatalks.club/blog/guide-to-free-online-courses-at-datatalks-club.html#machine-learning-zoomcamp&#34; target=&#34;_blank&#34;&gt;Machine Learning Zoomcamp&lt;/a&gt; course. I have completed the first module of the course, and I wanted to share a recap of what I learned. In addition to that, I&amp;rsquo;d go one step further and add some extra bits of information here and there.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-machine-learning&#34;&gt;What is Machine Learning?&lt;/h2&gt;&#xA;&lt;p&gt;To answer this, we need to understand what &lt;em&gt;learning&lt;/em&gt; is. Learning is the process of acquiring knowledge or skills through experience, study, or being taught. A simple Google search would give you this definition. &lt;a href=&#34;https://en.wikipedia.org/wiki/Learning&#34; target=&#34;_blank&#34;&gt;Wikipedia&lt;/a&gt; defines &lt;em&gt;learning&lt;/em&gt; similarly, adding that &amp;ldquo;[&amp;hellip;]the ability to learn is possessed by humans, non-human animals, and &lt;em&gt;some machines&lt;/em&gt;[&amp;hellip;]&amp;rdquo;. When learning is done by machines, we refer to it as &lt;em&gt;Machine Learning&lt;/em&gt; (ML). In simple terms, ML is the process of teaching a computer to learn from &lt;em&gt;data&lt;/em&gt;. The computer uses the data to identify patterns and make decisions without being explicitly programmed to do so.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Pandas</title>
+				<link>https://vladflore.tech/posts/2024/09/pandas/</link>
+				<pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2024/09/pandas/</guid>
+				<description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://pandas.pydata.org/&#34; target=&#34;_blank&#34;&gt;Pandas&lt;/a&gt; is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language. It was created by Wes McKinney in 2008.&lt;/p&gt;&#xA;&lt;p&gt;The name has nothing to do with the cute animal, it&amp;rsquo;s derived from the term &amp;ldquo;panel data&amp;rdquo;, an econometrics term for data sets that include observations over multiple time periods for the same individuals. It is also a play on the phrase &amp;ldquo;Python data analysis&amp;rdquo;.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Learning... Machine Learning</title>
+				<link>https://vladflore.tech/posts/2024/09/learning...-machine-learning/</link>
+				<pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2024/09/learning...-machine-learning/</guid>
+				<description>&lt;h2 id=&#34;the-whys&#34;&gt;The Whys&lt;/h2&gt;&#xA;&lt;p&gt;The time has come. I will learn Machine Learning, or at least, I&amp;rsquo;ll be trying my best to do so. You might now ask yourself, &lt;em&gt;why machine learning?&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Nowadays, Machine Learning(ML), is on a lot of people&amp;rsquo;s minds, especially after the rise of the LLMs (Large Language Models).&lt;/p&gt;&#xA;&lt;p&gt;To not know about ML is to be left behind. I want to be part of the future, and I want to be able to understand the technology that will shape it.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Portfolio</title>
+				<link>https://vladflore.tech/portfolio/</link>
+				<pubDate>Sat, 07 Sep 2024 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/portfolio/</guid>
+				<description>&lt;h2 id=&#34;about-this-portfolio&#34;&gt;About This Portfolio&lt;/h2&gt;&#xA;&lt;p&gt;Creating a portfolio is a great way to showcase your work and interests. It can also be a strong motivator to keep learning and building once you get started. Not only does it help you highlight your skills and experience to potential employers or clients, but it also helps you stand out from the crowd.&lt;/p&gt;&#xA;&lt;p&gt;That said, building a portfolio can feel daunting — especially when you&amp;rsquo;re just starting out.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Life update</title>
+				<link>https://vladflore.tech/posts/2024/09/life-update/</link>
+				<pubDate>Fri, 06 Sep 2024 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2024/09/life-update/</guid>
+				<description>&lt;p&gt;It&amp;rsquo;s been 20 months since I moved to another country, and life has been quite interesting since then.&lt;/p&gt;&#xA;&lt;p&gt;To give some context, I left Germany at the beginning of January 2023 and moved to Barcelona, Spain. In other words, I swapped &lt;em&gt;Bratwurst&lt;/em&gt;, &lt;em&gt;Bretzel&lt;/em&gt;, and cold weather for &lt;em&gt;jamón&lt;/em&gt;, &lt;em&gt;crema catalana&lt;/em&gt;, and warm weather. This is, of course, an oversimplification, but it&amp;rsquo;s still accurate.&lt;/p&gt;&#xA;&lt;p&gt;As you may know, moving to a new country is not easy, even with help. Because of this, the first few weeks and even months were a bit hectic and different from what I expected.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Learning Python as a Java developer - 2/</title>
+				<link>https://vladflore.tech/posts/2023/06/learning-python-as-a-java-developer-2-/</link>
+				<pubDate>Mon, 12 Jun 2023 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2023/06/learning-python-as-a-java-developer-2-/</guid>
+				<description>&lt;p&gt;This is the second part of the series &amp;ldquo;Learning Python as a Java developer&amp;rdquo;. If you are interested in the other ones, check the links below:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1-/&#34;&gt;part one&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;learning-resources&#34;&gt;Learning resources&lt;/h2&gt;&#xA;&lt;p&gt;Before going into the details of the second part, I want to enumerate some of the resources I used and I am still using to learn/brush up on Python, beside the ones I mentioned in the first part:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://cs50.harvard.edu/python/2022/&#34; target=&#34;_blank&#34;&gt;CS50’s Introduction to Programming with Python, 2022&lt;/a&gt; - free/payed&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dabeaz-course.github.io/practical-python/&#34; target=&#34;_blank&#34;&gt;Practical Python Programming, a course by David Beazley&lt;/a&gt; - free. Note: search for content made by David Beazley, he is a great!&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://edube.org/&#34; target=&#34;_blank&#34;&gt;OpenEDG Python courses&lt;/a&gt; - free&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://hyperskill.org&#34; target=&#34;_blank&#34;&gt;Hyperskill Python tracks&lt;/a&gt; - payed&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.educative.io/&#34; target=&#34;_blank&#34;&gt;Educative.io Python courses&lt;/a&gt; - payed&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://docs.python.org/3/tutorial/index.html&#34; target=&#34;_blank&#34;&gt;The Python Tutorial&lt;/a&gt; - free&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://realpython.com/&#34; target=&#34;_blank&#34;&gt;Real Python&lt;/a&gt; - free/payed&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://learnxinyminutes.com/docs/python/&#34; target=&#34;_blank&#34;&gt;Learn X in Y minutes&lt;/a&gt; - free&lt;/li&gt;&#xA;&lt;li&gt;Working on Python projects&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;There are a lot of other resources out there, each one with its own pros and cons. I suggest you to try some of them and find the one that fits you the best. Google is your friend!&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Java 17</title>
+				<link>https://vladflore.tech/posts/2022/07/java-17/</link>
+				<pubDate>Fri, 22 Jul 2022 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2022/07/java-17/</guid>
+				<description>&lt;h2 id=&#34;meet-java-17&#34;&gt;Meet Java 17&lt;/h2&gt;&#xA;&lt;p&gt;Java&amp;hellip; &lt;em&gt;what version is it?&lt;/em&gt; &amp;hellip;&lt;a href=&#34;https://openjdk.org/projects/jdk/17/&#34; target=&#34;_blank&#34;&gt;17&lt;/a&gt; reached GA on 14.09.2021 and brought a bunch&#xA;of new features, of which two are of more interest than the rest, at least for me. These are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;sealed classes&lt;/li&gt;&#xA;&lt;li&gt;pattern matching for switch (first preview)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Java 17 is a &lt;em&gt;LTS version&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;h3 id=&#34;sealed-classes&#34;&gt;Sealed classes&lt;/h3&gt;&#xA;&lt;p&gt;Sealed classes came in Java 17 via &lt;a href=&#34;https://openjdk.org/jeps/409&#34; target=&#34;_blank&#34;&gt;JEP 409&lt;/a&gt; and although the name says &amp;ldquo;sealed &lt;em&gt;classes&lt;/em&gt;&amp;rdquo;&#xA;, interfaces are also subject to being sealed. With this new feature, three new special keywords have been added to the&#xA;language: &lt;code&gt;sealed&lt;/code&gt;, &lt;code&gt;non-sealed&lt;/code&gt; and &lt;code&gt;permits&lt;/code&gt;. The basic idea is that sealed classes and interfaces restrict which&#xA;other classes or interfaces may extend or implement them. Let&amp;rsquo;s look at an example:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Learning Python as a Java developer - 1/</title>
+				<link>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1-/</link>
+				<pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1-/</guid>
+				<description>&lt;h2 id=&#34;becoming-a-pythonista&#34;&gt;Becoming a Pythonista&lt;/h2&gt;&#xA;&lt;p&gt;If the term &amp;ldquo;pythonista&amp;rdquo; seems unusual or off-putting to you, rest assured that you are not the only one. Personally, I find the word somewhat amusing, and I had to &lt;a href=&#34;https://en.wiktionary.org/wiki/Pythonista&#34; target=&#34;_blank&#34;&gt;look it up&lt;/a&gt; initially. After all, &amp;ldquo;Python programmer&amp;rdquo; or &amp;ldquo;Python software engineer&amp;rdquo; would suffice, right? Regardless, this post is not about what we call individuals who work with Python; rather, it&amp;rsquo;s about sharing my experience of learning Python as a Java software engineer.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>About</title>
+				<link>https://vladflore.tech/about/</link>
+				<pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/about/</guid>
+				<description>&lt;img src=&#34;https://vladflore.tech/images/me_official_no_background.png&#34;  alt=&#34;A picture of myself&#34;  class=&#34;center&#34;  style=&#34;border-radius: 8px; float: right; width: 200px; height: auto;&#34;  /&gt;&#xA;&#xA;&#xA;&lt;p&gt;Hi Internet,&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m Vlad — welcome to my little corner of the web where I share thoughts on &lt;strong&gt;Software Engineering&lt;/strong&gt;, &lt;strong&gt;Computer Science&lt;/strong&gt;, and life in general.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m not big on writing about myself, so let’s keep it short and sweet.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Q: Who are you, Vlad?&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; I&amp;rsquo;m a curious human currently living in Spain and working as a Software Engineer.&lt;br&gt;&#xA;I enjoy learning, solving problems, and diving into all things tech. I also have a passion for travel, discovering new places, and fitness.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Git Animated 4</title>
+				<link>https://vladflore.tech/posts/2021/12/git-animated-4/</link>
+				<pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2021/12/git-animated-4/</guid>
+				<description>&lt;p&gt;This is the forth video in the &lt;strong&gt;Git Animated&lt;/strong&gt; series.&#xA;If you are interested in the other ones, check the links below:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-1/&#34;&gt;part one&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-2/&#34;&gt;part two&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/09/git-animated-3/&#34;&gt;part three&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2026/03/git-animated-5/&#34;&gt;part five&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2026/09/git-animated-6/&#34;&gt;part six&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Another way of integrating changes of a branch into another one is by performing a &lt;strong&gt;rebase&lt;/strong&gt;. Instead of creating a new merge commit, as it happens when we &lt;strong&gt;merge&lt;/strong&gt; two histories, a rebase will change the base of a branch from one commit to another. Changing the base of a branch means changing the commit that branch was created from to be some other commit.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Git Animated 3</title>
+				<link>https://vladflore.tech/posts/2021/09/git-animated-3/</link>
+				<pubDate>Sun, 05 Sep 2021 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2021/09/git-animated-3/</guid>
+				<description>&lt;p&gt;This is the third video in the &lt;strong&gt;Git Animated&lt;/strong&gt; series.&#xA;If you are interested in the other ones, check the links below:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-1/&#34;&gt;part one&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-2/&#34;&gt;part two&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/12/git-animated-4/&#34;&gt;part four&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2026/03/git-animated-5/&#34;&gt;part five&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2026/09/git-animated-6/&#34;&gt;part six&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;In this video we will merge two histories, &lt;code&gt;master&lt;/code&gt; and &lt;code&gt;feature&lt;/code&gt;, which have diverged at commit &lt;code&gt;M2&lt;/code&gt;.&#xA;As each of the branches got new commits from that divergent point, the feature branch cannot be integrated&#xA;into the master branch using a fast-forward approach.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Git Animated 2</title>
+				<link>https://vladflore.tech/posts/2021/08/git-animated-2/</link>
+				<pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2021/08/git-animated-2/</guid>
+				<description>&lt;p&gt;This is the second video in the &lt;strong&gt;Git Animated&lt;/strong&gt; series.&#xA;If you are interested in the other ones, check the links below:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-1/&#34;&gt;part one&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/09/git-animated-3/&#34;&gt;part three&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/12/git-animated-4/&#34;&gt;part four&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2026/03/git-animated-5/&#34;&gt;part five&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2026/09/git-animated-6/&#34;&gt;part six&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;In this video you will see what happens when we merge two histories, specifically merging &lt;code&gt;feature&lt;/code&gt; into &lt;code&gt;master&lt;/code&gt;. The thing to note here is that the merge is a fast-forward one, this is possible when there are no further commits on the branch we branched off of, after the point of creating the new branch (in our case on the branch &lt;code&gt;master&lt;/code&gt; after commit &lt;code&gt;M2&lt;/code&gt;).&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Git Animated 1</title>
+				<link>https://vladflore.tech/posts/2021/08/git-animated-1/</link>
+				<pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2021/08/git-animated-1/</guid>
+				<description>&lt;p&gt;Welcome to the first post and first video of the video series &lt;strong&gt;Git Animated&lt;/strong&gt;.&#xA;With this series I am trying to visually depict how different Git commands and actions look like, basically what happens behind them when you execute them.&lt;/p&gt;&#xA;&lt;p&gt;If you are interested in the other videos, please check the links below:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/08/git-animated-2/&#34;&gt;part two&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/09/git-animated-3/&#34;&gt;part three&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2021/12/git-animated-4/&#34;&gt;part four&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2026/03/git-animated-5/&#34;&gt;part five&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2026/09/git-animated-6/&#34;&gt;part six&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Note: if you are a software engineer and have never heard of Git, then this post, and the future ones, are not for you&amp;hellip;and I am also sorry for you!&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>My first OSS PR</title>
+				<link>https://vladflore.tech/posts/2021/07/my-first-oss-pr/</link>
+				<pubDate>Thu, 15 Jul 2021 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2021/07/my-first-oss-pr/</guid>
+				<description>&lt;p&gt;Software developers write code&amp;hellip;or at least they should, provided they can escape the long boring meetings which finish with no conclusions or, God forbid, with the next appointment&amp;hellip;to discuss more.&lt;/p&gt;&#xA;&lt;p&gt;When we monetize this action of writing code, we usually do it as part of a job, which comes with its pros and cons, and such we have to stay in the legal framework of that working contract. This legal framework might very well prevent us from contributing to Open Source Software(OSS), so make sure to read the fine print!&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Nine Months Later</title>
+				<link>https://vladflore.tech/posts/2021/05/nine-months-later/</link>
+				<pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2021/05/nine-months-later/</guid>
+				<description>&lt;p&gt;&amp;hellip;if you were thinking about screaming little humans, I am afraid I will disappoint you and it might be that this post is not for you.&lt;/p&gt;&#xA;&lt;p&gt;If you are still reading, then you might be one of those people, who thought of something else what could have happened in a period of nine months. I salute you and encourage you to read on!&lt;/p&gt;&#xA;&lt;p&gt;2020 was a special year, for the world and for me as well, on one side we had that &lt;em&gt;end of the world kind of global infestation&lt;/em&gt; thing, on the other side I managed to make some changes, which hopefully will pay-off in the near future, dare saying some of them have already payed-off.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Java 11</title>
+				<link>https://vladflore.tech/posts/2020/09/java-11/</link>
+				<pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2020/09/java-11/</guid>
+				<description>&lt;p&gt;But &lt;a href=&#34;https://www.oracle.com/java/technologies/javase-downloads.html&#34; target=&#34;_blank&#34;&gt;Java&lt;/a&gt; is already at version 15, why talk about 11 ?! Well,&amp;hellip;but before that, a note of caution:&#xA;considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this&#xA;is bigger than 15, it was 15 when I wrote this post!&lt;/p&gt;&#xA;&lt;p&gt;Now, let&amp;rsquo;s continue&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;Java 11 is the current (see note of caution above) LTS version, and will stay like that until Java 17 appears, which should be somewhere around the end of 2021, which is then the new LTS version (all of this hold true iff Oracle doesn&amp;rsquo;t change something in the whole release plan).&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Code Kata</title>
+				<link>https://vladflore.tech/posts/2020/06/code-kata/</link>
+				<pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2020/06/code-kata/</guid>
+				<description>&lt;p&gt;Lately I&amp;rsquo;ve been taking a keen interest in the idea of &lt;em&gt;writing code and getting better at it&lt;/em&gt;, and what I mean by this is not just&#xA;the fact of &lt;em&gt;writing code&lt;/em&gt; itself and &lt;em&gt;making it work&lt;/em&gt;, but also improving your &lt;em&gt;coding skills&lt;/em&gt;, and &lt;em&gt;the way you code&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;When we write code we tend to concentrate on the code itself, on solving the problem, not necessarily on the way we produce that code,&#xA;let alone how we navigate it&amp;hellip;one can always use the mouse right? If you are working professionally in a project you don&amp;rsquo;t always have the time to &lt;em&gt;think&lt;/em&gt; about&#xA;the way you write code. Writing it, making it work and getting it accepted (only &lt;strong&gt;clean code&lt;/strong&gt; should have the privilege of reaching the main development line) is enough of a challenge.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>SonarQube on AWS EC2</title>
+				<link>https://vladflore.tech/posts/2020/06/sonarqube-on-aws-ec2/</link>
+				<pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2020/06/sonarqube-on-aws-ec2/</guid>
+				<description>&lt;p&gt;In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you&amp;rsquo;ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-motivation-behind&#34;&gt;The motivation behind&lt;/h2&gt;&#xA;&lt;p&gt;I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is. I also didn&amp;rsquo;t want to set up my own cloud, so I just sticked with AWS EC2 solution, despite the fact that it is not always for free.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Shell Magic</title>
+				<link>https://vladflore.tech/posts/2020/03/shell-magic/</link>
+				<pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2020/03/shell-magic/</guid>
+				<description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE 1:&lt;/em&gt;&lt;/strong&gt; This page contains some shell &lt;em&gt;magic&lt;/em&gt; which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE 2:&lt;/em&gt;&lt;/strong&gt; Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.&#xA;Some of them might also require sudo access, so I am just going to assume that you know what you are doing. You have been warned!&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+			</item>
+			<item>
+				<title>Hello World</title>
+				<link>https://vladflore.tech/posts/2020/02/hello-world/</link>
+				<pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2020/02/hello-world/</guid>
+				<description>&lt;p&gt;Hello Internet,&lt;/p&gt;&#xA;&lt;p&gt;so this is my first blog post, which I hope will be one of many more to come. This is more of a &lt;em&gt;hello world&lt;/em&gt; kind of post,&#xA;a way to cut my teeth into blogging and see if it&amp;rsquo;s something I would like doing.&lt;/p&gt;&#xA;&lt;p&gt;Should you wonder by now why &lt;em&gt;hello world&lt;/em&gt;,&#xA;well just ask someone who works in IT and has learned at least one programming language.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Software Craftsmanship</title>
+				<link>https://vladflore.tech/posts/2020/02/software-craftsmanship/</link>
+				<pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2020/02/software-craftsmanship/</guid>
+				<description>&lt;p&gt;Last year I had the opportunity to put together and hold a presentation at a conference organized&#xA;by the &lt;a href=&#34;https://www.virtual7.de/&#34; target=&#34;_blank&#34;&gt;company&lt;/a&gt; I am currently working for. As you might have guessed from the post&amp;rsquo;s title&#xA;it was a presentation about the &lt;strong&gt;craftsmanship&lt;/strong&gt; behind &lt;strong&gt;creating software&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Creating software is no easy task, creating software &lt;strong&gt;responsibly&lt;/strong&gt; is even harder, but this should not discourage one to do so.&lt;/p&gt;&#xA;&lt;p&gt;By adhering to some healthy coding habits one can and will write code that will not make others cringe when looking at it.&#xA;Remember, &lt;strong&gt;we write code for people not for computers&lt;/strong&gt;.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

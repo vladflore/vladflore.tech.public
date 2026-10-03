@@ -1,68 +1,73 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Java on vlad·flore · tech</title>
-    <link>https://vladflore.tech/tags/java/</link>
-    <description>Recent content in Java on vlad·flore · tech</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Tue, 13 Jan 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://vladflore.tech/tags/java/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Compiling and Running a Maven Project with Different Java Versions</title>
-      <link>https://vladflore.tech/posts/2026/01/compiling-and-running-a-maven-project-with-different-java-versions/</link>
-      <pubDate>Tue, 13 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2026/01/compiling-and-running-a-maven-project-with-different-java-versions/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s explore how to use multiple versions of Java in a Maven project By this, I mean seemingly &lt;em&gt;compiling&lt;/em&gt; and &lt;em&gt;running&lt;/em&gt; a project with different Java versions.&lt;/p&gt;&#xA;&lt;p&gt;I will be using Java 17, 21 and 25 for this demo. Make sure you have them installed on your machine. You can use &lt;a href=&#34;https://sdkman.io/&#34; target=&#34;_blank&#34;&gt;SDKMAN!&lt;/a&gt; to manage multiple Java versions easily. Additionally, ensure &lt;a href=&#34;https://maven.apache.org/&#34; target=&#34;_blank&#34;&gt;Maven&lt;/a&gt; is installed.&lt;/p&gt;&#xA;&lt;p&gt;As always, there are multiple ways to achieve this. Here, I will demonstrate one approach using &lt;a href=&#34;https://maven.apache.org/guides/mini/guide-using-toolchains.html&#34; target=&#34;_blank&#34;&gt;Maven Toolchains&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Java 25</title>
-      <link>https://vladflore.tech/posts/2026/01/java-25/</link>
-      <pubDate>Wed, 07 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2026/01/java-25/</guid>
-      <description>&lt;h2 id=&#34;meet-java-25&#34;&gt;Meet Java 25&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://openjdk.org/projects/jdk/25/&#34; target=&#34;_blank&#34;&gt;JDK 25&lt;/a&gt; reached General Availability on 16 September 2025.&lt;/p&gt;&#xA;&lt;p&gt;Java 25 continues the trend toward safer concurrency, reduced boilerplate, and better ergonomics—especially for modern, cloud-native and virtual-thread-heavy applications.&lt;/p&gt;&#xA;&lt;p&gt;Some of the most notable features include:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Scoped Values&lt;/li&gt;&#xA;&lt;li&gt;Module Import Declarations&lt;/li&gt;&#xA;&lt;li&gt;Compact Source Files and Instance Main Methods&lt;/li&gt;&#xA;&lt;li&gt;Flexible Constructor Bodies&lt;/li&gt;&#xA;&lt;li&gt;Compact Object Headers&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;There are many more features and improvements in this release, but in this post, I will highlight just a few, for a comprehensive list, check out the &lt;a href=&#34;https://openjdk.org/projects/jdk/25/&#34; target=&#34;_blank&#34;&gt;official JDK 25 release notes&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Let&#39;s make some calls</title>
-      <link>https://vladflore.tech/posts/2025/05/lets-make-some-calls/</link>
-      <pubDate>Sat, 03 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2025/05/lets-make-some-calls/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;One of the most important things in programming is making HTTP calls to talk with some API. Java has very good support for this, and in this post, we will see how to call some HTTP endpoints using Java&amp;rsquo;s &lt;code&gt;HttpClient&lt;/code&gt; class. This class is part of the &lt;em&gt;Java 11&lt;/em&gt; standard library, so you don&amp;rsquo;t need any external dependencies to use it.&lt;/p&gt;&#xA;&lt;h2 id=&#34;a-closer-look-at-the-http-client&#34;&gt;A closer look at the HTTP client&lt;/h2&gt;&#xA;&lt;p&gt;Besides the &lt;code&gt;HttpClient&lt;/code&gt; class, there are a few other classes that we will use in this post:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Java &gt; 17 &amp;&amp; &lt;= 24</title>
-      <link>https://vladflore.tech/posts/2025/04/java-17-24/</link>
-      <pubDate>Tue, 29 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2025/04/java-17-24/</guid>
-      <description>&lt;h2 id=&#34;meet-java-24&#34;&gt;Meet Java 24&lt;/h2&gt;&#xA;&lt;p&gt;Java 24 is &lt;em&gt;not&lt;/em&gt; a &lt;em&gt;LTS version&lt;/em&gt;. The last LTS version was Java 21, released in September 2023.&lt;/p&gt;&#xA;&lt;p&gt;In this post, I will tackle some of the new features and improvements that Java 24 brings to the table. Note that some of them might have been introduced in previous versions, but for the sake of completeness, I will include them here.&lt;/p&gt;&#xA;&lt;p&gt;In my &lt;a href=&#34;https://vladflore.tech/posts/2022/07/java-17/&#34;&gt;post about Java 17&lt;/a&gt;, I mentioned some of the noteworthy features introduced in that version, in this post I will focus on the new features introduced since then.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Learning Python as a Java developer - 2/</title>
-      <link>https://vladflore.tech/posts/2023/06/learning-python-as-a-java-developer-2/</link>
-      <pubDate>Mon, 12 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2023/06/learning-python-as-a-java-developer-2/</guid>
-      <description>&lt;p&gt;This is the second part of the series &amp;ldquo;Learning Python as a Java developer&amp;rdquo;. If you are interested in the other ones, check the links below:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/&#34;&gt;part one&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;learning-resources&#34;&gt;Learning resources&lt;/h2&gt;&#xA;&lt;p&gt;Before going into the details of the second part, I want to enumerate some of the resources I used and I am still using to learn/brush up on Python, beside the ones I mentioned in the first part:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://cs50.harvard.edu/python/2022/&#34; target=&#34;_blank&#34;&gt;CS50’s Introduction to Programming with Python, 2022&lt;/a&gt; - free/payed&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dabeaz-course.github.io/practical-python/&#34; target=&#34;_blank&#34;&gt;Practical Python Programming, a course by David Beazley&lt;/a&gt; - free. Note: search for content made by David Beazley, he is a great!&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://edube.org/&#34; target=&#34;_blank&#34;&gt;OpenEDG Python courses&lt;/a&gt; - free&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://hyperskill.org&#34; target=&#34;_blank&#34;&gt;Hyperskill Python tracks&lt;/a&gt; - payed&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.educative.io/&#34; target=&#34;_blank&#34;&gt;Educative.io Python courses&lt;/a&gt; - payed&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://docs.python.org/3/tutorial/index.html&#34; target=&#34;_blank&#34;&gt;The Python Tutorial&lt;/a&gt; - free&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://realpython.com/&#34; target=&#34;_blank&#34;&gt;Real Python&lt;/a&gt; - free/payed&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://learnxinyminutes.com/docs/python/&#34; target=&#34;_blank&#34;&gt;Learn X in Y minutes&lt;/a&gt; - free&lt;/li&gt;&#xA;&lt;li&gt;Working on Python projects&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;There are a lot of other resources out there, each one with its own pros and cons. I suggest you to try some of them and find the one that fits you the best. Google is your friend!&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Java 17</title>
-      <link>https://vladflore.tech/posts/2022/07/java-17/</link>
-      <pubDate>Fri, 22 Jul 2022 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2022/07/java-17/</guid>
-      <description>&lt;h2 id=&#34;meet-java-17&#34;&gt;Meet Java 17&lt;/h2&gt;&#xA;&lt;p&gt;Java&amp;hellip; &lt;em&gt;what version is it?&lt;/em&gt; &amp;hellip;&lt;a href=&#34;https://openjdk.org/projects/jdk/17/&#34; target=&#34;_blank&#34;&gt;17&lt;/a&gt; reached GA on 14.09.2021 and brought a bunch&#xA;of new features, of which two are of more interest than the rest, at least for me. These are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;sealed classes&lt;/li&gt;&#xA;&lt;li&gt;pattern matching for switch (first preview)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Java 17 is a &lt;em&gt;LTS version&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;h3 id=&#34;sealed-classes&#34;&gt;Sealed classes&lt;/h3&gt;&#xA;&lt;p&gt;Sealed classes came in Java 17 via &lt;a href=&#34;https://openjdk.org/jeps/409&#34; target=&#34;_blank&#34;&gt;JEP 409&lt;/a&gt; and although the name says &amp;ldquo;sealed &lt;em&gt;classes&lt;/em&gt;&amp;rdquo;&#xA;, interfaces are also subject to being sealed. With this new feature, three new special keywords have been added to the&#xA;language: &lt;code&gt;sealed&lt;/code&gt;, &lt;code&gt;non-sealed&lt;/code&gt; and &lt;code&gt;permits&lt;/code&gt;. The basic idea is that sealed classes and interfaces restrict which&#xA;other classes or interfaces may extend or implement them. Let&amp;rsquo;s look at an example:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Learning Python as a Java developer - 1/</title>
-      <link>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/</link>
-      <pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1/</guid>
-      <description>&lt;h2 id=&#34;becoming-a-pythonista&#34;&gt;Becoming a Pythonista&lt;/h2&gt;&#xA;&lt;p&gt;If the term &amp;ldquo;pythonista&amp;rdquo; seems unusual or off-putting to you, rest assured that you are not the only one. Personally, I find the word somewhat amusing, and I had to &lt;a href=&#34;https://en.wiktionary.org/wiki/Pythonista&#34; target=&#34;_blank&#34;&gt;look it up&lt;/a&gt; initially. After all, &amp;ldquo;Python programmer&amp;rdquo; or &amp;ldquo;Python software engineer&amp;rdquo; would suffice, right? Regardless, this post is not about what we call individuals who work with Python; rather, it&amp;rsquo;s about sharing my experience of learning Python as a Java software engineer.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Java 11</title>
-      <link>https://vladflore.tech/posts/2020/09/java-11/</link>
-      <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>https://vladflore.tech/posts/2020/09/java-11/</guid>
-      <description>&lt;p&gt;But &lt;a href=&#34;https://www.oracle.com/java/technologies/javase-downloads.html&#34; target=&#34;_blank&#34;&gt;Java&lt;/a&gt; is already at version 15, why talk about 11 ?! Well,&amp;hellip;but before that, a note of caution:&#xA;considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this&#xA;is bigger than 15, it was 15 when I wrote this post!&lt;/p&gt;&#xA;&lt;p&gt;Now, let&amp;rsquo;s continue&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;Java 11 is the current (see note of caution above) LTS version, and will stay like that until Java 17 appears, which should be somewhere around the end of 2021, which is then the new LTS version (all of this hold true iff Oracle doesn&amp;rsquo;t change something in the whole release plan).&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Java on vlad·flore · tech</title>
+		<link>https://vladflore.tech/tags/java/</link>
+		<description>Recent content in Java on vlad·flore · tech</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Tue, 13 Jan 2026 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://vladflore.tech/tags/java/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Compiling and Running a Maven Project with Different Java Versions</title>
+				<link>https://vladflore.tech/posts/2026/01/compiling-and-running-a-maven-project-with-different-java-versions/</link>
+				<pubDate>Tue, 13 Jan 2026 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2026/01/compiling-and-running-a-maven-project-with-different-java-versions/</guid>
+				<description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s explore how to use multiple versions of Java in a Maven project By this, I mean seemingly &lt;em&gt;compiling&lt;/em&gt; and &lt;em&gt;running&lt;/em&gt; a project with different Java versions.&lt;/p&gt;&#xA;&lt;p&gt;I will be using Java 17, 21 and 25 for this demo. Make sure you have them installed on your machine. You can use &lt;a href=&#34;https://sdkman.io/&#34; target=&#34;_blank&#34;&gt;SDKMAN!&lt;/a&gt; to manage multiple Java versions easily. Additionally, ensure &lt;a href=&#34;https://maven.apache.org/&#34; target=&#34;_blank&#34;&gt;Maven&lt;/a&gt; is installed.&lt;/p&gt;&#xA;&lt;p&gt;As always, there are multiple ways to achieve this. Here, I will demonstrate one approach using &lt;a href=&#34;https://maven.apache.org/guides/mini/guide-using-toolchains.html&#34; target=&#34;_blank&#34;&gt;Maven Toolchains&lt;/a&gt;.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Java 25</title>
+				<link>https://vladflore.tech/posts/2026/01/java-25/</link>
+				<pubDate>Wed, 07 Jan 2026 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2026/01/java-25/</guid>
+				<description>&lt;h2 id=&#34;meet-java-25&#34;&gt;Meet Java 25&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://openjdk.org/projects/jdk/25/&#34; target=&#34;_blank&#34;&gt;JDK 25&lt;/a&gt; reached General Availability on 16 September 2025.&lt;/p&gt;&#xA;&lt;p&gt;Java 25 continues the trend toward safer concurrency, reduced boilerplate, and better ergonomics—especially for modern, cloud-native and virtual-thread-heavy applications.&lt;/p&gt;&#xA;&lt;p&gt;Some of the most notable features include:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Scoped Values&lt;/li&gt;&#xA;&lt;li&gt;Module Import Declarations&lt;/li&gt;&#xA;&lt;li&gt;Compact Source Files and Instance Main Methods&lt;/li&gt;&#xA;&lt;li&gt;Flexible Constructor Bodies&lt;/li&gt;&#xA;&lt;li&gt;Compact Object Headers&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;There are many more features and improvements in this release, but in this post, I will highlight just a few, for a comprehensive list, check out the &lt;a href=&#34;https://openjdk.org/projects/jdk/25/&#34; target=&#34;_blank&#34;&gt;official JDK 25 release notes&lt;/a&gt;.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Let&#39;s make some calls</title>
+				<link>https://vladflore.tech/posts/2025/05/lets-make-some-calls/</link>
+				<pubDate>Sat, 03 May 2025 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2025/05/lets-make-some-calls/</guid>
+				<description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;One of the most important things in programming is making HTTP calls to talk with some API. Java has very good support for this, and in this post, we will see how to call some HTTP endpoints using Java&amp;rsquo;s &lt;code&gt;HttpClient&lt;/code&gt; class. This class is part of the &lt;em&gt;Java 11&lt;/em&gt; standard library, so you don&amp;rsquo;t need any external dependencies to use it.&lt;/p&gt;&#xA;&lt;h2 id=&#34;a-closer-look-at-the-http-client&#34;&gt;A closer look at the HTTP client&lt;/h2&gt;&#xA;&lt;p&gt;Besides the &lt;code&gt;HttpClient&lt;/code&gt; class, there are a few other classes that we will use in this post:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Java &gt; 17 &amp;&amp; &lt;= 24</title>
+				<link>https://vladflore.tech/posts/2025/04/java-17-24/</link>
+				<pubDate>Tue, 29 Apr 2025 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2025/04/java-17-24/</guid>
+				<description>&lt;h2 id=&#34;meet-java-24&#34;&gt;Meet Java 24&lt;/h2&gt;&#xA;&lt;p&gt;Java 24 is &lt;em&gt;not&lt;/em&gt; a &lt;em&gt;LTS version&lt;/em&gt;. The last LTS version was Java 21, released in September 2023.&lt;/p&gt;&#xA;&lt;p&gt;In this post, I will tackle some of the new features and improvements that Java 24 brings to the table. Note that some of them might have been introduced in previous versions, but for the sake of completeness, I will include them here.&lt;/p&gt;&#xA;&lt;p&gt;In my &lt;a href=&#34;https://vladflore.tech/posts/2022/07/java-17/&#34;&gt;post about Java 17&lt;/a&gt;, I mentioned some of the noteworthy features introduced in that version, in this post I will focus on the new features introduced since then.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Learning Python as a Java developer - 2/</title>
+				<link>https://vladflore.tech/posts/2023/06/learning-python-as-a-java-developer-2-/</link>
+				<pubDate>Mon, 12 Jun 2023 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2023/06/learning-python-as-a-java-developer-2-/</guid>
+				<description>&lt;p&gt;This is the second part of the series &amp;ldquo;Learning Python as a Java developer&amp;rdquo;. If you are interested in the other ones, check the links below:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1-/&#34;&gt;part one&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;learning-resources&#34;&gt;Learning resources&lt;/h2&gt;&#xA;&lt;p&gt;Before going into the details of the second part, I want to enumerate some of the resources I used and I am still using to learn/brush up on Python, beside the ones I mentioned in the first part:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://cs50.harvard.edu/python/2022/&#34; target=&#34;_blank&#34;&gt;CS50’s Introduction to Programming with Python, 2022&lt;/a&gt; - free/payed&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://dabeaz-course.github.io/practical-python/&#34; target=&#34;_blank&#34;&gt;Practical Python Programming, a course by David Beazley&lt;/a&gt; - free. Note: search for content made by David Beazley, he is a great!&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://edube.org/&#34; target=&#34;_blank&#34;&gt;OpenEDG Python courses&lt;/a&gt; - free&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://hyperskill.org&#34; target=&#34;_blank&#34;&gt;Hyperskill Python tracks&lt;/a&gt; - payed&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.educative.io/&#34; target=&#34;_blank&#34;&gt;Educative.io Python courses&lt;/a&gt; - payed&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://docs.python.org/3/tutorial/index.html&#34; target=&#34;_blank&#34;&gt;The Python Tutorial&lt;/a&gt; - free&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://realpython.com/&#34; target=&#34;_blank&#34;&gt;Real Python&lt;/a&gt; - free/payed&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://learnxinyminutes.com/docs/python/&#34; target=&#34;_blank&#34;&gt;Learn X in Y minutes&lt;/a&gt; - free&lt;/li&gt;&#xA;&lt;li&gt;Working on Python projects&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;There are a lot of other resources out there, each one with its own pros and cons. I suggest you to try some of them and find the one that fits you the best. Google is your friend!&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Java 17</title>
+				<link>https://vladflore.tech/posts/2022/07/java-17/</link>
+				<pubDate>Fri, 22 Jul 2022 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2022/07/java-17/</guid>
+				<description>&lt;h2 id=&#34;meet-java-17&#34;&gt;Meet Java 17&lt;/h2&gt;&#xA;&lt;p&gt;Java&amp;hellip; &lt;em&gt;what version is it?&lt;/em&gt; &amp;hellip;&lt;a href=&#34;https://openjdk.org/projects/jdk/17/&#34; target=&#34;_blank&#34;&gt;17&lt;/a&gt; reached GA on 14.09.2021 and brought a bunch&#xA;of new features, of which two are of more interest than the rest, at least for me. These are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;sealed classes&lt;/li&gt;&#xA;&lt;li&gt;pattern matching for switch (first preview)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Java 17 is a &lt;em&gt;LTS version&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;h3 id=&#34;sealed-classes&#34;&gt;Sealed classes&lt;/h3&gt;&#xA;&lt;p&gt;Sealed classes came in Java 17 via &lt;a href=&#34;https://openjdk.org/jeps/409&#34; target=&#34;_blank&#34;&gt;JEP 409&lt;/a&gt; and although the name says &amp;ldquo;sealed &lt;em&gt;classes&lt;/em&gt;&amp;rdquo;&#xA;, interfaces are also subject to being sealed. With this new feature, three new special keywords have been added to the&#xA;language: &lt;code&gt;sealed&lt;/code&gt;, &lt;code&gt;non-sealed&lt;/code&gt; and &lt;code&gt;permits&lt;/code&gt;. The basic idea is that sealed classes and interfaces restrict which&#xA;other classes or interfaces may extend or implement them. Let&amp;rsquo;s look at an example:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Learning Python as a Java developer - 1/</title>
+				<link>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1-/</link>
+				<pubDate>Sat, 16 Jul 2022 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1-/</guid>
+				<description>&lt;h2 id=&#34;becoming-a-pythonista&#34;&gt;Becoming a Pythonista&lt;/h2&gt;&#xA;&lt;p&gt;If the term &amp;ldquo;pythonista&amp;rdquo; seems unusual or off-putting to you, rest assured that you are not the only one. Personally, I find the word somewhat amusing, and I had to &lt;a href=&#34;https://en.wiktionary.org/wiki/Pythonista&#34; target=&#34;_blank&#34;&gt;look it up&lt;/a&gt; initially. After all, &amp;ldquo;Python programmer&amp;rdquo; or &amp;ldquo;Python software engineer&amp;rdquo; would suffice, right? Regardless, this post is not about what we call individuals who work with Python; rather, it&amp;rsquo;s about sharing my experience of learning Python as a Java software engineer.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Java 11</title>
+				<link>https://vladflore.tech/posts/2020/09/java-11/</link>
+				<pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
+				<guid>https://vladflore.tech/posts/2020/09/java-11/</guid>
+				<description>&lt;p&gt;But &lt;a href=&#34;https://www.oracle.com/java/technologies/javase-downloads.html&#34; target=&#34;_blank&#34;&gt;Java&lt;/a&gt; is already at version 15, why talk about 11 ?! Well,&amp;hellip;but before that, a note of caution:&#xA;considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this&#xA;is bigger than 15, it was 15 when I wrote this post!&lt;/p&gt;&#xA;&lt;p&gt;Now, let&amp;rsquo;s continue&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;Java 11 is the current (see note of caution above) LTS version, and will stay like that until Java 17 appears, which should be somewhere around the end of 2021, which is then the new LTS version (all of this hold true iff Oracle doesn&amp;rsquo;t change something in the whole release plan).&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

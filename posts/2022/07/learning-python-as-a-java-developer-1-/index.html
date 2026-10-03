@@ -6,18 +6,17 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Vlad Flore ">
-<meta name="description" content="This is the fifth video in the Git Animated series. If you are interested in the other ones, check the links below:
-part one part two part three part four part six In this video we look at cherry-pick, a powerful Git command that lets you apply the changes introduced by a specific commit from one branch onto another, without merging or rebasing the entire branch. Think of it as picking a single commit — like a cherry — and grafting it onto a different branch.
+<meta name="description" content="Becoming a Pythonista If the term &ldquo;pythonista&rdquo; seems unusual or off-putting to you, rest assured that you are not the only one. Personally, I find the word somewhat amusing, and I had to look it up initially. After all, &ldquo;Python programmer&rdquo; or &ldquo;Python software engineer&rdquo; would suffice, right? Regardless, this post is not about what we call individuals who work with Python; rather, it&rsquo;s about sharing my experience of learning Python as a Java software engineer.
 " />
-<meta name="keywords" content="java, python, generative ai, llm, rag, machine learning, spring boot, microservices, kubernetes, aws, software engineer, freelance developer, vlad flore, git, animated, nerdy" />
+<meta name="keywords" content="java, python, generative ai, llm, rag, machine learning, spring boot, microservices, kubernetes, aws, software engineer, freelance developer, vlad flore, python, java, nerdy" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
-<link rel="canonical" href="https://vladflore.tech/posts/2026/03/git-animated-5/" />
+<link rel="canonical" href="https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1-/" />
 
 
     <title>
         
-            Git Animated 5 :: vlad·flore · tech 
+            Learning Python as a Java developer - 1/ :: vlad·flore · tech 
         
     </title>
 
@@ -51,35 +50,32 @@ part one part two part three part four part six In this video we look at cherry-
 
 
 
-	<meta itemprop="name" content="Git Animated 5">
-	<meta itemprop="description" content="This is the fifth video in the Git Animated series. If you are interested in the other ones, check the links below:
-part one part two part three part four part six In this video we look at cherry-pick, a powerful Git command that lets you apply the changes introduced by a specific commit from one branch onto another, without merging or rebasing the entire branch. Think of it as picking a single commit — like a cherry — and grafting it onto a different branch.">
-	<meta itemprop="datePublished" content="2026-03-14T00:00:00+00:00">
-	<meta itemprop="dateModified" content="2026-03-14T00:00:00+00:00">
-	<meta itemprop="wordCount" content="308">
+	<meta itemprop="name" content="Learning Python as a Java developer - 1/">
+	<meta itemprop="description" content="Becoming a Pythonista If the term “pythonista” seems unusual or off-putting to you, rest assured that you are not the only one. Personally, I find the word somewhat amusing, and I had to look it up initially. After all, “Python programmer” or “Python software engineer” would suffice, right? Regardless, this post is not about what we call individuals who work with Python; rather, it’s about sharing my experience of learning Python as a Java software engineer.">
+	<meta itemprop="datePublished" content="2022-07-16T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2022-07-16T00:00:00+00:00">
+	<meta itemprop="wordCount" content="1180">
 	<meta itemprop="image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
-	<meta itemprop="keywords" content="Git,Animated,Nerdy">
+	<meta itemprop="keywords" content="Python,Java,Nerdy">
 
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
-	<meta name="twitter:title" content="Git Animated 5">
-	<meta name="twitter:description" content="This is the fifth video in the Git Animated series. If you are interested in the other ones, check the links below:
-part one part two part three part four part six In this video we look at cherry-pick, a powerful Git command that lets you apply the changes introduced by a specific commit from one branch onto another, without merging or rebasing the entire branch. Think of it as picking a single commit — like a cherry — and grafting it onto a different branch.">
+	<meta name="twitter:title" content="Learning Python as a Java developer - 1/">
+	<meta name="twitter:description" content="Becoming a Pythonista If the term “pythonista” seems unusual or off-putting to you, rest assured that you are not the only one. Personally, I find the word somewhat amusing, and I had to look it up initially. After all, “Python programmer” or “Python software engineer” would suffice, right? Regardless, this post is not about what we call individuals who work with Python; rather, it’s about sharing my experience of learning Python as a Java software engineer.">
 
 
 
-    <meta property="og:url" content="https://vladflore.tech/posts/2026/03/git-animated-5/">
+    <meta property="og:url" content="https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1-/">
 	<meta property="og:site_name" content="vlad·flore · tech">
-	<meta property="og:title" content="Git Animated 5">
-	<meta property="og:description" content="This is the fifth video in the Git Animated series. If you are interested in the other ones, check the links below:
-part one part two part three part four part six In this video we look at cherry-pick, a powerful Git command that lets you apply the changes introduced by a specific commit from one branch onto another, without merging or rebasing the entire branch. Think of it as picking a single commit — like a cherry — and grafting it onto a different branch.">
+	<meta property="og:title" content="Learning Python as a Java developer - 1/">
+	<meta property="og:description" content="Becoming a Pythonista If the term “pythonista” seems unusual or off-putting to you, rest assured that you are not the only one. Personally, I find the word somewhat amusing, and I had to look it up initially. After all, “Python programmer” or “Python software engineer” would suffice, right? Regardless, this post is not about what we call individuals who work with Python; rather, it’s about sharing my experience of learning Python as a Java software engineer.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="posts">
-		<meta property="article:published_time" content="2026-03-14T00:00:00+00:00">
-		<meta property="article:modified_time" content="2026-03-14T00:00:00+00:00">
-		<meta property="article:tag" content="Git">
-		<meta property="article:tag" content="Animated">
+		<meta property="article:published_time" content="2022-07-16T00:00:00+00:00">
+		<meta property="article:modified_time" content="2022-07-16T00:00:00+00:00">
+		<meta property="article:tag" content="Python">
+		<meta property="article:tag" content="Java">
 		<meta property="article:tag" content="Nerdy">
 		<meta property="og:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
 
@@ -88,7 +84,7 @@ part one part two part three part four part six In this video we look at cherry-
 
 
 
-    <meta property="article:published_time" content="2026-03-14 00:00:00 &#43;0000 UTC" />
+    <meta property="article:published_time" content="2022-07-16 00:00:00 &#43;0000 UTC" />
 
 
 
@@ -262,7 +258,7 @@ part one part two part three part four part six In this video we look at cherry-
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
-        2 minutes
+        6 minutes
 
         
       </p>
@@ -270,47 +266,81 @@ part one part two part three part four part six In this video we look at cherry-
 
     <article>
       <h1 class="post-title">
-        <a href="https://vladflore.tech/posts/2026/03/git-animated-5/">Git Animated 5</a>
+        <a href="https://vladflore.tech/posts/2022/07/learning-python-as-a-java-developer-1-/">Learning Python as a Java developer - 1/</a>
       </h1>
 
       
 
       
+        <hr />
+        <aside id="toc">
+          <div class="toc-title">Table of Contents</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#becoming-a-pythonista">Becoming a Pythonista</a></li>
+    <li><a href="#first-impressions">First impressions</a>
+      <ul>
+        <li><a href="#print-hello-world-in-python-vs-java">Print &lsquo;Hello, World!&rsquo; in Python vs. Java</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </aside>
+        <hr />
 
       
 
       <div class="post-content">
-        <p>This is the fifth video in the <strong>Git Animated</strong> series.
-If you are interested in the other ones, check the links below:</p>
+        <h2 id="becoming-a-pythonista">Becoming a Pythonista</h2>
+<p>If the term &ldquo;pythonista&rdquo; seems unusual or off-putting to you, rest assured that you are not the only one. Personally, I find the word somewhat amusing, and I had to <a href="https://en.wiktionary.org/wiki/Pythonista" target="_blank">look it up</a> initially. After all, &ldquo;Python programmer&rdquo; or &ldquo;Python software engineer&rdquo; would suffice, right? Regardless, this post is not about what we call individuals who work with Python; rather, it&rsquo;s about sharing my experience of learning Python as a Java software engineer.</p>
+<p>First and foremost, I want to clarify that my intention is <em>not</em> to ignite or fuel a language debate, such as Java versus Python. Instead, my sole purpose is to share my experience and perspective on learning a new programming language, particularly Python, while coming from a Java background.</p>
+<p>So, why am I (re)learning Python? The brief answer is that my current company is shifting its focus and has chosen to utilize Python more extensively for product development. As a result, I have the opportunity to use Python in a more professional capacity than before, which is exciting! A more detailed explanation is that Python is predominantly used in Machine Learning and Data Science—both fields that have captured my interest. Moreover, as a general-purpose language, Python can be used for a wide range of applications, making it a valuable skill to possess.</p>
+<p>In fact, this isn&rsquo;t my first encounter with Python; I experimented with it a few years ago, specifically in early 2020, and have dabbled in it occasionally since then. I completed the Coursera Specialization <a href="https://coursera.org/verify/specialization/TWKG5SP5EL2D" target="_blank">Python for Everybody</a> and two edX courses: <a href="https://courses.edx.org/certificates/4b0e39182943413288e993b649c4707b" target="_blank">Introduction to Computer Science and Programming Using Python</a> and <a href="https://courses.edx.org/certificates/cf27f5b0da8540c2bab57360c838a8c0" target="_blank">Introduction to Computational Thinking and Data Science</a>.Additionally, I tackled coding tasks on <a href="https://exercism.org" target="_blank">Exercism</a> and <a href="https://www.codewars.com/" target="_blank">Codewars</a> from time to time. Recently, I began participating in the <a href="https://adventofcode.com/" target="_blank">Advent of Code</a> challenges, which I plan to solve using various programming languages. Python was chosen for the year 2015, the inaugural event in the AoC series. I&rsquo;m eager to see how it unfolds!</p>
+<p>Currently, as I transition from casually experimenting with Python to utilizing it professionally, I am enrolled in Udacity&rsquo;s <a href="https://www.udacity.com/course/intermediate-python-nanodegree--nd303" target="_blank"> Intermediate Python Nanodegree</a>. The best part is that I have the opportunity to learn Python while working. It&rsquo;s fantastic!</p>
+<h2 id="first-impressions">First impressions</h2>
+<p>My initial impression of Python was that it&rsquo;s a straightforward, succinct language that doesn&rsquo;t require much ceremony. A typical example you might come across is the following:</p>
+<h3 id="print-hello-world-in-python-vs-java">Print &lsquo;Hello, World!&rsquo; in Python vs. Java</h3>
+<p>This is how it looks in Java(this code goes into <code>HelloWorld.java</code> file):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloWorld</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String args<span style="color:#f92672">[]</span>) {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Hello, World!&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Then you do: <code>javac HelloWorld.java</code> and <code>java HelloWorld</code> or <code>java HelloWorld.java</code> and you get the greeting.</p>
+<p>This is how it looks in Python(this code goes into <code>hello-python.py</code>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;Hello, World!&#39;</span>)
+</span></span></code></pre></div><p>Then you do: <code>python3 hello-world.py</code> and you get the greeting.</p>
+<p>As you can see, the Java code appears more complex compared to the Python code. While the Java code will work as is, it requires a fair amount of prerequisite knowledge to fully comprehend what&rsquo;s happening. Here are some key points to consider:</p>
 <ul>
-<li><a href="https://vladflore.tech/posts/2021/08/git-animated-1/">part one</a></li>
-<li><a href="https://vladflore.tech/posts/2021/08/git-animated-2/">part two</a></li>
-<li><a href="https://vladflore.tech/posts/2021/09/git-animated-3/">part three</a></li>
-<li><a href="https://vladflore.tech/posts/2021/12/git-animated-4/">part four</a></li>
-<li><a href="https://vladflore.tech/posts/2026/09/git-animated-6/">part six</a></li>
+<li>the class must be defined as <code>public</code> within a file with the same name and a <code>.java</code> extension. You can only have one public class in this file.</li>
+<li>if the class is not public, the names can differ, and you can have multiple such classes within the same file.</li>
+<li>to compile, use <code>javac A.java</code> and to run, use <code>java A</code>. Newer versions of Java can compile and run in one command, i.e., <code>java A.java</code>, but this introduces other interesting aspects.</li>
+<li>the required method definition is <code>public static void main(String args[])</code>; otherwise, the code will not execute. You can replace <code>args</code> with another valid name.</li>
+<li>the code includes a <code>System.out</code> statement.</li>
+<li>after compiling, you may notice a <code>HelloWorld.class</code> file. Do not look inside it! This file contains the bytecode generated after using <code>javac</code> on your Java file. The Java Virtual Machine runs this bytecode, translating it into machine code.</li>
 </ul>
-<p>In this video we look at <strong>cherry-pick</strong>, a powerful Git command that lets you apply the changes introduced by a specific commit from one branch onto another, without merging or rebasing the entire branch. Think of it as picking a single commit — like a cherry — and grafting it onto a different branch.</p>
-<p>In the animation, we start on <code>master</code> with commits <code>M0</code> and <code>M1</code>, then create a <code>feature</code> branch and add three commits <code>F0</code>, <code>F1</code>, and <code>F2</code> to it. We then switch back to <code>master</code> and add one more commit <code>M2</code>. At this point the two branches have diverged. Instead of merging or rebasing the whole <code>feature</code> branch, we cherry-pick only commit <code>F1</code> onto <code>master</code>. Git takes the diff introduced by <code>F1</code> and replays it on top of <code>M2</code>, producing a new commit that carries the same changes but has a different hash and a different parent.</p>
-<p>Notice that the <code>feature</code> branch is left untouched, and commits <code>F0</code> and <code>F2</code> are not brought over — only <code>F1</code> is. This is what makes cherry-pick so useful: you can selectively integrate individual commits across branches, for example to backport a bug fix to a release branch without pulling in unrelated work.</p>
-<p>For your convenience, here are the Git commands which appear in the video:</p>
-<pre tabindex="0"><code>git commit -m &#39;M0&#39;
-git commit -m &#39;M1&#39;
-git branch feature
-git checkout feature
-git commit -m &#39;F0&#39;
-git commit -m &#39;F1&#39;
-git commit -m &#39;F2&#39;
-git checkout master
-git commit -m &#39;M2&#39;
-git cherry-pick F1
-</code></pre><p>Here is the video(there is no audio):</p>
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-			<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/9RbcP7AfV4U?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-		</div>
-
-<!-- raw HTML omitted -->
-<p>Feel free to drop me a comment or e-mail with your constructive criticism. It will be much appreciated!</p>
-<p>Enjoy!</p>
+<p>As you can see, the code is quite dense! As a programmer, if your goal is simply to print a line of text, Python offers a straightforward approach, whereas Java introduces more ceremony to achieve the same result.</p>
+<p>This comparison is somewhat unfair since Java requires a class for the code to function. Therefore, it would be more reasonable to examine how Python code would appear when implementing the same functionality within a class.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Greeting</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self) <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#39;Hello, World!&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    Greeting()
+</span></span></code></pre></div><p>Now we begin to see a similar level of ceremony, albeit somewhat more cryptic. Some aspects that I find confusing include the unusual <code>if</code> statement with the <code>__thing__</code> construct and the use of <code>self</code> in the <code>__init__</code> method.</p>
+<p>The <code>if</code> statement, which is outside the class (note the indentation, as Python uses it to delimit blocks of code), prevents the instantiation of the class (i.e., executing the <code>__init__</code> method) and thus the printing of the greeting when the class is used in another Python file. However, when we run the file using the Python interpreter (i.e., <code>python3 my-file.py</code>), it reads the file from top to bottom, encounters the <code>if</code> statement at the bottom, and the condition evaluates to <code>True</code>, leading to the class instantiation. This occurs because the special variable <code>__name__</code> is set to <code>__main__</code> internally. By the way, the double underscore <code>__</code> is referred to as a &ldquo;dunder&rdquo;, which stands for <em>d</em>ouble <em>under</em>score.</p>
+<p>Interestingly, the <code>self</code> parameter can be named differently, and the code will still function. However, it is conventional to use the term <code>self</code>. Furthermore, it appears that numerous conventions should be considered when writing Python code. We will delve into these conventions in upcoming posts.</p>
+<p>We could also remove the <code>-&gt; None</code> portion in the method definition, as it simply specifies the return type, which in this case is <code>None</code>, meaning nothing is returned. However, it seems that people have embraced the statically typed approach when writing Python code. Another notable difference is that instantiating an object in Python doesn&rsquo;t require the <code>new</code> keyword, as Java does. This leads to less typing.</p>
+<p>Python is more lenient with the use of double <code>&quot;</code> and single <code>'</code> quotes, allowing them to be used interchangeably — i.e., &ldquo;Hello&rdquo; and &lsquo;Hello&rsquo; are considered the same. Java, on the other hand, does not permit such flexibility.</p>
+<p>As illustrated by these small examples, Python is less verbose and more adaptable than Java. In future posts, we&rsquo;ll explore situations where Java code may require significantly more lines than Python. This conciseness also makes Python an appealing choice for coding interviews.</p>
+<p>Another point worth mentioning is Java&rsquo;s commitment to backward compatibility. As a result, you&rsquo;re less likely to encounter breaking changes in Java compared to Python. A simple example of this is the <code>print</code> function in Python version 3+ versus versions 2.x:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;Hi there!&#39;</span>) <span style="color:#75715e"># 3+</span>
+</span></span><span style="display:flex;"><span>print <span style="color:#e6db74">&#34;Hi&#34;</span>, <span style="color:#e6db74">&#34;there!&#34;</span> <span style="color:#75715e"># 2.x</span>
+</span></span></code></pre></div><p>This post marks the beginning of a series dedicated to exploring the process of learning Python from the perspective of a Java developer. If you&rsquo;re interested in the other parts of this series, you can find them below:</p>
+<ul>
+<li><a href="https://vladflore.tech/posts/2023/06/learning-python-as-a-java-developer-2-/">part two</a></li>
+</ul>
 
       </div>
     </article>
@@ -322,8 +352,8 @@ git cherry-pick F1
     <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
 
-        <span class="tag"><a href="https://vladflore.tech/tags/git/">git</a></span>
-        <span class="tag"><a href="https://vladflore.tech/tags/animated/">animated</a></span>
+        <span class="tag"><a href="https://vladflore.tech/tags/python/">python</a></span>
+        <span class="tag"><a href="https://vladflore.tech/tags/java/">java</a></span>
         <span class="tag"><a href="https://vladflore.tech/tags/nerdy/">nerdy</a></span>
         
     </p>
@@ -338,7 +368,7 @@ git cherry-pick F1
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        308 Words
+        1180 Words
       </p>
 
       <p>
@@ -349,7 +379,7 @@ git cherry-pick F1
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         
-          2026-03-14 01:00
+          2022-07-16 02:00
         
 
         
@@ -363,7 +393,7 @@ git cherry-pick F1
 
   
   
-  <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2026%2f03%2fgit-animated-5%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2022%2f07%2flearning-python-as-a-java-developer-1-%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
     <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
         <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
@@ -375,7 +405,7 @@ git cherry-pick F1
   
   
   
-  <a class="resp-sharing-button__link" href="mailto:?subject=Git%20Animated%205&amp;body=https%3a%2f%2fvladflore.tech%2fposts%2f2026%2f03%2fgit-animated-5%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <a class="resp-sharing-button__link" href="mailto:?subject=Learning%20Python%20as%20a%20Java%20developer%20-%201%2f&amp;body=https%3a%2f%2fvladflore.tech%2fposts%2f2022%2f07%2flearning-python-as-a-java-developer-1-%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
     <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
       </div>
@@ -386,7 +416,7 @@ git cherry-pick F1
   
   
   
-  <a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fvladflore.tech%2fposts%2f2026%2f03%2fgit-animated-5%2f&amp;title=Git%20Animated%205&amp;summary=Git%20Animated%205&amp;source=https%3a%2f%2fvladflore.tech%2fposts%2f2026%2f03%2fgit-animated-5%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fvladflore.tech%2fposts%2f2022%2f07%2flearning-python-as-a-java-developer-1-%2f&amp;title=Learning%20Python%20as%20a%20Java%20developer%20-%201%2f&amp;summary=Learning%20Python%20as%20a%20Java%20developer%20-%201%2f&amp;source=https%3a%2f%2fvladflore.tech%2fposts%2f2022%2f07%2flearning-python-as-a-java-developer-1-%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
     <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
       </div>
@@ -394,7 +424,7 @@ git cherry-pick F1
   </a>
   
   
-  <a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2026%2f03%2fgit-animated-5%2f&amp;resubmit=true&amp;title=Git%20Animated%205" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fvladflore.tech%2fposts%2f2022%2f07%2flearning-python-as-a-java-developer-1-%2f&amp;resubmit=true&amp;title=Learning%20Python%20as%20a%20Java%20developer%20-%201%2f" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
     <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
       </div>
@@ -422,17 +452,17 @@ git cherry-pick F1
         <div class="pagination__buttons">
             
             <span class="button previous">
-                <a href="https://vladflore.tech/posts/2026/09/git-worktrees-work-on-two-branches-at-once/">
+                <a href="https://vladflore.tech/posts/2022/07/java-17/">
                     <span class="button__icon">←</span>
-                    <span class="button__text">Git Worktrees: Work on Two Branches at Once</span>
+                    <span class="button__text">Java 17</span>
                 </a>
             </span>
             
 
             
             <span class="button next">
-                <a href="https://vladflore.tech/posts/2026/02/algorithms-narrated/">
-                    <span class="button__text">Algorithms Narrated</span>
+                <a href="https://vladflore.tech/posts/2021/12/git-animated-4/">
+                    <span class="button__text">Git Animated 4</span>
                     <span class="button__icon">→</span>
                 </a>
             </span>

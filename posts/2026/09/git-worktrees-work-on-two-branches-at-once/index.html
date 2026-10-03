@@ -51,36 +51,36 @@ git stash git checkout main # fix the bug git checkout feature/whatever git stas
 
 
 
-  <meta itemprop="name" content="Git Worktrees: Work on Two Branches at Once">
-  <meta itemprop="description" content="Meet git worktree You’re mid-feature, working tree is dirty, half-finished file sitting there uncommitted. Then a bug report lands against main. The usual way to deal with this:
+	<meta itemprop="name" content="Git Worktrees: Work on Two Branches at Once">
+	<meta itemprop="description" content="Meet git worktree You’re mid-feature, working tree is dirty, half-finished file sitting there uncommitted. Then a bug report lands against main. The usual way to deal with this:
 git stash git checkout main # fix the bug git checkout feature/whatever git stash pop It works, but it’s a dance, and it gets worse the more files you’ve touched. git worktree skips the dance entirely: instead of switching branches inside one working directory, you get a second working directory, backed by the same repository, checked out to a different branch. Your dirty feature branch stays exactly as you left it while you fix the bug somewhere else.">
-  <meta itemprop="datePublished" content="2026-09-13T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2026-09-13T00:00:00+00:00">
-  <meta itemprop="wordCount" content="902">
-  <meta itemprop="image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
-  <meta itemprop="keywords" content="Git,Nerdy">
+	<meta itemprop="datePublished" content="2026-09-13T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2026-09-13T00:00:00+00:00">
+	<meta itemprop="wordCount" content="902">
+	<meta itemprop="image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+	<meta itemprop="keywords" content="Git,Nerdy">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
-  <meta name="twitter:title" content="Git Worktrees: Work on Two Branches at Once">
-  <meta name="twitter:description" content="Meet git worktree You’re mid-feature, working tree is dirty, half-finished file sitting there uncommitted. Then a bug report lands against main. The usual way to deal with this:
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+	<meta name="twitter:title" content="Git Worktrees: Work on Two Branches at Once">
+	<meta name="twitter:description" content="Meet git worktree You’re mid-feature, working tree is dirty, half-finished file sitting there uncommitted. Then a bug report lands against main. The usual way to deal with this:
 git stash git checkout main # fix the bug git checkout feature/whatever git stash pop It works, but it’s a dance, and it gets worse the more files you’ve touched. git worktree skips the dance entirely: instead of switching branches inside one working directory, you get a second working directory, backed by the same repository, checked out to a different branch. Your dirty feature branch stays exactly as you left it while you fix the bug somewhere else.">
 
 
 
     <meta property="og:url" content="https://vladflore.tech/posts/2026/09/git-worktrees-work-on-two-branches-at-once/">
-  <meta property="og:site_name" content="vlad·flore · tech">
-  <meta property="og:title" content="Git Worktrees: Work on Two Branches at Once">
-  <meta property="og:description" content="Meet git worktree You’re mid-feature, working tree is dirty, half-finished file sitting there uncommitted. Then a bug report lands against main. The usual way to deal with this:
+	<meta property="og:site_name" content="vlad·flore · tech">
+	<meta property="og:title" content="Git Worktrees: Work on Two Branches at Once">
+	<meta property="og:description" content="Meet git worktree You’re mid-feature, working tree is dirty, half-finished file sitting there uncommitted. Then a bug report lands against main. The usual way to deal with this:
 git stash git checkout main # fix the bug git checkout feature/whatever git stash pop It works, but it’s a dance, and it gets worse the more files you’ve touched. git worktree skips the dance entirely: instead of switching branches inside one working directory, you get a second working directory, backed by the same repository, checked out to a different branch. Your dirty feature branch stays exactly as you left it while you fix the bug somewhere else.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2026-09-13T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-09-13T00:00:00+00:00">
-    <meta property="article:tag" content="Git">
-    <meta property="article:tag" content="Nerdy">
-    <meta property="og:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2026-09-13T00:00:00+00:00">
+		<meta property="article:modified_time" content="2026-09-13T00:00:00+00:00">
+		<meta property="article:tag" content="Git">
+		<meta property="article:tag" content="Nerdy">
+		<meta property="og:image" content="https://vladflore.tech/images/cover-photo-linkedin.png">
 
 
 
@@ -299,7 +299,7 @@ git stash git checkout main # fix the bug git checkout feature/whatever git stas
       <div class="post-content">
         <h2 id="meet-git-worktree">Meet <code>git worktree</code></h2>
 <p>You&rsquo;re mid-feature, working tree is dirty, half-finished file sitting there uncommitted. Then a bug report lands against <code>main</code>. The usual way to deal with this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git stash
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git stash
 </span></span><span style="display:flex;"><span>git checkout main
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># fix the bug</span>
 </span></span><span style="display:flex;"><span>git checkout feature/whatever
@@ -316,14 +316,14 @@ git stash git checkout main # fix the bug git checkout feature/whatever git stas
 <p>One constraint worth knowing up front: a branch can only be checked out in one worktree at a time. Git will refuse if you try to check it out twice, more on that at the end.</p>
 <h3 id="example">Example</h3>
 <p>Let&rsquo;s build a small Python project to make this concrete. All you need is <code>python3</code>, no extra dependencies, tests use the built-in <code>unittest</code> module.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir worktrees-demo <span style="color:#f92672">&amp;&amp;</span> cd worktrees-demo
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir worktrees-demo <span style="color:#f92672">&amp;&amp;</span> cd worktrees-demo
 </span></span><span style="display:flex;"><span>git init -b main
 </span></span></code></pre></div><p>Add the &ldquo;current&rdquo; implementation and its tests:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># discount.py</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># discount.py</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">discount</span>(price, percent):
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Return price after applying a percentage discount.&#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> price <span style="color:#f92672">-</span> (price <span style="color:#f92672">*</span> percent <span style="color:#f92672">/</span> <span style="color:#ae81ff">100</span>)
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># test_discount.py</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># test_discount.py</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> unittest
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> discount <span style="color:#f92672">import</span> discount
 </span></span><span style="display:flex;"><span>
@@ -337,30 +337,30 @@ git stash git checkout main # fix the bug git checkout feature/whatever git stas
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
 </span></span><span style="display:flex;"><span>    unittest<span style="color:#f92672">.</span>main()
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;__pycache__/&#34;</span> &gt; .gitignore
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;__pycache__/&#34;</span> &gt; .gitignore
 </span></span><span style="display:flex;"><span>git add .
 </span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Add discount function with tests&#34;</span>
 </span></span></code></pre></div><p>Now start a feature branch and leave some work in progress, uncommitted, on purpose:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git checkout -b feature/bulk-discount
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># bulk.py -- work in progress: bulk order discount tiers</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git checkout -b feature/bulk-discount
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># bulk.py -- work in progress: bulk order discount tiers</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">bulk_discount</span>(order_total):
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>  <span style="color:#75715e"># TODO</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git status --short
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>?? bulk.py
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git status --short
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>?? bulk.py
 </span></span></code></pre></div><p>Dirty working tree, unfinished feature. This is the moment a bug report shows up: <code>discount()</code> should never push a price below zero, but <code>discount(100, 150)</code> currently returns <code>-50.0</code>. You don&rsquo;t want to touch this working tree to fix it. Create a worktree for <code>main</code> instead:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git worktree add ../worktrees-demo-hotfix main
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Preparing worktree <span style="color:#f92672">(</span>checking out <span style="color:#e6db74">&#39;main&#39;</span><span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git worktree add ../worktrees-demo-hotfix main
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Preparing worktree <span style="color:#f92672">(</span>checking out <span style="color:#e6db74">&#39;main&#39;</span><span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span>HEAD is now at 2decc2b Add discount <span style="color:#66d9ef">function</span> with tests
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git worktree list
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>/path/to/worktrees-demo         2decc2b <span style="color:#f92672">[</span>feature/bulk-discount<span style="color:#f92672">]</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git worktree list
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>/path/to/worktrees-demo         2decc2b <span style="color:#f92672">[</span>feature/bulk-discount<span style="color:#f92672">]</span>
 </span></span><span style="display:flex;"><span>/path/to/worktrees-demo-hotfix  2decc2b <span style="color:#f92672">[</span>main<span style="color:#f92672">]</span>
 </span></span></code></pre></div><p>Two working directories, one repository, two different branches checked out simultaneously. <code>cd</code> into the new one and reproduce the bug with a failing test first:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd ../worktrees-demo-hotfix
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># test_discount.py -- add this test to the class</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd ../worktrees-demo-hotfix
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># test_discount.py -- add this test to the class</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_never_goes_negative</span>(self):
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>assertEqual(discount(<span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">150</span>), <span style="color:#ae81ff">0</span>)
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>python3 -m unittest -v
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>test_never_goes_negative <span style="color:#f92672">(</span>test_discount.TestDiscount.test_never_goes_negative<span style="color:#f92672">)</span> ... FAIL
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>python3 -m unittest -v
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>test_never_goes_negative <span style="color:#f92672">(</span>test_discount.TestDiscount.test_never_goes_negative<span style="color:#f92672">)</span> ... FAIL
 </span></span><span style="display:flex;"><span>test_ten_percent <span style="color:#f92672">(</span>test_discount.TestDiscount.test_ten_percent<span style="color:#f92672">)</span> ... ok
 </span></span><span style="display:flex;"><span>test_zero_percent <span style="color:#f92672">(</span>test_discount.TestDiscount.test_zero_percent<span style="color:#f92672">)</span> ... ok
 </span></span><span style="display:flex;"><span>
@@ -373,12 +373,12 @@ git stash git checkout main # fix the bug git checkout feature/whatever git stas
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>FAILED <span style="color:#f92672">(</span>failures<span style="color:#f92672">=</span>1<span style="color:#f92672">)</span>
 </span></span></code></pre></div><p>Bug reproduced. Fix it:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># discount.py</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># discount.py</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">discount</span>(price, percent):
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Return price after applying a percentage discount, never below 0.&#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> max(price <span style="color:#f92672">-</span> (price <span style="color:#f92672">*</span> percent <span style="color:#f92672">/</span> <span style="color:#ae81ff">100</span>), <span style="color:#ae81ff">0</span>)
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>python3 -m unittest -v
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>test_never_goes_negative <span style="color:#f92672">(</span>test_discount.TestDiscount.test_never_goes_negative<span style="color:#f92672">)</span> ... ok
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>python3 -m unittest -v
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>test_never_goes_negative <span style="color:#f92672">(</span>test_discount.TestDiscount.test_never_goes_negative<span style="color:#f92672">)</span> ... ok
 </span></span><span style="display:flex;"><span>test_ten_percent <span style="color:#f92672">(</span>test_discount.TestDiscount.test_ten_percent<span style="color:#f92672">)</span> ... ok
 </span></span><span style="display:flex;"><span>test_zero_percent <span style="color:#f92672">(</span>test_discount.TestDiscount.test_zero_percent<span style="color:#f92672">)</span> ... ok
 </span></span><span style="display:flex;"><span>
@@ -387,27 +387,27 @@ git stash git checkout main # fix the bug git checkout feature/whatever git stas
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>OK
 </span></span></code></pre></div><p>Green. Commit the fix, right on <code>main</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git add -A
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git add -A
 </span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Fix: discount should never go below 0&#34;</span>
 </span></span><span style="display:flex;"><span>git log --oneline
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>2e4fc1c Fix: discount should never go below <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>2e4fc1c Fix: discount should never go below <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span>2decc2b Add discount <span style="color:#66d9ef">function</span> with tests
 </span></span></code></pre></div><p>Now go back to where the feature work was happening:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd ../worktrees-demo
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd ../worktrees-demo
 </span></span><span style="display:flex;"><span>git status --short
 </span></span><span style="display:flex;"><span>git log --oneline
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>?? bulk.py
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>?? bulk.py
 </span></span><span style="display:flex;"><span>2decc2b Add discount <span style="color:#66d9ef">function</span> with tests
 </span></span></code></pre></div><p><code>bulk.py</code> is still sitting there untouched, uncommitted, exactly as it was. No stash, no pop, no risk of forgetting to bring it back. The hotfix commit lives on <code>main</code> in the other worktree and hasn&rsquo;t touched this branch at all — you&rsquo;d <code>merge</code> or <code>rebase</code> onto the updated <code>main</code> when you&rsquo;re ready to pick it up.</p>
 <p>Once the hotfix worktree isn&rsquo;t needed anymore, remove it:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git worktree remove ../worktrees-demo-hotfix
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git worktree remove ../worktrees-demo-hotfix
 </span></span><span style="display:flex;"><span>git worktree list
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>/path/to/worktrees-demo  2decc2b <span style="color:#f92672">[</span>feature/bulk-discount<span style="color:#f92672">]</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>/path/to/worktrees-demo  2decc2b <span style="color:#f92672">[</span>feature/bulk-discount<span style="color:#f92672">]</span>
 </span></span></code></pre></div><p>Back to a single worktree.</p>
 <h3 id="the-one-branch-one-worktree-rule">The one-branch-one-worktree rule</h3>
 <p>Try to check out a branch that&rsquo;s already checked out somewhere else, and Git stops you:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git worktree add ../worktrees-demo-again feature/bulk-discount
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Preparing worktree <span style="color:#f92672">(</span>checking out <span style="color:#e6db74">&#39;feature/bulk-discount&#39;</span><span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git worktree add ../worktrees-demo-again feature/bulk-discount
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Preparing worktree <span style="color:#f92672">(</span>checking out <span style="color:#e6db74">&#39;feature/bulk-discount&#39;</span><span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span>fatal: <span style="color:#e6db74">&#39;feature/bulk-discount&#39;</span> is already used by worktree at <span style="color:#e6db74">&#39;/path/to/worktrees-demo&#39;</span>
 </span></span></code></pre></div><p>Makes sense: two working directories editing the same branch at once would make the index and <code>HEAD</code> ambiguous. If you need to poke at the same branch from two places, checkout a new branch from it instead.</p>
 <h3 id="bonus-tips">Bonus tips</h3>
@@ -568,8 +568,9 @@ git stash git checkout main # fix the bug git checkout feature/whatever git stas
         (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
         </div>
       
     
