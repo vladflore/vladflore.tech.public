@@ -1,0 +1,72 @@
+{
+  "title": "Stack",
+  "kind": "implement",
+  "track": "Linked structures",
+  "draft": false,
+  "difficulty": "easy",
+  "topics": [
+    "data-structures.stack"
+  ],
+  "related": [],
+  "compare": "exact",
+  "tests": [
+    {
+      "name": "Last in, first out",
+      "setup": "s = Stack()\ns.push('A')\ns.push('B')",
+      "expr": "(s.pop(), s.pop(), s.is_empty())",
+      "expected": [
+        "B",
+        "A",
+        true
+      ]
+    },
+    {
+      "name": "Peek doesn't remove",
+      "setup": "s = Stack()\nfor x in 'ABCD':\n    s.push(x)",
+      "expr": "(s.peek(), s.size())",
+      "expected": [
+        "D",
+        4
+      ]
+    },
+    {
+      "name": "Peek on empty",
+      "expr": "Stack().peek()",
+      "expected": null
+    },
+    {
+      "name": "Pop on empty",
+      "expr": "Stack().pop()",
+      "raises": "IndexError"
+    },
+    {
+      "name": "New stack is empty",
+      "expr": "(Stack().is_empty(), Stack().items())",
+      "expected": [
+        true,
+        []
+      ]
+    },
+    {
+      "name": "Reverse a string",
+      "expr": "reverse_string('hello')",
+      "expected": "olleh"
+    },
+    {
+      "name": "Reverse empty",
+      "expr": "reverse_string('')",
+      "expected": ""
+    },
+    {
+      "name": "Decimal to binary",
+      "expr": "[to_binary(n) for n in (0, 1, 2, 5, 242)]",
+      "expected": [
+        "0",
+        "1",
+        "10",
+        "101",
+        "11110010"
+      ]
+    }
+  ]
+}

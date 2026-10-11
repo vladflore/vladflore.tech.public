@@ -267,7 +267,17 @@ body {
 }
 #actions {
   display: flex;
-  gap: 8px;
+  gap: 6px;
+  /* The buttons keep their size; the problem title wraps instead. */
+  flex-shrink: 0;
+}
+#currentFile {
+  min-width: 0;
+}
+#settings-btn,
+#diff-btn,
+#download-btn {
+  padding: 8px 10px;
 }
 #controls button.secondary {
   background: #444;
@@ -276,14 +286,77 @@ body {
 #controls button.secondary:hover {
   background: #555;
 }
+#settings-wrap {
+  position: relative;
+}
+#editor-settings {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  /* Opens rightwards over the editor: #main clips anything left of it. */
+  left: 0;
+  z-index: 1000;
+  min-width: 180px;
+  background: #2b2b2b;
+  border: 1px solid #666;
+  border-radius: 8px;
+  padding: 10px 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+}
+#editor-settings.open {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+#editor-settings label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: pointer;
+}
+#editor-settings label:has(input) {
+  justify-content: flex-start;
+}
+#editor-settings .font-size {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+#editor-settings .font-size button {
+  background: #444;
+  box-shadow: none;
+  padding: 2px 6px;
+}
+#editor-settings .font-size button:hover {
+  background: #555;
+  transform: none;
+  box-shadow: none;
+}
+#font-size-value {
+  min-width: 2ch;
+  text-align: center;
+}
 #controls button.confirm {
   background: #a33;
 }
-#editor {
+#editor,
+#diff-editor {
   flex: 1;
   min-height: 0;
   overflow: hidden;
   border-top: 1px solid #444;
+}
+#editor[hidden],
+#diff-editor[hidden] {
+  display: none;
+}
+.protected-code {
+  background: rgba(255, 255, 255, 0.05);
+}
+#controls button.secondary.active {
+  background: #2d6a3e;
 }
 #output {
   flex-shrink: 0;

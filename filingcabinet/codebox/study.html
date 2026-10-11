@@ -2,16 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="codebox-version" content="0.2.1" />
+    <meta name="codebox-version" content="0.3.0" />
     <title>CodeBox · Study</title>
     <script src="https://unpkg.com/monaco-editor@0.56.0/min/vs/loader.js"></script>
-    <script src="common.js?v=0.2.1" defer></script>
-    <script src="study.js?v=0.2.1" defer></script>
+    <script src="common.js?v=0.3.0" defer></script>
+    <script src="study.js?v=0.3.0" defer></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
     />
-    <link rel="stylesheet" href="css.css?v=0.2.1" />
+    <link rel="stylesheet" href="css.css?v=0.3.0" />
   </head>
   <body>
     <!-- <div id="status-banner" role="alert" aria-live="polite">
@@ -81,6 +81,15 @@
         <div id="controls">
           <span id="currentFile">No file selected</span>
           <div id="actions">
+            <span id="settings-wrap">
+              <button id="settings-btn" class="secondary" title="Editor settings" aria-label="Editor settings">
+                <i class="bi bi-gear"></i>
+              </button>
+              <div id="editor-settings"></div>
+            </span>
+            <button id="diff-btn" class="secondary" onclick="toggleDiffView()" title="Compare with the original solution" aria-label="Compare with the original solution">
+              <i class="bi bi-file-diff"></i>
+            </button>
             <button id="download-btn" class="secondary" onclick="downloadCode()" title="Download (Ctrl/⌘ + S)" aria-label="Download">
               <i class="bi bi-download"></i>
             </button>
@@ -95,6 +104,7 @@
           </div>
         </div>
         <div id="editor"></div>
+        <div id="diff-editor" hidden></div>
         <pre id="output"></pre>
       </div>
     </div>

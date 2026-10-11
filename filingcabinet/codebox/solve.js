@@ -18,6 +18,7 @@ let harnessSource = null;
 
 initEditor(() => {
   editor.onDidChangeModelContent(saveDraft);
+  initProtectedBlocks();
   fetchPracticeProblems();
   window.addEventListener("hashchange", openFromHash);
   openFromHash();
@@ -304,6 +305,130 @@ function saveDraft() {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Protected helpers: code under a "# Used by the tests: do not change." or
+// "# Given: do not change." comment (see problems/README.md) is shaded. Once it
+// differs from the starter, it gets a warning with a "Restore" quick fix.
+// ---------------------------------------------------------------------------
+
+const PROTECTED_MARKER = /^\s*# (Used by the tests|Given): do not change\.\s*$/;
+const PROTECTED_OWNER = "codebox-protected";
+let protectedDecorations;
+let protectedCheckTimeout;
+// Line number of each warning -> { range, text } to put back, for the quick fix.
+let protectedRestores = new Map();
+
+// Protected blocks in `lines`: [{ start, end }] (1-based, inclusive). A block is the
+// marker comment plus the definition below it (decorators, def/class line, and every
+// following line indented deeper), without trailing blank lines.
+function findProtectedBlocks(lines) {
+  const indentOf = (line) => line.match(/^\s*/)[0].length;
+  const blocks = [];
+  for (let i = 0; i < lines.length; i++) {
+    if (!PROTECTED_MARKER.test(lines[i])) continue;
+    let j = i + 1;
+    while (j < lines.length && !lines[j].trim()) j++;
+    if (j >= lines.length) continue;
+    const indent = indentOf(lines[j]);
+    while (j < lines.length && lines[j].trim().startsWith("@") && indentOf(lines[j]) === indent) j++;
+    let end = j;
+    for (let k = j + 1; k < lines.length; k++) {
+      if (!lines[k].trim()) continue;
+      if (indentOf(lines[k]) <= indent) break;
+      end = k;
+    }
+    blocks.push({ start: i + 1, end: end + 1 });
+    i = end;
+  }
+  return blocks;
+}
+
+function blockText(lines, block) {
+  return lines.slice(block.start - 1, block.end).join("\n");
+}
+
+function sameCode(a, b) {
+  const normalize = (text) => text.split("\n").map((line) => line.trimEnd()).join("\n");
+  return normalize(a) === normalize(b);
+}
+
+function checkProtectedBlocks() {
+  const model = editor.getModel();
+  if (!currentProblem) {
+    protectedDecorations.clear();
+    monaco.editor.setModelMarkers(model, PROTECTED_OWNER, []);
+    return;
+  }
+  const lines = model.getLinesContent();
+  const starterLines = currentProblem.starter.split("\n");
+  const blocks = findProtectedBlocks(lines);
+  // Paired with the starter's blocks in order: markers aren't meant to move.
+  const starterBlocks = findProtectedBlocks(starterLines);
+
+  protectedDecorations.set(
+    blocks.map((block) => ({
+      range: new monaco.Range(block.start, 1, block.end, 1),
+      options: { isWholeLine: true, className: "protected-code" },
+    })),
+  );
+
+  protectedRestores = new Map();
+  const markers = [];
+  blocks.forEach((block, index) => {
+    const original = starterBlocks[index];
+    if (!original) return;
+    const text = blockText(starterLines, original);
+    if (sameCode(blockText(lines, block), text)) return;
+    const range = new monaco.Range(block.start, 1, block.end, model.getLineMaxColumn(block.end));
+    protectedRestores.set(block.start, { range, text });
+    markers.push({
+      severity: monaco.MarkerSeverity.Warning,
+      message: "This code was changed, but the tests rely on it as given. Use the quick fix (Ctrl/⌘+.) to restore it.",
+      startLineNumber: block.start,
+      startColumn: 1,
+      endLineNumber: block.start,
+      endColumn: model.getLineMaxColumn(block.start),
+    });
+  });
+  monaco.editor.setModelMarkers(model, PROTECTED_OWNER, markers);
+}
+
+function initProtectedBlocks() {
+  protectedDecorations = editor.createDecorationsCollection();
+  editor.onDidChangeModelContent((e) => {
+    clearTimeout(protectedCheckTimeout);
+    // A new problem is checked at once; typing is checked once it pauses.
+    if (e.isFlush) {
+      checkProtectedBlocks();
+    } else {
+      protectedCheckTimeout = setTimeout(checkProtectedBlocks, 300);
+    }
+  });
+  monaco.languages.registerCodeActionProvider("python", {
+    // Offered anywhere inside a changed block, not just on the warning's line.
+    provideCodeActions(model, range) {
+      if (model !== editor.getModel()) return { actions: [], dispose() {} };
+      const warnings = monaco.editor.getModelMarkers({ owner: PROTECTED_OWNER, resource: model.uri });
+      const actions = [...protectedRestores]
+        .filter(([, restore]) => monaco.Range.areIntersectingOrTouching(restore.range, range))
+        .map(([line, restore]) => ({
+          title: "Restore the original code",
+          kind: "quickfix",
+          isPreferred: true,
+          diagnostics: warnings.filter((marker) => marker.startLineNumber === line),
+          edit: {
+            edits: [{ resource: model.uri, versionId: model.getVersionId(), textEdit: { range: restore.range, text: restore.text } }],
+          },
+        }));
+      return { actions, dispose() {} };
+    },
+  });
+  // Monaco's quick fix key is ⌘+. on macOS; let Ctrl+. open it there too (WinCtrl is Ctrl on macOS).
+  editor.addCommand(monaco.KeyMod.WinCtrl | monaco.KeyCode.Period, () =>
+    editor.trigger("keyboard", "editor.action.quickFix", null),
+  );
+}
+
 function getResetTarget() {
   return currentProblem ? { code: currentProblem.starter, message: "Code reset to starter" } : null;
 }
@@ -328,6 +453,7 @@ async function runTests() {
   outputElement.textContent = "⏳ Running tests...";
   testButton.disabled = true;
   testButton.innerHTML = '<i class="bi bi-hourglass-split"></i> Running...';
+  clearErrorMarkers();
 
   try {
     const result = await executeOnPiston("python", [
@@ -342,6 +468,7 @@ async function runTests() {
     const report = parseHarnessOutput(result.run);
     lastTestReports[problem.slug] = report;
     outputElement.innerHTML = renderTestReport(report, problem.meta);
+    showErrorMarkers([report.error?.error, ...report.results.map((r) => r.error)], "solution.py");
     notifyTestReport(report);
   } catch (error) {
     console.error("Test execution error:", error);
