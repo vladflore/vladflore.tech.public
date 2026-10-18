@@ -259,13 +259,8 @@ async function loadProblemInfo(filePath, loadId) {
     if (loadId !== loadCounter) return;
 
     document.getElementById("file-info").innerHTML = `
-      <div style="background: #333; padding: 12px; border-radius: 6px; font-size: 14px;">
-      <div style="margin: 0; font-family: inherit;">
-        <style>
-        #file-info * { margin: 1 !important; }
-        </style>
+      <div class="details-card">
         ${infoContent}
-      </div>
       </div>
     `;
   } catch (error) {

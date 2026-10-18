@@ -1,0 +1,19 @@
+<h3>Task</h3>
+<ul>
+  <li><code>price_tag(name: str, price: float) -&gt; str</code>: <code>name</code> left-aligned in 10 characters, then <code>price</code> right-aligned in 8 characters with 2 decimals.</li>
+  <li><code>percent(part: float, whole: float) -&gt; str</code>: <code>part / whole</code> as a percentage with one decimal, e.g. <code>"42.9%"</code>.</li>
+  <li><code>thousands(n: int) -&gt; str</code>: an integer with comma separators, e.g. <code>"1,234,567"</code>.</li>
+  <li><code>padded_id(n: int) -&gt; str</code>: the number padded with zeros to 5 digits.</li>
+  <li><code>binary(n: int) -&gt; str</code>: the number in binary, padded with zeros to 8 digits.</li>
+  <li><code>debug_line(name: str, value: object) -&gt; str</code>: <code>name=</code> followed by the <code>repr</code> of the value, so strings keep their quotes.</li>
+  <li><code>clean_csv_line(line: str) -&gt; str</code>: split on commas, strip each field, drop empty fields, join the rest with <code>", "</code>. A line with no non-empty fields gives <code>""</code>.</li>
+</ul>
+<h3>Example</h3>
+<pre>price_tag("Tea", 3.5)        -&gt;  "Tea           3.50"
+debug_line("city", "Oslo")   -&gt;  "city='Oslo'"
+clean_csv_line(" a, b ,,c ") -&gt;  "a, b, c"</pre>
+<h3>Notes</h3>
+<ul>
+  <li>Every number function is a single f-string with a format spec after the colon: <code>f"{value:spec}"</code>. Look up alignment (<code>&lt; &gt;</code>), width, precision, <code>,</code>, <code>%</code>, <code>0</code> padding and <code>b</code>.</li>
+  <li><code>!r</code> inside the braces uses <code>repr()</code> instead of <code>str()</code>.</li>
+</ul>

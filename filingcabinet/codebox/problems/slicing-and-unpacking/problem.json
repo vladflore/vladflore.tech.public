@@ -1,0 +1,26 @@
+{
+  "title": "Slicing and Unpacking",
+  "kind": "implement",
+  "track": "Refresher 1: Core",
+  "draft": false,
+  "difficulty": "easy",
+  "topics": ["python.slicing", "python.unpacking"],
+  "related": ["tuples"],
+  "compare": "exact",
+  "tests": [
+    { "name": "Last two", "expr": "last_n([1, 2, 3], 2)", "expected": [2, 3] },
+    { "name": "Last zero", "expr": "last_n([1, 2, 3], 0)", "expected": [] },
+    { "name": "More than available", "expr": "last_n([1], 5)", "expected": [1] },
+    { "name": "Reverse words", "expr": "reverse_words('one two three')", "expected": "three two one" },
+    { "name": "Odd positions", "expr": "odd_positions(['a', 'b', 'c', 'd', 'e'])", "expected": ["b", "d"] },
+    { "name": "Split ends", "expr": "split_ends([1, 2, 3, 4])", "expected": [1, [2, 3], 4] },
+    { "name": "Split ends of two", "expr": "split_ends(['x', 'y'])", "expected": ["x", [], "y"] },
+    { "name": "Middle is a list", "expr": "type(split_ends((1, 2, 3))[1]).__name__", "expected": "list" },
+    { "name": "Split ends of one", "expr": "split_ends([1])", "raises": "ValueError" },
+    { "name": "Rotate left", "expr": "rotate([1, 2, 3, 4, 5], 2)", "expected": [3, 4, 5, 1, 2] },
+    { "name": "Rotate past the end", "expr": "rotate([1, 2, 3, 4, 5], 7)", "expected": [3, 4, 5, 1, 2] },
+    { "name": "Rotate empty", "expr": "rotate([], 3)", "expected": [] },
+    { "name": "Rotate leaves input alone", "setup": "items = [1, 2, 3]\nrotate(items, 1)", "expr": "items", "expected": [1, 2, 3] },
+    { "name": "Nested unpacking", "expr": "home_cities([('ana', (31, 'Oslo')), ('bo', (25, 'Lima'))])", "expected": [["ana", "Oslo"], ["bo", "Lima"]] }
+  ]
+}

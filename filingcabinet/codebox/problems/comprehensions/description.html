@@ -1,0 +1,18 @@
+<h3>Task</h3>
+<p>Write each function as a single comprehension (list, dict or set).</p>
+<ul>
+  <li><code>positive_squares(numbers: list[int]) -&gt; list[int]</code>: the squares of the numbers greater than zero, in order.</li>
+  <li><code>labels(numbers: list[int]) -&gt; list[str]</code>: <code>"even"</code> or <code>"odd"</code> for each number.</li>
+  <li><code>word_lengths(words: list[str]) -&gt; dict[str, int]</code>: a dict from each word to its length.</li>
+  <li><code>invert(mapping: dict) -&gt; dict</code>: a dict with keys and values swapped (values are unique).</li>
+  <li><code>initials(names: list[str]) -&gt; set[str]</code>: the set of first letters, upper-cased.</li>
+  <li><code>flatten(rows: list[list]) -&gt; list</code>: one list with the items of every row, in order.</li>
+  <li><code>transpose(matrix: list[list]) -&gt; list[list]</code>: rows become columns. All rows have the same length; an empty matrix gives <code>[]</code>.</li>
+</ul>
+<h3>Example</h3>
+<pre>transpose([[1, 2, 3], [4, 5, 6]])  -&gt;  [[1, 4], [2, 5], [3, 6]]</pre>
+<h3>Notes</h3>
+<ul>
+  <li>A filter goes at the end (<code>... for n in numbers if n &gt; 0</code>); a choice between two values goes at the front (<code>a if cond else b for ...</code>).</li>
+  <li>Nested <code>for</code> clauses read in the same order as nested loops.</li>
+</ul>

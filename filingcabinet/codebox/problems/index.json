@@ -1,5 +1,9 @@
 {
   "problems": [
+    "slicing-and-unpacking",
+    "comprehensions",
+    "string-formatting",
+    "enumerate-zip",
     "stack",
     "two-sum",
     "two-sum-sorted",

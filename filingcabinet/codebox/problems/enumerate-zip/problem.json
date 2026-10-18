@@ -1,0 +1,20 @@
+{
+  "title": "enumerate() and zip()",
+  "kind": "refactor",
+  "track": "Refresher 1: Core",
+  "draft": false,
+  "difficulty": "easy",
+  "topics": ["python.enumerate", "python.zip", "clean-code"],
+  "related": ["loops-to-itertools"],
+  "compare": "exact",
+  "tests": [
+    { "name": "Numbered list", "expr": "numbered(['tea', 'milk'])", "expected": ["1. tea", "2. milk"] },
+    { "name": "Numbered empty", "expr": "numbered([])", "expected": [] },
+    { "name": "Positions", "expr": "positions('banana', 'a')", "expected": [1, 3, 5] },
+    { "name": "Order total", "expr": "order_total([2.5, 4.0], [2, 3])", "expected": 17.0 },
+    { "name": "Lengths must match", "expr": "order_total([2.5, 4.0], [2])", "raises": "ValueError" },
+    { "name": "First change", "expr": "first_change([1, 2, 3], [1, 5, 3])", "expected": 1 },
+    { "name": "No change", "expr": "first_change(['a'], ['a'])", "expected": null },
+    { "name": "Build a dict", "expr": "to_dict(['a', 'b'], [1, 2])", "expected": { "a": 1, "b": 2 } }
+  ]
+}

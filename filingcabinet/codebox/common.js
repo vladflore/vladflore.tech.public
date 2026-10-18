@@ -531,106 +531,51 @@ document.addEventListener("click", function (event) {
   }
 });
 
-let isPanelResizing = false;
 let isPanelCollapsed = false;
-let panelWidth = 250;
-
-function updateToggleButtonPosition() {
-  const toggleButton = document.getElementById("collapse-toggle");
-  const sidebar = document.getElementById("sidebar");
-  const sidebarWidth = parseInt(
-    document.defaultView.getComputedStyle(sidebar).width,
-    10,
-  );
-
-  if (isPanelCollapsed) {
-    toggleButton.style.left = sidebarWidth + 10 + "px";
-    toggleButton.classList.add("collapsed");
-  } else {
-    toggleButton.style.left = sidebarWidth + panelWidth - 30 + "px";
-    toggleButton.classList.remove("collapsed");
-  }
-}
+const PANEL_MIN_WIDTH = 200;
+const PANEL_MAX_WIDTH = 600;
 
 function togglePanel() {
-  const panel = document.getElementById("collapsible-panel");
-  const icon = document.getElementById("collapse-icon");
-
-  isPanelCollapsed = !isPanelCollapsed;
-
-  if (isPanelCollapsed) {
-    panel.classList.add("collapsed");
-    icon.className = "bi bi-chevron-right";
-  } else {
-    panel.classList.remove("collapsed");
-    panel.style.width = panelWidth + "px";
-    icon.className = "bi bi-chevron-left";
-  }
-
-  updateToggleButtonPosition();
-
-  setTimeout(() => {
-    if (editor) {
-      editor.layout();
-    }
-  }, 300);
+  isPanelCollapsed = document.getElementById("collapsible-panel").classList.toggle("collapsed");
 }
 
 function initializePanelResize() {
-  const resizeHandle = document.getElementById("panel-resize-handle");
+  const handle = document.getElementById("panel-resize-handle");
   const panel = document.getElementById("collapsible-panel");
+  let startX, startWidth, nextWidth;
+  let frame = 0;
 
-  let startX, startWidth;
+  // One width change per animation frame; Monaco's automaticLayout follows on its own.
+  const applyWidth = () => {
+    frame = 0;
+    panel.style.width = nextWidth + "px";
+  };
 
-  resizeHandle.addEventListener("mousedown", (e) => {
-    if (isPanelCollapsed) return;
-
-    isPanelResizing = true;
+  handle.addEventListener("pointerdown", (e) => {
+    if (isPanelCollapsed || e.button !== 0) return;
     startX = e.clientX;
-    startWidth = parseInt(
-      document.defaultView.getComputedStyle(panel).width,
-      10,
-    );
-
-    resizeHandle.classList.add("dragging");
-    document.body.style.cursor = "col-resize";
-    document.body.style.userSelect = "none";
-
+    startWidth = panel.getBoundingClientRect().width;
+    handle.setPointerCapture(e.pointerId);
+    // The width transition is for collapse/expand; while dragging it makes the panel lag the pointer.
+    panel.classList.add("resizing");
+    document.body.classList.add("panel-resizing");
     e.preventDefault();
   });
 
-  document.addEventListener("mousemove", (e) => {
-    if (!isPanelResizing) return;
-
-    const width = startWidth + e.clientX - startX;
-    const minWidth = 200;
-    const maxWidth = 600;
-
-    if (width >= minWidth && width <= maxWidth) {
-      panelWidth = width;
-      panel.style.width = width + "px";
-      updateToggleButtonPosition();
-      if (editor) {
-        requestAnimationFrame(() => {
-          editor.layout();
-        });
-      }
-    }
+  handle.addEventListener("pointermove", (e) => {
+    if (!handle.hasPointerCapture(e.pointerId)) return;
+    nextWidth = Math.min(PANEL_MAX_WIDTH, Math.max(PANEL_MIN_WIDTH, startWidth + e.clientX - startX));
+    if (!frame) frame = requestAnimationFrame(applyWidth);
   });
 
-  document.addEventListener("mouseup", () => {
-    if (isPanelResizing) {
-      isPanelResizing = false;
-      resizeHandle.classList.remove("dragging");
-      document.body.style.cursor = "";
-      document.body.style.userSelect = "";
-      if (editor) {
-        editor.layout();
-      }
-    }
-  });
-
-  updateToggleButtonPosition();
+  const stop = (e) => {
+    if (!handle.hasPointerCapture(e.pointerId)) return;
+    handle.releasePointerCapture(e.pointerId);
+    panel.classList.remove("resizing");
+    document.body.classList.remove("panel-resizing");
+  };
+  handle.addEventListener("pointerup", stop);
+  handle.addEventListener("pointercancel", stop);
 }
 
 // True while the user is typing: form fields, and the editor (Monaco types into a

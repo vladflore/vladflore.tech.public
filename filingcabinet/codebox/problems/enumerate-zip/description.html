@@ -1,0 +1,9 @@
+<h3>Refactor</h3>
+<p>Every function here works, but walks its lists with <code>range(len(...))</code> and manual
+index bookkeeping. Rewrite them with <code>enumerate()</code> and <code>zip()</code>; behaviour and tests stay the same. Each function's docstring says what it does.</p>
+<h3>Goals</h3>
+<ul>
+  <li>No <code>range(len(...))</code>, no <code>while</code> loops with a counter, no <code>items[i]</code>.</li>
+  <li><code>order_total</code> must still raise <code>ValueError</code> when the lists differ in length, without checking the lengths yourself (<code>zip()</code> has an option for this since Python 3.10).</li>
+  <li>Use a comprehension or a built-in where a whole loop collapses into one.</li>
+</ul>

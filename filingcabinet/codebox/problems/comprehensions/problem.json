@@ -1,0 +1,22 @@
+{
+  "title": "Comprehensions",
+  "kind": "implement",
+  "track": "Refresher 1: Core",
+  "draft": false,
+  "difficulty": "easy",
+  "topics": ["python.comprehensions"],
+  "related": ["list-basics"],
+  "compare": "exact",
+  "tests": [
+    { "name": "Positive squares", "expr": "positive_squares([-2, 0, 3, 4])", "expected": [9, 16] },
+    { "name": "Labels", "expr": "labels([1, 2, 3])", "expected": ["odd", "even", "odd"] },
+    { "name": "Word lengths", "expr": "word_lengths(['tea', 'coffee'])", "expected": { "tea": 3, "coffee": 6 } },
+    { "name": "Invert a dict", "expr": "invert({'a': 1, 'b': 2})", "expected": { "1": "a", "2": "b" } },
+    { "name": "Inverted keys keep their type", "expr": "sorted(invert({'a': 1, 'b': 2}))", "expected": [1, 2] },
+    { "name": "Initials", "expr": "sorted(initials(['ana', 'Alex', 'bo']))", "expected": ["A", "B"] },
+    { "name": "Initials is a set", "expr": "type(initials(['ana'])).__name__", "expected": "set" },
+    { "name": "Flatten", "expr": "flatten([[1, 2], [], [3]])", "expected": [1, 2, 3] },
+    { "name": "Transpose", "expr": "transpose([[1, 2, 3], [4, 5, 6]])", "expected": [[1, 4], [2, 5], [3, 6]] },
+    { "name": "Transpose empty", "expr": "transpose([])", "expected": [] }
+  ]
+}

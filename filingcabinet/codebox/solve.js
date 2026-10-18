@@ -82,11 +82,6 @@ function languageIcon(language = "python") {
   return `<img class="language-icon" src="${src}" alt="${name}" title="${name}">`;
 }
 
-// Drafts (problem.json "draft": true) are never listed or counted; their #slug link still opens them.
-function draftBadge(draft) {
-  return draft ? '<span class="draft-badge">draft</span>' : "";
-}
-
 // Exercise kind (problem.json "kind"): implement | fix | refactor.
 function kindBadge(kind = "implement") {
   return `<span class="kind kind-${escapeHtml(kind)}">${escapeHtml(kind)}</span>`;
@@ -259,10 +254,10 @@ async function loadProblem(slug) {
     monaco.editor.setModelLanguage(editor.getModel(), "python");
 
     document.getElementById("currentFile").innerHTML =
-      `${languageIcon(meta.language)}${escapeHtml(meta.title)}${draftBadge(meta.draft === true)}${kindBadge(meta.kind)}${difficultyBadge(meta.difficulty)}`;
+      `${languageIcon(meta.language)}${escapeHtml(meta.title)}`;
     document.getElementById("output").textContent = "";
     document.getElementById("file-info").innerHTML = `
-      <div style="background: #333; padding: 12px; border-radius: 6px; font-size: 14px;">
+      <div class="details-card">
         ${description}
       </div>
     `;

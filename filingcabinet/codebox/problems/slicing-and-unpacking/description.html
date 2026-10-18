@@ -1,0 +1,17 @@
+<h3>Task</h3>
+<ul>
+  <li><code>last_n(items: list, n: int) -&gt; list</code>: the last <code>n</code> items as a list. <code>n</code> is never negative and may be larger than the list.</li>
+  <li><code>reverse_words(text: str) -&gt; str</code>: the words of <code>text</code> in reverse order, joined by single spaces.</li>
+  <li><code>odd_positions(items: list) -&gt; list</code>: a list of the items at index 1, 3, 5, …</li>
+  <li><code>split_ends(items: list) -&gt; tuple</code>: a tuple <code>(first, middle, last)</code> where <code>middle</code> is a list of everything in between. Fewer than two items raises <code>ValueError</code>.</li>
+  <li><code>rotate(items: list, k: int) -&gt; list</code>: a new list rotated left by <code>k</code> places (the first <code>k</code> items move to the end). <code>k</code> may be larger than the list; the input stays unchanged.</li>
+  <li><code>home_cities(people: list[tuple[str, tuple[int, str]]]) -&gt; list[tuple[str, str]]</code>: each person is <code>(name, (age, city))</code>. Return a list of <code>(name, city)</code> tuples.</li>
+</ul>
+<h3>Example</h3>
+<pre>split_ends([1, 2, 3, 4])  -&gt;  (1, [2, 3], 4)
+rotate([1, 2, 3, 4, 5], 2)  -&gt;  [3, 4, 5, 1, 2]</pre>
+<h3>Constraints</h3>
+<ul>
+  <li>No index loops: slices (<code>[start:stop:step]</code>) and unpacking (<code>a, *rest = ...</code>, <code>for a, (b, c) in ...</code>) are enough for every function.</li>
+  <li>Watch the edge cases: <code>n == 0</code> and an empty list.</li>
+</ul>

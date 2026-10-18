@@ -1,0 +1,25 @@
+{
+  "title": "String Formatting",
+  "kind": "implement",
+  "track": "Refresher 1: Core",
+  "draft": false,
+  "difficulty": "easy",
+  "topics": ["python.f-strings", "python.strings"],
+  "related": ["builtin-helpers"],
+  "compare": "exact",
+  "tests": [
+    { "name": "Price tag", "expr": "price_tag('Tea', 3.5)", "expected": "Tea           3.50" },
+    { "name": "Price tag rounds", "expr": "price_tag('Coffee', 12.345)", "expected": "Coffee       12.35" },
+    { "name": "Percent", "expr": "percent(3, 7)", "expected": "42.9%" },
+    { "name": "Whole percent", "expr": "percent(1, 1)", "expected": "100.0%" },
+    { "name": "Thousands", "expr": "thousands(1234567)", "expected": "1,234,567" },
+    { "name": "Small number", "expr": "thousands(999)", "expected": "999" },
+    { "name": "Negative thousands", "expr": "thousands(-1000)", "expected": "-1,000" },
+    { "name": "Padded id", "expr": "padded_id(42)", "expected": "00042" },
+    { "name": "Binary", "expr": "binary(5)", "expected": "00000101" },
+    { "name": "Debug a string", "expr": "debug_line('city', 'Oslo')", "expected": "city='Oslo'" },
+    { "name": "Debug a number", "expr": "debug_line('n', 3)", "expected": "n=3" },
+    { "name": "Clean a CSV line", "expr": "clean_csv_line(' a, b ,,c ')", "expected": "a, b, c" },
+    { "name": "Clean an empty line", "expr": "clean_csv_line(' , ')", "expected": "" }
+  ]
+}
